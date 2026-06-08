@@ -1,0 +1,450 @@
+<!-- @dsCard group="Website" viewport="1320x1100" name="Home page" subtitle="The Classic home, built on the shared system" -->
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8" />
+<title>Emmanuel Church, West Hampstead</title>
+<meta name="viewport" content="width=1320" />
+<link rel="stylesheet" href="../../styles.css" />
+<script src="../../image-slot.js"></script>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--paper); font-family: var(--font-sans); color: var(--ink); -webkit-font-smoothing: antialiased; }
+
+  /* page-specific compositions built from system tokens */
+  .home-services { background: var(--cream); border-bottom: 1px solid var(--line); padding: 64px var(--gutter) 72px; }
+  .home-services .head { display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:44px; padding-bottom:28px; border-bottom:1px solid rgba(138,90,59,0.25); }
+  .home-services .head h2 { font-family:var(--font-display); font-size:var(--fs-h2); font-weight:var(--fw-medium); color:var(--navy); line-height:1.05; margin:10px 0 0; letter-spacing:-0.01em; }
+
+  .welcome { padding: var(--section-y) var(--gutter); background: var(--paper); }
+  .welcome .inner { max-width:1240px; margin:0 auto; display:grid; grid-template-columns:1fr 1.15fr; gap:80px; align-items:center; }
+
+  .newsletter-cta { background: var(--navy-deep); color:#fff; padding: 84px var(--gutter); position:relative; overflow:hidden; }
+  .newsletter-cta::after { content:''; position:absolute; width:520px; height:520px; right:-180px; top:-180px; border:1px solid rgba(212,184,150,0.14); border-radius:50%; pointer-events:none; }
+  .newsletter-cta .inner { max-width:1240px; margin:0 auto; display:grid; grid-template-columns:1.1fr 1fr; gap:64px; align-items:center; position:relative; z-index:1; }
+  .newsletter-cta .em-ornament { color:var(--tan); }
+  .newsletter-cta .em-ornament::before, .newsletter-cta .em-ornament::after { background:var(--tan); opacity:0.6; }
+  .newsletter-cta h2 { font-family:var(--font-display); font-size:var(--fs-display); font-weight:var(--fw-medium); line-height:1.0; letter-spacing:-0.02em; color:#fff; margin:16px 0 18px; }
+  .newsletter-cta h2 em { font-style:italic; color:var(--tan); }
+  .newsletter-cta p { font-size:var(--fs-lead); line-height:1.5; color:var(--on-dark-soft); font-weight:var(--fw-light); margin:0; max-width:460px; }
+  .newsletter-cta .signup { display:flex; gap:14px; align-items:stretch; flex-wrap:wrap; }
+  .newsletter-cta .signup input { flex:1; min-width:240px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.28); border-radius:var(--radius-sm); padding:0 22px; height:60px; color:#fff; font-family:var(--font-editorial); font-style:italic; font-size:19px; outline:none; transition:border-color var(--dur) var(--ease); }
+  .newsletter-cta .signup input::placeholder { color:rgba(255,255,255,0.5); }
+  .newsletter-cta .signup input:focus { border-color:var(--tan); }
+  .newsletter-cta .signup button { background:var(--tan); color:var(--navy-deep); border:none; border-radius:var(--radius-sm); padding:0 34px; height:60px; font-family:var(--font-sans); font-size:13px; font-weight:var(--fw-bold); letter-spacing:0.16em; text-transform:uppercase; cursor:pointer; white-space:nowrap; transition:background var(--dur) var(--ease); }
+  .newsletter-cta .signup button:hover { background:var(--tan-soft); }
+  @media (max-width:880px){ .newsletter-cta .inner { grid-template-columns:1fr; gap:36px; } }
+  .welcome .em-well { aspect-ratio:4/5; }
+  .welcome .em-well .caption { position:absolute; left:0; right:0; bottom:-1px; padding:20px 26px; background:linear-gradient(180deg,rgba(0,0,0,0) 0%, rgba(13,37,71,0.85) 100%); color:#fff; font-family:var(--font-display); font-style:italic; font-size:16px; z-index:3; pointer-events:none; }
+  .welcome h2 { font-family:var(--font-display); font-size:var(--fs-display); font-weight:var(--fw-medium); line-height:1.02; color:var(--navy); letter-spacing:-0.015em; margin:18px 0 30px; }
+  .welcome h2 em { font-style:italic; color:var(--brown); font-weight:var(--fw-medium); }
+  .welcome p { font-size:var(--fs-body); line-height:1.65; color:var(--ink-soft); margin-bottom:22px; }
+  .welcome .link-row { display:flex; gap:28px; margin-top:36px; align-items:center; flex-wrap:wrap; }
+
+  .events-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:28px; }
+  .gi-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; }
+  .gi-links { display:flex; flex-wrap:nowrap; align-items:center; margin-top:auto; padding-top:20px; }
+  .gi-links a { font-size:11px; font-weight:var(--fw-bold); letter-spacing:0.05em; text-transform:uppercase; color:var(--brown); text-decoration:none; white-space:nowrap; transition:color var(--dur-fast) var(--ease); }
+  .gi-links a:not(:last-child)::after { content:'·'; margin:0 12px; color:var(--brown); opacity:0.5; }
+  .gi-links a:hover { color:var(--brown-deep); }
+  .gi-head { text-align:center; margin-bottom:60px; }
+  .gi-head h2 { font-family:var(--font-display); font-size:var(--fs-h1); font-weight:var(--fw-medium); color:var(--navy); line-height:1; margin-top:14px; letter-spacing:-0.015em; }
+  .gi-head p { font-size:var(--fs-body); color:var(--ink-soft); max-width:620px; margin:22px auto 0; line-height:1.55; }
+
+  .support { padding:100px var(--gutter); background:var(--navy); color:#fff; position:relative; overflow:hidden; }
+  .support::after { content:''; position:absolute; width:600px; height:600px; right:-200px; bottom:-200px; border:1px solid rgba(212,184,150,0.10); border-radius:50%; }
+  .support .inner { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:1.2fr 1fr; gap:80px; align-items:center; position:relative; z-index:2; }
+  .support h2 { font-family:var(--font-display); font-size:var(--fs-display); font-weight:var(--fw-medium); line-height:1.0; margin:16px 0 24px; letter-spacing:-0.015em; }
+  .support h2 em { font-style:italic; color:var(--tan); font-weight:var(--fw-medium); }
+  .support p { font-size:var(--fs-body); line-height:1.65; color:var(--on-dark-soft); max-width:540px; }
+  .support .right { display:flex; flex-direction:column; gap:20px; align-items:flex-start; }
+  .support .figure { font-family:var(--font-display); font-size:88px; font-weight:var(--fw-medium); color:var(--tan); line-height:1; letter-spacing:-0.02em; }
+  .support .figure-label { font-size:13px; letter-spacing:0.2em; text-transform:uppercase; color:rgba(212,184,150,0.85); font-weight:var(--fw-semibold); margin:8px 0 28px; }
+
+  .ww-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:32px; }
+  .ww-grid .em-person { text-align:center; }
+  .ww-grid .em-portrait { margin-bottom:22px; }
+  .news-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:32px; }
+
+  .newsletter form { display:flex; }
+  .newsletter input { flex:1; padding:13px 16px; background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.18); color:#fff; font-family:inherit; font-size:14px; outline:none; }
+  .newsletter input::placeholder { color:rgba(255,255,255,0.45); }
+  .newsletter input:focus { border-color:var(--tan); }
+  .newsletter button { background:var(--brown); color:#fff; border:none; padding:0 24px; font-family:inherit; font-size:13px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; cursor:pointer; }
+  .newsletter button:hover { background:var(--brown-deep); }
+</style>
+</head>
+<body>
+
+  <!-- Utility + header -->
+  <div class="em-utility">
+    <div class="wrap">
+      <span>Lyncroft Gardens, London NW6 1JU&nbsp;&nbsp;·&nbsp;&nbsp;07751 534 297</span>
+      <span class="socials">Facebook&nbsp;&nbsp;·&nbsp;&nbsp;Instagram&nbsp;&nbsp;·&nbsp;&nbsp;YouTube</span>
+    </div>
+  </div>
+  <header class="em-header">
+    <div class="wrap">
+      <a href="index.html" class="em-brand">
+        <img src="../../assets/logo.png" alt="Emmanuel Church monogram" />
+        <div><div class="name">Emmanuel</div><div class="sub">Church · West Hampstead</div></div>
+      </a>
+      <nav class="em-nav">
+        <div class="em-nav-item"><a href="im-new.html" class="em-nav-link">I'm New</a></div>
+        <div class="em-nav-item">
+          <a href="#" class="em-nav-link has-sub">About Us</a>
+          <div class="em-dropdown">
+            <a href="#">Our Vision</a>
+            <a href="whos-who.html">Our Team</a>
+            
+            <a href="history.html">History</a>
+            
+            <a href="annual-reports.html">Annual Reports</a>
+            <a href="emmanuel-school.html">Emmanuel School</a>
+            <a href="contact.html">Contact Us</a>
+          </div>
+        </div>
+        
+        <div class="em-nav-item">
+          <a href="#" class="em-nav-link has-sub">Life Events</a>
+          <div class="em-dropdown">
+            <a href="baptisms.html">Baptisms &amp; Confirmation</a>
+            <a href="weddings.html">Weddings &amp; Banns</a>
+            <a href="funerals.html">Funerals</a>
+          </div>
+        </div>
+        <div class="em-nav-item">
+          <a href="#" class="em-nav-link has-sub">What's On</a>
+          <div class="em-dropdown">
+            <a href="service-times.html">Service &amp; Prayer Times</a><a href="#">Events Calendar</a>
+            <a href="#">News</a>
+            <a href="#">Concert Series</a><a href="room-hire.html">Room Hire</a>
+          </div>
+        </div>
+        <div class="em-nav-item">
+          <a href="#" class="em-nav-link has-sub">Get Involved</a>
+          <div class="em-dropdown">
+            <a href="children-families.html">Children &amp; Families</a>
+            <a href="music.html">Music &amp; Choir</a>
+            <a href="food-bank.html">Community Outreach</a>
+            <a href="donations.html#other-ways">Volunteer</a>
+            <a href="electoral-roll.html">Electoral Roll</a>
+          </div>
+        </div>
+              <div class="em-nav-item"><a href="safeguarding.html" class="em-nav-link">Safeguarding</a></div>
+      </nav>
+      <div class="em-header-actions">
+        <a href="donations.html" class="em-btn em-btn--primary em-btn--sm">Donate</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="em-hero">
+    <div class="em-hero__bg" style="background-image:url('../../assets/hero-congregation.jpg');background-position:center 60%"></div>
+    <div class="em-hero__scrim"></div>
+    <div class="em-hero__content">
+      <div class="em-hero__eyebrow">Welcome to</div>
+      <h1>A church in the <em>heart</em> of West Hampstead</h1>
+      <p class="em-hero__tagline">An inclusive community in the catholic tradition of the Church of England, in the heart of West Hampstead since 1897.</p>
+      <div class="em-hero__cta">
+        <a href="im-new.html" class="em-btn em-btn--tan">I'm new — what to expect</a>
+        <a href="service-times.html" class="em-btn em-btn--ghost-light">Service times</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="home-services">
+    <div class="em-inner">
+      <div class="head">
+        <div>
+          <div class="em-ornament">Join us on Sundays &amp; in the week</div>
+          <h2>Worship at Emmanuel</h2>
+        </div>
+        <a href="service-times.html" class="em-readmore">All services →</a>
+      </div>
+      <div class="em-services-grid">
+        <div class="em-service-card">
+          <div class="time"><span class="day">Sunday</span>8:00<span class="am">am</span></div>
+          <div class="name">Said Eucharist (BCP)</div>
+          <p class="desc">A 30-minute service offering a quiet, reflective start to the week, said according to the Book of Common Prayer.</p>
+        </div>
+        <div class="em-service-card">
+          <div class="time"><span class="day">Sunday</span>9:15<span class="am">am</span></div>
+          <div class="name">Joyful Noise Eucharist</div>
+          <p class="desc">A lively celebration designed for pre-school children and families. Harin leads our music on the guitar. Not during school holidays.</p>
+        </div>
+        <div class="em-service-card">
+          <div class="time"><span class="day">Sunday</span>10:30<span class="am">am</span></div>
+          <div class="name">Sung Eucharist</div>
+          <p class="desc">Our more traditional celebration of the Eucharist with music led by our parish choir, joined in term-time by Children's &amp; Youth Church.</p>
+        </div>
+        <div class="em-service-card">
+          <div class="time"><span class="day">Monday</span>18:30</div>
+          <div class="name">Contemplative Eucharist</div>
+          <p class="desc">A simple, quiet service with a guided meditation and time for contemplative prayer.</p>
+        </div>
+        <div class="em-service-card">
+          <div class="time"><span class="day">Wednesday</span>12:30</div>
+          <div class="name">Healing Eucharist</div>
+          <p class="desc">A said Eucharist focused on prayers of healing — for ourselves, the world, and those commended to our prayers. Anointing offered.</p>
+        </div>
+        <div class="em-service-card">
+          <div class="time"><span class="day">Monday</span>14:30</div>
+          <div class="name">School Collective Worship</div>
+          <p class="desc">Emmanuel School joins us for church once a week. On the first Monday of the month we celebrate the Eucharist together.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter CTA -->
+  <section class="newsletter-cta">
+    <div class="inner">
+      <div class="copy">
+        <div class="em-ornament">Stay connected</div>
+        <h2>Join our <em>newsletter</em>.</h2>
+        <p>News from the parish, service times and what's coming up at Emmanuel — sent to your inbox every fortnight.</p>
+      </div>
+      <form class="signup" onsubmit="event.preventDefault(); this.querySelector('input').value=''; var b=this.querySelector('button'); b.textContent='Subscribed ✓'; setTimeout(function(){b.textContent='Sign up';}, 1900);">
+        <input type="email" placeholder="Your email address" aria-label="Your email address" required />
+        <button type="submit">Sign up</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Welcome -->
+  <section class="welcome">
+    <div class="inner">
+      <div class="em-well">
+        <img src="../../assets/welcome-group.jpg" alt="A large, diverse group of parishioners gathered together in the nave" />
+        <div class="caption">Friends and families gathered at Emmanuel</div>
+      </div>
+      <div>
+        <div class="em-ornament">A Warm Welcome</div>
+        <h2>Wherever you find <em>yourself</em>, you are welcome here.</h2>
+        <p>Emmanuel is a diverse, inclusive church in the liberal catholic tradition — a vibrant part of North London. Together, we are learning to be a community of faith shaped by the celebration of the Eucharist, a regular pattern of prayer and a vocation to share the all-encompassing love of God with the parish we serve.</p>
+        <p>Wherever you find yourself on your journey of exploration of the Christian faith — curious, doubtful, seeking, ambivalent or long-time devout believer — we trust you will find a warm welcome at Emmanuel.</p>
+        <div class="link-row">
+          <a href="im-new.html" class="em-readmore">What to expect on your first visit →</a>
+          <a href="history.html" class="em-readmore" style="color:var(--ink);border-color:var(--ink)">Our story since 1897</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pull quote -->
+  <section class="em-photoband" style="background-image:url('../../assets/nave-wide.jpg')">
+    <div class="inner">
+      <blockquote>I came that they may have <em>life</em>, and have it in <em>abundance</em>.</blockquote>
+      <cite>John 10:10</cite>
+    </div>
+  </section>
+
+  <!-- Events -->
+  <section class="em-section">
+    <div class="em-inner">
+      <div class="em-section-head">
+        <div class="titleblock">
+          <div class="em-ornament">What's On</div>
+          <h2>Upcoming events</h2>
+        </div>
+        <a href="#" class="em-readmore">View all events →</a>
+      </div>
+      <div class="events-grid">
+        <article class="em-card">
+          <div class="em-card__media">
+            <image-slot id="evt-1" placeholder="Service photo"></image-slot>
+            <div class="badge-tl em-datebadge"><div class="dow">SUN</div><div class="d">23</div><div class="m">Feb</div></div>
+          </div>
+          <div class="em-card__body"><div class="em-card__kicker">10:30am · Eucharist</div><h3>Sung Eucharist — Before Lent</h3><div class="em-card__arrow">Service details →</div></div>
+        </article>
+        <article class="em-card">
+          <div class="em-card__media">
+            <image-slot id="evt-2" placeholder="Stay & Play photo"></image-slot>
+            <div class="badge-tl em-datebadge"><div class="dow">THU</div><div class="d">27</div><div class="m">Feb</div></div>
+          </div>
+          <div class="em-card__body"><div class="em-card__kicker">9:30 – 11:00am · Families</div><h3>Stay and Play</h3><div class="em-card__arrow">Find out more →</div></div>
+        </article>
+        <article class="em-card">
+          <div class="em-card__media">
+            <image-slot id="evt-3" placeholder="Sunday service photo"></image-slot>
+            <div class="badge-tl em-datebadge"><div class="dow">SUN</div><div class="d">02</div><div class="m">Mar</div></div>
+          </div>
+          <div class="em-card__body"><div class="em-card__kicker">10:30am · Eucharist</div><h3>Sunday Before Lent</h3><div class="em-card__arrow">Service details →</div></div>
+        </article>
+        <article class="em-card">
+          <div class="em-card__media">
+            <image-slot id="evt-4" placeholder="Ash Wednesday photo"></image-slot>
+            <div class="badge-tl em-datebadge"><div class="dow">WED</div><div class="d">05</div><div class="m">Mar</div></div>
+          </div>
+          <div class="em-card__body"><div class="em-card__kicker">19:30 · Eucharist with Ashing</div><h3>Ash Wednesday</h3><div class="em-card__arrow">Service details →</div></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Get involved -->
+  <section class="em-section em-section--band-warm" style="border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+    <div class="em-inner">
+      <div class="gi-head">
+        <div class="em-ornament">Get Involved</div>
+        <h2>Ways to be part of our community</h2>
+        <p>There are many ways to be part of our community — from worshipping with us on Sunday to singing in the choir, running a club for our children, or helping with outreach into West Hampstead.</p>
+      </div>
+      <div class="gi-grid">
+        <a href="children-families.html" class="em-tile">
+          <div class="icon"><svg viewBox="0 0 48 48"><circle cx="24" cy="16" r="6"/><path d="M12 40c0-7 5-12 12-12s12 5 12 12"/><circle cx="14" cy="18" r="3"/><circle cx="34" cy="18" r="3"/></svg></div>
+          <h3>Children &amp; Families</h3>
+          <p>Sunday Children's Church, Forest Church in the garden, Stay &amp; Play and our weekly Joyful Noise Eucharist.</p>
+          <span class="arr">Learn more →</span>
+        </a>
+        <a href="music.html" class="em-tile">
+          <div class="icon"><svg viewBox="0 0 48 48"><path d="M16 36V14l20-4v22"/><circle cx="14" cy="36" r="4"/><circle cx="34" cy="32" r="4"/></svg></div>
+          <h3>Music &amp; Choir</h3>
+          <p>Our parish choir leads the 10:30 Sung Eucharist and rehearses weekly. New singers are always welcome.</p>
+          <span class="arr">Sing with us →</span>
+        </a>
+        <a href="food-bank.html" class="em-tile">
+          <div class="icon"><svg viewBox="0 0 48 48"><path d="M14 28l8-8 6 6 8-10"/><path d="M28 16h8v8"/><path d="M8 40h32"/></svg></div>
+          <h3>Community Outreach</h3>
+          <p>Practical love for our neighbours through food, shelter and friendship across the parish we serve.</p>
+          <span class="arr">Get involved →</span>
+        </a>
+        <a href="donations.html#other-ways" class="em-tile">
+          <div class="icon"><svg viewBox="0 0 48 48"><path d="M14 24v8a10 10 0 0 0 20 0v-8"/><path d="M24 8v16"/><path d="M18 12l6-4 6 4"/></svg></div>
+          <h3>Volunteer</h3>
+          <p>Sidespersons, readers, intercessors, coffee rota and many small jobs that keep the parish running.</p>
+          <span class="arr">Find a role →</span>
+        </a>
+        <div class="em-tile">
+          <div class="icon"><svg viewBox="0 0 48 48"><path d="M10 40V20l14-10 14 10v20"/><path d="M20 40V28h8v12"/></svg></div>
+          <h3>Life Events</h3>
+          <p>Baptisms, weddings, confirmations and funerals — marking the great moments of life in this place.</p>
+          <div class="gi-links">
+            <a href="baptisms.html">Baptisms</a>
+            <a href="weddings.html">Weddings</a>
+            <a href="funerals.html">Funerals</a>
+          </div>
+        </div>
+        <a href="room-hire.html" class="em-tile">
+          <div class="icon"><svg viewBox="0 0 48 48"><rect x="8" y="14" width="32" height="22"/><path d="M8 22h32M16 14V8M32 14V8"/></svg></div>
+          <h3>Hire Our Space</h3>
+          <p>A beautiful Victorian church available for concerts, rehearsals, meetings and community events.</p>
+          <span class="arr">Enquire →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Support -->
+  <section class="support">
+    <div class="inner">
+      <div>
+        <div class="em-ornament" style="color:var(--tan)">Support Emmanuel</div>
+        <h2>Help us keep the <em>doors open</em>.</h2>
+        <p>It costs £15,000 a month to run Emmanuel Church. We are entirely self-funded and grateful for any contribution you can make through the Parish Giving Scheme.</p>
+      </div>
+      <div class="right">
+        <div><div class="figure">£15k</div><div class="figure-label">Monthly running cost</div></div>
+        <a href="https://www.parishgiving.org.uk/donors/find-your-parish/west-hampstead-emmanuel-nw6-1ju" target="_blank" rel="noopener" class="em-btn em-btn--tan">Donate via Parish Giving Scheme</a>
+        <a href="donations.html#other-ways" style="color:rgba(255,255,255,0.7);font-size:14px;font-weight:500">Other ways to give →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- News -->
+  <section class="em-section em-section--band-warm" style="border-top:1px solid var(--line)">
+    <div class="em-inner">
+      <div class="em-section-head">
+        <div class="titleblock"><div class="em-ornament">From the Parish</div><h2>Latest news</h2></div>
+        <a href="#" class="em-readmore">All news →</a>
+      </div>
+      <div class="news-grid">
+        <article class="em-news-card">
+          <div class="em-news-card__media"><image-slot id="news-1" placeholder="Lent programme photo"></image-slot></div>
+          <div class="em-news-card__body"><div class="cat">Lent · Programme</div><h3>Lent Programme 2025</h3><p>Content will be added soon with details about this year's Lent programme of study, prayer and almsgiving.</p><a href="#" class="em-readmore">Read more →</a></div>
+        </article>
+        <article class="em-news-card">
+          <div class="em-news-card__media"><image-slot id="news-2" placeholder="PCC meeting photo"></image-slot></div>
+          <div class="em-news-card__body"><div class="cat">PCC · Governance</div><h3>PCC Meeting Summary</h3><p>Content will be added soon with a summary from the latest PCC meeting and the decisions taken.</p><a href="#" class="em-readmore">Read more →</a></div>
+        </article>
+        <article class="em-news-card">
+          <div class="em-news-card__media"><image-slot id="news-3" placeholder="Spring fair photo"></image-slot></div>
+          <div class="em-news-card__body"><div class="cat">Events · Spring</div><h3>Spring Fair Announcement</h3><p>Content will be added soon with details about the upcoming Spring Fair, our biggest community event of the year.</p><a href="#" class="em-readmore">Read more →</a></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Partners -->
+  <section class="em-partners">
+    <div class="inner">
+      <span class="partner">Church of England</span><span class="dot"></span>
+      <span class="partner">Diocese of London</span><span class="dot"></span>
+      <span class="partner">Inclusive Church</span>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="em-footer">
+    <div class="inner">
+      <div class="em-footer-top">
+        <div>
+          <div class="lockup"><img src="../../assets/logo.png" alt="Emmanuel Church" /><span class="name">Emmanuel Church</span></div>
+          <p>Lyncroft Gardens<br/>London NW6 1JU</p>
+          <p>07751 534 297<br/>info@emmanuelnw6.com</p>
+          <p style="font-size:12.5px;color:var(--on-dark-faint)">Registered Charity No. 1142383</p>
+        </div>
+        <div>
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="im-new.html">I'm New</a></li>
+            <li><a href="whos-who.html">About Us</a></li>
+            <li><a href="#">Events Calendar</a></li>
+            <li><a href="room-hire.html">Room Hire</a></li>
+            <li><a href="donations.html">Donate</a></li>
+            <li><a href="children-families.html">Get Involved</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Worship</h4>
+          <ul>
+            <li><a href="service-times.html">Sunday 8:00 — Said BCP</a></li>
+            <li><a href="service-times.html">Sunday 9:15 — Joyful Noise</a></li>
+            <li><a href="service-times.html">Sunday 10:30 — Sung Eucharist</a></li>
+            <li><a href="service-times.html">Wednesday 12:30 — Healing</a></li>
+            <li><a href="service-times.html" style="color:var(--tan);font-weight:600">All service times →</a></li>
+          </ul>
+        </div>
+        <div class="newsletter">
+          <h4>Newsletter</h4>
+          <p>Stay connected with what's happening at Emmanuel — sent fortnightly to your inbox.</p>
+          <form onsubmit="event.preventDefault(); this.querySelector('input').value=''; this.querySelector('button').textContent='Joined ✓'; setTimeout(()=>{this.querySelector('button').textContent='Join';}, 1800);">
+            <input type="email" placeholder="Your email address" required />
+            <button type="submit">Join</button>
+          </form>
+          <div class="footer-badges">
+            <span>Church of England</span>
+            <span>Diocese of London</span>
+            <span>Inclusive Church</span>
+          </div>
+        </div>
+      </div>
+      <div class="em-footer-bot">
+        <div class="foot-links">
+          <a href="contact.html">Contact Us</a>
+          <a href="emmanuel-school.html">Emmanuel School</a>
+          <a href="safeguarding.html">Safeguarding</a>
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <a href="annual-reports.html">Annual Reports</a>
+          <a href="#">ChurchSuite Login</a>
+        </div>
+        <div>© 2026 Emmanuel Church, West Hampstead</div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

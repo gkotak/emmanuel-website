@@ -1,0 +1,84 @@
+/* ============================================================
+   Emmanuel Design System — Color
+   ------------------------------------------------------------
+   A liturgical palette: deep ecclesiastical navy, warm confessional
+   brown, and aged-paper neutrals. Drawn from the Emmanuel School
+   sister-site (navy + brown) and warmed for a parish church.
+
+   Base ramps first, then semantic aliases. Always design against
+   the semantic aliases where one exists.
+   ============================================================ */
+
+:root {
+  /* ---- Navy (primary) ---- */
+  --navy-deep: #0c2440;   /* darkest — footers, deep sections, scrims */
+  --navy:      #13315c;   /* primary brand navy — headings, key UI */
+  --navy-soft: #1c3f70;   /* hovers, secondary navy surfaces */
+
+  /* ---- Brown (secondary / warm accent) ---- */
+  --brown-deep: #5c3a23;  /* pressed states, deep accents */
+  --brown:      #8a5a3b;  /* eyebrows, links, ornaments, secondary CTAs */
+  --brown-soft: #b9967a;  /* muted brown for tints */
+
+  /* ---- Tan / Gold (tertiary accent) ---- */
+  --gold:     #c79a4a;    /* hairline rules, fine accents */
+  --tan:      #d4b896;    /* accent on dark grounds, italic highlights */
+  --tan-soft: #e6d3b5;    /* tan hover, soft fills */
+
+  /* ---- Paper neutrals (surfaces) ---- */
+  --bg:         #fefcf7;  /* brightest surface — editorial pages */
+  --paper:      #faf7f2;  /* default page background */
+  --cream:      #f6f1ea;  /* banded sections (services, alt rows) */
+  --paper-warm: #f1ebde;  /* warmer band — get-involved, image wells */
+  --paper-deep: #ebe2cf;  /* deepest paper — editorial alt surface */
+
+  /* ---- Ink (text) ---- */
+  --ink:      #1a2238;    /* primary body & display text */
+  --ink-soft: #4a4d5e;    /* secondary body copy */
+  --muted:    #6b6358;    /* captions, meta, supporting copy */
+
+  /* ---- Lines & rules ---- */
+  --line:      #e3dccc;   /* standard hairline on paper */
+  --line-soft: #ece4d4;   /* faint divider */
+  --rule-ink:  #1a2238;   /* heavy editorial masthead rule */
+
+  /* ---- On-dark text (over navy) ---- */
+  --on-dark:        #ffffff;
+  --on-dark-soft:   rgba(255, 255, 255, 0.82);
+  --on-dark-faint:  rgba(255, 255, 255, 0.55);
+  --on-dark-line:   rgba(255, 255, 255, 0.15);
+
+  /* ---- Semantic aliases ---- */
+  --color-primary:        var(--navy);
+  --color-primary-deep:   var(--navy-deep);
+  --color-accent:         var(--brown);
+  --color-accent-deep:    var(--brown-deep);
+  --color-highlight:      var(--tan);          /* accent on dark grounds */
+
+  --surface-page:         var(--paper);
+  --surface-raised:       #ffffff;             /* cards on paper */
+  --surface-band:         var(--cream);
+  --surface-band-warm:    var(--paper-warm);
+  --surface-dark:         var(--navy-deep);
+
+  --text-display:         var(--navy);
+  --text-body:            var(--ink-soft);
+  --text-strong:          var(--ink);
+  --text-muted:           var(--muted);
+  --text-accent:          var(--brown);
+
+  --border-hairline:      var(--line);
+  --border-strong:        var(--ink);
+  --border-accent:        var(--brown);
+
+  /* ---- Scrims (over hero photography) ---- */
+  --scrim-hero: linear-gradient(
+      180deg,
+      rgba(12, 36, 64, 0.40) 0%,
+      rgba(12, 36, 64, 0.12) 34%,
+      rgba(12, 36, 64, 0.88) 100%);
+  --scrim-hero-side: linear-gradient(
+      90deg,
+      rgba(12, 36, 64, 0.58) 0%,
+      rgba(12, 36, 64, 0.04) 60%);
+}

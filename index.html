@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8" />
+<title>Emmanuel Church — Design System</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="styles.css" />
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--paper); font-family: var(--font-sans); color: var(--ink); -webkit-font-smoothing: antialiased; }
+  a { text-decoration: none; }
+
+  .ds-hero { background: var(--navy-deep); color: #fff; padding: 80px 56px 72px; position: relative; overflow: hidden; }
+  .ds-hero::after { content:''; position:absolute; width:620px; height:620px; right:-220px; top:-220px; border:1px solid rgba(212,184,150,0.12); border-radius:50%; }
+  .ds-hero .inner { max-width: 1080px; margin: 0 auto; position: relative; z-index: 2; }
+  .ds-hero .lockup { display:flex; align-items:center; gap:16px; margin-bottom:40px; }
+  .ds-hero .lockup img { width: 56px; filter: brightness(0) invert(1); }
+  .ds-hero .lockup .nm { font-family: var(--font-display); font-size: 30px; font-weight: 600; }
+  .ds-hero .lockup .sb { font-size: 10.5px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--tan); font-weight: 600; margin-top: 3px; }
+  .ds-hero .eyebrow { color: var(--tan); font-size: 12px; font-weight: 600; letter-spacing: 0.32em; text-transform: uppercase; margin-bottom: 22px; }
+  .ds-hero h1 { font-family: var(--font-display); font-weight: 500; font-size: 72px; line-height: 0.98; letter-spacing: -0.02em; margin: 0 0 24px; max-width: 820px; }
+  .ds-hero h1 em { font-style: italic; color: var(--tan); }
+  .ds-hero p { font-size: 19px; line-height: 1.6; color: var(--on-dark-soft); max-width: 600px; font-weight: 300; margin: 0; }
+
+  .ds-section { max-width: 1080px; margin: 0 auto; padding: 80px 56px; }
+  .ds-section h2 { font-family: var(--font-display); font-size: 40px; font-weight: 500; color: var(--navy); letter-spacing: -0.015em; margin: 0 0 8px; }
+  .ds-section .lead { font-size: 16px; color: var(--muted); margin: 0 0 40px; }
+
+  .cardgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .bigcard { border: 1px solid var(--line); background: #fff; overflow: hidden; transition: all .2s var(--ease); display: block; }
+  .bigcard:hover { border-color: var(--brown); transform: translateY(-3px); box-shadow: var(--shadow-md); }
+  .bigcard .thumb { height: 200px; background: var(--navy-deep); position: relative; overflow: hidden; }
+  .bigcard .thumb img { width: 100%; height: 100%; object-fit: cover; }
+  .bigcard .thumb.scrim::after { content:''; position:absolute; inset:0; background: var(--scrim-hero); }
+  .bigcard .meta { padding: 26px 28px 30px; }
+  .bigcard .tag { font-size: 11px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--brown); }
+  .bigcard h3 { font-family: var(--font-display); font-size: 28px; font-weight: 600; color: var(--navy); margin: 10px 0 8px; letter-spacing: -0.01em; }
+  .bigcard p { font-size: 14.5px; color: var(--muted); line-height: 1.55; margin: 0 0 16px; }
+  .bigcard .go { font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--navy); border-bottom: 1.5px solid var(--brown); padding-bottom: 3px; }
+
+  .tokrow { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .tok { border: 1px solid var(--line); background: #fff; padding: 24px; }
+  .tok .t { font-family: var(--font-display); font-size: 22px; font-weight: 600; color: var(--navy); margin-bottom: 6px; }
+  .tok .d { font-size: 13.5px; color: var(--muted); line-height: 1.5; }
+  .swatches { display: flex; gap: 6px; margin-top: 16px; }
+  .swatches span { width: 28px; height: 28px; border-radius: 2px; }
+
+  .note { max-width: 1080px; margin: 0 auto 80px; padding: 0 56px; }
+  .note .box { border-left: 3px solid var(--brown); background: var(--cream); padding: 22px 28px; font-size: 14.5px; color: var(--ink-soft); line-height: 1.6; }
+</style>
+</head>
+<body>
+
+  <header class="ds-hero">
+    <div class="inner">
+      <div class="lockup">
+        <img src="assets/logo.png" alt="Emmanuel monogram" />
+        <div><div class="nm">Emmanuel</div><div class="sb">Church · West Hampstead</div></div>
+      </div>
+      <div class="eyebrow">Design System</div>
+      <h1>One language for the <em>whole</em> Emmanuel website.</h1>
+      <p>Navy and warm brown over aged paper. Classic chrome for the home page, an Editorial kit of parts for inner pages — all built from a single shared stylesheet.</p>
+    </div>
+  </header>
+
+  <section class="ds-section">
+    <h2>Pages &amp; references</h2>
+    <p class="lead">The home page is built entirely on the shared system. The editorial reference is the source of the inner-page parts.</p>
+    <div class="cardgrid">
+      <a class="bigcard" href="ui_kits/website/index.html">
+        <div class="thumb scrim"><img src="assets/hero.jpg" alt="Home page hero" /></div>
+        <div class="meta">
+          <div class="tag">Classic · Home</div>
+          <h3>The home page</h3>
+          <p>The complete parish home — hero, services band, warm welcome, scripture, events, get-involved, who's-who, news. Built on <code>styles.css</code>.</p>
+          <span class="go">Open home page →</span>
+        </div>
+      </a>
+      <a class="bigcard" href="pages/editorial.html">
+        <div class="thumb" style="background:var(--paper-deep)"><img src="assets/hero.jpg" alt="Editorial reference" style="opacity:0.9" /></div>
+        <div class="meta">
+          <div class="tag">Editorial · Inner pages</div>
+          <h3>Editorial reference</h3>
+          <p>Masthead, numbered section markers, diary rows, drop-cap article body, feature news proportions — the parts we'll reuse across content pages.</p>
+          <span class="go">Open editorial reference →</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <section class="ds-section" style="padding-top:0">
+    <h2>Foundations</h2>
+    <p class="lead">Full specimens live in the <b>Design System</b> tab. The essentials:</p>
+    <div class="tokrow">
+      <div class="tok">
+        <div class="t">Colour</div>
+        <div class="d">Ecclesiastical navy, warm brown, tan/gold highlights, over aged-paper neutrals.</div>
+        <div class="swatches">
+          <span style="background:var(--navy)"></span>
+          <span style="background:var(--brown)"></span>
+          <span style="background:var(--tan)"></span>
+          <span style="background:var(--cream);border:1px solid var(--line)"></span>
+          <span style="background:var(--ink)"></span>
+        </div>
+      </div>
+      <div class="tok">
+        <div class="t">Type</div>
+        <div class="d"><span style="font-family:var(--font-display)">EB Garamond</span> + <span style="font-family:var(--font-editorial);font-style:italic">Cormorant</span> + Manrope. Italic emphasis, wide-tracked eyebrows.</div>
+      </div>
+      <div class="tok">
+        <div class="t">Shape</div>
+        <div class="d">Square by default. Hairline rules divide; elevation is rare and neutral; motion is restrained.</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="note">
+    <div class="box">
+      <b>Next:</b> share your content and a sitemap, and we'll build out the full site — each page assembled from these parts. To let others in your org view this as a reusable system, set the file type to <b>Design System</b> in the Share menu.
+    </div>
+  </div>
+
+</body>
+</html>

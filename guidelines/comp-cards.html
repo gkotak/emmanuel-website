@@ -1,0 +1,26 @@
+<!-- @dsCard group="Components" viewport="700x340" name="Event & news cards" subtitle="Media cards with date badge" -->
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../styles.css">
+<script src="../image-slot.js"></script>
+<style>body{margin:0;padding:28px 32px;background:var(--paper);display:grid;grid-template-columns:1fr 1.3fr;gap:24px;align-items:start}</style></head>
+<body>
+<article class="em-card">
+<div class="em-card__media">
+<image-slot id="dsc-evt" placeholder="Event photo"></image-slot>
+<div class="badge-tl em-datebadge"><div class="dow">SUN</div><div class="d">23</div><div class="m">Feb</div></div>
+</div>
+<div class="em-card__body">
+<div class="em-card__kicker">10:30am · Eucharist</div>
+<h3>Sung Eucharist — Before Lent</h3>
+<div class="em-card__arrow">Service details →</div>
+</div>
+</article>
+<article class="em-news-card">
+<div class="em-news-card__media"><image-slot id="dsc-news" placeholder="News photo"></image-slot></div>
+<div class="em-news-card__body">
+<div class="cat">Lent · Programme</div>
+<h3>Lent Programme 2025</h3>
+<p>Details about this year's Lent programme of study, prayer and almsgiving.</p>
+<a class="em-readmore">Read more →</a>
+</div>
+</article>
+</body></html>

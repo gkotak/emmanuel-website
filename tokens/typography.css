@@ -1,0 +1,73 @@
+/* ============================================================
+   Emmanuel Design System — Typography
+   ------------------------------------------------------------
+   Two serifs + one sans:
+   - EB Garamond        → headline & display workhorse (Classic voice)
+   - Cormorant Garamond → oversized italic magazine display (Editorial)
+   - Manrope            → body, labels, eyebrows, UI
+
+   Headlines lean on the *italic* of both serifs for warmth. Eyebrows
+   and labels are Manrope, uppercase, wide-tracked. Negative tracking
+   on large serif display tightens it to feel editorial, not webby.
+   ============================================================ */
+
+:root {
+  /* ---- Families ---- */
+  --font-display:   'EB Garamond', 'Garamond', 'Times New Roman', serif;
+  --font-editorial: 'Cormorant Garamond', 'EB Garamond', Garamond, serif;
+  --font-sans:      'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+
+  /* ---- Display / headline scale (serif) ---- */
+  --fs-hero:     96px;   /* full-bleed hero H1 (Classic) */
+  --fs-hero-xl: 132px;   /* oversized editorial hero */
+  --fs-display:  68px;   /* major section headlines */
+  --fs-h1:       56px;
+  --fs-h2:       48px;
+  --fs-h3:       32px;
+  --fs-h4:       26px;
+  --fs-h5:       22px;
+
+  /* ---- Body scale (sans) ---- */
+  --fs-lead:   21px;     /* hero tagline / section deck */
+  --fs-body:   18px;     /* primary body copy */
+  --fs-base:   16px;     /* default UI / dense body */
+  --fs-sm:   14.5px;     /* card body, service descriptions */
+  --fs-xs:   12.5px;     /* meta, footer fine print */
+
+  /* ---- Eyebrow / label ---- */
+  --fs-eyebrow:   12px;
+  --fs-label:   11.5px;
+
+  /* ---- Weights ---- */
+  --fw-light:    300;
+  --fw-regular:  400;
+  --fw-medium:   500;
+  --fw-semibold: 600;
+  --fw-bold:     700;
+  --fw-extra:    800;
+
+  /* ---- Line heights ---- */
+  --lh-tight:   1.0;
+  --lh-snug:    1.15;
+  --lh-display: 0.98;
+  --lh-body:    1.6;
+  --lh-relaxed: 1.7;
+
+  /* ---- Tracking ---- */
+  --tracking-display: -0.015em;  /* large serif */
+  --tracking-tight:   -0.005em;
+  --tracking-eyebrow:  0.22em;   /* Manrope uppercase labels */
+  --tracking-wide:     0.32em;   /* editorial small caps */
+}
+
+/* ---- Base element defaults (optional reset for consumers) ---- */
+.em-type-reset h1,
+.em-type-reset h2,
+.em-type-reset h3,
+.em-type-reset h4 {
+  font-family: var(--font-display);
+  font-weight: var(--fw-medium);
+  color: var(--text-display);
+  letter-spacing: var(--tracking-display);
+  line-height: var(--lh-display);
+}

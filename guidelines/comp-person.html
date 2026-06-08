@@ -1,0 +1,10 @@
+<!-- @dsCard group="Components" viewport="700x180" name="Person / who's who" subtitle="Portrait + name + role" -->
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../styles.css">
+<script src="../image-slot.js"></script>
+<style>body{margin:0;padding:24px 32px;background:var(--paper);display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.em-person{text-align:center}.em-portrait{margin-bottom:16px;max-width:130px;margin-inline:auto}</style></head>
+<body>
+<div class="em-person"><div class="em-portrait"><image-slot id="p1" placeholder="Vicar"></image-slot></div><div class="name">Revd Dr Catriona Laing</div><div class="role">Vicar</div></div>
+<div class="em-person"><div class="em-portrait is-round"><image-slot id="p2" placeholder="Curate"></image-slot></div><div class="name">Mother Melissa Dickinson</div><div class="role">Curate</div></div>
+<div class="em-person"><div class="em-portrait"><image-slot id="p3" placeholder="Warden"></image-slot></div><div class="name">Sarah Watts</div><div class="role">Safeguarding</div></div>
+</body></html>

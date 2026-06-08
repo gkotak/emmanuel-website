@@ -1,0 +1,51 @@
+/* ============================================================
+   Emmanuel Design System — Spacing, Radius, Shadow, Layout
+   ------------------------------------------------------------
+   The system is mostly square-cornered and flat — elevation and
+   rounding are used sparingly. Generous vertical section rhythm;
+   hairline rules do most of the "dividing" work, not shadows.
+   ============================================================ */
+
+:root {
+  /* ---- Spacing scale ---- */
+  --space-1:   4px;
+  --space-2:   8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  20px;
+  --space-6:  24px;
+  --space-8:  32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+
+  /* ---- Section vertical rhythm ---- */
+  --section-y:       110px;   /* default section padding-block */
+  --section-y-lg:    130px;   /* editorial breathing room */
+  --section-y-sm:     72px;   /* compact bands */
+
+  /* ---- Horizontal gutters / container ---- */
+  --gutter:        40px;
+  --gutter-wide:   56px;
+  --container:    1320px;     /* default max content width */
+  --container-narrow: 1080px; /* prose / centered content */
+  --measure:        720px;    /* optimal reading measure */
+
+  /* ---- Radius (used sparingly) ---- */
+  --radius-none: 0px;         /* default — the system is square */
+  --radius-sm:   2px;         /* buttons, small accents */
+  --radius-pill: 999px;       /* tags, status dots, round portraits */
+
+  /* ---- Shadows (neutral, restrained) ---- */
+  --shadow-sm: 0 1px 2px rgba(12, 36, 64, 0.06);
+  --shadow-md: 0 6px 24px rgba(12, 36, 64, 0.10);
+  --shadow-lg: 0 18px 48px rgba(12, 36, 64, 0.14);
+
+  /* ---- Motion ---- */
+  --ease:        cubic-bezier(0.4, 0.0, 0.2, 1);
+  --dur-fast:    160ms;
+  --dur:         200ms;
+  --dur-slow:    280ms;
+}

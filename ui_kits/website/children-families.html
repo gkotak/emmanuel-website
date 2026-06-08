@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8" />
+<title>Children &amp; Families — Emmanuel Church, West Hampstead</title>
+<meta name="viewport" content="width=1320" />
+<link rel="stylesheet" href="../../styles.css" />
+<script src="../../image-slot.js"></script>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--paper); font-family: var(--font-sans); color: var(--ink); -webkit-font-smoothing: antialiased; }
+
+  .cf-intro { padding: 96px var(--gutter) 100px; }
+  .cf-intro .inner { max-width: 1320px; margin: 0 auto; display: grid; grid-template-columns: 1fr 380px; gap: 80px; align-items: start; }
+  .cf-intro .lead-para { font-family: var(--font-editorial); font-size: 30px; line-height: 1.34; color: var(--ink); font-style: italic; margin: 0 0 30px; letter-spacing: -0.01em; }
+  .cf-intro p { font-family: var(--font-sans); font-size: var(--fs-body); line-height: var(--lh-relaxed); color: var(--ink-soft); margin: 0 0 22px; }
+
+  .cf-sunday { padding: 110px var(--gutter); background: var(--cream); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .cf-sunday .inner { max-width: 1320px; margin: 0 auto; }
+  .cf-grouphead { max-width: 760px; margin-bottom: 52px; }
+  .cf-grouphead h2 { font-family: var(--font-editorial); font-style: italic; font-size: 60px; font-weight: 500; color: var(--navy); margin: 14px 0 0; letter-spacing: -0.02em; line-height: 1; }
+  .cf-twocol { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+  .cf-card { background: #fff; border: 1px solid var(--line); padding: 40px 38px; }
+  .cf-card .ages { font-family: var(--font-sans); font-size: 11px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--brown); }
+  .cf-card h3 { font-family: var(--font-display); font-size: 30px; font-weight: 600; color: var(--navy); margin: 10px 0 16px; letter-spacing: -0.01em; }
+  .cf-card p { font-size: 15px; line-height: 1.6; color: var(--ink-soft); margin: 0 0 16px; }
+  .cf-pattern { display: flex; gap: 40px; margin-top: 44px; flex-wrap: wrap; }
+  .cf-pattern .pat { display: flex; gap: 16px; align-items: baseline; }
+  .cf-pattern .pat .o { font-family: var(--font-display); font-size: 32px; color: var(--brown); font-style: italic; line-height: 1; }
+  .cf-pattern .pat .txt { font-size: 14.5px; color: var(--ink-soft); line-height: 1.45; max-width: 260px; }
+  .cf-pattern .pat .txt b { color: var(--navy); font-weight: 600; display: block; font-family: var(--font-display); font-size: 18px; margin-bottom: 2px; }
+
+  .cf-expect { padding: 110px var(--gutter); }
+  .cf-expect .inner { max-width: 1320px; margin: 0 auto; }
+  .cf-expect .head { max-width: 760px; margin-bottom: 56px; }
+  .cf-expect .head h2 { font-family: var(--font-display); font-size: var(--fs-h2); font-weight: 500; color: var(--navy); margin: 14px 0 0; letter-spacing: -0.015em; line-height: 1.02; }
+  .cf-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-bottom: 56px; }
+  .cf-step { border-top: 2px solid var(--brown); padding-top: 22px; }
+  .cf-step .n { font-family: var(--font-display); font-size: 18px; font-style: italic; color: var(--brown); margin-bottom: 12px; }
+  .cf-step h4 { font-family: var(--font-display); font-size: 22px; font-weight: 600; color: var(--navy); margin: 0 0 10px; }
+  .cf-step p { font-size: 14.5px; line-height: 1.6; color: var(--ink-soft); margin: 0; }
+
+  .cf-feature { padding: 110px var(--gutter); }
+  .cf-feature.is-band { background: var(--paper-warm); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .cf-feature .inner { max-width: 1320px; margin: 0 auto; }
+  .cf-feature .em-feature .media { aspect-ratio: 4/3; }
+
+  .cf-admissions { padding: 100px var(--gutter); }
+  .cf-admissions .inner { max-width: 1320px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+  .cf-admissions h2 { font-family: var(--font-display); font-size: 40px; font-weight: 500; color: var(--navy); margin: 14px 0 0; letter-spacing: -0.015em; line-height: 1.05; }
+  .cf-admissions p { font-size: var(--fs-body); line-height: var(--lh-relaxed); color: var(--ink-soft); margin: 0 0 20px; }
+  .cf-admissions p a { color: var(--brown); text-decoration: underline; text-underline-offset: 3px; }
+  .placeholder-link { color: var(--brown); border-bottom: 1px dashed var(--brown-soft); font-style: italic; }
+
+  .cf-dbs { display: flex; align-items: center; gap: 18px; padding: 22px 28px; background: var(--cream); border: 1px solid var(--line); margin-top: 8px; }
+  .cf-dbs .ic { width: 38px; height: 38px; flex-shrink: 0; color: var(--brown); }
+  .cf-dbs .ic svg { width: 100%; height: 100%; stroke: currentColor; stroke-width: 1.5; fill: none; }
+  .cf-dbs p { font-size: 14px; line-height: 1.55; color: var(--ink-soft); margin: 0; }
+</style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="em-utility">
+    <div class="wrap">
+      <span>Lyncroft Gardens, London NW6 1JU&nbsp;&nbsp;·&nbsp;&nbsp;07751 534 297</span>
+      <span class="socials">Facebook&nbsp;&nbsp;·&nbsp;&nbsp;Instagram&nbsp;&nbsp;·&nbsp;&nbsp;YouTube</span>
+    </div>
+  </div>
+  <header class="em-header">
+    <div class="wrap">
+      <a href="index.html" class="em-brand">
+        <img src="../../assets/logo.png" alt="Emmanuel Church monogram" />
+        <div><div class="name">Emmanuel</div><div class="sub">Church · West Hampstead</div></div>
+      </a>
+      <nav class="em-nav">
+        <div class="em-nav-item"><a href="im-new.html" class="em-nav-link">I'm New</a></div>
+        <div class="em-nav-item">
+          <a href="#" class="em-nav-link has-sub">About Us</a>
+          <div class="em-dropdown">
+            <a href="#">Our Vision</a><a href="whos-who.html">Our Team</a><a href="history.html">History</a><a href="annual-reports.html">Annual Reports</a><a href="emmanuel-school.html">Emmanuel School</a><a href="contact.html">Contact Us</a>
+          </div>
+        </div>
+        
+        <div class="em-nav-item">
+          <a href="#" class="em-nav-link has-sub">Life Events</a>
+          <div class="em-dropdown">
+            <a href="baptisms.html">Baptisms &amp; Confirmation</a><a href="weddings.html">Weddings &amp; Banns</a><a href="funerals.html">Funerals</a>
+          </div>
+        </div>
+        <div class="em-nav-item">
+          <a href="#" class="em-nav-link has-sub">What's On</a>
+          <div class="em-dropdown">
+            <a href="service-times.html">Service &amp; Prayer Times</a><a href="#">Events Calendar</a><a href="#">News</a><a href="#">Concert Series</a><a href="room-hire.html">Room Hire</a>
+          </div>
+        </div>
+        <div class="em-nav-item">
+          <a href="#" class="em-nav-link has-sub is-active">Get Involved</a>
+          <div class="em-dropdown">
+            <a href="children-families.html">Children &amp; Families</a><a href="music.html">Music &amp; Choir</a><a href="food-bank.html">Community Outreach</a><a href="donations.html#other-ways">Volunteer</a><a href="electoral-roll.html">Electoral Roll</a>
+          </div>
+        </div>
+              <div class="em-nav-item"><a href="safeguarding.html" class="em-nav-link">Safeguarding</a></div>
+      </nav>
+      <div class="em-header-actions">
+        <a href="donations.html" class="em-btn em-btn--primary em-btn--sm">Donate</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page head -->
+  <section class="em-pagehead" style="border-bottom:none; padding-bottom:0;">
+    <div class="inner">
+      <div class="em-breadcrumb">
+        <a href="index.html">Home</a><span class="sep">/</span>
+        <a href="#">Get Involved</a><span class="sep">/</span>
+        <span>Children &amp; Families</span>
+      </div>
+      <h1>Children &amp; <em>Families</em></h1>
+    </div>
+  </section>
+
+  <!-- Intro -->
+  <section class="cf-intro">
+    <div class="inner">
+      <div>
+        <p class="lead-para">Children and youth make up a core part of our church community at Emmanuel — and we know how much they have to teach us about spirituality and questions of faith.</p>
+        <p>For this reason we invest heavily in their Christian growth: for our youngest members through the Joyful Noise congregation, and for older children and young people through Children's &amp; Youth Church, singing in the choir, joining the serving team, and helping to lead the readings and intercessions at our monthly intergenerational worship.</p>
+      </div>
+      <aside class="em-aside">
+        <div class="em-aside-card">
+          <h4>At a glance</h4>
+          <p><b style="color:var(--ink)">Sundays, 10:30</b><br/>Children's &amp; Youth Church (ages 4–11), term time</p>
+          <p><b style="color:var(--ink)">Joyful Noise</b><br/>Sundays 9:15, for pre-schoolers</p>
+          <p><b style="color:var(--ink)">Stay &amp; Play</b><br/>Thursdays 9:30–11:00am, term time</p>
+          <a href="service-times.html" class="em-readmore" style="margin-top:4px">See all service times →</a>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- Sundays -->
+  <section class="cf-sunday">
+    <div class="inner">
+      <div class="cf-grouphead">
+        <div class="em-ornament is-leading">Sundays at Emmanuel</div>
+        <h2>Children's &amp; Youth Church</h2>
+      </div>
+      <div class="cf-twocol">
+        <div class="cf-card">
+          <div class="ages">Ages 4–11 · Godly Play</div>
+          <h3>Children's Church</h3>
+          <p>Throughout term time, Children's Church meets during the 10:30 Sunday service. Our curriculum follows the Godly Play method of Bible storytelling — an approach which seeks to inspire curiosity and wonder in our younger members.</p>
+          <p>It fosters a sense of the overwhelming love God has for all God's people, helping each child discover their own place in the story of faith.</p>
+        </div>
+        <div class="cf-card">
+          <div class="ages">Ages 9–11 · Up to Year 7</div>
+          <h3>Youth Church</h3>
+          <p>Youth Church typically involves some games, music and a lively exploration of the Gospel of the Day, or a chosen topic for the term.</p>
+          <p>Older children are welcome to join, but we find that by Year 7 they tend to be ready to join us for the service in church — singing, serving, or leading prayers and readings.</p>
+        </div>
+      </div>
+      <div class="cf-pattern">
+        <div class="pat"><span class="o">1st</span><span class="txt"><b>All Age Worship</b>The whole congregation gathers for intergenerational worship on the first Sunday.</span></div>
+        <div class="pat"><span class="o">3rd</span><span class="txt"><b>Forest Church</b>On the third Sunday, the children meet for Forest Church in the Church Garden.</span></div>
+        <div class="pat"><span class="o">★</span><span class="txt"><b>Child Bishop</b>Chosen once a year to help lead prayers and worship at special festivals.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What to expect at 10:30 -->
+  <section class="cf-expect">
+    <div class="inner">
+      <div class="head">
+        <div class="em-ornament is-leading">What to expect at 10:30</div>
+        <h2>Your first Sunday with children</h2>
+      </div>
+      <div class="cf-steps">
+        <div class="cf-step">
+          <div class="n">i.</div>
+          <h4>Arrive &amp; be welcomed</h4>
+          <p>Our children's groups meet in the church building. A welcomer will guide you if you or your child are unsure of where to go.</p>
+        </div>
+        <div class="cf-step">
+          <div class="n">ii.</div>
+          <h4>Off to their groups</h4>
+          <p>Children are invited to go to their groups during the opening hymn, and re-join their families at the distribution of Holy Communion.</p>
+        </div>
+        <div class="cf-step">
+          <div class="n">iii.</div>
+          <h4>Sign in for next time</h4>
+          <p>On your first visit you'll fill out a short form. If you make Emmanuel your church home, we'll add their details to ChurchSuite for future signing-in.</p>
+        </div>
+      </div>
+      <div class="em-callout" style="padding:48px var(--gutter-wide); margin: 0;">
+        <div class="inner" style="max-width:1240px">
+          <div>
+            <h3>The <em>Harold Darke Room</em></h3>
+            <p>Children of all ages are truly welcome at every service. For those who need a break, this room — next to the kitchen at the back of the church — has books and toys, and is specifically set aside for children under 4. Come and go as you need.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stay and Play -->
+  <section class="cf-feature is-band">
+    <div class="inner">
+      <div class="em-feature">
+        <div class="media em-well">
+          <img src="../../assets/children-families.jpg" alt="Children gathered at the altar steps with clergy during an all-age service" />
+        </div>
+        <div>
+          <div class="em-ornament is-leading">Thursdays in term time</div>
+          <h2>Stay and <em>Play</em></h2>
+          <p>Stay and Play happens every Thursday in term time, 9:30 to 11:00am. This is a relaxed, friendly drop-in session with loads of great toys and usually a bit of a sing-song at the end.</p>
+          <p>It's a great way to meet other local parents and carers, and to get answers to questions about life in West Hampstead with kids. Coffee, toast and healthy snacks are provided, and one of the clergy or our youth worker is always around to host.</p>
+          <p>All babies, toddlers and pre-school age children, together with their parents and carers, are warmly welcome — with plenty of tea and coffee for the adults.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seasonal workshops -->
+  <section class="cf-admissions" style="padding: 90px var(--gutter) 0;">
+    <div class="inner">
+      <div>
+        <div class="em-ornament is-leading">Throughout the year</div>
+        <h2>Seasonal workshops</h2>
+      </div>
+      <div>
+        <p>In addition to our regular Sunday offerings, we run a number of seasonal workshops through the year — from our St Nicholas' workshop in Advent right through to Good Friday.</p>
+        <p>These arts and crafts workshops are open to children of all ages. They're great fun, and always include a suitable amount of messy craft!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Safeguarding note -->
+  <section style="padding: 80px var(--gutter) 0;">
+    <div style="max-width:1320px;margin:0 auto">
+      <div class="cf-dbs">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <p>All our children and youth church leaders are DBS-checked volunteers, some of whom have professional backgrounds in education or childcare. Safeguarding the care of children and vulnerable people is taken very seriously at Emmanuel.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- School admissions -->
+  <section class="cf-admissions">
+    <div class="inner">
+      <div>
+        <div class="em-ornament is-leading">For school applications</div>
+        <h2>Church attendance &amp; CofE school admissions</h2>
+      </div>
+      <div>
+        <p>If you are considering applying to a Church of England primary or secondary school, please make sure you read the admissions policy of the school, because their criteria vary. <a href="#" class="placeholder-link">Admissions Policy for Emmanuel CofE Primary School — link to follow</a>.</p>
+        <p>If you would like to register your child's attendance for the purposes of school applications, please make sure your child is registered with us on ChurchSuite. You will then be able to sign them in at any of our Sunday services. If you have any questions about registering your child, please contact the parish office.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="em-callout">
+    <div class="inner">
+      <div>
+        <h3>Come and <em>join us</em>.</h3>
+        <p>Whether on a Sunday morning or at Thursday's Stay and Play, we'd love to welcome you and your family to Emmanuel.</p>
+      </div>
+      <div style="display:flex;gap:14px;flex-wrap:wrap">
+        <a href="contact.html" class="em-btn em-btn--tan">Contact the parish office</a>
+        <a href="service-times.html" class="em-btn em-btn--ghost-light">Service times</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="em-footer">
+    <div class="inner">
+      <div class="em-footer-top">
+        <div>
+          <div class="lockup"><img src="../../assets/logo.png" alt="Emmanuel Church" /><span class="name">Emmanuel Church</span></div>
+          <p>Lyncroft Gardens<br/>London NW6 1JU</p>
+          <p>07751 534 297<br/>info@emmanuelnw6.com</p>
+          <p style="font-size:12.5px;color:var(--on-dark-faint)">Registered Charity No. 1142383</p>
+        </div>
+        <div>
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="im-new.html">I'm New</a></li>
+            <li><a href="whos-who.html">About Us</a></li>
+            <li><a href="#">Events Calendar</a></li>
+            <li><a href="room-hire.html">Room Hire</a></li>
+            <li><a href="donations.html">Donate</a></li>
+            <li><a href="children-families.html">Get Involved</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Worship</h4>
+          <ul>
+            <li><a href="service-times.html">Sunday 8:00 — Said BCP</a></li>
+            <li><a href="service-times.html">Sunday 9:15 — Joyful Noise</a></li>
+            <li><a href="service-times.html">Sunday 10:30 — Sung Eucharist</a></li>
+            <li><a href="service-times.html">Wednesday 12:30 — Healing</a></li>
+            <li><a href="service-times.html" style="color:var(--tan);font-weight:600">All service times →</a></li>
+          </ul>
+        </div>
+        <div class="newsletter">
+          <h4>Newsletter</h4>
+          <p>Stay connected with what's happening at Emmanuel — sent fortnightly to your inbox.</p>
+          <form onsubmit="event.preventDefault(); this.querySelector('input').value=''; this.querySelector('button').textContent='Joined ✓'; setTimeout(()=>{this.querySelector('button').textContent='Join';}, 1800);">
+            <input type="email" placeholder="Your email address" required />
+            <button type="submit">Join</button>
+          </form>
+          <div class="footer-badges">
+            <span>Church of England</span>
+            <span>Diocese of London</span>
+            <span>Inclusive Church</span>
+          </div>
+        </div>
+      </div>
+      <div class="em-footer-bot">
+        <div class="foot-links">
+          <a href="contact.html">Contact Us</a>
+          <a href="emmanuel-school.html">Emmanuel School</a>
+          <a href="safeguarding.html">Safeguarding</a>
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <a href="annual-reports.html">Annual Reports</a>
+          <a href="#">ChurchSuite Login</a>
+        </div>
+        <div>© 2026 Emmanuel Church, West Hampstead</div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

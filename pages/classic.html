@@ -1,0 +1,995 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8" />
+<title>Emmanuel Church — Classic</title>
+<meta name="viewport" content="width=1440" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<script src="../image-slot.js"></script>
+<style>
+  :root {
+    --navy: #13315c;
+    --navy-deep: #0d2547;
+    --navy-soft: #1c3f70;
+    --brown: #8a5a3b;
+    --brown-deep: #6e4528;
+    --tan: #d4b896;
+    --tan-soft: #e6d3b5;
+    --cream: #f6f1ea;
+    --paper: #faf7f2;
+    --paper-warm: #f1ebde;
+    --ink: #1a2238;
+    --ink-soft: #4a4d5e;
+    --muted: #6b6358;
+    --line: #e3dccc;
+    --gold: #c79a4a;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: var(--paper); color: var(--ink); font-family: 'Manrope', sans-serif; font-weight: 400; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+  .serif { font-family: 'EB Garamond', 'Garamond', serif; font-feature-settings: 'liga' 1, 'kern' 1; }
+  .eyebrow {
+    font-family: 'Manrope', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--brown);
+  }
+  a { color: inherit; text-decoration: none; }
+  img { display: block; max-width: 100%; }
+
+  /* ============== TOP UTILITY BAR ============== */
+  .utility {
+    background: var(--navy-deep);
+    color: rgba(255,255,255,0.78);
+    font-size: 12.5px;
+    letter-spacing: 0.04em;
+  }
+  .utility .wrap {
+    max-width: 1320px; margin: 0 auto; padding: 9px 40px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .utility .left { display: flex; gap: 24px; }
+  .utility .socials { display: flex; gap: 14px; }
+  .utility a:hover { color: #fff; }
+  .utility svg { display: block; }
+
+  /* ============== HEADER ============== */
+  .header {
+    background: var(--paper);
+    border-bottom: 1px solid var(--line);
+    position: relative;
+  }
+  .header .wrap {
+    max-width: 1320px; margin: 0 auto; padding: 22px 40px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 32px;
+  }
+  .brand { display: flex; align-items: center; gap: 14px; }
+  .brand img { width: 46px; height: auto; }
+  .brand .lockup { line-height: 1.05; }
+  .brand .lockup .name { font-family: 'EB Garamond', serif; font-size: 28px; font-weight: 600; letter-spacing: 0.01em; color: var(--navy); }
+  .brand .lockup .sub { font-size: 10.5px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--brown); margin-top: 2px; font-weight: 600; }
+
+  .nav { display: flex; gap: 32px; justify-content: center; align-items: center; }
+  .nav > a {
+    font-size: 14px; font-weight: 500;
+    color: var(--ink); padding: 8px 0; position: relative;
+    letter-spacing: 0.02em;
+  }
+  .nav > a:hover { color: var(--brown); }
+  .nav > a.has-sub::after { content: ''; display: inline-block; width: 6px; height: 6px; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: translateY(-2px) rotate(45deg); margin-left: 7px; opacity: 0.5; }
+  .header-actions { display: flex; gap: 12px; justify-content: flex-end; align-items: center; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 12px 22px;
+    font-size: 13.5px; font-weight: 600; letter-spacing: 0.06em;
+    text-transform: uppercase;
+    border-radius: 2px;
+    border: 1.5px solid transparent;
+    cursor: pointer;
+    transition: all 180ms ease;
+    font-family: 'Manrope', sans-serif;
+  }
+  .btn-primary { background: var(--brown); color: #fff; }
+  .btn-primary:hover { background: var(--brown-deep); }
+  .btn-outline { background: transparent; color: var(--ink); border-color: var(--ink); }
+  .btn-outline:hover { background: var(--ink); color: #fff; }
+  .btn-outline-light { background: transparent; color: #fff; border-color: rgba(255,255,255,0.6); }
+  .btn-outline-light:hover { background: #fff; color: var(--ink); border-color: #fff; }
+  .btn-light { background: #fff; color: var(--navy); }
+  .btn-light:hover { background: var(--cream); }
+
+  /* ============== HERO ============== */
+  .hero {
+    position: relative;
+    height: 720px;
+    background: var(--navy-deep);
+    overflow: hidden;
+    color: #fff;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background-image: url('../assets/hero.jpg');
+    background-size: cover;
+    background-position: center 55%;
+  }
+  .hero-scrim {
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(180deg, rgba(13,37,71,0.45) 0%, rgba(13,37,71,0.15) 35%, rgba(13,37,71,0.85) 100%),
+      linear-gradient(90deg, rgba(13,37,71,0.6) 0%, rgba(13,37,71,0.05) 60%);
+  }
+  .hero-content {
+    position: relative; z-index: 2;
+    max-width: 1320px; margin: 0 auto; padding: 80px 40px 100px;
+    height: 100%;
+    display: flex; flex-direction: column; justify-content: flex-end;
+  }
+  .hero .eyebrow-light {
+    color: var(--tan);
+    font-size: 12px; font-weight: 600; letter-spacing: 0.32em; text-transform: uppercase;
+    margin-bottom: 22px;
+  }
+  .hero h1 {
+    font-family: 'EB Garamond', serif;
+    font-weight: 500;
+    font-size: 96px;
+    line-height: 0.98;
+    letter-spacing: -0.015em;
+    max-width: 900px;
+    margin-bottom: 28px;
+  }
+  .hero h1 em { font-style: italic; color: var(--tan); font-weight: 500; }
+  .hero .tagline {
+    font-size: 21px;
+    line-height: 1.5;
+    max-width: 640px;
+    color: rgba(255,255,255,0.92);
+    font-weight: 300;
+    margin-bottom: 40px;
+  }
+  .hero-cta { display: flex; gap: 14px; }
+
+  /* ============== SERVICE TIMES BAND ============== */
+  .services-band {
+    background: var(--cream);
+    border-bottom: 1px solid var(--line);
+    padding: 64px 40px 72px;
+  }
+  .services-band .inner { max-width: 1320px; margin: 0 auto; }
+  .services-band .header-row {
+    display: flex; align-items: flex-end; justify-content: space-between;
+    margin-bottom: 44px;
+    border-bottom: 1px solid rgba(138,90,59,0.25);
+    padding-bottom: 28px;
+  }
+  .services-band .header-row .left { max-width: 700px; }
+  .services-band h2 {
+    font-family: 'EB Garamond', serif;
+    font-size: 48px;
+    font-weight: 500;
+    color: var(--navy);
+    line-height: 1.05;
+    margin-top: 10px;
+    letter-spacing: -0.01em;
+  }
+  .services-band .header-row a.viewall { font-size: 14px; font-weight: 600; color: var(--brown); letter-spacing: 0.04em; padding-bottom: 4px; border-bottom: 1.5px solid var(--brown); }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+  }
+  .service-card {
+    padding: 28px 32px 28px 0;
+    border-right: 1px solid rgba(138,90,59,0.18);
+  }
+  .service-card:nth-child(3n) { border-right: none; }
+  .service-card:nth-child(n+4) { border-top: 1px solid rgba(138,90,59,0.18); padding-top: 28px; }
+  .service-card:nth-child(3n+1) { padding-left: 0; }
+  .service-card:not(:nth-child(3n+1)) { padding-left: 32px; }
+  .service-time {
+    font-family: 'EB Garamond', serif;
+    font-size: 44px;
+    font-weight: 500;
+    color: var(--navy);
+    line-height: 1;
+    margin-bottom: 10px;
+    letter-spacing: -0.01em;
+  }
+  .service-time .day { color: var(--brown); font-size: 14px; font-family: 'Manrope', sans-serif; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; display: block; margin-bottom: 8px; }
+  .service-name {
+    font-family: 'EB Garamond', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 10px;
+    letter-spacing: -0.005em;
+  }
+  .service-desc { font-size: 14.5px; color: var(--muted); line-height: 1.55; }
+
+  /* ============== WELCOME ============== */
+  .welcome {
+    padding: 120px 40px;
+    background: var(--paper);
+  }
+  .welcome .inner {
+    max-width: 1240px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1.15fr; gap: 80px; align-items: center;
+  }
+  .welcome-image {
+    aspect-ratio: 4/5;
+    background: var(--paper-warm);
+    border: 1px solid var(--line);
+    position: relative;
+    overflow: hidden;
+  }
+  .welcome-image image-slot { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .welcome-image .caption {
+    position: absolute; left: 0; right: 0; bottom: -1px;
+    padding: 20px 26px;
+    background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(13,37,71,0.85) 100%);
+    color: #fff;
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 16px;
+    z-index: 3;
+    pointer-events: none;
+  }
+  .welcome h2 {
+    font-family: 'EB Garamond', serif;
+    font-size: 68px;
+    font-weight: 500;
+    line-height: 1.02;
+    color: var(--navy);
+    letter-spacing: -0.015em;
+    margin: 18px 0 30px;
+  }
+  .welcome h2 em { font-style: italic; color: var(--brown); font-weight: 500; }
+  .welcome p { font-size: 18px; line-height: 1.65; color: var(--ink-soft); margin-bottom: 22px; }
+  .welcome .link-row { display: flex; gap: 28px; margin-top: 36px; align-items: center; flex-wrap: wrap; }
+  .read-more {
+    font-size: 13px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--navy); padding-bottom: 4px; border-bottom: 1.5px solid var(--brown);
+    transition: all 180ms ease;
+  }
+  .read-more:hover { color: var(--brown); }
+
+  /* ============== PULL QUOTE ============== */
+  .pullquote {
+    background: var(--navy);
+    color: #fff;
+    padding: 88px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .pullquote::before {
+    content: '"';
+    position: absolute;
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 480px;
+    line-height: 1;
+    top: -110px; left: 8%;
+    color: rgba(212,184,150,0.10);
+    pointer-events: none;
+  }
+  .pullquote .inner { max-width: 1000px; margin: 0 auto; text-align: center; position: relative; z-index: 1; }
+  .pullquote blockquote {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 56px;
+    line-height: 1.18;
+    color: #fff;
+    letter-spacing: -0.005em;
+    margin-bottom: 26px;
+  }
+  .pullquote blockquote em { color: var(--tan); font-style: italic; }
+  .pullquote cite {
+    font-style: normal;
+    font-size: 13px; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase;
+    color: var(--tan);
+  }
+
+  /* ============== EVENTS ============== */
+  .events {
+    padding: 110px 40px;
+    background: var(--paper);
+  }
+  .events .inner { max-width: 1320px; margin: 0 auto; }
+  .section-head {
+    display: flex; align-items: flex-end; justify-content: space-between;
+    margin-bottom: 50px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--line);
+  }
+  .section-head .titleblock { max-width: 700px; }
+  .section-head h2 {
+    font-family: 'EB Garamond', serif;
+    font-size: 56px;
+    font-weight: 500;
+    color: var(--navy);
+    line-height: 1;
+    margin-top: 10px;
+    letter-spacing: -0.015em;
+  }
+  .events-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; }
+  .event-card {
+    background: #fff;
+    border: 1px solid var(--line);
+    padding: 0;
+    transition: all 200ms ease;
+    cursor: pointer;
+  }
+  .event-card:hover { border-color: var(--brown); transform: translateY(-3px); }
+  .event-card .imgwrap {
+    aspect-ratio: 4/3;
+    background: var(--paper-warm);
+    position: relative;
+    overflow: hidden;
+  }
+  .event-card image-slot { width: 100%; height: 100%; display: block; }
+  .event-card .datebadge {
+    position: absolute; top: 14px; left: 14px;
+    background: var(--navy);
+    color: #fff;
+    padding: 10px 14px;
+    text-align: center;
+    z-index: 4;
+    pointer-events: none;
+  }
+  .event-card .datebadge .dow { font-size: 11px; font-weight: 700; color: var(--tan); letter-spacing: 0.14em; }
+  .event-card .datebadge .d { font-family: 'EB Garamond', serif; font-size: 32px; font-weight: 500; line-height: 1; margin: 2px 0; }
+  .event-card .datebadge .m { font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; }
+  .event-card .body { padding: 24px 24px 28px; }
+  .event-card .time { font-size: 12.5px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--brown); margin-bottom: 12px; }
+  .event-card h3 { font-family: 'EB Garamond', serif; font-size: 22px; font-weight: 600; color: var(--navy); line-height: 1.2; letter-spacing: -0.005em; }
+  .event-card .arrow { margin-top: 18px; font-size: 13px; font-weight: 600; color: var(--brown); display: inline-flex; align-items: center; gap: 6px; letter-spacing: 0.06em; }
+
+  /* ============== GET INVOLVED ============== */
+  .get-involved {
+    padding: 110px 40px;
+    background: var(--paper-warm);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .get-involved .inner { max-width: 1320px; margin: 0 auto; }
+  .gi-head {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+  .gi-head h2 {
+    font-family: 'EB Garamond', serif;
+    font-size: 56px;
+    font-weight: 500;
+    color: var(--navy);
+    line-height: 1;
+    margin-top: 14px;
+    letter-spacing: -0.015em;
+  }
+  .gi-head p { font-size: 18px; color: var(--ink-soft); max-width: 620px; margin: 22px auto 0; line-height: 1.55; }
+  .gi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+  .gi-tile {
+    background: #fff;
+    border: 1px solid var(--line);
+    padding: 44px 36px;
+    display: flex; flex-direction: column; gap: 16px;
+    min-height: 280px;
+    position: relative;
+    overflow: hidden;
+    transition: all 220ms ease;
+    cursor: pointer;
+  }
+  .gi-tile:hover { border-color: var(--brown); background: var(--cream); }
+  .gi-tile .icon {
+    width: 56px; height: 56px;
+    color: var(--brown);
+    margin-bottom: 8px;
+  }
+  .gi-tile .icon svg { width: 100%; height: 100%; stroke: currentColor; stroke-width: 1.4; fill: none; }
+  .gi-tile h3 { font-family: 'EB Garamond', serif; font-size: 28px; font-weight: 600; color: var(--navy); letter-spacing: -0.005em; line-height: 1.1; }
+  .gi-tile p { font-size: 15px; color: var(--muted); line-height: 1.55; flex-grow: 1; }
+  .gi-tile .gi-arrow { font-size: 12px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--brown); display: inline-flex; align-items: center; gap: 8px; }
+
+  /* ============== SUPPORT ============== */
+  .support {
+    padding: 100px 40px;
+    background: var(--navy);
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+  }
+  .support::after {
+    content: '';
+    position: absolute;
+    width: 600px; height: 600px;
+    right: -200px; bottom: -200px;
+    border: 1px solid rgba(212,184,150,0.10);
+    border-radius: 50%;
+  }
+  .support::before {
+    content: '';
+    position: absolute;
+    width: 800px; height: 800px;
+    right: -260px; bottom: -260px;
+    border: 1px solid rgba(212,184,150,0.06);
+    border-radius: 50%;
+  }
+  .support .inner {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: 1.2fr 1fr; gap: 80px; align-items: center;
+    position: relative; z-index: 2;
+  }
+  .support h2 {
+    font-family: 'EB Garamond', serif;
+    font-size: 64px;
+    font-weight: 500;
+    line-height: 1.0;
+    margin-top: 16px;
+    margin-bottom: 24px;
+    letter-spacing: -0.015em;
+  }
+  .support h2 em { font-style: italic; color: var(--tan); font-weight: 500; }
+  .support p { font-size: 18px; line-height: 1.65; color: rgba(255,255,255,0.82); max-width: 540px; }
+  .support .right { display: flex; flex-direction: column; gap: 20px; align-items: flex-start; }
+  .support .figure {
+    font-family: 'EB Garamond', serif;
+    font-size: 88px; font-weight: 500; color: var(--tan);
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .support .figure-label { font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(212,184,150,0.85); font-weight: 600; margin-top: 8px; margin-bottom: 28px; }
+  .btn-tan { background: var(--tan); color: var(--navy); }
+  .btn-tan:hover { background: var(--tan-soft); }
+
+  /* ============== WHO'S WHO ============== */
+  .whoswho {
+    padding: 110px 40px;
+    background: var(--paper);
+  }
+  .whoswho .inner { max-width: 1320px; margin: 0 auto; }
+  .whoswho-head { text-align: center; margin-bottom: 60px; }
+  .whoswho-head h2 {
+    font-family: 'EB Garamond', serif;
+    font-size: 56px;
+    font-weight: 500;
+    color: var(--navy);
+    line-height: 1;
+    margin-top: 12px;
+    letter-spacing: -0.015em;
+  }
+  .ww-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
+  .ww-card {
+    text-align: center;
+  }
+  .ww-portrait {
+    aspect-ratio: 4/5;
+    background: var(--paper-warm);
+    border: 1px solid var(--line);
+    margin-bottom: 22px;
+    position: relative; overflow: hidden;
+  }
+  .ww-portrait image-slot { width: 100%; height: 100%; display: block; }
+  .ww-name { font-family: 'EB Garamond', serif; font-size: 24px; font-weight: 600; color: var(--navy); line-height: 1.2; letter-spacing: -0.005em; }
+  .ww-role { font-size: 11.5px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--brown); margin: 8px 0 12px; }
+  .ww-note { font-size: 14.5px; color: var(--muted); line-height: 1.55; padding: 0 8px; }
+
+  /* ============== NEWS ============== */
+  .news {
+    padding: 110px 40px 120px;
+    background: var(--paper-warm);
+    border-top: 1px solid var(--line);
+  }
+  .news .inner { max-width: 1320px; margin: 0 auto; }
+  .news-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+  .news-card {
+    background: #fff;
+    border: 1px solid var(--line);
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 200ms ease;
+  }
+  .news-card:hover { border-color: var(--brown); transform: translateY(-3px); }
+  .news-card .imgwrap {
+    aspect-ratio: 16/10;
+    background: var(--paper);
+    position: relative;
+  }
+  .news-card image-slot { width: 100%; height: 100%; display: block; }
+  .news-card .body { padding: 28px 30px 32px; }
+  .news-card .cat { font-size: 11.5px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--brown); margin-bottom: 12px; }
+  .news-card h3 { font-family: 'EB Garamond', serif; font-size: 26px; font-weight: 600; color: var(--navy); line-height: 1.2; letter-spacing: -0.005em; margin-bottom: 14px; }
+  .news-card p { font-size: 15px; color: var(--muted); line-height: 1.55; margin-bottom: 22px; }
+  .news-card .read-more { font-size: 12px; }
+
+  /* ============== PARTNERS ============== */
+  .partners {
+    background: var(--paper);
+    padding: 56px 40px;
+    border-top: 1px solid var(--line);
+  }
+  .partners .inner {
+    max-width: 1100px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between; gap: 40px;
+  }
+  .partners .label { font-size: 11.5px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--brown); }
+  .partner-logos { display: flex; gap: 56px; align-items: center; }
+  .partner-logo {
+    font-family: 'EB Garamond', serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--navy);
+    opacity: 0.7;
+    letter-spacing: 0.01em;
+    border-left: 1px solid var(--line);
+    padding-left: 56px;
+  }
+  .partner-logo:first-child { border-left: none; padding-left: 0; }
+  .partner-logo small { display: block; font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--brown); font-family: 'Manrope', sans-serif; font-weight: 600; margin-bottom: 4px; opacity: 1; }
+
+  /* ============== FOOTER ============== */
+  .footer {
+    background: var(--navy-deep);
+    color: rgba(255,255,255,0.8);
+    padding: 80px 40px 36px;
+    font-size: 14.5px;
+  }
+  .footer .inner { max-width: 1320px; margin: 0 auto; }
+  .footer-top { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1.4fr; gap: 60px; padding-bottom: 56px; border-bottom: 1px solid rgba(255,255,255,0.12); }
+  .footer h4 { font-size: 11.5px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--tan); margin-bottom: 22px; }
+  .footer-brand .lockup { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; }
+  .footer-brand .lockup img { width: 44px; filter: brightness(0) invert(1); opacity: 0.95; }
+  .footer-brand .lockup .name { font-family: 'EB Garamond', serif; font-size: 24px; font-weight: 600; color: #fff; }
+  .footer-brand p { line-height: 1.7; color: rgba(255,255,255,0.7); margin-bottom: 14px; }
+  .footer-brand .charity { font-size: 12.5px; color: rgba(255,255,255,0.55); margin-top: 16px; }
+  .footer-brand .socials { display: flex; gap: 10px; margin-top: 22px; }
+  .footer-brand .socials a { width: 38px; height: 38px; border: 1px solid rgba(255,255,255,0.25); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.85); transition: all 180ms ease; }
+  .footer-brand .socials a:hover { background: var(--tan); color: var(--navy); border-color: var(--tan); }
+  .footer ul { list-style: none; }
+  .footer ul li { margin-bottom: 11px; line-height: 1.5; }
+  .footer ul a { color: rgba(255,255,255,0.78); transition: color 160ms ease; }
+  .footer ul a:hover { color: var(--tan); }
+  .footer .services-list li { color: rgba(255,255,255,0.78); }
+  .footer .services-list li b { color: #fff; font-weight: 600; }
+  .footer .newsletter p { margin-bottom: 18px; color: rgba(255,255,255,0.75); line-height: 1.6; }
+  .footer .newsletter form { display: flex; gap: 0; }
+  .footer .newsletter input { flex: 1; padding: 13px 16px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.18); color: #fff; font-family: inherit; font-size: 14px; outline: none; border-radius: 0; }
+  .footer .newsletter input:focus { border-color: var(--tan); background: rgba(255,255,255,0.12); }
+  .footer .newsletter input::placeholder { color: rgba(255,255,255,0.45); }
+  .footer .newsletter button { background: var(--brown); color: #fff; border: none; padding: 0 24px; font-family: inherit; font-size: 13px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer; transition: background 160ms ease; }
+  .footer .newsletter button:hover { background: var(--brown-deep); }
+  .footer-bot { padding-top: 32px; display: flex; justify-content: space-between; align-items: center; font-size: 12.5px; color: rgba(255,255,255,0.55); }
+  .footer-bot .org-line { display: flex; gap: 16px; }
+  .footer-bot .org-line span:not(:first-child)::before { content: '·'; margin-right: 16px; opacity: 0.6; }
+
+  /* small accent ornaments */
+  .ornament {
+    display: inline-flex; align-items: center; gap: 14px;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--brown);
+  }
+  .ornament::before, .ornament::after {
+    content: ''; width: 28px; height: 1px; background: var(--brown); opacity: 0.5;
+  }
+</style>
+</head>
+<body>
+
+  <!-- Utility bar -->
+  <div class="utility">
+    <div class="wrap">
+      <div class="left">
+        <span>Lyncroft Gardens, London NW6 1JU</span>
+        <span>·</span>
+        <span>07751 534 297</span>
+      </div>
+      <div class="socials">
+        <a href="#" aria-label="Facebook"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.79c0-2.51 1.49-3.89 3.77-3.89 1.09 0 2.24.19 2.24.19v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.77l-.44 2.89h-2.33v6.99A10 10 0 0 0 22 12z"/></svg></a>
+        <a href="#" aria-label="Twitter"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 3h3l-6.55 7.5L22 21h-6l-4.7-6.15L5.93 21H2.9l7.01-8.03L2 3h6.13l4.25 5.62L17.5 3zm-1.05 16h1.66L7.62 4.94H5.84L16.45 19z"/></svg></a>
+        <a href="#" aria-label="YouTube"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.5c-.3-1-1.1-1.8-2.1-2.1C19.6 4 12 4 12 4s-7.6 0-9.4.4c-1 .3-1.8 1.1-2.1 2.1C0 8.3 0 12 0 12s0 3.7.5 5.5c.3 1 1.1 1.8 2.1 2.1 1.8.4 9.4.4 9.4.4s7.6 0 9.4-.4c1-.3 1.8-1.1 2.1-2.1.5-1.8.5-5.5.5-5.5s0-3.7-.5-5.5zM9.6 15.6V8.4l6.4 3.6-6.4 3.6z"/></svg></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="wrap">
+      <a href="#" class="brand">
+        <img src="../assets/logo.png" alt="Emmanuel Church monogram" />
+        <div class="lockup">
+          <div class="name">Emmanuel</div>
+          <div class="sub">Church · West Hampstead</div>
+        </div>
+      </a>
+      <nav class="nav">
+        <a href="#" class="has-sub">About</a>
+        <a href="#" class="has-sub">Worship</a>
+        <a href="#" class="has-sub">Community</a>
+        <a href="#" class="has-sub">Life Events</a>
+        <a href="#">Visit</a>
+        <a href="#">News</a>
+      </nav>
+      <div class="header-actions">
+        <a href="#" class="btn btn-outline">Contact</a>
+        <a href="#" class="btn btn-primary">Donate</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-scrim"></div>
+    <div class="hero-content">
+      <div class="eyebrow-light">Welcome to</div>
+      <h1 class="serif">A church in the <em>heart</em> of West Hampstead</h1>
+      <p class="tagline">An inclusive community in the catholic tradition of the Church of England, in the heart of West Hampstead since 1897.</p>
+      <div class="hero-cta">
+        <a href="#" class="btn btn-tan">I'm new — what to expect</a>
+        <a href="#" class="btn btn-outline-light">Service times</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services band -->
+  <section class="services-band">
+    <div class="inner">
+      <div class="header-row">
+        <div class="left">
+          <div class="ornament">Join us on Sundays &amp; in the week</div>
+          <h2>Worship at Emmanuel</h2>
+        </div>
+        <a href="#" class="viewall">All services →</a>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-time"><span class="day">Sunday</span>8:00<span style="font-size: 22px; color: var(--brown);">am</span></div>
+          <div class="service-name">Said Eucharist (BCP)</div>
+          <p class="service-desc">A 30-minute service offering a quiet, reflective start to the week, said according to the Book of Common Prayer.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-time"><span class="day">Sunday</span>9:15<span style="font-size: 22px; color: var(--brown);">am</span></div>
+          <div class="service-name">Joyful Noise Eucharist</div>
+          <p class="service-desc">A lively celebration designed for pre-school children and families. Harin leads our music on the guitar. Not during school holidays.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-time"><span class="day">Sunday</span>10:30<span style="font-size: 22px; color: var(--brown);">am</span></div>
+          <div class="service-name">Sung Eucharist</div>
+          <p class="service-desc">Our more traditional celebration of the Eucharist with music led by our parish choir, joined in term-time by our Children's &amp; Youth Church.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-time"><span class="day">Monday</span>18:30</div>
+          <div class="service-name">Contemplative Eucharist</div>
+          <p class="service-desc">A simple, quiet service with a guided meditation and time for contemplative prayer.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-time"><span class="day">Wednesday</span>12:30</div>
+          <div class="service-name">Healing Eucharist</div>
+          <p class="service-desc">A said Eucharist focused on prayers of healing — for ourselves, the world, and those commended to our prayers. Anointing offered.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-time"><span class="day">Monday</span>14:30</div>
+          <div class="service-name">School Collective Worship</div>
+          <p class="service-desc">Emmanuel School joins us for church once a week. On the first Monday of the month we celebrate the Eucharist together.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Welcome -->
+  <section class="welcome">
+    <div class="inner">
+      <div class="welcome-image">
+        <image-slot id="welcome-photo" placeholder="Photo of the congregation, baptism, or community gathering"></image-slot>
+        <div class="caption">A congregation gathered for the Sung Eucharist</div>
+      </div>
+      <div>
+        <div class="ornament">A Warm Welcome</div>
+        <h2>Wherever you find <em>yourself</em>, you are welcome here.</h2>
+        <p>Emmanuel is a diverse, inclusive church in the liberal catholic tradition — a vibrant part of North London. Together, we are learning to be a community of faith shaped by the celebration of the Eucharist, a regular pattern of prayer and a vocation to share the all-encompassing love of God with the parish we serve.</p>
+        <p>Wherever you find yourself on your journey of exploration of the Christian faith — curious, doubtful, seeking, ambivalent or long-time devout believer — we trust you will find a warm welcome at Emmanuel.</p>
+        <div class="link-row">
+          <a href="#" class="read-more">What to expect on your first visit →</a>
+          <a href="#" class="read-more" style="border-color: var(--ink); color: var(--ink);">Our story since 1897</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pull quote -->
+  <section class="pullquote">
+    <div class="inner">
+      <blockquote class="serif">I came that they may have <em>life</em>, and have it in <em>abundance</em>.</blockquote>
+      <cite>— John 10:10</cite>
+    </div>
+  </section>
+
+  <!-- Events -->
+  <section class="events">
+    <div class="inner">
+      <div class="section-head">
+        <div class="titleblock">
+          <div class="ornament">What's On</div>
+          <h2>Upcoming events</h2>
+        </div>
+        <a href="#" class="read-more">View all events →</a>
+      </div>
+      <div class="events-grid">
+        <article class="event-card">
+          <div class="imgwrap">
+            <image-slot id="evt-1" placeholder="Service photo"></image-slot>
+            <div class="datebadge"><div class="dow">SUN</div><div class="d">23</div><div class="m">Feb</div></div>
+          </div>
+          <div class="body">
+            <div class="time">10:30am · Eucharist</div>
+            <h3>Sung Eucharist — Second Sunday Before Lent</h3>
+            <div class="arrow">Service details →</div>
+          </div>
+        </article>
+        <article class="event-card">
+          <div class="imgwrap">
+            <image-slot id="evt-2" placeholder="Stay & Play photo"></image-slot>
+            <div class="datebadge"><div class="dow">THU</div><div class="d">27</div><div class="m">Feb</div></div>
+          </div>
+          <div class="body">
+            <div class="time">9:30 – 11:00am · Families</div>
+            <h3>Stay and Play</h3>
+            <div class="arrow">Find out more →</div>
+          </div>
+        </article>
+        <article class="event-card">
+          <div class="imgwrap">
+            <image-slot id="evt-3" placeholder="Sunday service photo"></image-slot>
+            <div class="datebadge"><div class="dow">SUN</div><div class="d">02</div><div class="m">Mar</div></div>
+          </div>
+          <div class="body">
+            <div class="time">10:30am · Eucharist</div>
+            <h3>Sunday Before Lent</h3>
+            <div class="arrow">Service details →</div>
+          </div>
+        </article>
+        <article class="event-card">
+          <div class="imgwrap">
+            <image-slot id="evt-4" placeholder="Ash Wednesday photo"></image-slot>
+            <div class="datebadge"><div class="dow">WED</div><div class="d">05</div><div class="m">Mar</div></div>
+          </div>
+          <div class="body">
+            <div class="time">19:30 · Eucharist with Ashing</div>
+            <h3>Ash Wednesday — Sung Eucharist</h3>
+            <div class="arrow">Service details →</div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Get Involved -->
+  <section class="get-involved">
+    <div class="inner">
+      <div class="gi-head">
+        <div class="ornament">Get Involved</div>
+        <h2>Ways to be part of our community</h2>
+        <p>There are many ways to be part of our community — from worshipping with us on Sunday to singing in the choir, running a club for our children, or helping with outreach into West Hampstead.</p>
+      </div>
+      <div class="gi-grid">
+        <a href="#" class="gi-tile">
+          <div class="icon"><svg viewBox="0 0 48 48"><circle cx="24" cy="16" r="6"/><path d="M12 40c0-7 5-12 12-12s12 5 12 12"/><circle cx="14" cy="18" r="3"/><circle cx="34" cy="18" r="3"/></svg></div>
+          <h3>Children &amp; Families</h3>
+          <p>Sunday Children's Church, Forest Church in the garden, Stay &amp; Play and our weekly Joyful Noise Eucharist.</p>
+          <span class="gi-arrow">Learn more →</span>
+        </a>
+        <a href="#" class="gi-tile">
+          <div class="icon"><svg viewBox="0 0 48 48"><path d="M16 36V14l20-4v22"/><circle cx="14" cy="36" r="4"/><circle cx="34" cy="32" r="4"/></svg></div>
+          <h3>Music &amp; Choir</h3>
+          <p>Our parish choir leads the 10:30 Sung Eucharist and rehearses weekly. New singers are always welcome.</p>
+          <span class="gi-arrow">Sing with us →</span>
+        </a>
+        <a href="#" class="gi-tile">
+          <div class="icon"><svg viewBox="0 0 48 48"><path d="M14 28l8-8 6 6 8-10"/><path d="M28 16h8v8"/><path d="M8 40h32"/></svg></div>
+          <h3>Community Outreach</h3>
+          <p>Practical love for our neighbours through food, shelter and friendship across the parish we serve.</p>
+          <span class="gi-arrow">Get involved →</span>
+        </a>
+        <a href="#" class="gi-tile">
+          <div class="icon"><svg viewBox="0 0 48 48"><path d="M14 24v8a10 10 0 0 0 20 0v-8"/><path d="M24 8v16"/><path d="M18 12l6-4 6 4"/></svg></div>
+          <h3>Volunteer</h3>
+          <p>Sidespersons, readers, intercessors, coffee rota and many small jobs that keep the parish running.</p>
+          <span class="gi-arrow">Find a role →</span>
+        </a>
+        <a href="#" class="gi-tile">
+          <div class="icon"><svg viewBox="0 0 48 48"><path d="M10 40V20l14-10 14 10v20"/><path d="M20 40V28h8v12"/><path d="M24 14v4M22 16h4"/></svg></div>
+          <h3>Life Events</h3>
+          <p>Baptisms, weddings, confirmations and funerals — marking the great moments of life in this place.</p>
+          <span class="gi-arrow">Get in touch →</span>
+        </a>
+        <a href="#" class="gi-tile">
+          <div class="icon"><svg viewBox="0 0 48 48"><rect x="8" y="14" width="32" height="22"/><path d="M8 22h32M16 14V8M32 14V8"/></svg></div>
+          <h3>Hire Our Space</h3>
+          <p>A beautiful Victorian church available for concerts, rehearsals, meetings and community events.</p>
+          <span class="gi-arrow">Enquire →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Support -->
+  <section class="support">
+    <div class="inner">
+      <div class="left">
+        <div class="ornament" style="color: var(--tan);">Support Emmanuel</div>
+        <h2>Help us keep the <em>doors open</em>.</h2>
+        <p>It costs £15,000 a month to run Emmanuel Church. We are entirely self-funded and grateful for any contribution you can make through the Parish Giving Scheme.</p>
+      </div>
+      <div class="right">
+        <div>
+          <div class="figure">£15k</div>
+          <div class="figure-label">Monthly running cost</div>
+        </div>
+        <a href="#" class="btn btn-tan">Donate via Parish Giving Scheme</a>
+        <a href="#" style="color: rgba(255,255,255,0.7); font-size: 14px; font-weight: 500; letter-spacing: 0.04em;">Other ways to give →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Who's Who -->
+  <section class="whoswho">
+    <div class="inner">
+      <div class="whoswho-head">
+        <div class="ornament">Church Representatives</div>
+        <h2>Who's who at Emmanuel</h2>
+      </div>
+      <div class="ww-grid">
+        <div class="ww-card">
+          <div class="ww-portrait"><image-slot id="ww-1" placeholder="Portrait of the Vicar"></image-slot></div>
+          <div class="ww-name">Revd Dr Catriona Laing</div>
+          <div class="ww-role">Vicar</div>
+          <p class="ww-note">Installed September 2023</p>
+        </div>
+        <div class="ww-card">
+          <div class="ww-portrait"><image-slot id="ww-2" placeholder="Portrait of the Curate"></image-slot></div>
+          <div class="ww-name">Mother Melissa Dickinson</div>
+          <div class="ww-role">Curate</div>
+          <p class="ww-note">Ordained deacon June 2024 at St Paul's Cathedral</p>
+        </div>
+        <div class="ww-card">
+          <div class="ww-portrait"><image-slot id="ww-3" placeholder="Portrait of the Safeguarding Officer"></image-slot></div>
+          <div class="ww-name">Sarah Watts</div>
+          <div class="ww-role">Safeguarding Officer</div>
+          <p class="ww-note">Ensures compliance with all safeguarding in the parish</p>
+        </div>
+        <div class="ww-card">
+          <div class="ww-portrait"><image-slot id="ww-4" placeholder="Portrait of the Churchwardens"></image-slot></div>
+          <div class="ww-name">Antony Edwards &amp; John-David Papworth</div>
+          <div class="ww-role">Churchwardens</div>
+          <p class="ww-note">Elected at APCM, serving as the people's representatives</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- News -->
+  <section class="news">
+    <div class="inner">
+      <div class="section-head">
+        <div class="titleblock">
+          <div class="ornament">From the Parish</div>
+          <h2>Latest news</h2>
+        </div>
+        <a href="#" class="read-more">All news →</a>
+      </div>
+      <div class="news-grid">
+        <article class="news-card">
+          <div class="imgwrap"><image-slot id="news-1" placeholder="Lent programme photo"></image-slot></div>
+          <div class="body">
+            <div class="cat">Lent · Programme</div>
+            <h3>Lent Programme 2025</h3>
+            <p>Content will be added soon with details about this year's Lent programme of study, prayer and almsgiving.</p>
+            <a href="#" class="read-more">Read more →</a>
+          </div>
+        </article>
+        <article class="news-card">
+          <div class="imgwrap"><image-slot id="news-2" placeholder="PCC meeting photo"></image-slot></div>
+          <div class="body">
+            <div class="cat">PCC · Governance</div>
+            <h3>PCC Meeting Summary</h3>
+            <p>Content will be added soon with a summary from the latest PCC meeting and the decisions taken.</p>
+            <a href="#" class="read-more">Read more →</a>
+          </div>
+        </article>
+        <article class="news-card">
+          <div class="imgwrap"><image-slot id="news-3" placeholder="Spring fair photo"></image-slot></div>
+          <div class="body">
+            <div class="cat">Events · Spring</div>
+            <h3>Spring Fair Announcement</h3>
+            <p>Content will be added soon with details about the upcoming Spring Fair, our biggest community event of the year.</p>
+            <a href="#" class="read-more">Read more →</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Partners -->
+  <section class="partners">
+    <div class="inner">
+      <div class="label">In Communion With</div>
+      <div class="partner-logos">
+        <div class="partner-logo"><small>The</small>Church of England</div>
+        <div class="partner-logo"><small>Within the</small>Diocese of London</div>
+        <div class="partner-logo"><small>Member of</small>Inclusive Church</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="lockup">
+            <img src="../assets/logo.png" alt="Emmanuel Church" />
+            <div class="name">Emmanuel Church</div>
+          </div>
+          <p>Lyncroft Gardens<br/>London NW6 1JU</p>
+          <p>07751 534 297<br/>info@emmanuelnw6.com</p>
+          <div class="charity">Registered Charity No. 1142383</div>
+          <div class="socials">
+            <a href="#" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.79c0-2.51 1.49-3.89 3.77-3.89 1.09 0 2.24.19 2.24.19v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.77l-.44 2.89h-2.33v6.99A10 10 0 0 0 22 12z"/></svg></a>
+            <a href="#" aria-label="Twitter"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 3h3l-6.55 7.5L22 21h-6l-4.7-6.15L5.93 21H2.9l7.01-8.03L2 3h6.13l4.25 5.62L17.5 3z"/></svg></a>
+            <a href="#" aria-label="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.5c-.3-1-1.1-1.8-2.1-2.1C19.6 4 12 4 12 4s-7.6 0-9.4.4c-1 .3-1.8 1.1-2.1 2.1C0 8.3 0 12 0 12s0 3.7.5 5.5c.3 1 1.1 1.8 2.1 2.1 1.8.4 9.4.4 9.4.4s7.6 0 9.4-.4c1-.3 1.8-1.1 2.1-2.1.5-1.8.5-5.5.5-5.5s0-3.7-.5-5.5zM9.6 15.6V8.4l6.4 3.6-6.4 3.6z"/></svg></a>
+          </div>
+        </div>
+
+        <div>
+          <h4>Worship</h4>
+          <ul class="services-list">
+            <li><b>Sunday 8:00</b><br/>Said Eucharist (BCP)</li>
+            <li><b>Sunday 9:15</b><br/>Joyful Noise</li>
+            <li><b>Sunday 10:30</b><br/>Sung Eucharist</li>
+            <li><b>Wednesday 12:30</b><br/>Healing Eucharist</li>
+            <li><a href="#" style="color: var(--tan); font-weight: 600;">All services →</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#">Safeguarding</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Annual Reports</a></li>
+            <li><a href="#">Electoral Roll</a></li>
+            <li><a href="#">Emmanuel School</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="newsletter">
+          <h4>Newsletter</h4>
+          <p>Stay connected with what's happening at Emmanuel — sent fortnightly to your inbox.</p>
+          <form onsubmit="event.preventDefault(); this.querySelector('input').value=''; this.querySelector('button').textContent='Joined ✓'; setTimeout(()=>{this.querySelector('button').textContent='Join';}, 1800);">
+            <input type="email" placeholder="Your email address" required />
+            <button type="submit">Join</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bot">
+        <div>© 2026 Emmanuel Church, West Hampstead. All rights reserved.</div>
+        <div class="org-line">
+          <span>Church of England</span>
+          <span>Diocese of London</span>
+          <span>Inclusive Church</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
