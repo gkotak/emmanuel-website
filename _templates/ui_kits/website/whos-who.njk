@@ -1,0 +1,114 @@
+---
+permalink: /ui_kits/website/whos-who.html
+---
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8" />
+<title>Who's Who — Emmanuel Church, West Hampstead</title>
+<meta name="viewport" content="width=1320" />
+<link rel="stylesheet" href="/styles.css" />
+<script src="/image-slot.js"></script>
+</head>
+<body>
+
+{% include "header.njk" %}
+
+  <section class="em-pagehead em-pagehead--band em-pagehead--plain">
+    <div class="inner">
+      <div class="em-breadcrumb"><a href="/ui_kits/website/index.html">Home</a><span class="sep">/</span><span>Who's Who</span></div>
+      <h1>Meet the <em>Team</em></h1>
+      <p class="deck">The clergy, staff and volunteers who together share in the life, worship and care of Emmanuel.</p>
+    </div>
+  </section>
+
+  {# Clergy section #}
+  <section class="em-section">
+    <div class="inner">
+      <div class="em-ornament is-leading">Clergy</div>
+      {% for person in people %}
+        {% if person.group === "clergy" and loop.first %}
+        <div class="em-team-grid" style="margin-bottom:8px">
+          <div class="em-member em-member--lead">
+            {% if person.photoUrl %}
+            <div class="em-portrait"><img src="{{ person.photoUrl }}" alt="{{ person.name }}" /></div>
+            {% else %}
+            <div class="em-portrait"><image-slot id="ww-{{ loop.index }}" placeholder="{{ person.name }}"></image-slot></div>
+            {% endif %}
+            <div>
+              <div class="role">{{ person.role }}</div>
+              <h3>{{ person.name }}</h3>
+              {% if person.bio %}
+                {% for para in person.bio %}
+                  <p>{{ para }}</p>
+                {% endfor %}
+              {% endif %}
+            </div>
+          </div>
+        </div>
+        {% endif %}
+      {% endfor %}
+      <div class="em-clergy-assoc">
+        {% for person in people %}
+          {% if person.group === "clergy" and not loop.first %}
+          <div class="em-member">
+            {% if person.photoUrl %}
+            <div class="em-portrait"><img src="{{ person.photoUrl }}" alt="{{ person.name }}" /></div>
+            {% else %}
+            <div class="em-portrait"><image-slot id="ww-{{ loop.index }}" placeholder="{{ person.name }}"></image-slot></div>
+            {% endif %}
+            <div class="role">{{ person.role }}</div>
+            <h3>{{ person.name }}</h3>
+            {% if person.bio %}
+              {% for para in person.bio %}
+                <p class="pending">{{ para }}</p>
+              {% endfor %}
+            {% endif %}
+          </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  {# Staff & volunteers section #}
+  <section class="em-section em-section--band">
+    <div class="inner">
+      <div class="em-ornament is-leading">Staff &amp; volunteers</div>
+      <div class="em-team-grid">
+        {% for person in people %}
+          {% if person.group === "staff" or person.group === "churchwardens" %}
+          <div class="em-member">
+            {% if person.photoUrl %}
+            <div class="em-portrait"><img src="{{ person.photoUrl }}" alt="{{ person.name }}" /></div>
+            {% else %}
+            <div class="em-portrait"><image-slot id="ww-{{ loop.index }}" placeholder="{{ person.name }}"></image-slot></div>
+            {% endif %}
+            <div class="role">{{ person.role }}</div>
+            <h3>{{ person.name }}</h3>
+            {% if person.bio %}
+              {% for para in person.bio %}
+                <p class="pending">{{ para }}</p>
+              {% endfor %}
+            {% endif %}
+          </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section class="em-callout">
+    <div class="inner">
+      <div><h3>Come and <em>say hello</em>.</h3><p>The best way to meet the team is in person — do introduce yourself after a Sunday service, or get in touch with the parish office any time.</p></div>
+      <div style="display:flex;gap:14px;flex-wrap:wrap">
+        <a href="/ui_kits/website/im-new.html" class="em-btn em-btn--tan">Planning your first visit</a>
+        <a href="/ui_kits/website/contact.html" class="em-btn em-btn--ghost-light">Contact us</a>
+      </div>
+    </div>
+  </section>
+
+{% include "footer.njk" %}
+
+</body>
+</html>

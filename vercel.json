@@ -1,6 +1,7 @@
 {
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
   "rewrites": [
-    { "source": "/", "destination": "/ui_kits/website/index.html" },
-    { "source": "/((?!ui_kits|assets|tokens|guidelines|pages|uploads|styles\\.css|components\\.css|image-slot\\.js).*)\\.html", "destination": "/ui_kits/website/$1.html" }
+    { "source": "/", "destination": "/ui_kits/website/index.html" }
   ]
 }
