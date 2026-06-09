@@ -1,0 +1,128 @@
+---
+permalink: /ui_kits/website/events.html
+---
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8" />
+<title>Special Services &amp; Events — Emmanuel Church, West Hampstead</title>
+<meta name="viewport" content="width=1320" />
+<link rel="stylesheet" href="../../styles.css" />
+<style>
+  .ev-feature { display:grid; grid-template-columns:0.85fr 1fr; gap:0; border:1px solid var(--line); background:#fff; margin-bottom:64px; }
+  .ev-feature .poster { background:var(--navy); display:flex; align-items:center; justify-content:center; padding:38px; }
+  .ev-feature .poster img { width:100%; max-width:380px; height:auto; box-shadow:var(--shadow-lg, 0 18px 40px rgba(0,0,0,0.28)); display:block; }
+  .ev-feature .body { padding:54px 56px; display:flex; flex-direction:column; }
+  .ev-tag { display:inline-flex; align-items:center; gap:8px; font-family:var(--font-sans); font-size:11px; font-weight:var(--fw-bold); letter-spacing:0.2em; text-transform:uppercase; color:var(--brown); margin-bottom:20px; }
+  .ev-tag::before { content:""; width:22px; height:1.5px; background:var(--brown); }
+  .ev-feature h2 { font-family:var(--font-display); font-size:46px; font-weight:var(--fw-medium); color:var(--navy); letter-spacing:-0.02em; line-height:1.04; margin:0 0 18px; }
+  .ev-date { font-family:var(--font-editorial); font-style:italic; font-size:20px; color:var(--brown); margin:0 0 22px; }
+  .ev-feature p { font-family:var(--font-sans); font-size:17px; line-height:1.6; color:var(--ink-soft); margin:0 0 16px; }
+  .ev-feature .acts { display:flex; gap:14px; flex-wrap:wrap; margin-top:auto; padding-top:24px; }
+  .ev-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:40px; }
+  .ev-card { display:flex; flex-direction:column; background:#fff; border:1px solid var(--line); text-decoration:none; transition:box-shadow var(--dur, 0.25s) var(--ease), transform var(--dur, 0.25s) var(--ease); }
+  .ev-card:hover { box-shadow:0 16px 38px rgba(31,42,68,0.14); transform:translateY(-3px); }
+  .ev-card .thumb { aspect-ratio:16/11; background:var(--navy); overflow:hidden; display:flex; align-items:center; justify-content:center; }
+  .ev-card .thumb img { width:100%; height:100%; object-fit:cover; object-position:center top; display:block; }
+  .ev-card .meta { padding:30px 32px 34px; display:flex; flex-direction:column; flex:1; }
+  .ev-card .kicker { font-family:var(--font-sans); font-size:11px; font-weight:var(--fw-bold); letter-spacing:0.18em; text-transform:uppercase; color:var(--brown); margin-bottom:12px; }
+  .ev-card h3 { font-family:var(--font-display); font-size:27px; font-weight:var(--fw-semibold); color:var(--navy); letter-spacing:-0.01em; line-height:1.12; margin:0 0 10px; }
+  .ev-card .d { font-family:var(--font-editorial); font-style:italic; font-size:16px; color:var(--brown); margin:0 0 14px; }
+  .ev-card p { font-family:var(--font-sans); font-size:14.5px; line-height:1.55; color:var(--ink-soft); margin:0 0 18px; }
+  .ev-card .more { margin-top:auto; font-family:var(--font-sans); font-size:12px; font-weight:var(--fw-bold); letter-spacing:0.12em; text-transform:uppercase; color:var(--brown); }
+  .ev-calbar { display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap; background:var(--cream); border:1px solid var(--line); padding:26px 34px; margin-bottom:52px; }
+  .ev-calbar .t { font-family:var(--font-display); font-size:25px; font-weight:var(--fw-semibold); color:var(--navy); line-height:1.25; }
+  .ev-calbar .t span { font-family:var(--font-editorial); font-style:italic; color:var(--brown); }
+  .ev-calbar p { font-family:var(--font-sans); font-size:15px; color:var(--muted); margin:7px 0 0; }
+</style>
+</head>
+<body>
+
+{% include "header.njk" %}
+
+  <section class="em-pagehead em-pagehead--band em-pagehead--plain">
+    <div class="inner">
+      <div class="em-breadcrumb"><a href="/ui_kits/website/index.html">Home</a><span class="sep">/</span><a href="#">What's On</a><span class="sep">/</span><span>Special Services &amp; Events</span></div>
+      <h1>Special services &amp; <em>events</em></h1>
+      <p class="deck">Through the church's year — from Advent and Christmas to Holy Week, Easter and our Patronal Festival — there is always something happening at Emmanuel. Everyone is welcome.</p>
+    </div>
+  </section>
+
+  <section class="em-section" style="padding-top:64px">
+    <div class="inner">
+
+      <div class="ev-calbar">
+        <div>
+          <div class="t">Looking for dates &amp; times?</div>
+          <p>See the full calendar — every service and event, week by week.</p>
+        </div>
+        <a href="/ui_kits/website/calendar.html" class="em-btn em-btn--primary">Open the events calendar →</a>
+      </div>
+
+      {% set featuredEvent = null %}
+      {% for ev in events %}
+        {% if ev.featured and not featuredEvent %}
+          {% set featuredEvent = ev %}
+        {% endif %}
+      {% endfor %}
+
+      {% if featuredEvent %}
+      <div class="ev-feature">
+        <div class="poster">
+          {% if featuredEvent.posters and featuredEvent.posters.length %}
+            {% set posterImg = featuredEvent.posters[0].url if featuredEvent.posters[0].url else featuredEvent.posters[0].uploadUrl %}
+          {% elif featuredEvent.thumbnailUrl %}
+            {% set posterImg = featuredEvent.thumbnailUrl %}
+          {% else %}
+            {% set posterImg = featuredEvent.thumbnailUploadUrl %}
+          {% endif %}
+          {% if posterImg %}<img src="{{ posterImg }}" alt="{{ featuredEvent.title }}" />{% endif %}
+        </div>
+        <div class="body">
+          <span class="ev-tag">Latest · {{ featuredEvent.category }}</span>
+          <h2>{{ featuredEvent.title }}</h2>
+          <div class="ev-date">{{ featuredEvent.date }}</div>
+          <p>{{ featuredEvent.deck }}</p>
+          {% if featuredEvent.summary and featuredEvent.summary != featuredEvent.deck %}<p>{{ featuredEvent.summary }}</p>{% endif %}
+          <div class="acts">
+            <a href="/ui_kits/website/event-{{ featuredEvent.slug }}.html" class="em-btn em-btn--primary">View event</a>
+            <a href="/ui_kits/website/calendar.html" class="em-btn em-btn--outline">See on calendar</a>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+
+      <div class="ev-grid">
+        {% for ev in events %}
+          {% if not ev.featured %}
+          {% set thumbSrc = ev.thumbnailUrl if ev.thumbnailUrl else ev.thumbnailUploadUrl %}
+          <a href="/ui_kits/website/event-{{ ev.slug }}.html" class="ev-card">
+            <div class="thumb">
+              {% if thumbSrc %}<img src="{{ thumbSrc }}" alt="{{ ev.title }}" />{% endif %}
+            </div>
+            <div class="meta">
+              <div class="kicker">{{ ev.category }}</div>
+              <h3>{{ ev.title }}</h3>
+              <div class="d">{{ ev.date }}</div>
+              <p>{{ ev.summary if ev.summary else ev.deck }}</p>
+              <span class="more">View event →</span>
+            </div>
+          </a>
+          {% endif %}
+        {% endfor %}
+      </div>
+
+    </div>
+  </section>
+
+  <section class="em-callout">
+    <div class="inner">
+      <div><h3>Never miss <em>what's on</em>.</h3><p>Join our mailing list for the fortnightly newsletter, with services, events and news from across the parish.</p></div>
+      <div style="display:flex;gap:14px;flex-wrap:wrap"><a href="https://emmanuelnw6.us9.list-manage.com/subscribe?u=82a1a8e47d9788dccae693588&id=bbf2ae4052" target="_blank" rel="noopener" class="em-btn em-btn--tan">Join the newsletter</a><a href="/ui_kits/website/calendar.html" class="em-btn em-btn--ghost-light">Events calendar</a></div>
+    </div>
+  </section>
+
+{% include "footer.njk" %}
+
+</body>
+</html>

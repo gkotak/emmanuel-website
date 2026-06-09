@@ -1,0 +1,133 @@
+---
+pagination:
+  data: events
+  size: 1
+  alias: ev
+permalink: /ui_kits/website/event-{{ ev.slug }}.html
+---
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8" />
+<title>{{ ev.title }} — Emmanuel Church, West Hampstead</title>
+<meta name="viewport" content="width=1320" />
+<link rel="stylesheet" href="../../styles.css" />
+<style>
+  .ed-wrap { display:grid; grid-template-columns:0.9fr 1fr; gap:56px; align-items:start; }
+  .ed-posters { display:flex; flex-direction:column; gap:24px; position:sticky; top:28px; }
+  .ed-poster { background:var(--navy); padding:30px; display:flex; align-items:center; justify-content:center; }
+  .ed-poster img { width:100%; height:auto; display:block; box-shadow:0 16px 38px rgba(0,0,0,0.30); }
+  .ed-content h2 { font-family:var(--font-display); font-size:32px; font-weight:var(--fw-medium); color:var(--navy); letter-spacing:-0.015em; margin:0 0 22px; }
+  .ed-content p { font-family:var(--font-sans); font-size:17.5px; line-height:1.66; color:var(--ink-soft); margin:0 0 20px; }
+  .ed-content p strong { color:var(--ink); font-weight:var(--fw-semibold); }
+  .ed-content .lede { font-family:var(--font-editorial); font-style:italic; font-size:23px; line-height:1.45; color:var(--ink); margin:0 0 26px; letter-spacing:-0.01em; }
+  .ed-details { border:1px solid var(--line); background:#fff; margin:34px 0 30px; }
+  .ed-details .dh { font-family:var(--font-sans); font-size:11px; font-weight:var(--fw-bold); letter-spacing:0.2em; text-transform:uppercase; color:var(--brown); padding:20px 28px 0; }
+  .ed-details dl { margin:0; padding:14px 28px 24px; }
+  .ed-details .row { display:grid; grid-template-columns:130px 1fr; gap:18px; padding:13px 0; border-bottom:1px solid var(--line); }
+  .ed-details .row:last-child { border-bottom:none; }
+  .ed-details dt { font-family:var(--font-sans); font-size:12px; font-weight:var(--fw-bold); letter-spacing:0.08em; text-transform:uppercase; color:var(--brown); margin:2px 0 0; }
+  .ed-details dd { margin:0; font-family:var(--font-display); font-size:18px; color:var(--ink); line-height:1.35; }
+  .ed-acts { display:flex; gap:14px; flex-wrap:wrap; }
+  .ed-pager { display:flex; justify-content:space-between; gap:20px; border-top:1.5px solid var(--rule-ink); margin-top:8px; padding-top:30px; }
+  .ed-pager a { text-decoration:none; max-width:46%; }
+  .ed-pager .lbl { font-family:var(--font-sans); font-size:11px; font-weight:var(--fw-bold); letter-spacing:0.16em; text-transform:uppercase; color:var(--brown); margin-bottom:7px; display:block; }
+  .ed-pager .ttl { font-family:var(--font-display); font-size:21px; color:var(--navy); line-height:1.2; transition:color 0.18s ease; }
+  .ed-pager a:hover .ttl { color:var(--brown); }
+  .ed-pager .next { text-align:right; margin-left:auto; }
+  .ed-pager .empty { opacity:0; pointer-events:none; }
+</style>
+</head>
+<body>
+
+{% include "header.njk" %}
+
+  <section class="em-pagehead em-pagehead--band em-pagehead--plain">
+    <div class="inner">
+      <div class="em-breadcrumb"><a href="/ui_kits/website/index.html">Home</a><span class="sep">/</span><a href="/ui_kits/website/events.html">Special Events</a><span class="sep">/</span><span>{{ ev.title }}</span></div>
+      <h1>{{ ev.title }}</h1>
+      <p class="deck">{{ ev.deck }}</p>
+      <div class="meta-row">
+        <div class="item"><div class="k">When</div><div class="v">{{ ev.date }}</div></div>
+        <div class="item"><div class="k">Category</div><div class="v">{{ ev.category }}</div></div>
+        {% if ev.location %}<div class="item"><div class="k">Where</div><div class="v">{{ ev.location }}</div></div>{% endif %}
+      </div>
+    </div>
+  </section>
+
+  <section class="em-section" style="padding-top:64px">
+    <div class="inner">
+      <div class="ed-wrap">
+
+        <div class="ed-posters">
+          {% if ev.posters and ev.posters.length %}
+            {% for poster in ev.posters %}
+              {% set posterSrc = poster.url if poster.url else poster.uploadUrl %}
+              {% if posterSrc %}
+              <div class="ed-poster"><img src="{{ posterSrc }}" alt="{{ poster.alt if poster.alt else ev.title }}" /></div>
+              {% endif %}
+            {% endfor %}
+          {% elif ev.thumbnailUrl %}
+            <div class="ed-poster"><img src="{{ ev.thumbnailUrl }}" alt="{{ ev.title }}" /></div>
+          {% elif ev.thumbnailUploadUrl %}
+            <div class="ed-poster"><img src="{{ ev.thumbnailUploadUrl }}" alt="{{ ev.title }}" /></div>
+          {% endif %}
+        </div>
+
+        <div class="ed-content">
+          {% if ev.lede %}<p class="lede">{{ ev.lede }}</p>{% endif %}
+          {% if ev.body %}
+            {% for para in ev.body %}
+              {% if para %}<p>{{ para }}</p>{% endif %}
+            {% endfor %}
+          {% endif %}
+
+          {% if ev.detailRows and ev.detailRows.length %}
+          <div class="ed-details">
+            <div class="dh">Details</div>
+            <dl>
+              {% for row in ev.detailRows %}
+              <div class="row"><dt>{{ row.label }}</dt><dd>{{ row.value }}</dd></div>
+              {% endfor %}
+            </dl>
+          </div>
+          {% endif %}
+
+          <div class="ed-acts">
+            <a href="/ui_kits/website/calendar.html" class="em-btn em-btn--primary">See on the calendar</a>
+            <a href="/ui_kits/website/contact.html" class="em-btn em-btn--outline">Ask a question</a>
+          </div>
+        </div>
+      </div>
+
+      {% set currentIndex = 0 %}
+      {% for e in events %}{% if e.slug == ev.slug %}{% set currentIndex = loop.index0 %}{% endif %}{% endfor %}
+      {% set newerEv = events[currentIndex - 1] if currentIndex > 0 else null %}
+      {% set olderEv = events[currentIndex + 1] if currentIndex < (events | length - 1) else null %}
+
+      <div class="ed-pager">
+        {% if newerEv %}
+        <a class="prev" href="/ui_kits/website/event-{{ newerEv.slug }}.html">
+          <span class="lbl">Newer event</span>
+          <span class="ttl">{{ newerEv.title }}</span>
+        </a>
+        {% else %}
+        <span class="empty"></span>
+        {% endif %}
+
+        {% if olderEv %}
+        <a class="next" href="/ui_kits/website/event-{{ olderEv.slug }}.html">
+          <span class="lbl">Older event</span>
+          <span class="ttl">{{ olderEv.title }}</span>
+        </a>
+        {% else %}
+        <span class="empty"></span>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+
+{% include "footer.njk" %}
+
+</body>
+</html>

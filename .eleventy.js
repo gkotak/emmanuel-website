@@ -43,6 +43,20 @@ module.exports = function (eleventyConfig) {
     `)
   })
 
+  eleventyConfig.addGlobalData('events', async () => {
+    return sanity.fetch(`
+      *[_type == "event"] | order(sortDate desc) {
+        title, "slug": slug.current, category, date, sortDate, location,
+        deck, summary, featured, thumbnailUrl,
+        "thumbnailUploadUrl": thumbnailUpload.asset->url,
+        lede,
+        "body": body[].children[].text,
+        "posters": posters[]{ url, "uploadUrl": upload.asset->url, alt },
+        "detailRows": detailRows[]{ label, value }
+      }
+    `)
+  })
+
   // Nunjucks filter: join bio paragraphs into <p> tags
   eleventyConfig.addFilter('bioParagraphs', (bioArray) => {
     if (!bioArray || !bioArray.length) return ''
