@@ -9,12 +9,15 @@ const sanity = createClient({
 
 module.exports = function (eleventyConfig) {
   // Pass through all static assets unchanged
-  eleventyConfig.addPassthroughCopy('assets')
-  eleventyConfig.addPassthroughCopy('uploads')
-  eleventyConfig.addPassthroughCopy('tokens')
-  eleventyConfig.addPassthroughCopy('styles.css')
-  eleventyConfig.addPassthroughCopy('components.css')
-  eleventyConfig.addPassthroughCopy('image-slot.js')
+  // Paths are relative to the project root (not the input dir)
+  eleventyConfig.addPassthroughCopy({ 'assets': 'assets' })
+  eleventyConfig.addPassthroughCopy({ 'uploads': 'uploads' })
+  eleventyConfig.addPassthroughCopy({ 'tokens': 'tokens' })
+  eleventyConfig.addPassthroughCopy({ 'styles.css': 'styles.css' })
+  eleventyConfig.addPassthroughCopy({ 'components.css': 'components.css' })
+  eleventyConfig.addPassthroughCopy({ 'image-slot.js': 'image-slot.js' })
+  // Static HTML pages (all pages not driven by CMS templates)
+  eleventyConfig.addPassthroughCopy({ 'ui_kits': 'ui_kits' })
 
   // Global data: fetch all CMS-driven content from Sanity at build time
   eleventyConfig.addGlobalData('serviceTimes', async () => {
