@@ -1,0 +1,281 @@
+---
+permalink: /ui_kits/website/calendar.html
+---
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8" />
+<title>Events Calendar — Emmanuel Church, West Hampstead</title>
+<meta name="viewport" content="width=1320" />
+<link rel="stylesheet" href="../../styles.css" />
+<style>
+  .cal-shell { max-width:1320px; margin:0 auto; padding:0 var(--gutter); }
+  .cal-toolbar { display:flex; align-items:center; gap:24px; flex-wrap:wrap; padding-bottom:24px; margin-bottom:0; border-bottom:1.5px solid var(--rule-ink); }
+  .cal-nav { display:flex; align-items:center; gap:10px; }
+  .cal-arrow { width:42px; height:42px; border:1px solid var(--line); background:#fff; color:var(--navy); font-size:18px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:all var(--dur-fast,0.18s) var(--ease,ease); border-radius:2px; }
+  .cal-arrow:hover { background:var(--navy); color:#fff; border-color:var(--navy); }
+  .cal-today { font-family:var(--font-sans); font-size:13px; font-weight:var(--fw-bold); letter-spacing:0.06em; text-transform:uppercase; padding:0 18px; height:42px; border:1px solid var(--line); background:#fff; color:var(--brown); cursor:pointer; transition:all var(--dur-fast,0.18s) var(--ease,ease); border-radius:2px; }
+  .cal-today:hover { border-color:var(--brown); background:var(--cream); }
+  .cal-title { font-family:var(--font-display); font-size:34px; font-weight:var(--fw-medium); color:var(--navy); letter-spacing:-0.015em; margin:0; min-width:0; }
+  .cal-title em { font-style:italic; color:var(--brown); }
+  .cal-spacer { flex:1; }
+  .cal-toggle { display:flex; border:1px solid var(--line); border-radius:2px; overflow:hidden; }
+  .cal-toggle button { font-family:var(--font-sans); font-size:13px; font-weight:var(--fw-bold); letter-spacing:0.06em; text-transform:uppercase; padding:0 22px; height:42px; background:#fff; color:var(--muted); border:none; cursor:pointer; transition:all var(--dur-fast,0.18s) var(--ease,ease); }
+  .cal-toggle button + button { border-left:1px solid var(--line); }
+  .cal-toggle button.is-on { background:var(--navy); color:#fff; }
+  .cal-legend { display:flex; gap:26px; flex-wrap:wrap; padding:20px 0 28px; }
+  .cal-legend span { display:inline-flex; align-items:center; gap:9px; font-family:var(--font-sans); font-size:13px; color:var(--ink-soft); }
+  .cal-legend .sw { width:14px; height:14px; border-radius:2px; flex-shrink:0; }
+  .sw-service { background:var(--cream); border-left:3px solid var(--navy); }
+  .sw-prayer { background:#f1ede4; border-left:3px solid var(--brown); }
+  .sw-special { background:var(--brown); }
+  .sw-exhibition { background:var(--tan); }
+  /* Month grid */
+  .cal-grid { border:1px solid var(--rule-ink); border-bottom:none; }
+  .cal-dows { display:grid; grid-template-columns:repeat(7,1fr); background:var(--navy); }
+  .cal-dows div { font-family:var(--font-sans); font-size:11px; font-weight:var(--fw-bold); letter-spacing:0.16em; text-transform:uppercase; color:var(--on-dark-soft,#cbd3e0); padding:13px 14px; text-align:left; }
+  .cal-week { display:grid; grid-template-columns:repeat(7,1fr); }
+  .cal-cell { min-height:128px; border-right:1px solid var(--line); border-bottom:1px solid var(--line); padding:8px 8px 10px; display:flex; flex-direction:column; gap:4px; background:#fff; }
+  .cal-cell:nth-child(7n) { border-right:none; }
+  .cal-cell.is-out { background:var(--bg); }
+  .cal-cell.is-out .cal-daynum { color:var(--line); }
+  .cal-cell.is-today { background:var(--cream); }
+  .cal-daynum { font-family:var(--font-display); font-size:17px; font-weight:var(--fw-semibold); color:var(--ink); line-height:1; margin-bottom:3px; display:flex; align-items:center; gap:7px; }
+  .cal-cell.is-today .cal-daynum { color:var(--brown); }
+  .cal-todaytag { font-family:var(--font-sans); font-size:9px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#fff; background:var(--brown); padding:2px 7px; border-radius:var(--radius-pill,99px); line-height:1.5; }
+  .cal-chip { display:block; text-decoration:none; font-family:var(--font-sans); font-size:11.5px; line-height:1.25; padding:4px 7px; border-radius:2px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .cal-chip b { font-weight:var(--fw-bold); }
+  .cal-chip--service { background:var(--cream); border-left:3px solid var(--navy); color:var(--navy); }
+  .cal-chip--prayer { background:#f1ede4; border-left:3px solid var(--brown); color:var(--ink-soft); }
+  .cal-chip--special { background:var(--brown); border-left:3px solid var(--brown-deep,#6f5526); color:#fff; font-weight:var(--fw-semibold); }
+  .cal-chip--special:hover { background:var(--brown-deep,#6f5526); }
+  .cal-chip--exhibition { background:var(--tan); color:var(--navy); border-left:3px solid #c9a24a; font-weight:var(--fw-semibold); }
+  a.cal-chip { cursor:pointer; transition:filter var(--dur-fast,0.18s) var(--ease,ease); }
+  a.cal-chip:hover { filter:brightness(0.96); }
+  .cal-more { font-family:var(--font-sans); font-size:10.5px; font-weight:var(--fw-bold); letter-spacing:0.04em; text-transform:uppercase; color:var(--brown); background:none; border:none; padding:3px 7px; cursor:pointer; text-align:left; }
+  .cal-more:hover { text-decoration:underline; }
+  /* Week view */
+  .cal-weekview { display:grid; grid-template-columns:repeat(7,1fr); border:1px solid var(--rule-ink); }
+  .cal-wcol { border-right:1px solid var(--line); min-height:420px; display:flex; flex-direction:column; }
+  .cal-wcol:last-child { border-right:none; }
+  .cal-whead { padding:14px 14px 12px; border-bottom:1px solid var(--line); background:#fff; }
+  .cal-wcol.is-today .cal-whead { background:var(--cream); }
+  .cal-wdow { font-family:var(--font-sans); font-size:10.5px; font-weight:var(--fw-bold); letter-spacing:0.16em; text-transform:uppercase; color:var(--brown); }
+  .cal-wdate { font-family:var(--font-display); font-size:26px; font-weight:var(--fw-medium); color:var(--navy); line-height:1.1; margin-top:2px; }
+  .cal-wcol.is-today .cal-wdate { color:var(--brown); }
+  .cal-wbody { padding:10px; display:flex; flex-direction:column; gap:7px; }
+  .cal-wevt { display:block; text-decoration:none; padding:8px 9px; border-radius:3px; }
+  .cal-wevt .wt { display:block; font-family:var(--font-sans); font-size:11px; font-weight:var(--fw-bold); letter-spacing:0.03em; opacity:0.85; }
+  .cal-wevt .wn { font-family:var(--font-display); font-size:14.5px; line-height:1.2; margin-top:1px; }
+  .cal-wevt.cal-chip--service { color:var(--navy); }
+  .cal-wevt.cal-chip--prayer { color:var(--ink-soft); }
+  .cal-wevt.cal-chip--special { color:#fff; }
+  .cal-wempty { font-family:var(--font-editorial); font-style:italic; font-size:13px; color:var(--line); padding:8px 9px; }
+  .cal-foot-note { font-family:var(--font-editorial); font-style:italic; font-size:16px; color:var(--muted); padding:26px var(--gutter) 0; max-width:1320px; margin:0 auto; }
+</style>
+</head>
+<body>
+
+{% include "header.njk" %}
+
+  <section class="em-pagehead em-pagehead--band em-pagehead--plain">
+    <div class="inner">
+      <div class="em-breadcrumb"><a href="/ui_kits/website/index.html">Home</a><span class="sep">/</span><a href="#">What's On</a><span class="sep">/</span><span>Events Calendar</span></div>
+      <h1>Events <em>calendar</em></h1>
+      <p class="deck">Everything happening at Emmanuel — our regular services and prayer, alongside special services and events through the church's year. View by month or by week.</p>
+    </div>
+  </section>
+
+  <section class="em-section" style="padding-top:56px">
+    <div class="cal-shell">
+      <div class="cal-toolbar">
+        <div class="cal-nav">
+          <button class="cal-arrow" id="prevBtn" aria-label="Previous">&#8249;</button>
+          <button class="cal-arrow" id="nextBtn" aria-label="Next">&#8250;</button>
+          <button class="cal-today" id="todayBtn">Today</button>
+        </div>
+        <h2 class="cal-title" id="calTitle">—</h2>
+        <div class="cal-spacer"></div>
+        <div class="cal-toggle">
+          <button id="monthBtn" class="is-on">Month</button>
+          <button id="weekBtn">Week</button>
+        </div>
+      </div>
+
+      <div class="cal-legend">
+        <span><span class="sw sw-service"></span> Services &amp; worship</span>
+        <span><span class="sw sw-prayer"></span> Prayer &amp; quiet</span>
+        <span><span class="sw sw-special"></span> Special service / event</span>
+        <span><span class="sw sw-exhibition"></span> Exhibition (all day)</span>
+      </div>
+
+      <div id="calView"></div>
+    </div>
+    <p class="cal-foot-note">All are welcome at every service and event. Click a special event for full details, or see our <a href="/ui_kits/website/service-times.html" style="color:var(--brown)">service &amp; prayer times</a>.</p>
+  </section>
+
+  <section class="em-callout">
+    <div class="inner">
+      <div><h3>Plan your <em>visit</em>.</h3><p>Whether for a Sunday service or a special festival, there is a place for you at Emmanuel.</p></div>
+      <div style="display:flex;gap:14px;flex-wrap:wrap"><a href="/ui_kits/website/events.html" class="em-btn em-btn--tan">Browse special events</a><a href="/ui_kits/website/im-new.html" class="em-btn em-btn--ghost-light">What to expect</a></div>
+    </div>
+  </section>
+
+{% include "footer.njk" %}
+
+  <script>
+  (function(){
+    // ---- Recurring services from Sanity (injected at build time) ----------
+    var RECURRING = [
+      {% for st in serviceTimes %}
+      {
+        dow: {{ 0 if st.day == "sunday" else (3 if st.day == "wednesday" else (1 if st.day == "monday" else (2 if st.day == "tuesday" else (4 if st.day == "thursday" else (5 if st.day == "friday" else 6))))) }},
+        time: "{{ st.time | replace(" ", "") | truncate(5, true, "") }}",
+        title: "{{ st.name | replace('"', '&quot;') }}",
+        kind: "{{ 'prayer' if 'prayer' in st.name | lower or 'contemplative' in st.name | lower else 'service' }}"
+      }{% if not loop.last %},{% endif %}
+      {% endfor %}
+    ];
+
+    // ---- Special events from Sanity (injected at build time) ---------------
+    // Each event may span multiple dates; we expand them here
+    var SPECIAL = [
+      {% for ev in events %}
+        {% if ev.sortDate %}
+        {date:"{{ ev.sortDate }}", time:"10:30", title:"{{ ev.title | replace('"', '&quot;') }}", kind:"special", href:"/ui_kits/website/event-{{ ev.slug }}.html"}{% if not loop.last %},{% endif %}
+        {% endif %}
+      {% endfor %}
+    ];
+
+    // ---- Multi-day exhibition spans ----------------------------------------
+    var SPANS = [
+      {% for ev in events %}
+        {% if 'exhibition' in ev.category | lower or 'exhibition' in ev.title | lower %}
+        {from:"{{ ev.sortDate }}", to:"{{ ev.sortDate }}", title:"{{ ev.title | replace('"', '&quot;') }}", kind:"exhibition", href:"/ui_kits/website/event-{{ ev.slug }}.html"}{% if not loop.last %},{% endif %}
+        {% endif %}
+      {% endfor %}
+    ];
+
+    // ---- Helpers ---------------------------------------------------------
+    var MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+    var DOWS = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+    function pad(n){ return (n<10?'0':'')+n; }
+    function iso(d){ return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate()); }
+    function sameDay(a,b){ return a.getFullYear()===b.getFullYear() && a.getMonth()===b.getMonth() && a.getDate()===b.getDate(); }
+    function monIndex(d){ return (d.getDay()+6)%7; }
+    function fmtTime(t){ var p=t.split(':'); var h=+p[0]; var m=p[1]; var ap=h<12?'am':'pm'; var hh=h%12; if(hh===0)hh=12; return hh+(m==='00'?'':':'+m)+ap; }
+    function startOfWeek(d){ var x=new Date(d); x.setDate(x.getDate()-monIndex(x)); x.setHours(0,0,0,0); return x; }
+
+    function eventsForDate(d){
+      var key=iso(d), dow=d.getDay(), list=[];
+      SPANS.forEach(function(s){ if(key>=s.from && key<=s.to){ list.push({allday:true,time:'',title:s.title,kind:s.kind,href:s.href}); }});
+      RECURRING.forEach(function(r){ if(r.dow===dow){ list.push({time:r.time,title:r.title,kind:r.kind,href:'/ui_kits/website/service-times.html'}); }});
+      SPECIAL.forEach(function(s){ if(s.date===key){ list.push({time:s.time,title:s.title,kind:s.kind,href:s.href}); }});
+      list.sort(function(a,b){ if(a.allday&&!b.allday) return -1; if(b.allday&&!a.allday) return 1; return (a.time||'').localeCompare(b.time||''); });
+      return list;
+    }
+
+    // ---- State -----------------------------------------------------------
+    var view='month';
+    var today=new Date();
+    var cursor=new Date(today.getFullYear(), today.getMonth(), 1);
+
+    var elView=document.getElementById('calView');
+    var elTitle=document.getElementById('calTitle');
+
+    function chip(ev,weekStyle){
+      var cls='cal-chip cal-chip--'+ev.kind+(weekStyle?' cal-wevt':'');
+      var inner;
+      if(weekStyle){
+        inner=(ev.allday?'<span class="wt">All day</span>':'<span class="wt">'+fmtTime(ev.time)+'</span>')+'<span class="wn">'+ev.title+'</span>';
+      } else {
+        inner=ev.allday?ev.title:'<b>'+fmtTime(ev.time)+'</b> '+ev.title;
+      }
+      return '<a class="'+cls+'" href="'+ev.href+'" title="'+ev.title+'">'+inner+'</a>';
+    }
+
+    function renderMonth(){
+      elTitle.innerHTML=MONTHS[cursor.getMonth()]+' <em>'+cursor.getFullYear()+'</em>';
+      var first=new Date(cursor.getFullYear(),cursor.getMonth(),1);
+      var lead=monIndex(first);
+      var start=new Date(first); start.setDate(1-lead);
+      var daysInMonth=new Date(cursor.getFullYear(),cursor.getMonth()+1,0).getDate();
+      var rows=Math.ceil((lead+daysInMonth)/7);
+      var html='<div class="cal-grid"><div class="cal-dows">';
+      DOWS.forEach(function(d){ html+='<div>'+d+'</div>'; });
+      html+='</div>';
+      var dptr=new Date(start);
+      for(var r=0;r<rows;r++){
+        html+='<div class="cal-week">';
+        for(var c=0;c<7;c++){
+          var out=dptr.getMonth()!==cursor.getMonth();
+          var isToday=sameDay(dptr,today);
+          var evs=eventsForDate(dptr);
+          var cls='cal-cell'+(out?' is-out':'')+(isToday?' is-today':'');
+          html+='<div class="'+cls+'"><div class="cal-daynum">'+dptr.getDate()+(isToday?'<span class="cal-todaytag">Today</span>':'')+'</div>';
+          var cap=3, shown=evs.slice(0,cap);
+          shown.forEach(function(ev){ html+=chip(ev,false); });
+          if(evs.length>cap){ html+='<button class="cal-more" data-jump="'+iso(dptr)+'">+'+(evs.length-cap)+' more</button>'; }
+          html+='</div>';
+          dptr.setDate(dptr.getDate()+1);
+        }
+        html+='</div>';
+      }
+      html+='</div>';
+      elView.innerHTML=html;
+      Array.prototype.forEach.call(elView.querySelectorAll('.cal-more'),function(b){
+        b.addEventListener('click',function(){
+          var p=b.getAttribute('data-jump').split('-');
+          cursor=new Date(+p[0],+p[1]-1,+p[2]);
+          view='week'; syncToggle(); render();
+        });
+      });
+    }
+
+    function renderWeek(){
+      var ws=startOfWeek(cursor);
+      var we=new Date(ws); we.setDate(we.getDate()+6);
+      var t;
+      if(ws.getMonth()===we.getMonth()){
+        t=ws.getDate()+'–'+we.getDate()+' '+MONTHS[ws.getMonth()]+' <em>'+ws.getFullYear()+'</em>';
+      } else if(ws.getFullYear()===we.getFullYear()){
+        t=ws.getDate()+' '+MONTHS[ws.getMonth()].slice(0,3)+' – '+we.getDate()+' '+MONTHS[we.getMonth()].slice(0,3)+' <em>'+ws.getFullYear()+'</em>';
+      } else {
+        t=ws.getDate()+' '+MONTHS[ws.getMonth()].slice(0,3)+' '+ws.getFullYear()+' – '+we.getDate()+' '+MONTHS[we.getMonth()].slice(0,3)+' <em>'+we.getFullYear()+'</em>';
+      }
+      elTitle.innerHTML=t;
+      var html='<div class="cal-weekview">';
+      var d=new Date(ws);
+      for(var i=0;i<7;i++){
+        var isToday=sameDay(d,today);
+        var evs=eventsForDate(d);
+        html+='<div class="cal-wcol'+(isToday?' is-today':'')+'">';
+        html+='<div class="cal-whead"><div class="cal-wdow">'+DOWS[i]+'</div><div class="cal-wdate">'+d.getDate()+'</div></div>';
+        html+='<div class="cal-wbody">';
+        if(evs.length===0){ html+='<div class="cal-wempty">—</div>'; }
+        evs.forEach(function(ev){ html+=chip(ev,true); });
+        html+='</div></div>';
+        d.setDate(d.getDate()+1);
+      }
+      html+='</div>';
+      elView.innerHTML=html;
+    }
+
+    function render(){ if(view==='month') renderMonth(); else renderWeek(); }
+    function syncToggle(){
+      document.getElementById('monthBtn').classList.toggle('is-on',view==='month');
+      document.getElementById('weekBtn').classList.toggle('is-on',view==='week');
+    }
+
+    document.getElementById('prevBtn').addEventListener('click',function(){ if(view==='month') cursor.setMonth(cursor.getMonth()-1); else cursor.setDate(cursor.getDate()-7); render(); });
+    document.getElementById('nextBtn').addEventListener('click',function(){ if(view==='month') cursor.setMonth(cursor.getMonth()+1); else cursor.setDate(cursor.getDate()+7); render(); });
+    document.getElementById('todayBtn').addEventListener('click',function(){ cursor=new Date(); render(); });
+    document.getElementById('monthBtn').addEventListener('click',function(){ view='month'; syncToggle(); render(); });
+    document.getElementById('weekBtn').addEventListener('click',function(){ view='week'; syncToggle(); render(); });
+
+    render();
+  })();
+  </script>
+
+</body>
+</html>
