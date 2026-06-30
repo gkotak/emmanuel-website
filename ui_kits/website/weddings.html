@@ -6,6 +6,19 @@
 <meta name="viewport" content="width=1320" />
 <link rel="stylesheet" href="../../styles.css" />
 <script src="../../image-slot.js"></script>
+<style>
+  .em-faq summary { cursor: pointer; list-style: none; }
+  .em-faq summary::-webkit-details-marker { display: none; }
+  .em-faq summary .em-ornament { margin-bottom: 14px; }
+  .em-faq summary h2 { font-family: var(--font-display); font-size: var(--fs-h2); font-weight: var(--fw-medium); color: var(--navy); letter-spacing: -0.015em; line-height: 1.04; margin: 0; }
+  .em-faq summary h2 em { font-style: italic; color: var(--brown); }
+  .em-faq summary h2::after { content: '+'; display: inline-block; margin-left: 14px; font-style: normal; color: var(--brown); transition: transform 0.2s ease; }
+  .em-faq[open] summary h2::after { transform: rotate(45deg); }
+  .em-faq-body { padding-top: 22px; }
+  .wedding-photo-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .wedding-photo-row .em-well { height: 360px; }
+  @media (max-width: 880px) { .wedding-photo-row { grid-template-columns: 1fr; } }
+</style>
 </head>
 <body>
 
@@ -49,9 +62,25 @@
         <p class="em-lead">If you are engaged and considering getting married at Emmanuel or St Cuthbert's, we would love to hear from you!</p>
         <p>We love weddings and are always delighted to pray for and accompany couples as they take this important step. We warmly encourage couples to attend three or four marriage preparation sessions ahead of the wedding day; these will be arranged between the priest and the couple, and will ensure that sessions are compatible with work and other commitments.</p>
         <p>If you would like to know more about weddings in either of our churches, please contact the parish office in the first instance and a member of the clergy will be in touch.</p>
-        <div class="em-well" style="height:500px;margin-top:36px">
-          <img src="../../assets/wedding-bw.jpg" alt="A bride and groom standing together at the altar during their wedding ceremony, surrounded by candles and flowers" />
-        </div>
+        <details class="em-faq" style="margin-top:36px">
+          <summary>
+            <div class="em-ornament is-leading">A common question</div>
+            <h2>Can I get married at <em>Emmanuel</em>?</h2>
+          </summary>
+          <div class="em-faq-body">
+            <p class="em-lead" style="font-style:normal;font-family:var(--font-sans);font-size:18px;color:var(--ink-soft);line-height:1.6">If you live in the parish, it is very straightforward. If you don't, we need to establish whether you have a qualifying connection — you only need <em>one</em> of the following:</p>
+            <ul class="em-checklist">
+              <li>You and/or your fiancé(e) are on the electoral roll of Emmanuel or St Cuthbert's.</li>
+              <li>One or both of you were baptised in the parish (by a Church of England service).</li>
+              <li>One or both of you have been confirmed (by a Church of England service), with the confirmation entered in a register belonging to a church in the parish.</li>
+              <li>One or both of you have parents or grandparents who were married in the parish by a Church of England service.</li>
+              <li>One or both of you have had your usual place of residence in the parish for at least 6 months.</li>
+              <li>One or both of your parents had their usual place of residence in the parish for at least 6 months during your lifetime.</li>
+              <li>One or both of you have habitually attended public worship at Church of England services in the parish for at least 6 months.</li>
+              <li>One or both of your parents have habitually attended public worship at Church of England services in the parish for at least 6 months during your lifetime.</li>
+            </ul>
+          </div>
+        </details>
       </div>
       <aside class="em-aside">
         <div class="em-aside-card">
@@ -69,35 +98,11 @@
 
   <section class="em-section">
     <div class="inner">
-      <div class="em-feature">
-        <div class="media em-well"><img src="../../assets/wedding-aisle.webp" alt="A bride and groom walking together down the aisle at Emmanuel" /></div>
-        <div>
-          <div class="em-ornament is-leading">Your wedding at Emmanuel</div>
-          <h2>A beautiful place to make your <em>vows</em></h2>
-          <p>With its soaring nave, warm brick and glowing stained glass, Emmanuel is a moving and memorable setting in which to be married — and our clergy will walk with you every step of the way, from your first enquiry to the day itself.</p>
-          <a href="#" class="em-readmore">Begin the conversation →</a>
-        </div>
+      <div class="wedding-photo-row">
+        <div class="em-well"><img src="../../assets/wedding-bw.jpg" alt="A bride and groom standing together at the altar during their wedding ceremony, surrounded by candles and flowers" /></div>
+        <div class="em-well"><img src="../../assets/wedding-couple.jpg" alt="A newly married couple sharing a joyful moment in the church after their wedding" /></div>
+        <div class="em-well"><img src="../../assets/wedding-aisle.webp" alt="A bride and groom walking together down the aisle at Emmanuel" /></div>
       </div>
-    </div>
-  </section>
-
-  <section class="em-section em-section--band">
-    <div class="inner inner--narrow">
-      <div class="em-sectionhead">
-        <div class="em-ornament is-leading">A common question</div>
-        <h2>Can I get married at <em>Emmanuel</em>?</h2>
-        <p class="em-lead" style="font-style:normal;font-family:var(--font-sans);font-size:18px;color:var(--ink-soft);line-height:1.6">If you live in the parish, it is very straightforward. If you don't, we need to establish whether you have a qualifying connection — you only need <em>one</em> of the following:</p>
-      </div>
-      <ul class="em-checklist">
-        <li>You and/or your fiancé(e) are on the electoral roll of Emmanuel or St Cuthbert's.</li>
-        <li>One or both of you were baptised in the parish (by a Church of England service).</li>
-        <li>One or both of you have been confirmed (by a Church of England service), with the confirmation entered in a register belonging to a church in the parish.</li>
-        <li>One or both of you have parents or grandparents who were married in the parish by a Church of England service.</li>
-        <li>One or both of you have had your usual place of residence in the parish for at least 6 months.</li>
-        <li>One or both of your parents had their usual place of residence in the parish for at least 6 months during your lifetime.</li>
-        <li>One or both of you have habitually attended public worship at Church of England services in the parish for at least 6 months.</li>
-        <li>One or both of your parents have habitually attended public worship at Church of England services in the parish for at least 6 months during your lifetime.</li>
-      </ul>
     </div>
   </section>
   <section class="em-callout">
