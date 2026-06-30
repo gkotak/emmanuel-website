@@ -73,6 +73,74 @@ permalink: /ui_kits/website/index.html
   .newsletter input:focus { border-color:var(--tan); }
   .newsletter button { background:var(--brown); color:#fff; border:none; padding:0 24px; font-family:inherit; font-size:13px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; cursor:pointer; }
   .newsletter button:hover { background:var(--brown-deep); }
+
+  @media (max-width: 768px) {
+    /* Services section */
+    .home-services { padding: 40px var(--gutter) 48px; }
+    .home-services .head { flex-direction: column; align-items: flex-start; gap: 10px; margin-bottom: 24px; }
+    .home-services .head h2 { font-size: 30px; }
+    .em-ornament { font-size: 10px; }
+    .em-services-grid { grid-template-columns: 1fr 1fr; gap: 0; }
+    .em-service-card { border-right: none !important; border-top: none !important; border-bottom: 1px solid rgba(138,90,59,0.18) !important; padding: 16px 0 !important; }
+    .em-service-card:last-child { border-bottom: none !important; }
+    .em-service-card .time { font-size: 32px; }
+    .em-service-card .name { font-size: 16px; margin-bottom: 4px; }
+    .em-service-card .desc { display: none; }
+
+    /* Newsletter CTA */
+    .newsletter-cta { padding: 48px var(--gutter); }
+    .newsletter-cta h2 { font-size: 36px; }
+    .newsletter-cta p { font-size: 16px; }
+    .newsletter-cta .signup { flex-direction: column; }
+    .newsletter-cta .signup input { min-width: 0; }
+    .newsletter-cta .signup button { width: 100%; }
+
+    /* Welcome section */
+    .welcome .inner { grid-template-columns: 1fr; gap: 36px; }
+    .welcome .em-well { aspect-ratio: 16/9; }
+    .welcome h2 { font-size: 34px; margin-top: 0; }
+
+    /* Get involved grid */
+    .gi-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+    .gi-head { margin-bottom: 32px; }
+    .gi-head h2 { font-size: 28px; }
+    .gi-head p { font-size: 15px; }
+    .em-tile { padding: 24px 20px; min-height: 0; gap: 10px; }
+    .em-tile h3 { font-size: 20px; }
+    .em-tile p { font-size: 13px; }
+
+    /* Support section */
+    .support { padding: 56px var(--gutter); }
+    .support .inner { grid-template-columns: 1fr; gap: 32px; }
+    .support h2 { font-size: 34px; }
+    .support .figure { font-size: 56px; }
+    .support p { font-size: 15px; }
+
+    /* Welcome section */
+    .welcome .inner { grid-template-columns: 1fr; gap: 32px; }
+    .welcome .em-well { aspect-ratio: 16/9; }
+    .welcome h2 { font-size: 32px; margin-top: 0; }
+    .welcome p { font-size: 15px; }
+
+    /* Events/news grid */
+    .news-grid { grid-template-columns: 1fr; gap: 20px; }
+    .em-news-card h3 { font-size: 20px; }
+    .em-news-card__body { padding: 20px 20px 24px; }
+
+    /* Who's who preview grid */
+    .ww-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  }
+
+  /* Hide special events & news section on mobile */
+  @media (max-width: 768px) {
+    .home-events-section { display: none; }
+  }
+
+  @media (max-width: 480px) {
+    .gi-grid { grid-template-columns: 1fr; gap: 10px; }
+    .ww-grid { grid-template-columns: 1fr 1fr; }
+    .home-services .head h2 { font-size: 26px; }
+  }
 </style>
 </head>
 <body>
@@ -231,7 +299,7 @@ permalink: /ui_kits/website/index.html
   </section>
 
   <!-- Special Events & News — live from Sanity -->
-  <section class="em-section em-section--band-warm" style="border-top:1px solid var(--line)">
+  <section class="em-section em-section--band-warm home-events-section" style="border-top:1px solid var(--line)">
     <div class="em-inner">
       <div class="em-section-head">
         <div class="titleblock"><div class="em-ornament">From the Parish</div><h2>Special events &amp; news</h2></div>
