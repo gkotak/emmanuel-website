@@ -8,6 +8,34 @@ permalink: /ui_kits/website/whos-who.html
 <title>Who's Who — Emmanuel Church, West Hampstead</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet" href="/styles.css" />
+<style>
+  @media (max-width: 768px) {
+    /* Lead clergy: stack portrait above bio */
+    .em-member--lead { grid-column: span 1 !important; grid-template-columns: 1fr !important; gap: 24px !important; }
+    .em-member--lead .em-portrait { aspect-ratio: 4/3; height: auto; }
+
+    /* Associate clergy: single column */
+    .em-clergy-assoc { grid-template-columns: 1fr !important; gap: 32px; margin-top: 32px; }
+
+    /* Staff team grid: 2 columns */
+    .em-team-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 28px; }
+    .em-member--lead + .em-team-grid { margin-top: 32px; }
+
+    /* Portrait height — keep portraits square but not too tall */
+    .em-portrait { aspect-ratio: 1/1; height: auto !important; max-height: 180px; }
+
+    /* Bio text size */
+    .em-member p { font-size: 14px; }
+    .em-member h3 { font-size: 20px; }
+    .em-member .role { font-size: 10px; }
+
+    /* Section spacing */
+    .em-section { padding-top: 48px; padding-bottom: 48px; }
+  }
+  @media (max-width: 480px) {
+    .em-team-grid { grid-template-columns: 1fr !important; }
+  }
+</style>
 </head>
 <body>
 

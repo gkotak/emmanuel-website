@@ -34,6 +34,24 @@ permalink: /ui_kits/website/events.html
   .ev-calbar .t { font-family:var(--font-display); font-size:25px; font-weight:var(--fw-semibold); color:var(--navy); line-height:1.25; }
   .ev-calbar .t span { font-family:var(--font-editorial); font-style:italic; color:var(--brown); }
   .ev-calbar p { font-family:var(--font-sans); font-size:15px; color:var(--muted); margin:7px 0 0; }
+
+  @media (max-width: 768px) {
+    /* Featured event: stack poster above body */
+    .ev-feature { grid-template-columns: 1fr; margin-bottom: 36px; }
+    .ev-feature .poster { padding: 28px; }
+    .ev-feature .poster img { max-width: 260px; }
+    .ev-feature .body { padding: 28px 24px 32px; }
+    .ev-feature h2 { font-size: 30px; }
+
+    /* Event cards: single column */
+    .ev-grid { grid-template-columns: 1fr; gap: 24px; }
+    .ev-card h3 { font-size: 22px; }
+    .ev-card .meta { padding: 22px 22px 26px; }
+
+    /* Calendar bar: stack */
+    .ev-calbar { flex-direction: column; align-items: flex-start; gap: 16px; padding: 20px 20px; margin-bottom: 32px; }
+    .ev-calbar .t { font-size: 20px; }
+  }
 </style>
 </head>
 <body>

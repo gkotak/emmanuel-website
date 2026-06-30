@@ -20,6 +20,24 @@ permalink: /ui_kits/website/weddings.html
   .wedding-photo-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
   .wedding-photo-row .em-well { height: 360px; }
   @media (max-width: 880px) { .wedding-photo-row { grid-template-columns: 1fr; } }
+
+  @media (max-width: 768px) {
+    /* Page head meta-row: stack vertically */
+    .em-pagehead .meta-row { flex-direction: column; gap: 14px; }
+
+    /* Intro: stack aside below body */
+    .em-intro .inner { grid-template-columns: 1fr !important; gap: 32px; }
+
+    /* FAQ heading size */
+    .em-faq summary h2 { font-size: 26px; }
+
+    /* Photo row: reduce height so 3 stacked images aren't overwhelming */
+    .wedding-photo-row { grid-template-columns: repeat(3, 1fr) !important; gap: 8px; margin-top: 20px; }
+    .wedding-photo-row .em-well { height: 110px; }
+
+    /* Aside card: no sticky on mobile */
+    .em-aside { position: static; }
+  }
 </style>
 </head>
 <body>
