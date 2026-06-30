@@ -424,6 +424,11 @@
 .em-portrait > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
 .em-portrait { position: relative; overflow: hidden; }
 
+/* ---------- Static image placeholder (replaces interactive image-slot) ---------- */
+.em-img-placeholder { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: var(--paper-warm); }
+.em-img-placeholder svg { width: 40px; height: 40px; opacity: 0.25; }
+.em-well .em-img-placeholder { position: absolute; inset: 0; }
+
 /* ============================================================
    Site navigation — dropdown menus on the Classic header
    ============================================================ */
