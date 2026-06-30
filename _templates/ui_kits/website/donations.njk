@@ -1,10 +1,13 @@
+---
+permalink: /ui_kits/website/donations.html
+---
 <!doctype html>
 <html lang="en-GB">
 <head>
 <meta charset="utf-8" />
 <title>How Can I Help? — Emmanuel Church, West Hampstead</title>
 <meta name="viewport" content="width=1320" />
-<link rel="stylesheet" href="../../styles.css" />
+<link rel="stylesheet" href="/styles.css" />
 <style>
   .dn-costs { display:grid; grid-template-columns:repeat(5,1fr); gap:0; border-top:1.5px solid var(--rule-ink); border-bottom:1px solid var(--line); }
   .dn-cost { padding:32px 28px 34px; border-right:1px solid var(--line); display:flex; flex-direction:column; gap:14px; }
@@ -31,37 +34,13 @@
 </head>
 <body>
 
-  <div class="em-utility">
-    <div class="wrap">
-      <span>Lyncroft Gardens, London NW6 1JU&nbsp;&nbsp;·&nbsp;&nbsp;07751 534 297</span>
-      <span class="socials">Facebook&nbsp;&nbsp;·&nbsp;&nbsp;Instagram&nbsp;&nbsp;·&nbsp;&nbsp;YouTube</span>
-    </div>
-  </div>
-  <header class="em-header">
-    <div class="wrap">
-      <a href="index.html" class="em-brand">
-        <img src="../../assets/logo.png" alt="Emmanuel Church monogram" />
-        <div><div class="name">Emmanuel</div><div class="sub">Church · West Hampstead</div></div>
-      </a>
-      <nav class="em-nav">
-        <div class="em-nav-item"><a href="im-new.html" class="em-nav-link">I'm New</a></div>
-        <div class="em-nav-item"><a href="#" class="em-nav-link has-sub">About Us</a><div class="em-dropdown"><a href="whos-who.html">Our Team</a><a href="history.html">History</a><a href="annual-reports.html">Annual Reports</a><a href="emmanuel-school.html">Emmanuel School</a><a href="contact.html">Contact Us</a></div></div>
-        <div class="em-nav-item"><a href="#" class="em-nav-link has-sub">Life Events</a><div class="em-dropdown"><a href="baptisms.html">Baptisms &amp; Confirmation</a><a href="weddings.html">Weddings &amp; Banns of Marriage</a><a href="funerals.html">Funerals</a></div></div>
-        <div class="em-nav-item"><a href="#" class="em-nav-link has-sub">What’s On</a><div class="em-dropdown"><a href="service-times.html">Service &amp; Prayer Times</a><a href="calendar.html">Events Calendar</a><a href="events.html">Special Events &amp; News</a><a href="room-hire.html">Room Hire</a></div></div>
-        <div class="em-nav-item"><a href="#" class="em-nav-link has-sub">Get Involved</a><div class="em-dropdown"><a href="children-families.html">Children &amp; Families</a><a href="music.html">Music &amp; Choir</a><a href="food-bank.html">Community Outreach</a><a href="donations.html#other-ways">Volunteer</a><a href="electoral-roll.html">Electoral Roll</a></div></div>
-              <div class="em-nav-item"><a href="safeguarding.html" class="em-nav-link">Safeguarding</a></div>
-      </nav>
-      <div class="em-header-actions">
-        <a href="donations.html" class="em-btn em-btn--primary em-btn--sm is-active">Donate</a>
-      </div>
-    </div>
-  </header>
+{% include "header.njk" %}
 
   <section class="em-pagehead em-pagehead--band">
     <div class="inner">
       <div class="em-breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><span>Donations &amp; How You Can Help</span></div>
       <h1>How can I <em>help?</em></h1>
-      <p class="deck">It costs £15,000 a month to run Emmanuel. We raise all of it ourselves, locally — it doesn’t come from the Government or the Church of England.</p>
+      <p class="deck">It costs £15,000 a month to run Emmanuel. We raise all of it ourselves, locally — it doesn't come from the Government or the Church of England.</p>
       <div class="meta-row">
         <div class="item"><div class="k">Monthly running cost</div><div class="v">£15,000</div></div>
         <div class="item"><div class="k">Funded by</div><div class="v">Our congregation</div></div>
@@ -130,7 +109,7 @@
         <aside class="em-aside">
           <div class="dn-giftaid" style="margin-top:0">
             <div class="fig">+25%</div>
-            <div class="txt">Gift Aid adds <b>25p to every £1</b> you give, reclaimed from HMRC — if you’re a UK taxpayer, just tick the box.</div>
+            <div class="txt">Gift Aid adds <b>25p to every £1</b> you give, reclaimed from HMRC — if you're a UK taxpayer, just tick the box.</div>
           </div>
           <div class="em-aside-card" style="margin-top:24px">
             <h4>Why a regular gift helps most</h4>
@@ -200,7 +179,7 @@
           <div><h4>Small building works</h4><p>Lend a hand with the practical upkeep of the building.</p></div>
         </div>
       </div>
-      <p style="font-family:var(--font-sans); font-size:16px; line-height:1.6; color:var(--ink-soft); margin:32px 0 0; max-width:760px">If you’d like to help us, please talk to one of the clergy or Church Wardens, or email us at <a href="mailto:info@emmanuelnw6.com" style="color:var(--brown);text-decoration:underline;text-underline-offset:3px">info@emmanuelnw6.com</a>.</p>
+      <p style="font-family:var(--font-sans); font-size:16px; line-height:1.6; color:var(--ink-soft); margin:32px 0 0; max-width:760px">If you'd like to help us, please talk to one of the clergy or Church Wardens, or email us at <a href="mailto:info@emmanuelnw6.com" style="color:var(--brown);text-decoration:underline;text-underline-offset:3px">info@emmanuelnw6.com</a>.</p>
     </div>
   </section>
 
@@ -212,64 +191,7 @@
     </div>
   </section>
 
-  <footer class="em-footer">
-    <div class="inner">
-      <div class="em-footer-top">
-        <div>
-          <div class="lockup"><img src="../../assets/logo.png" alt="Emmanuel Church" /><span class="name">Emmanuel Church</span></div>
-          <p>Lyncroft Gardens<br/>London NW6 1JU</p>
-          <p>07751 534 297<br/>info@emmanuelnw6.com</p>
-          <p style="font-size:12.5px;color:var(--on-dark-faint)">Registered Charity No. 1142383</p>
-        </div>
-        <div>
-          <h4>Explore</h4>
-          <ul>
-            <li><a href="im-new.html">I'm New</a></li>
-            <li><a href="whos-who.html">About Us</a></li>
-            <li><a href="history.html">History</a></li>
-            <li><a href="#">Events Calendar</a></li>
-            <li><a href="room-hire.html">Room Hire</a></li>
-            <li><a href="donations.html">Donate</a></li>
-            <li><a href="children-families.html">Get Involved</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>Worship</h4>
-          <ul>
-            <li><a href="service-times.html">Sunday 8:00 — Said BCP</a></li>
-            <li><a href="service-times.html">Sunday 9:15 — Joyful Noise</a></li>
-            <li><a href="service-times.html">Sunday 10:30 — Sung Eucharist</a></li>
-            <li><a href="service-times.html">Wednesday 12:30 — Healing</a></li>
-            <li><a href="service-times.html" style="color:var(--tan);font-weight:600">All service times →</a></li>
-          </ul>
-        </div>
-        <div class="newsletter">
-          <h4>Newsletter</h4>
-          <p>Stay connected with what's happening at Emmanuel — sent fortnightly to your inbox.</p>
-          <form onsubmit="event.preventDefault(); this.querySelector('input').value=''; this.querySelector('button').textContent='Joined ✓'; setTimeout(()=>{this.querySelector('button').textContent='Join';}, 1800);">
-            <input type="email" placeholder="Your email address" required />
-            <button type="submit">Join</button>
-          </form>
-          <div class="footer-badges">
-            <span>Church of England</span>
-            <span>Diocese of London</span>
-            <span>Inclusive Church</span>
-          </div>
-        </div>
-      </div>
-      <div class="em-footer-bot">
-        <div class="foot-links">
-          <a href="contact.html">Contact Us</a>
-          <a href="emmanuel-school.html">Emmanuel School</a>
-          <a href="safeguarding.html">Safeguarding</a>
-          <a href="privacy-policy.html">Privacy Policy</a>
-          <a href="annual-reports.html">Annual Reports</a>
-          <a href="donations.html">Donate</a>
-        </div>
-        <div>© 2026 Emmanuel Church, West Hampstead</div>
-      </div>
-    </div>
-  </footer>
+{% include "footer.njk" %}
 
 </body>
 </html>

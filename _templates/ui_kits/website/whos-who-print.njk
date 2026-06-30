@@ -1,10 +1,13 @@
+---
+permalink: /ui_kits/website/whos-who-print.html
+---
 <!doctype html>
 <html lang="en-GB">
 <head>
 <meta charset="utf-8" />
 <title>Who's Who — Emmanuel Church, West Hampstead</title>
 <meta name="viewport" content="width=1320" />
-<link rel="stylesheet" href="../../styles.css" />
+<link rel="stylesheet" href="/styles.css" />
 <style>
 @media print {
   @page { size: A4 portrait; margin: 10mm; }
@@ -23,38 +26,14 @@
 </head>
 <body>
 
-  <div class="em-utility">
-    <div class="wrap">
-      <span>Lyncroft Gardens, London NW6 1JU&nbsp;&nbsp;·&nbsp;&nbsp;07751 534 297</span>
-      <span class="socials">Facebook&nbsp;&nbsp;·&nbsp;&nbsp;Instagram&nbsp;&nbsp;·&nbsp;&nbsp;YouTube</span>
-    </div>
-  </div>
-  <header class="em-header">
-    <div class="wrap">
-      <a href="index.html" class="em-brand">
-        <img src="../../assets/logo.png" alt="Emmanuel Church monogram" />
-        <div><div class="name">Emmanuel</div><div class="sub">Church · West Hampstead</div></div>
-      </a>
-      <nav class="em-nav">
-        <div class="em-nav-item"><a href="im-new.html" class="em-nav-link">I'm New</a></div>
-        <div class="em-nav-item"><a href="#" class="em-nav-link has-sub is-active">About Us</a><div class="em-dropdown"><a href="whos-who.html">Our Team</a><a href="history.html">History</a><a href="annual-reports.html">Annual Reports</a><a href="emmanuel-school.html">Emmanuel School</a><a href="contact.html">Contact Us</a></div></div>
-        
-        <div class="em-nav-item"><a href="#" class="em-nav-link has-sub">Life Events</a><div class="em-dropdown"><a href="baptisms.html">Baptisms &amp; Confirmation</a><a href="weddings.html">Weddings &amp; Banns of Marriage</a><a href="funerals.html">Funerals</a></div></div>
-        <div class="em-nav-item"><a href="#" class="em-nav-link has-sub">What’s On</a><div class="em-dropdown"><a href="service-times.html">Service &amp; Prayer Times</a><a href="calendar.html">Events Calendar</a><a href="events.html">Special Events &amp; News</a><a href="room-hire.html">Room Hire</a></div></div>
-        <div class="em-nav-item"><a href="#" class="em-nav-link has-sub">Get Involved</a><div class="em-dropdown"><a href="children-families.html">Children &amp; Families</a><a href="music.html">Music &amp; Choir</a><a href="food-bank.html">Community Outreach</a><a href="donations.html#other-ways">Volunteer</a><a href="electoral-roll.html">Electoral Roll</a></div></div>
-              <div class="em-nav-item"><a href="safeguarding.html" class="em-nav-link">Safeguarding</a></div>
-      </nav>
-      <div class="em-header-actions">
-        <a href="donations.html" class="em-btn em-btn--primary em-btn--sm">Donate</a>
-      </div>
-    </div>
-  </header>
+{% include "header.njk" %}
+
   <section class="em-pagehead em-pagehead--band em-pagehead--plain">
     <div class="inner">
       <div class="em-breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><a href="whos-who.html">About Us</a><span class="sep">/</span><span>Who's Who</span></div>
       <h1>Meet the <em>Team</em></h1>
       <p class="deck">The clergy, staff and volunteers who together share in the life, worship and care of Emmanuel.</p>
-      
+
     </div>
   </section>
   <section class="em-section">
@@ -72,14 +51,14 @@
         </div>
       </div>
       <div class="em-clergy-assoc">
-        
+
         <div class="em-member">
           <div class="em-portrait"><div class="em-img-placeholder"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div></div>
           <div class="role">Associate Curate</div>
           <h3>Mthr Melissa Dickinson</h3>
           <p class="pending">A fuller bio will follow shortly.</p>
         </div>
-        
+
         <div class="em-member">
           <div class="em-portrait"><div class="em-img-placeholder"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div></div>
           <div class="role">Associate Priest</div>
@@ -94,35 +73,35 @@
     <div class="inner">
       <div class="em-ornament is-leading">Staff &amp; volunteers</div>
       <div class="em-team-grid">
-        
+
         <div class="em-member">
           <div class="em-portrait"><div class="em-img-placeholder"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div></div>
           <div class="role">Churchwardens</div>
           <h3>To be confirmed</h3>
           <p class="pending">Churchwarden names and bios to be added.</p>
         </div>
-        
+
         <div class="em-member">
           <div class="em-portrait"><div class="em-img-placeholder"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div></div>
           <div class="role">Operations Manager</div>
           <h3>To be confirmed</h3>
           <p class="pending">Bio to be taken from the current website.</p>
         </div>
-        
+
         <div class="em-member">
           <div class="em-portrait"><div class="em-img-placeholder"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div></div>
           <div class="role">Director of Music</div>
           <h3>Will Rose</h3>
-          <p>Will studied Music at Queens’ College, Cambridge, where he was a Choral Scholar, winning several prestigious conducting prizes. Away from Emmanuel he is a music teacher at a top London secondary school. <a href="music.html" style="color:var(--brown);text-decoration:underline">Read more on the Music page →</a></p>
+          <p>Will studied Music at Queens' College, Cambridge, where he was a Choral Scholar, winning several prestigious conducting prizes. Away from Emmanuel he is a music teacher at a top London secondary school. <a href="music.html" style="color:var(--brown);text-decoration:underline">Read more on the Music page →</a></p>
         </div>
-        
+
         <div class="em-member">
           <div class="em-portrait"><div class="em-img-placeholder"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div></div>
           <div class="role">Children's Champion</div>
           <h3>Claire Hammett</h3>
           <p class="pending">Brief bio to follow.</p>
         </div>
-        
+
         <div class="em-member">
           <div class="em-portrait"><div class="em-img-placeholder"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div></div>
           <div class="role">Youth Worker</div>
@@ -138,63 +117,8 @@
       <div style="display:flex;gap:14px;flex-wrap:wrap"><a href="im-new.html" class="em-btn em-btn--tan">Planning your first visit</a><a href="contact.html" class="em-btn em-btn--ghost-light">Contact us</a></div>
     </div>
   </section>
-  <footer class="em-footer">
-    <div class="inner">
-      <div class="em-footer-top">
-        <div>
-          <div class="lockup"><img src="../../assets/logo.png" alt="Emmanuel Church" /><span class="name">Emmanuel Church</span></div>
-          <p>Lyncroft Gardens<br/>London NW6 1JU</p>
-          <p>07751 534 297<br/>info@emmanuelnw6.com</p>
-          <p style="font-size:12.5px;color:var(--on-dark-faint)">Registered Charity No. 1142383</p>
-        </div>
-        <div>
-          <h4>Explore</h4>
-          <ul>
-            <li><a href="im-new.html">I'm New</a></li>
-            <li><a href="whos-who.html">About Us</a></li>
-            <li><a href="#">Events Calendar</a></li>
-            <li><a href="room-hire.html">Room Hire</a></li>
-            <li><a href="donations.html">Donate</a></li>
-            <li><a href="children-families.html">Get Involved</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>Worship</h4>
-          <ul>
-            <li><a href="service-times.html">Sunday 8:00 — Said BCP</a></li>
-            <li><a href="service-times.html">Sunday 9:15 — Joyful Noise</a></li>
-            <li><a href="service-times.html">Sunday 10:30 — Sung Eucharist</a></li>
-            <li><a href="service-times.html">Wednesday 12:30 — Healing</a></li>
-            <li><a href="service-times.html" style="color:var(--tan);font-weight:600">All service times →</a></li>
-          </ul>
-        </div>
-        <div class="newsletter">
-          <h4>Newsletter</h4>
-          <p>Stay connected with what's happening at Emmanuel — sent fortnightly to your inbox.</p>
-          <form onsubmit="event.preventDefault(); this.querySelector('input').value=''; this.querySelector('button').textContent='Joined ✓'; setTimeout(()=>{this.querySelector('button').textContent='Join';}, 1800);">
-            <input type="email" placeholder="Your email address" required />
-            <button type="submit">Join</button>
-          </form>
-          <div class="footer-badges">
-            <span>Church of England</span>
-            <span>Diocese of London</span>
-            <span>Inclusive Church</span>
-          </div>
-        </div>
-      </div>
-      <div class="em-footer-bot">
-        <div class="foot-links">
-          <a href="contact.html">Contact Us</a>
-          <a href="emmanuel-school.html">Emmanuel School</a>
-          <a href="safeguarding.html">Safeguarding</a>
-          <a href="privacy-policy.html">Privacy Policy</a>
-          <a href="annual-reports.html">Annual Reports</a>
-          <a href="#">ChurchSuite Login</a>
-        </div>
-        <div>© 2026 Emmanuel Church, West Hampstead</div>
-      </div>
-    </div>
-  </footer>
+
+{% include "footer.njk" %}
 
 <script>
 (function(){
