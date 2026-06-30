@@ -211,7 +211,7 @@
   letter-spacing: var(--tracking-display);
   margin: 10px 0 0;
 }
-.em-section-head h2 em { font-style: italic; color: var(--brown); }
+.em-section-head h2 em { font-style: italic; color: var(--navy); }
 .em-section-head--center { flex-direction: column; align-items: center; text-align: center; border-bottom: none; }
 
 /* heavy editorial rule variant */
@@ -526,7 +526,7 @@
   margin: 0;
   max-width: 1000px;
 }
-.em-pagehead h1 em { font-style: italic; color: var(--brown); }
+.em-pagehead h1 em { font-style: italic; color: var(--navy); }
 .em-pagehead .deck {
   font-family: var(--font-editorial);
   font-size: 24px;
@@ -593,7 +593,7 @@
 .em-section .inner--narrow { max-width: var(--container-narrow); }
 .em-sectionhead { max-width: 780px; margin-bottom: 52px; }
 .em-sectionhead h2 { font-family: var(--font-display); font-size: var(--fs-h2); font-weight: var(--fw-medium); color: var(--navy); letter-spacing: -0.015em; line-height: 1.04; margin: 14px 0 0; }
-.em-sectionhead h2 em { font-style: italic; color: var(--brown); }
+.em-sectionhead h2 em { font-style: italic; color: var(--navy); }
 .em-sectionhead .em-lead { margin-top: 22px; }
 
 /* Sacrament / info card stack */
@@ -666,5 +666,5 @@
 .em-feature--reverse .media { order: 2; }
 .em-feature .media { aspect-ratio: 4/3; }
 .em-feature h2 { font-family: var(--font-display); font-size: var(--fs-display); font-weight: var(--fw-medium); color: var(--navy); line-height: 1.02; letter-spacing: -0.015em; margin: 16px 0 24px; }
-.em-feature h2 em { font-style: italic; color: var(--brown); }
+.em-feature h2 em { font-style: italic; color: var(--navy); }
 .em-feature p { font-family: var(--font-sans); font-size: var(--fs-body); line-height: var(--lh-relaxed); color: var(--ink-soft); margin: 0 0 20px; }
