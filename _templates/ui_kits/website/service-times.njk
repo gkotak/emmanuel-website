@@ -25,6 +25,36 @@ permalink: /ui_kits/website/service-times.html
   .st-note { font-size: 14px; color: var(--muted); font-style: italic; font-family: var(--font-editorial); font-size: 17px; }
   .st-spacer { height: 110px; }
   .em-row { grid-template-columns: 160px 1fr 1.8fr; cursor: default; }
+
+  @media (max-width: 768px) {
+    /* Intro section: stack aside below body text */
+    .st-intro { padding: 40px var(--gutter) 32px; }
+    .st-intro .inner { grid-template-columns: 1fr; gap: 32px; }
+    .st-intro .lead-para { font-size: 20px; margin-bottom: 18px; }
+    .st-intro p { font-size: 15px; }
+
+    /* Service group headings */
+    .st-group { padding: 0 var(--gutter); }
+    .st-group + .st-group { margin-top: 40px; }
+    .st-grouphead { flex-direction: column; align-items: flex-start; gap: 6px; }
+    .st-grouphead h2 { font-size: 36px; }
+
+    /* Service rows: stack into 2 rows — day+time+name on top, description below */
+    .em-row {
+      grid-template-columns: 1fr;
+      gap: 6px;
+      padding: 20px 0;
+    }
+    .em-row__day { padding-top: 0; }
+    .em-row__lead { flex-direction: row; align-items: baseline; gap: 12px; }
+    .em-row__lead .t { font-size: 28px; }
+    .em-row__desc { font-size: 14px; color: var(--muted); }
+    .em-row__arr { display: none; }
+
+    /* Trailing note and spacer */
+    .st-note { font-size: 15px; }
+    .st-spacer { height: 48px; }
+  }
 </style>
 </head>
 <body>
