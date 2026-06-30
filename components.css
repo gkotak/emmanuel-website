@@ -402,6 +402,40 @@
 .em-footer .footer-badges span { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--on-dark-faint); font-weight: var(--fw-semibold); }
 .em-footer .footer-badges span:not(:last-child)::after { content: '·'; margin-left: 16px; opacity: 0.5; }
 
+/* ---------- Footer newsletter form ---------- */
+.em-footer .newsletter form { display: flex; flex-direction: column; gap: 10px; margin-top: 16px; }
+.em-footer .newsletter input[type="email"] {
+  width: 100%;
+  height: 48px;
+  padding: 0 18px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.22);
+  border-radius: 6px;
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  outline: none;
+  transition: border-color var(--dur-fast) var(--ease);
+}
+.em-footer .newsletter input[type="email"]::placeholder { color: rgba(255,255,255,0.4); }
+.em-footer .newsletter input[type="email"]:focus { border-color: var(--tan); }
+.em-footer .newsletter button {
+  height: 48px;
+  padding: 0 24px;
+  background: var(--tan);
+  color: var(--navy-deep);
+  border: none;
+  border-radius: 6px;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: var(--fw-bold);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background var(--dur-fast) var(--ease);
+}
+.em-footer .newsletter button:hover { background: var(--tan-soft); }
+
 /* ---------- Partners strip ---------- */
 
 .em-partners { background: var(--surface-page); padding: 56px var(--gutter); border-top: 1px solid var(--border-hairline); }
@@ -702,27 +736,45 @@
   .em-utility { display: none; }
 
   /* --- Header --- */
-  .em-header .wrap { padding: 14px 20px; flex-wrap: wrap; gap: 0; }
+  .em-header .wrap {
+    padding: 14px 20px;
+    flex-wrap: wrap;
+    gap: 0;
+    position: relative;
+  }
+  .em-brand { flex: 1; }
   .em-brand .name { font-size: 22px; }
   .em-brand .sub { display: none; }
   .em-hamburger { display: flex; }
+  .em-header-actions { gap: 0; }
   .em-header-actions .em-btn { display: none; }
 
-  /* --- Mobile nav drawer --- */
+  /* --- Mobile nav drawer: full-width panel below header bar --- */
   .em-nav {
     display: none;
-    flex-direction: column; align-items: stretch;
-    width: 100%; order: 3; gap: 0;
+    flex-direction: column;
+    align-items: stretch;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 200;
+    gap: 0;
     border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
     padding: 8px 0 16px;
     background: var(--surface-page);
+    box-shadow: 0 8px 24px rgba(12,36,64,0.12);
   }
   .em-nav.is-open { display: flex; }
   .em-nav-item { flex-direction: column; align-items: stretch; }
   .em-nav-link {
-    display: block; padding: 12px 20px !important;
-    font-size: 15px !important; font-weight: var(--fw-medium);
+    display: block;
+    padding: 12px 20px !important;
+    font-size: 15px !important;
+    font-weight: var(--fw-medium);
     border-bottom: none;
+    color: var(--ink);
   }
   .em-nav-link.has-sub::after { float: right; margin-top: 5px; }
   .em-dropdown {
@@ -734,11 +786,6 @@
   .em-nav-item:hover .em-dropdown,
   .em-nav-item:focus-within .em-dropdown { display: block; }
   .em-dropdown a { padding: 9px 20px 9px 32px !important; font-size: 14px; }
-
-  /* Donate button back in nav on mobile */
-  .em-nav.is-open::after {
-    content: none;
-  }
 
   /* --- Tokens: tighten vertical rhythm on mobile --- */
   :root {
