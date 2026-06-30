@@ -785,6 +785,10 @@
   /* --- Callout --- */
   .em-callout .inner { flex-direction: column; gap: 24px; }
 
+  /* --- Partners bar --- */
+  .em-partners { padding: 32px var(--gutter); }
+  .em-partners .inner { gap: 10px; justify-content: flex-start; }
+
   /* --- Footer --- */
   .em-footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
   .em-footer .newsletter form { flex-direction: column; }
