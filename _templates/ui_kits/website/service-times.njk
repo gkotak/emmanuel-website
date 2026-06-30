@@ -40,8 +40,8 @@ permalink: /ui_kits/website/service-times.html
       <h1>Service &amp; <em>Prayer</em> Times</h1>
       <p class="deck">The Eucharist and the daily office shape the rhythm of our shared life. All are welcome at every service.</p>
       <div class="meta-row">
-        <div class="item"><div class="k">Sundays</div><div class="v">8:00 · 9:15 · 10:30</div></div>
-        <div class="item"><div class="k">Weekdays</div><div class="v">Morning Prayer 9:00</div></div>
+        <div class="item"><div class="k">Sundays</div><div class="v">{% set sundayTimes = [] %}{% for st in serviceTimes %}{% if st.group === "sunday" %}{% set sundayTimes = (sundayTimes.push(st.time), sundayTimes) %}{% endif %}{% endfor %}{{ sundayTimes | join(" · ") }}</div></div>
+        <div class="item"><div class="k">Weekdays</div><div class="v">{% for st in serviceTimes %}{% if st.name === "Morning Prayer" %}Morning Prayer {{ st.time }}{% endif %}{% endfor %}</div></div>
         <div class="item"><div class="k">Where</div><div class="v">11 Lyncroft Gardens, NW6</div></div>
       </div>
     </div>

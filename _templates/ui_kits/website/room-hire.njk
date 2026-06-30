@@ -26,9 +26,9 @@ permalink: /ui_kits/website/room-hire.html
       <h1>Room <em>Hire</em></h1>
       <p class="deck">From children's parties to community meetings, meditation sessions and concerts — Emmanuel has a range of beautiful spaces to hire.</p>
       <div class="meta-row">
-        <div class="item"><div class="k">Rooms</div><div class="v">7 spaces</div></div>
+        <div class="item"><div class="k">Rooms</div><div class="v">{{ roomRates | length }} spaces</div></div>
         <div class="item"><div class="k">Capacity</div><div class="v">Up to 350</div></div>
-        <div class="item"><div class="k">From</div><div class="v">£21 / hour</div></div>
+        <div class="item"><div class="k">From</div><div class="v">{% for r in roomRates %}{% if loop.first %}{{ r.rate }}{% endif %}{% endfor %}</div></div>
       </div>
     </div>
   </section>

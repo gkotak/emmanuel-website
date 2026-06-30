@@ -105,36 +105,13 @@ permalink: /ui_kits/website/index.html
         <a href="/ui_kits/website/service-times.html" class="em-readmore">All services →</a>
       </div>
       <div class="em-services-grid">
+        {% for st in serviceTimes %}
         <div class="em-service-card">
-          <div class="time"><span class="day">Sunday</span>8:00<span class="am">am</span></div>
-          <div class="name">Said Eucharist (BCP)</div>
-          <p class="desc">A 30-minute service offering a quiet, reflective start to the week, said according to the Book of Common Prayer.</p>
+          <div class="time"><span class="day">{{ st.day }}</span>{{ st.time }}{% if st.group === "sunday" %}<span class="am">am</span>{% endif %}</div>
+          <div class="name">{{ st.name }}</div>
+          {% if st.description %}<p class="desc">{{ st.description }}</p>{% endif %}
         </div>
-        <div class="em-service-card">
-          <div class="time"><span class="day">Sunday</span>9:15<span class="am">am</span></div>
-          <div class="name">Joyful Noise Eucharist</div>
-          <p class="desc">A lively celebration designed for pre-school children and families. Harin leads our music on the guitar. Not during school holidays.</p>
-        </div>
-        <div class="em-service-card">
-          <div class="time"><span class="day">Sunday</span>10:30<span class="am">am</span></div>
-          <div class="name">Sung Eucharist</div>
-          <p class="desc">Our more traditional celebration of the Eucharist with music led by our parish choir, joined in term-time by Children's &amp; Youth Church.</p>
-        </div>
-        <div class="em-service-card">
-          <div class="time"><span class="day">Monday</span>18:30</div>
-          <div class="name">Contemplative Eucharist</div>
-          <p class="desc">A simple, quiet service with a guided meditation and time for contemplative prayer.</p>
-        </div>
-        <div class="em-service-card">
-          <div class="time"><span class="day">Wednesday</span>12:30</div>
-          <div class="name">Healing Eucharist</div>
-          <p class="desc">A said Eucharist focused on prayers of healing — for ourselves, the world, and those commended to our prayers. Anointing offered.</p>
-        </div>
-        <div class="em-service-card">
-          <div class="time"><span class="day">Monday</span>14:30</div>
-          <div class="name">School Collective Worship</div>
-          <p class="desc">Emmanuel School joins us for church once a week. On the first Monday of the month we celebrate the Eucharist together.</p>
-        </div>
+        {% endfor %}
       </div>
     </div>
   </section>
