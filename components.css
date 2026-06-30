@@ -673,3 +673,140 @@
 .em-feature h2 { font-family: var(--font-display); font-size: var(--fs-display); font-weight: var(--fw-medium); color: var(--navy); line-height: 1.02; letter-spacing: -0.015em; margin: 16px 0 24px; }
 .em-feature h2 em { font-style: italic; color: var(--navy); }
 .em-feature p { font-family: var(--font-sans); font-size: var(--fs-body); line-height: var(--lh-relaxed); color: var(--ink-soft); margin: 0 0 20px; }
+
+/* ============================================================
+   RESPONSIVE — Mobile-first breakpoints
+   Breakpoint: 768px (tablet/mobile boundary)
+   ============================================================ */
+
+/* ---------- Hamburger button ---------- */
+.em-hamburger {
+  display: none;
+  flex-direction: column; justify-content: center; align-items: center;
+  gap: 5px; width: 40px; height: 40px;
+  background: none; border: none; cursor: pointer; padding: 4px;
+}
+.em-hamburger span {
+  display: block; width: 22px; height: 2px;
+  background: var(--navy); border-radius: 2px;
+  transition: transform 0.22s ease, opacity 0.18s ease;
+  transform-origin: center;
+}
+.em-hamburger.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.em-hamburger.is-open span:nth-child(2) { opacity: 0; }
+.em-hamburger.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+@media (max-width: 768px) {
+
+  /* --- Utility bar --- */
+  .em-utility { display: none; }
+
+  /* --- Header --- */
+  .em-header .wrap { padding: 14px 20px; flex-wrap: wrap; gap: 0; }
+  .em-brand .name { font-size: 22px; }
+  .em-brand .sub { display: none; }
+  .em-hamburger { display: flex; }
+  .em-header-actions .em-btn { display: none; }
+
+  /* --- Mobile nav drawer --- */
+  .em-nav {
+    display: none;
+    flex-direction: column; align-items: stretch;
+    width: 100%; order: 3; gap: 0;
+    border-top: 1px solid var(--line);
+    padding: 8px 0 16px;
+    background: var(--surface-page);
+  }
+  .em-nav.is-open { display: flex; }
+  .em-nav-item { flex-direction: column; align-items: stretch; }
+  .em-nav-link {
+    display: block; padding: 12px 20px !important;
+    font-size: 15px !important; font-weight: var(--fw-medium);
+    border-bottom: none;
+  }
+  .em-nav-link.has-sub::after { float: right; margin-top: 5px; }
+  .em-dropdown {
+    position: static !important; opacity: 1 !important; visibility: visible !important;
+    box-shadow: none !important; border: none !important;
+    background: var(--cream); padding: 4px 0 8px;
+    display: none;
+  }
+  .em-nav-item:hover .em-dropdown,
+  .em-nav-item:focus-within .em-dropdown { display: block; }
+  .em-dropdown a { padding: 9px 20px 9px 32px !important; font-size: 14px; }
+
+  /* Donate button back in nav on mobile */
+  .em-nav.is-open::after {
+    content: none;
+  }
+
+  /* --- Tokens: tighten vertical rhythm on mobile --- */
+  :root {
+    --section-y: 56px;
+    --gutter: 20px;
+  }
+
+  /* --- Hero --- */
+  .em-hero { height: 480px; }
+  .em-hero h1 { font-size: 42px; }
+  .em-hero__tagline { font-size: 16px; }
+  .em-hero__cta { flex-direction: column; }
+
+  /* --- Page head --- */
+  .em-pagehead h1 { font-size: 36px; }
+  .em-pagehead .deck { font-size: 16px; }
+  .em-pagehead .meta-row { flex-direction: column; gap: 16px; }
+  .em-pagehead .meta-row .item { border-left: none; padding-left: 0; }
+  .em-breadcrumb { font-size: 11px; }
+
+  /* --- Section heads --- */
+  .em-sectionhead h2, .em-section-head h2 { font-size: 32px; }
+
+  /* --- Service grid (homepage) --- */
+  .em-services-grid { grid-template-columns: 1fr 1fr; }
+
+  /* --- Intro / aside layout --- */
+  .em-intro .inner { grid-template-columns: 1fr; gap: 40px; }
+  .em-split { grid-template-columns: 1fr; gap: 40px; }
+  .em-split--wide-aside { grid-template-columns: 1fr; }
+
+  /* --- Team grid --- */
+  .em-team-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+  .em-member--lead { grid-column: span 1; grid-template-columns: 1fr; gap: 24px; }
+  .em-clergy-assoc { grid-template-columns: 1fr; gap: 32px; }
+
+  /* --- Events/news grid --- */
+  .em-news-card { break-inside: avoid; }
+
+  /* --- Feature (2-col image+text) --- */
+  .em-feature { grid-template-columns: 1fr; gap: 32px; }
+  .em-feature--reverse .media { order: 0; }
+
+  /* --- Callout --- */
+  .em-callout .inner { flex-direction: column; gap: 24px; }
+
+  /* --- Footer --- */
+  .em-footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
+  .em-footer .newsletter form { flex-direction: column; }
+  .em-footer .newsletter button { height: 44px; }
+
+  /* --- Tables --- */
+  .em-table { font-size: 13px; }
+  .em-table th, .em-table td { padding: 10px 12px; }
+
+  /* --- Checklist (weddings FAQ) --- */
+  .em-checklist li { font-size: 14px; }
+
+  /* --- Em intro narrow on body copy --- */
+  .em-body .em-lead { font-size: 18px; }
+}
+
+@media (max-width: 480px) {
+  /* --- Extra-small: single column everything --- */
+  .em-services-grid { grid-template-columns: 1fr; }
+  .em-team-grid { grid-template-columns: 1fr; }
+  .em-footer-top { grid-template-columns: 1fr; }
+  .em-hero h1 { font-size: 34px; }
+  .em-pagehead h1 { font-size: 30px; }
+  .em-sectionhead h2, .em-section-head h2 { font-size: 26px; }
+}
