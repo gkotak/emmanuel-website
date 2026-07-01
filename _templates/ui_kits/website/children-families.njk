@@ -58,6 +58,15 @@ permalink: /ui_kits/website/children-families.html
   .cf-dbs .ic { width: 38px; height: 38px; flex-shrink: 0; color: var(--brown); }
   .cf-dbs .ic svg { width: 100%; height: 100%; stroke: currentColor; stroke-width: 1.5; fill: none; }
   .cf-dbs p { font-size: 14px; line-height: 1.55; color: var(--ink-soft); margin: 0; }
+
+  @media (max-width: 768px) {
+    .cf-intro .inner { grid-template-columns: 1fr; gap: 36px; }
+    .cf-twocol { grid-template-columns: 1fr; gap: 20px; }
+    .cf-steps { grid-template-columns: 1fr; gap: 16px; }
+    .cf-admissions .inner { grid-template-columns: 1fr; gap: 36px; }
+    .cf-pattern { flex-direction: column; gap: 16px; }
+    .cf-dbs { flex-direction: column; align-items: flex-start; gap: 12px; }
+  }
 </style>
 <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />

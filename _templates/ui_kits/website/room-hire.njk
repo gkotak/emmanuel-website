@@ -14,6 +14,12 @@ permalink: /ui_kits/website/room-hire.html
   .rh-gallery .em-well { aspect-ratio: 4/3; }
   .em-intro { padding-bottom: 40px; }
   .em-intro + .em-section { padding-top: 56px; }
+
+  @media (max-width: 768px) {
+    .rh-gallery { grid-template-columns: 1fr; gap: 12px; }
+    .em-table { font-size: 13px; }
+    .em-table th, .em-table td { padding: 10px 10px; }
+  }
 </style>
 <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />

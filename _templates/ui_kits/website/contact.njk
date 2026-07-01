@@ -32,6 +32,11 @@ permalink: /ui_kits/website/contact.html
   .ct-route .rt b { background:var(--navy); color:#fff; padding:2px 8px; border-radius:var(--radius-sm); font-weight:var(--fw-bold); letter-spacing:0.04em; }
   .ct-route p { font-family:var(--font-sans); font-size:15px; line-height:1.55; color:var(--ink-soft); margin:0; }
   .ct-route p b { color:var(--ink); font-weight:var(--fw-semibold); }
+
+  @media (max-width: 768px) {
+    .ct-travel { grid-template-columns: 1fr; }
+    .ct-travel > div:not(:last-child) { border-bottom: 1px solid var(--line); padding-bottom: 28px; margin-bottom: 28px; }
+  }
 </style>
 <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
