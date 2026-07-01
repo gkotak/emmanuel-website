@@ -19,16 +19,20 @@ permalink: /ui_kits/website/baptisms.html
   <section class="em-pagehead em-pagehead--band">
     <div class="inner">
       <div class="em-breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><a href="baptisms.html">Life Events</a><span class="sep">/</span><span>Baptisms & Confirmation</span></div>
-      <h1>Baptism, First Communion &amp; <em>Confirmation</em></h1>
-      <p class="deck">We gladly baptise new members of whatever age into the family of God — praying for them as they embark on their pilgrimage of faith.</p>
+      <h1>{{ sitePages['baptisms'].headline if sitePages['baptisms'].headline else "Baptism, First Communion & Confirmation" }}</h1>
+      <p class="deck">{{ sitePages['baptisms'].deck if sitePages['baptisms'].deck else "We gladly baptise new members of whatever age into the family of God — praying for them as they embark on their pilgrimage of faith." }}</p>
       <div class="meta-row"><div class="item"><div class="k">Baptisms</div><div class="v">10:30, third Sunday</div></div><div class="item"><div class="k">Confirmation</div><div class="v">Once a year, with the Bishop</div></div><div class="item"><div class="k">First Communion</div><div class="v">Good Shepherd Sunday</div></div></div>
     </div>
   </section>
   <section class="em-intro">
     <div class="inner">
       <div class="em-body">
-        <p class="em-lead">At Emmanuel we gladly baptise new members of whatever age into the family of God, praying for them as they embark on their exciting journey and pilgrimage of faith.</p>
-        <p>Our baptism services tend to take place at our 10:30 service on the third Sunday of the month. If you'd prefer, we can also offer baptism at our 9:15 Joyful Noise service.</p>
+        {% if sitePages['baptisms'].introBody %}
+          {{ sitePages['baptisms'].introBody | portableText | safe }}
+        {% else %}
+          <p class="em-lead">At Emmanuel we gladly baptise new members of whatever age into the family of God, praying for them as they embark on their exciting journey and pilgrimage of faith.</p>
+          <p>Our baptism services tend to take place at our 10:30 service on the third Sunday of the month. If you'd prefer, we can also offer baptism at our 9:15 Joyful Noise service.</p>
+        {% endif %}
         <div class="em-infocard" style="margin-top:36px">
           <span class="tag">The sacrament of belonging</span>
           <h3>Baptism</h3>
@@ -74,8 +78,12 @@ permalink: /ui_kits/website/baptisms.html
   <section class="em-callout">
     <div class="inner">
       <div>
-        <h3>A new <em>beginning</em>.</h3>
-        <p>Whatever your age, there is a place for you in the family of God at Emmanuel. We would love to walk this journey with you.</p>
+        <h3>{{ sitePages['baptisms'].calloutHeading if sitePages['baptisms'].calloutHeading else "A new beginning." }}</h3>
+        {% if sitePages['baptisms'].calloutBody %}
+          {{ sitePages['baptisms'].calloutBody | portableText | safe }}
+        {% else %}
+          <p>Whatever your age, there is a place for you in the family of God at Emmanuel. We would love to walk this journey with you.</p>
+        {% endif %}
       </div>
       <div style="display:flex;gap:14px;flex-wrap:wrap"><a href="contact.html" class="em-btn em-btn--tan">Contact the parish office</a><a href="service-times.html" class="em-btn em-btn--ghost-light">Service times</a></div>
     </div>

@@ -19,18 +19,22 @@ permalink: /ui_kits/website/funerals.html
   <section class="em-pagehead em-pagehead--band em-pagehead--plain">
     <div class="inner">
       <div class="em-breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><a href="baptisms.html">Life Events</a><span class="sep">/</span><span>Funerals</span></div>
-      <h1>Funerals &amp; <em>Memorials</em></h1>
-      <p class="deck">We have experience in walking with people through these difficult times, and will do our best to support you as you navigate the sadness and challenges of grief.</p>
+      <h1>{{ sitePages['funerals'].headline if sitePages['funerals'].headline else "Funerals & Memorials" }}</h1>
+      <p class="deck">{{ sitePages['funerals'].deck if sitePages['funerals'].deck else "We have experience in walking with people through these difficult times, and will do our best to support you as you navigate the sadness and challenges of grief." }}</p>
 
     </div>
   </section>
   <section class="em-intro em-intro--solo">
     <div class="inner">
       <div class="em-body">
-        <p class="em-lead">We know that arranging a funeral or a memorial service can be a very overwhelming experience.</p>
-        <p>We have experience in walking with people in these difficult times and will do our best to support you as you navigate the sadness and challenges of grief.</p>
-        <p>In helping you plan and prepare for a funeral or memorial service, we will do our best to help the love of God feel close to you. We are here to pray for and with you, and to work with you to put together a service that honours your loved one in the way that feels most right for you.</p>
-        <p>If you would like to discuss a funeral, please contact the parish office. We will respond with care and without delay.</p>
+        {% if sitePages['funerals'].introBody %}
+          {{ sitePages['funerals'].introBody | portableText | safe }}
+        {% else %}
+          <p class="em-lead">We know that arranging a funeral or a memorial service can be a very overwhelming experience.</p>
+          <p>We have experience in walking with people in these difficult times and will do our best to support you as you navigate the sadness and challenges of grief.</p>
+          <p>In helping you plan and prepare for a funeral or memorial service, we will do our best to help the love of God feel close to you. We are here to pray for and with you, and to work with you to put together a service that honours your loved one in the way that feels most right for you.</p>
+          <p>If you would like to discuss a funeral, please contact the parish office. We will respond with care and without delay.</p>
+        {% endif %}
       </div>
     </div>
   </section>
@@ -44,8 +48,12 @@ permalink: /ui_kits/website/funerals.html
   <section class="em-callout">
     <div class="inner">
       <div>
-        <h3>We are <em>here</em> for you.</h3>
-        <p>Whenever you are ready, the parish office will help you take the next step — there is no rush, and no question too small.</p>
+        <h3>{{ sitePages['funerals'].calloutHeading if sitePages['funerals'].calloutHeading else "We are here for you." }}</h3>
+        {% if sitePages['funerals'].calloutBody %}
+          {{ sitePages['funerals'].calloutBody | portableText | safe }}
+        {% else %}
+          <p>Whenever you are ready, the parish office will help you take the next step — there is no rush, and no question too small.</p>
+        {% endif %}
       </div>
       <div style="display:flex;gap:14px;flex-wrap:wrap"><a href="contact.html" class="em-btn em-btn--tan">Contact the parish office</a><a href="tel:07751534297" class="em-btn em-btn--ghost-light">07751 534 297</a></div>
     </div>

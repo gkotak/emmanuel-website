@@ -75,7 +75,7 @@ permalink: /ui_kits/website/children-families.html
         <a href="#">Get Involved</a><span class="sep">/</span>
         <span>Children &amp; Families</span>
       </div>
-      <h1>Children &amp; <em>Families</em></h1>
+      <h1>{% if sitePages['children-families'].headline %}{{ sitePages['children-families'].headline }}{% else %}Children &amp; <em>Families</em>{% endif %}</h1>
     </div>
   </section>
 
@@ -222,7 +222,7 @@ permalink: /ui_kits/website/children-families.html
   <section class="em-callout">
     <div class="inner">
       <div>
-        <h3>Come and <em>join us</em>.</h3>
+        <h3>{% if sitePages['children-families'].calloutHeading %}{{ sitePages['children-families'].calloutHeading }}{% else %}Come and <em>join us</em>.{% endif %}</h3>
         <p>Whether on a Sunday morning or at Thursday's Stay and Play, we'd love to welcome you and your family to Emmanuel.</p>
       </div>
       <div style="display:flex;gap:14px;flex-wrap:wrap">

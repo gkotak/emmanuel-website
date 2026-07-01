@@ -42,7 +42,7 @@ permalink: /ui_kits/website/donations.html
   <section class="em-pagehead em-pagehead--band">
     <div class="inner">
       <div class="em-breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><span>Donations &amp; How You Can Help</span></div>
-      <h1>How can I <em>help?</em></h1>
+      <h1>{% if sitePages['donations'].headline %}{{ sitePages['donations'].headline }}{% else %}How can I <em>help?</em>{% endif %}</h1>
       <p class="deck">It costs £15,000 a month to run Emmanuel. We raise all of it ourselves, locally — it doesn't come from the Government or the Church of England.</p>
       <div class="meta-row">
         <div class="item"><div class="k">Monthly running cost</div><div class="v">£15,000</div></div>
@@ -56,7 +56,7 @@ permalink: /ui_kits/website/donations.html
   <section class="em-intro em-intro--solo">
     <div class="inner">
       <div class="em-body">
-        <p class="em-lead">While we hold fundraising events and rent out the church, one of the foundations of our finances is the tremendous support we receive from our congregation through regular donations.</p>
+        {% if sitePages['donations'].introBody %}{{ sitePages['donations'].introBody | portableText | safe }}{% else %}<p class="em-lead">While we hold fundraising events and rent out the church, one of the foundations of our finances is the tremendous support we receive from our congregation through regular donations.</p>{% endif %}
         <p>That £15,000 a month covers everything it takes to keep Emmanuel open, alive and serving the parish — from the ministry of our clergy to the upkeep of a Victorian building, and the outreach that reaches beyond our walls.</p>
       </div>
     </div>
@@ -189,7 +189,7 @@ permalink: /ui_kits/website/donations.html
   <!-- Callout -->
   <section class="em-callout">
     <div class="inner">
-      <div><h3>Every gift keeps the <em>doors open</em>.</h3><p>Thank you for supporting the life, worship and ministry of Emmanuel Church.</p></div>
+      <div><h3>{% if sitePages['donations'].calloutHeading %}{{ sitePages['donations'].calloutHeading }}{% else %}Every gift keeps the <em>doors open</em>.{% endif %}</h3><p>Thank you for supporting the life, worship and ministry of Emmanuel Church.</p></div>
       <div style="display:flex;gap:14px;flex-wrap:wrap"><a href="https://www.parishgiving.org.uk/donors/find-your-parish/west-hampstead-emmanuel-nw6-1ju" target="_blank" rel="noopener" class="em-btn em-btn--tan">Give via PGS</a><a href="mailto:emmanuelchurchgiving@gmail.com" class="em-btn em-btn--ghost-light">Ask about giving</a></div>
     </div>
   </section>

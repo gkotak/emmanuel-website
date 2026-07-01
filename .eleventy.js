@@ -60,10 +60,48 @@ module.exports = function (eleventyConfig) {
     `)
   })
 
+  // Global data: fetch site page content (editable text blocks) from Sanity
+  eleventyConfig.addGlobalData('sitePages', async () => {
+    const pages = await sanity.fetch(`
+      *[_type == "sitePage"] {
+        pageId, headline, deck,
+        introBody, section2Body, section3Body,
+        calloutHeading, calloutBody
+      }
+    `)
+    // Index by pageId for easy lookup in templates: sitePages['weddings']
+    return pages.reduce((acc, p) => { acc[p.pageId] = p; return acc }, {})
+  })
+
   // Nunjucks filter: join bio paragraphs into <p> tags
   eleventyConfig.addFilter('bioParagraphs', (bioArray) => {
     if (!bioArray || !bioArray.length) return ''
     return bioArray.map(t => `<p>${t}</p>`).join('')
+  })
+
+  // Nunjucks filter: render Sanity portable text blocks into HTML
+  eleventyConfig.addFilter('portableText', (blocks) => {
+    if (!blocks || !blocks.length) return ''
+    return blocks.map(block => {
+      if (block._type !== 'block') return ''
+      const tag = block.style === 'h2' ? 'h2' : block.style === 'h3' ? 'h3' : 'p'
+      const html = (block.children || []).map(span => {
+        let text = (span.text || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+        if (!span.marks || !span.marks.length) return text
+        if (span.marks.includes('strong')) text = `<strong>${text}</strong>`
+        if (span.marks.includes('em')) text = `<em>${text}</em>`
+        // Handle links
+        if (block.markDefs) {
+          block.markDefs.forEach(def => {
+            if (span.marks.includes(def._key) && def._type === 'link') {
+              text = `<a href="${def.href}">${text}</a>`
+            }
+          })
+        }
+        return text
+      }).join('')
+      return `<${tag}>${html}</${tag}>`
+    }).join('\n')
   })
 
   return {

@@ -156,8 +156,8 @@ permalink: /ui_kits/website/index.html
     <div class="em-hero__scrim"></div>
     <div class="em-hero__content">
       <div class="em-hero__eyebrow">Welcome to</div>
-      <h1>A church in the <em>heart</em> of West Hampstead</h1>
-      <p class="em-hero__tagline">An inclusive community in the catholic tradition of the Church of England, in the heart of West Hampstead since 1897.</p>
+      <h1>{% if sitePages['home'].headline %}{{ sitePages['home'].headline }}{% else %}A church in the <em>heart</em> of West Hampstead{% endif %}</h1>
+      <p class="em-hero__tagline">{% if sitePages['home'].deck %}{{ sitePages['home'].deck }}{% else %}An inclusive community in the catholic tradition of the Church of England, in the heart of West Hampstead since 1897.{% endif %}</p>
       <div class="em-hero__cta">
         <a href="/ui_kits/website/im-new.html" class="em-btn em-btn--tan">I'm new — what to expect</a>
         <a href="/ui_kits/website/service-times.html" class="em-btn em-btn--ghost-light">Service times</a>
@@ -213,9 +213,13 @@ permalink: /ui_kits/website/index.html
       </div>
       <div>
         <div class="em-ornament">A Warm Welcome</div>
-        <h2>Wherever you find <em>yourself</em>, you are welcome here.</h2>
-        <p>Emmanuel is a diverse, inclusive church in the liberal catholic tradition — a vibrant part of North London. Together, we are learning to be a community of faith shaped by the celebration of the Eucharist, a regular pattern of prayer and a vocation to share the all-encompassing love of God with the parish we serve.</p>
-        <p>Wherever you find yourself on your journey of exploration of the Christian faith — curious, doubtful, seeking, ambivalent or long-time devout believer — we trust you will find a warm welcome at Emmanuel.</p>
+        <h2>{% if sitePages['home'].calloutHeading %}{{ sitePages['home'].calloutHeading }}{% else %}Wherever you find <em>yourself</em>, you are welcome here.{% endif %}</h2>
+        {% if sitePages['home'].introBody %}
+          {{ sitePages['home'].introBody | portableText | safe }}
+        {% else %}
+          <p>Emmanuel is a diverse, inclusive church in the liberal catholic tradition — a vibrant part of North London. Together, we are learning to be a community of faith shaped by the celebration of the Eucharist, a regular pattern of prayer and a vocation to share the all-encompassing love of God with the parish we serve.</p>
+          <p>Wherever you find yourself on your journey of exploration of the Christian faith — curious, doubtful, seeking, ambivalent or long-time devout believer — we trust you will find a warm welcome at Emmanuel.</p>
+        {% endif %}
         <div class="link-row">
           <a href="/ui_kits/website/im-new.html" class="em-readmore">What to expect on your first visit →</a>
           <a href="/ui_kits/website/history.html" class="em-readmore" style="color:var(--ink);border-color:var(--ink)">Our story since 1897</a>

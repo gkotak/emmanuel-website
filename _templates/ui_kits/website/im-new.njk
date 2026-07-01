@@ -57,7 +57,7 @@ permalink: /ui_kits/website/im-new.html
     <div class="em-hero__scrim"></div>
     <div class="em-hero__content">
       <div class="em-hero__eyebrow">I'm New</div>
-      <h1><span class="ro">Come</span> as you are.</h1>
+      <h1>{% if sitePages['im-new'].headline %}{{ sitePages['im-new'].headline }}{% else %}<span class="ro">Come</span> as you are.{% endif %}</h1>
       <p class="em-hero__tagline">Whether you've been going to Anglican churches all your life or this is the first time you'll step inside, we hope you'll find a warm welcome.</p>
     </div>
   </section>
@@ -149,7 +149,7 @@ permalink: /ui_kits/website/im-new.html
   <section class="em-callout">
     <div class="inner">
       <div>
-        <h3>Still have a <em>question</em>?</h3>
+        <h3>{% if sitePages['im-new'].calloutHeading %}{{ sitePages['im-new'].calloutHeading }}{% else %}Still have a <em>question</em>?{% endif %}</h3>
         <p>Don't hesitate to contact a member of the clergy if you'd like to learn more — or simply come along this Sunday.</p>
       </div>
       <div style="display:flex;gap:14px;flex-wrap:wrap">

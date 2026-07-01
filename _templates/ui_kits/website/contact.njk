@@ -44,8 +44,8 @@ permalink: /ui_kits/website/contact.html
   <section class="em-pagehead em-pagehead--band">
     <div class="inner">
       <div class="em-breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><span>Contact Us</span></div>
-      <h1>Contact <em>us</em></h1>
-      <p class="deck">If you would like to request a prayer for yourself or someone else, or to contact us about any other matter, please reach the clergy via the Parish Office below.</p>
+      <h1>{% if sitePages['contact'].headline %}{{ sitePages['contact'].headline }}{% else %}Contact <em>us</em>{% endif %}</h1>
+      <p class="deck">{% if sitePages['contact'].deck %}{{ sitePages['contact'].deck }}{% else %}If you would like to request a prayer for yourself or someone else, or to contact us about any other matter, please reach the clergy via the Parish Office below.{% endif %}</p>
     </div>
   </section>
 
@@ -53,7 +53,7 @@ permalink: /ui_kits/website/contact.html
   <section class="em-intro">
     <div class="inner">
       <div class="em-body">
-        <p class="em-lead">Whatever is on your heart — a prayer request, a question, or simply wanting to get in touch — we would be glad to hear from you.</p>
+        {% if sitePages['contact'].introBody %}{{ sitePages['contact'].introBody | portableText | safe }}{% else %}<p class="em-lead">Whatever is on your heart — a prayer request, a question, or simply wanting to get in touch — we would be glad to hear from you.</p>{% endif %}
         <p>The clergy can be reached through the Parish Office, and we aim to respond as soon as we are able. If your enquiry concerns a baptism, wedding or funeral, do let us know and we will pass it to the right person.</p>
         <p>You are always welcome to come and find us in person, too — before or after any of our services, or by arranging a time to visit the church and the Nazareth Chapel for quiet prayer.</p>
         <h3>Join our email list and newsletter</h3>
@@ -141,7 +141,7 @@ permalink: /ui_kits/website/contact.html
   <!-- Callout -->
   <section class="em-callout">
     <div class="inner">
-      <div><h3>Stay <em>connected</em>.</h3><p>Join our email list to receive the regular newsletter, with news and what's on across the parish.</p></div>
+      <div><h3>{% if sitePages['contact'].calloutHeading %}{{ sitePages['contact'].calloutHeading }}{% else %}Stay <em>connected</em>.{% endif %}</h3><p>Join our email list to receive the regular newsletter, with news and what's on across the parish.</p></div>
       <div style="display:flex;gap:14px;flex-wrap:wrap"><a href="https://emmanuelnw6.us9.list-manage.com/subscribe?u=82a1a8e47d9788dccae693588&id=bbf2ae4052" target="_blank" rel="noopener" class="em-btn em-btn--tan">Join the newsletter</a><a href="mailto:info@emmanuelnw6.com" class="em-btn em-btn--ghost-light">Email the office</a></div>
     </div>
   </section>

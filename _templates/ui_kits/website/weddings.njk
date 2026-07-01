@@ -50,17 +50,21 @@ permalink: /ui_kits/website/weddings.html
   <section class="em-pagehead em-pagehead--band">
     <div class="inner">
       <div class="em-breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><a href="baptisms.html">Life Events</a><span class="sep">/</span><span>Weddings & Banns of Marriage</span></div>
-      <h1>Weddings &amp; <em>Banns of Marriage</em></h1>
-      <p class="deck">We love weddings — and are always delighted to pray for and accompany couples as they take this important step.</p>
+      <h1>{{ sitePages['weddings'].headline if sitePages['weddings'].headline else "Weddings & Banns of Marriage" }}</h1>
+      <p class="deck">{{ sitePages['weddings'].deck if sitePages['weddings'].deck else "We love weddings — and are always delighted to pray for and accompany couples as they take this important step." }}</p>
       <div class="meta-row"><div class="item"><div class="k">Where</div><div class="v">Emmanuel or St Cuthbert's</div></div><div class="item"><div class="k">Preparation</div><div class="v">3–4 sessions</div></div><div class="item"><div class="k">First step</div><div class="v">Contact the parish office</div></div></div>
     </div>
   </section>
   <section class="em-intro">
     <div class="inner">
       <div class="em-body">
-        <p class="em-lead">If you are engaged and considering getting married at Emmanuel or St Cuthbert's, we would love to hear from you!</p>
-        <p>We love weddings and are always delighted to pray for and accompany couples as they take this important step. We warmly encourage couples to attend three or four marriage preparation sessions ahead of the wedding day; these will be arranged between the priest and the couple, and will ensure that sessions are compatible with work and other commitments.</p>
-        <p>If you would like to know more about weddings in either of our churches, please contact the parish office in the first instance and a member of the clergy will be in touch.</p>
+        {% if sitePages['weddings'].introBody %}
+          {{ sitePages['weddings'].introBody | portableText | safe }}
+        {% else %}
+          <p class="em-lead">If you are engaged and considering getting married at Emmanuel or St Cuthbert's, we would love to hear from you!</p>
+          <p>We love weddings and are always delighted to pray for and accompany couples as they take this important step. We warmly encourage couples to attend three or four marriage preparation sessions ahead of the wedding day; these will be arranged between the priest and the couple, and will ensure that sessions are compatible with work and other commitments.</p>
+          <p>If you would like to know more about weddings in either of our churches, please contact the parish office in the first instance and a member of the clergy will be in touch.</p>
+        {% endif %}
         <details class="em-faq" style="margin-top:36px">
           <summary>
             <div class="em-ornament is-leading">A common question</div>
@@ -99,8 +103,12 @@ permalink: /ui_kits/website/weddings.html
   <section class="em-callout">
     <div class="inner">
       <div>
-        <h3>Let's begin the <em>conversation</em>.</h3>
-        <p>Tell us a little about you and your plans, and a member of the clergy will be in touch to talk through the next steps.</p>
+        <h3>{{ sitePages['weddings'].calloutHeading if sitePages['weddings'].calloutHeading else "Let's begin the conversation." }}</h3>
+        {% if sitePages['weddings'].calloutBody %}
+          {{ sitePages['weddings'].calloutBody | portableText | safe }}
+        {% else %}
+          <p>Tell us a little about you and your plans, and a member of the clergy will be in touch to talk through the next steps.</p>
+        {% endif %}
       </div>
       <div style="display:flex;gap:14px;flex-wrap:wrap"><a href="contact.html" class="em-btn em-btn--tan">Contact the parish office</a><a href="electoral-roll.html" class="em-btn em-btn--ghost-light">About the electoral roll</a></div>
     </div>

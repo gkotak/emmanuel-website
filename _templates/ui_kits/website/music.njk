@@ -55,8 +55,8 @@ permalink: /ui_kits/website/music.html
         <a href="#">Get Involved</a><span class="sep">/</span>
         <span>Music &amp; Choir</span>
       </div>
-      <h1>Music &amp; <em>Choir</em></h1>
-      <p class="deck">Music is at the heart of worship at Emmanuel — and our choir combines choral excellence with a welcoming, inclusive spirit.</p>
+      <h1>{% if sitePages['music'].headline %}{{ sitePages['music'].headline }}{% else %}Music &amp; <em>Choir</em>{% endif %}</h1>
+      <p class="deck">{% if sitePages['music'].deck %}{{ sitePages['music'].deck }}{% else %}Music is at the heart of worship at Emmanuel — and our choir combines choral excellence with a welcoming, inclusive spirit.{% endif %}</p>
       <div class="meta-row">
         <div class="item"><div class="k">Sings</div><div class="v">Sundays, 10:30 Eucharist</div></div>
         <div class="item"><div class="k">Rehearsals</div><div class="v">Wednesdays, 7:15–8:15pm</div></div>
@@ -151,7 +151,7 @@ permalink: /ui_kits/website/music.html
   <section class="em-callout">
     <div class="inner">
       <div>
-        <h3>Lift your <em>voice</em> with us.</h3>
+        <h3>{% if sitePages['music'].calloutHeading %}{{ sitePages['music'].calloutHeading }}{% else %}Lift your <em>voice</em> with us.{% endif %}</h3>
         <p>Whatever your experience, there's a place for you in our music. New singers and musicians are always warmly welcome.</p>
       </div>
       <div style="display:flex;gap:14px;flex-wrap:wrap">

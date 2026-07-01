@@ -83,8 +83,12 @@ permalink: /ui_kits/website/service-times.html
   <section class="st-intro">
     <div class="inner">
       <div>
-        <p class="lead-para">As we gather to meet with Christ and one another, we seek to be a place where we are supported on our spiritual journeys, inspired to connect faith with the rest of our lives, and encouraged to put that faith into action.</p>
-        <p>The Eucharist sits at the heart of our understanding of who we are at Emmanuel. From the very young to the very old, we seek to equip our community to discover more fully the presence of God in their lives. To help us each find our place at the table, we have a number of services of Holy Communion during the week and on Sundays.</p>
+        {% if sitePages['service-times'].introBody %}
+          {{ sitePages['service-times'].introBody | portableText | safe }}
+        {% else %}
+          <p class="lead-para">As we gather to meet with Christ and one another, we seek to be a place where we are supported on our spiritual journeys, inspired to connect faith with the rest of our lives, and encouraged to put that faith into action.</p>
+          <p>The Eucharist sits at the heart of our understanding of who we are at Emmanuel. From the very young to the very old, we seek to equip our community to discover more fully the presence of God in their lives. To help us each find our place at the table, we have a number of services of Holy Communion during the week and on Sundays.</p>
+        {% endif %}
       </div>
       <aside class="em-aside">
         <div class="em-aside-card">
