@@ -1,0 +1,102 @@
+{#
+  Renders a sitePage's flexible `sections` array.
+  Usage:  {% set sections = sitePages['im-new'].sections %}{% include "sections.njk" %}
+  Each section type maps to stable class names that per-page CSS can style:
+    .sec, .sec--richtext, .sec--cardgrid, .sec--feature, .sec--quote, .sec--people
+#}
+{% for sec in sections %}
+  {% if sec._type == "richTextSection" %}
+  <section class="sec sec--richtext">
+    <div class="sec__inner">
+      {% if sec.eyebrow %}<div class="em-ornament is-leading">{{ sec.eyebrow }}</div>{% endif %}
+      {% if sec.heading %}<h2 class="sec__heading">{{ sec.heading }}</h2>{% endif %}
+      {% if sec.body %}<div class="sec__body em-body">{{ sec.body | portableText | safe }}</div>{% endif %}
+    </div>
+  </section>
+
+  {% elif sec._type == "cardGridSection" and sec.layout == "iconList" %}
+  <section class="sec sec--iconlist">
+    <div class="sec__inner">
+      <div class="sec-iconlist__head">
+        {% if sec.eyebrow %}<div class="em-ornament is-leading">{{ sec.eyebrow }}</div>{% endif %}
+        {% if sec.heading %}<h2 class="sec__heading">{{ sec.heading }}</h2>{% endif %}
+      </div>
+      <div class="sec-iconlist__items">
+        {% for card in sec.cards %}
+        <div class="sec-iconitem">
+          <div class="sec-iconitem__ic"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div>
+          <div>
+            {% if card.title %}<h4 class="sec-iconitem__title">{{ card.title }}</h4>{% endif %}
+            {% if card.body %}<p class="sec-iconitem__body">{{ card.body }}</p>{% endif %}
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  {% elif sec._type == "cardGridSection" %}
+  <section class="sec sec--cardgrid">
+    <div class="sec__inner">
+      {% if sec.eyebrow %}<div class="em-ornament">{{ sec.eyebrow }}</div>{% endif %}
+      {% if sec.heading %}<h2 class="sec__heading">{{ sec.heading }}</h2>{% endif %}
+      <div class="sec-cards">
+        {% for card in sec.cards %}
+        <div class="sec-card">
+          {% if card.eyebrow %}<div class="sec-card__eyebrow">{{ card.eyebrow }}</div>{% endif %}
+          {% if card.title %}<h3 class="sec-card__title">{{ card.title }}</h3>{% endif %}
+          {% if card.body %}<p class="sec-card__body">{{ card.body }}</p>{% endif %}
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  {% elif sec._type == "featureSection" %}
+  <section class="sec sec--feature">
+    <div class="sec__inner">
+      <div class="em-feature{% if sec.reverse %} em-feature--reverse{% endif %}">
+        {% if sec.imageUrl %}
+        <div class="media em-well"><img src="{{ sec.imageUrl }}" alt="{{ sec.imageAlt }}" /></div>
+        {% endif %}
+        <div>
+          {% if sec.eyebrow %}<div class="em-ornament is-leading">{{ sec.eyebrow }}</div>{% endif %}
+          {% if sec.heading %}<h2 class="sec__heading">{{ sec.heading }}</h2>{% endif %}
+          {% if sec.body %}<div class="sec__body">{{ sec.body | portableText | safe }}</div>{% endif %}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {% elif sec._type == "quoteSection" %}
+  <section class="sec sec--quote em-pullquote">
+    <div class="inner">
+      <blockquote>{{ sec.quote }}</blockquote>
+      {% if sec.cite %}<cite>{{ sec.cite }}</cite>{% endif %}
+    </div>
+  </section>
+
+  {% elif sec._type == "peopleSection" %}
+  <section class="sec sec--people">
+    <div class="sec__inner">
+      {% if sec.eyebrow %}<div class="em-ornament is-leading">{{ sec.eyebrow }}</div>{% endif %}
+      {% if sec.heading %}<h2 class="sec__heading">{{ sec.heading }}</h2>{% endif %}
+      <div class="sec-people">
+        {% for p in sec.people %}
+        <div class="sec-person">
+          <div class="em-portrait">
+            {% if p.imageUrl %}<img src="{{ p.imageUrl }}" alt="{{ p.name }}" />
+            {% else %}<div class="em-img-placeholder"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>{% endif %}
+          </div>
+          <div>
+            {% if p.role %}<div class="sec-person__role">{{ p.role }}</div>{% endif %}
+            {% if p.name %}<h3 class="sec-person__name">{{ p.name }}</h3>{% endif %}
+            {% if p.bio %}<p class="sec-person__bio">{{ p.bio }}</p>{% endif %}
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  {% endif %}
+{% endfor %}

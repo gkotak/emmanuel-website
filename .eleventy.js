@@ -4,7 +4,7 @@ const sanity = createClient({
   projectId: 'tqrrtmwq',
   dataset: 'production',
   apiVersion: '2024-01-01',
-  useCdn: true,
+  useCdn: false,
 })
 
 module.exports = function (eleventyConfig) {
@@ -65,7 +65,13 @@ module.exports = function (eleventyConfig) {
     const pages = await sanity.fetch(`
       *[_type == "sitePage"] {
         pageId, headline, deck,
-        introBody, section2Body, section3Body,
+        introBody,
+        sections[]{
+          _type, _key, eyebrow, heading, body, quote, cite, reverse, imageAlt, layout,
+          "imageUrl": image.asset->url,
+          cards[]{ _key, eyebrow, title, body },
+          people[]{ _key, role, name, bio, "imageUrl": image.asset->url }
+        },
         calloutHeading, calloutBody
       }
     `)

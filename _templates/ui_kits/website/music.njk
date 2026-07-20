@@ -14,7 +14,8 @@ permalink: /ui_kits/website/music.html
 
   .mu-intro { padding: 96px var(--gutter) 100px; }
   .mu-intro .inner { max-width: 1320px; margin: 0 auto; display: grid; grid-template-columns: 1fr 380px; gap: 80px; align-items: start; }
-  .mu-intro .lead-para { font-family: var(--font-editorial); font-size: 30px; line-height: 1.34; color: var(--ink); font-style: italic; margin: 0 0 30px; letter-spacing: -0.01em; }
+  .mu-intro .lead-para,
+  .mu-intro .intro-body > p:first-child { font-family: var(--font-editorial); font-size: 30px; line-height: 1.34; color: var(--ink); font-style: italic; margin: 0 0 30px; letter-spacing: -0.01em; }
   .mu-intro p { font-family: var(--font-sans); font-size: var(--fs-body); line-height: var(--lh-relaxed); color: var(--ink-soft); margin: 0 0 22px; }
   .mu-intro p a { color: var(--brown); text-decoration: underline; text-underline-offset: 3px; }
 
@@ -75,11 +76,8 @@ permalink: /ui_kits/website/music.html
   <!-- Intro -->
   <section class="mu-intro">
     <div class="inner">
-      <div>
-        <p class="lead-para">We believe that music plays a pivotal part in congregational worship, enhancing and deepening our connection to God.</p>
-        <p>Our choir combines choral excellence with a welcoming and inclusive spirit. We sing at the 10:30am Eucharist every Sunday, offering a diverse repertoire of sacred music, ranging from Renaissance polyphony to contemporary works. In addition to our weekly worship, the choir leads the music for special services at key points in the liturgical year.</p>
-        <p>We are always keen to welcome new singers and musicians of all ages and abilities. The choir rehearses once a week from 7:15–8:15pm on Wednesday evenings, and sings as part of the 10:30am Eucharist each Sunday. Whilst regular commitment is encouraged, it is not necessary to be available for every rehearsal and service to be a member of the choir.</p>
-        <p>We are a friendly and welcoming choir, with a great social scene, often going for drinks post-rehearsal. An ability to read sheet music is desirable, but not necessary provided you have a willingness to learn. If you are interested, please contact our Director of Music, Will, at <a href="mailto:w.g.rose41@gmail.com">w.g.rose41@gmail.com</a>.</p>
+      <div class="intro-body">
+        {{ sitePages['music'].introBody | portableText | safe }}
       </div>
       <aside class="em-aside">
         <div class="em-aside-card">

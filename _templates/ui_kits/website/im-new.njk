@@ -19,36 +19,41 @@ permalink: /ui_kits/website/im-new.html
 
   .intro { padding: 100px var(--gutter) 40px; }
   .intro .inner { max-width: 1320px; margin: 0 auto; display: grid; grid-template-columns: 1fr 360px; gap: 80px; align-items: start; }
-  .intro .lead-para { font-family: var(--font-editorial); font-size: 30px; line-height: 1.32; color: var(--ink); font-style: italic; margin: 0 0 34px; letter-spacing: -0.01em; }
+  .intro .lead-para,
+  .intro .intro-body > p:first-child { font-family: var(--font-editorial); font-size: 30px; line-height: 1.32; color: var(--ink); font-style: italic; margin: 0 0 34px; letter-spacing: -0.01em; }
   .intro p { font-family: var(--font-sans); font-size: var(--fs-body); line-height: var(--lh-relaxed); color: var(--ink-soft); margin: 0 0 22px; }
 
-  .services-cards { padding: 60px var(--gutter) 110px; }
-  .services-cards .inner { max-width: 1320px; margin: 0 auto; }
-  .svc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 48px; }
-  .svc { background: #fff; border: 1px solid var(--line); padding: 38px 34px 34px; display: flex; flex-direction: column; gap: 14px; transition: all var(--dur) var(--ease); }
-  .svc:hover { border-color: var(--brown); transform: translateY(-3px); }
-  .svc .when { font-family: var(--font-display); font-size: 40px; font-weight: 500; color: var(--navy); line-height: 1; letter-spacing: -0.02em; }
-  .svc .when .day { display: block; font-family: var(--font-sans); font-size: 12px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--brown); margin-bottom: 10px; }
-  .svc h3 { font-family: var(--font-display); font-size: 24px; font-weight: 600; color: var(--ink); margin: 0; }
-  .svc p { font-size: 14.5px; line-height: 1.6; color: var(--muted); margin: 0; flex-grow: 1; }
+  /* Flexible CMS sections */
+  .sec__inner { max-width: 1320px; margin: 0 auto; }
+  .sec__heading { font-family: var(--font-display); font-size: 44px; font-weight: 500; color: var(--navy); line-height: 1.02; letter-spacing: -0.015em; margin: 14px 0 0; }
 
-  .access { padding: 96px var(--gutter); background: var(--cream); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-  .access .inner { max-width: 1320px; margin: 0 auto; display: grid; grid-template-columns: 380px 1fr; gap: 80px; align-items: start; }
-  .access h2 { font-family: var(--font-display); font-size: 44px; font-weight: 500; color: var(--navy); line-height: 1.02; letter-spacing: -0.015em; margin: 14px 0 0; }
-  .access-list { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 40px; }
-  .access-item { display: flex; gap: 16px; align-items: flex-start; }
-  .access-item .ic { width: 40px; height: 40px; flex-shrink: 0; color: var(--brown); border: 1px solid var(--line); display: flex; align-items: center; justify-content: center; background: #fff; }
-  .access-item .ic svg { width: 20px; height: 20px; stroke: currentColor; stroke-width: 1.6; fill: none; }
-  .access-item h4 { font-family: var(--font-display); font-size: 20px; font-weight: 600; color: var(--navy); margin: 0 0 4px; }
-  .access-item p { font-size: 14px; line-height: 1.55; color: var(--ink-soft); margin: 0; }
-  .placeholder-tag { display: inline-block; font-size: 10.5px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--brown); background: var(--paper-warm); border: 1px dashed var(--brown-soft); padding: 4px 10px; margin-top: 14px; }
+  .sec--cardgrid { padding: 60px var(--gutter) 110px; }
+  .sec--cardgrid .em-ornament + .sec-cards,
+  .sec--cardgrid .sec__heading + .sec-cards { margin-top: 48px; }
+  .sec-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 48px; }
+  .sec-card { background: #fff; border: 1px solid var(--line); padding: 38px 34px 34px; display: flex; flex-direction: column; gap: 12px; transition: all var(--dur) var(--ease); }
+  .sec-card:hover { border-color: var(--brown); transform: translateY(-3px); }
+  .sec-card__eyebrow { font-family: var(--font-sans); font-size: 12px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--brown); }
+  .sec-card__title { font-family: var(--font-display); font-size: 24px; font-weight: 600; color: var(--ink); margin: 0; }
+  .sec-card__body { font-size: 14.5px; line-height: 1.6; color: var(--muted); margin: 0; flex-grow: 1; }
+
+  /* Icon-list layout (two columns, heading left, ticked items) */
+  .sec--iconlist { padding: 96px var(--gutter); background: var(--cream); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .sec--iconlist .sec__inner { display: grid; grid-template-columns: 380px 1fr; gap: 80px; align-items: start; }
+  .sec--iconlist .sec__heading { font-size: 44px; }
+  .sec-iconlist__items { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 40px; }
+  .sec-iconitem { display: flex; gap: 16px; align-items: flex-start; }
+  .sec-iconitem__ic { width: 40px; height: 40px; flex-shrink: 0; color: var(--brown); border: 1px solid var(--line); display: flex; align-items: center; justify-content: center; background: #fff; }
+  .sec-iconitem__ic svg { width: 20px; height: 20px; stroke: currentColor; stroke-width: 1.8; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+  .sec-iconitem__title { font-family: var(--font-display); font-size: 20px; font-weight: 600; color: var(--navy); margin: 0 0 4px; }
+  .sec-iconitem__body { font-size: 14px; line-height: 1.55; color: var(--ink-soft); margin: 0; }
 
   @media (max-width: 768px) {
     .intro .inner { grid-template-columns: 1fr; gap: 36px; }
-    .svc-grid { grid-template-columns: 1fr; gap: 16px; }
-    .svc { padding: 24px 20px; }
-    .access .inner { grid-template-columns: 1fr; gap: 32px; }
-    .access-list { grid-template-columns: 1fr; gap: 20px; }
+    .sec-cards { grid-template-columns: 1fr; gap: 16px; }
+    .sec-card { padding: 24px 20px; }
+    .sec--iconlist .sec__inner { grid-template-columns: 1fr; gap: 32px; }
+    .sec-iconlist__items { grid-template-columns: 1fr; gap: 20px; }
   }
 </style>
 <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
@@ -65,18 +70,16 @@ permalink: /ui_kits/website/im-new.html
     <div class="em-hero__scrim"></div>
     <div class="em-hero__content">
       <div class="em-hero__eyebrow">I'm New</div>
-      <h1>{% if sitePages['im-new'].headline %}{{ sitePages['im-new'].headline }}{% else %}<span class="ro">Come</span> as you are.{% endif %}</h1>
-      <p class="em-hero__tagline">Whether you've been going to Anglican churches all your life or this is the first time you'll step inside, we hope you'll find a warm welcome.</p>
+      <h1>{{ sitePages['im-new'].headline }}</h1>
+      <p class="em-hero__tagline">{{ sitePages['im-new'].deck }}</p>
     </div>
   </section>
 
   <!-- Intro -->
   <section class="intro">
     <div class="inner">
-      <div>
-        <p class="lead-para">Whilst we are proud of our Anglican identity, we are a very international community, with a number of different Christian denominations represented in our congregation.</p>
-        <p>At our main Parish Mass you can expect a robed choir, acolytes and incense, with a team of servers who reflect the diversity of our congregation. Our said Eucharists are more simple, and Joyful Noise is more noisy (!). The thread that ties them together is Eucharistic-centred worship.</p>
-        <p>To help us each find our place at the table, we have a number of services of Holy Communion during the week and on Sundays. Don't hesitate to contact a member of the clergy if you'd like to learn more. Even better, just come and visit!</p>
+      <div class="intro-body">
+        {{ sitePages['im-new'].introBody | portableText | safe }}
       </div>
       <aside class="em-aside">
         <div class="em-aside-card">
@@ -89,76 +92,16 @@ permalink: /ui_kits/website/im-new.html
     </div>
   </section>
 
-  <!-- Which service -->
-  <section class="services-cards">
-    <div class="inner">
-      <div class="em-ornament">Find your place at the table</div>
-      <div class="svc-grid">
-        <a href="service-times.html" class="svc">
-          <div class="when"><span class="day">Sunday</span>10:30</div>
-          <h3>Sung Eucharist</h3>
-          <p>Our main Parish Mass — a robed choir, incense and the fullest celebration of the liturgy. Children's &amp; Youth Church meet during term.</p>
-          <span class="em-card__arrow">More about Sundays →</span>
-        </a>
-        <a href="service-times.html" class="svc">
-          <div class="when"><span class="day">Sunday</span>8:00</div>
-          <h3>Said Eucharist (BCP)</h3>
-          <p>A quiet, simple, 30-minute service said according to the Book of Common Prayer — a reflective start to the week.</p>
-          <span class="em-card__arrow">More about Sundays →</span>
-        </a>
-        <a href="service-times.html" class="svc">
-          <div class="when"><span class="day">Sunday</span>9:15</div>
-          <h3>Joyful Noise</h3>
-          <p>A lively, noisy celebration of the Mass for pre-school children and their families, with music led on the guitar. (Term time only.)</p>
-          <span class="em-card__arrow">More about Sundays →</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- The Eucharist at the heart -->
-  <section class="em-pullquote">
-    <div class="inner">
-      <blockquote>The Eucharist sits at the <em>heart</em> of our understanding of who we are at Emmanuel.</blockquote>
-      <cite>What to expect at Emmanuel</cite>
-    </div>
-  </section>
-
-  <!-- Accessibility -->
-  <section class="access">
-    <div class="inner">
-      <div>
-        <div class="em-ornament is-leading">Coming to Emmanuel</div>
-        <h2>Everyone is welcome here.</h2>
-        <span class="placeholder-tag">Draft — to confirm with parish office</span>
-      </div>
-      <div class="access-list">
-        <div class="access-item">
-          <div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="4" r="2"/><path d="M19 13l-4-1-1-4M6 21l3-7h5"/><circle cx="12" cy="12" r="9" opacity="0.4"/></svg></div>
-          <div><h4>Step-free access</h4><p>Both Emmanuel and St Cuthbert's are accessible for wheelchairs, with bathrooms for disabled access at both buildings.</p></div>
-        </div>
-        <div class="access-item">
-          <div class="ic"><svg viewBox="0 0 24 24"><path d="M6 9v6M10 6v12M14 4v16M18 8v8"/></svg></div>
-          <div><h4>Hearing loop</h4><p>Our sound system at Emmanuel is fitted with a hearing aid loop throughout the church.</p></div>
-        </div>
-        <div class="access-item">
-          <div class="ic"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 12h6M9 16h4"/></svg></div>
-          <div><h4>Children welcome</h4><p>The Harold Darke Room at the back has books and toys for under-4s — come and go as you need.</p></div>
-        </div>
-        <div class="access-item">
-          <div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
-          <div><h4>Refreshments</h4><p>Tea, coffee and a warm welcome follow the 10:30 service every Sunday — do stay.</p></div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- Flexible CMS-driven sections (service cards, pull-quote, accessibility grid) -->
+  {% set sections = sitePages['im-new'].sections %}
+  {% include "sections.njk" %}
 
   <!-- CTA -->
   <section class="em-callout">
     <div class="inner">
       <div>
-        <h3>{% if sitePages['im-new'].calloutHeading %}{{ sitePages['im-new'].calloutHeading }}{% else %}Still have a <em>question</em>?{% endif %}</h3>
-        <p>Don't hesitate to contact a member of the clergy if you'd like to learn more — or simply come along this Sunday.</p>
+        <h3>{{ sitePages['im-new'].calloutHeading }}</h3>
+        {{ sitePages['im-new'].calloutBody | portableText | safe }}
       </div>
       <div style="display:flex;gap:14px;flex-wrap:wrap">
         <a href="contact.html" class="em-btn em-btn--tan">Contact the clergy</a>

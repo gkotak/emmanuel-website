@@ -14,7 +14,8 @@ permalink: /ui_kits/website/children-families.html
 
   .cf-intro { padding: 96px var(--gutter) 100px; }
   .cf-intro .inner { max-width: 1320px; margin: 0 auto; display: grid; grid-template-columns: 1fr 380px; gap: 80px; align-items: start; }
-  .cf-intro .lead-para { font-family: var(--font-editorial); font-size: 30px; line-height: 1.34; color: var(--ink); font-style: italic; margin: 0 0 30px; letter-spacing: -0.01em; }
+  .cf-intro .lead-para,
+  .cf-intro .intro-body > p:first-child { font-family: var(--font-editorial); font-size: 30px; line-height: 1.34; color: var(--ink); font-style: italic; margin: 0 0 30px; letter-spacing: -0.01em; }
   .cf-intro p { font-family: var(--font-sans); font-size: var(--fs-body); line-height: var(--lh-relaxed); color: var(--ink-soft); margin: 0 0 22px; }
 
   .cf-sunday { padding: 110px var(--gutter); background: var(--cream); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
@@ -91,9 +92,8 @@ permalink: /ui_kits/website/children-families.html
   <!-- Intro -->
   <section class="cf-intro">
     <div class="inner">
-      <div>
-        <p class="lead-para">Children and youth make up a core part of our church community at Emmanuel — and we know how much they have to teach us about spirituality and questions of faith.</p>
-        <p>For this reason we invest heavily in their Christian growth: for our youngest members through the Joyful Noise congregation, and for older children and young people through Children's &amp; Youth Church, singing in the choir, joining the serving team, and helping to lead the readings and intercessions at our monthly intergenerational worship.</p>
+      <div class="intro-body">
+        {{ sitePages['children-families'].introBody | portableText | safe }}
       </div>
       <aside class="em-aside">
         <div class="em-aside-card">
@@ -231,8 +231,8 @@ permalink: /ui_kits/website/children-families.html
   <section class="em-callout">
     <div class="inner">
       <div>
-        <h3>{% if sitePages['children-families'].calloutHeading %}{{ sitePages['children-families'].calloutHeading }}{% else %}Come and <em>join us</em>.{% endif %}</h3>
-        <p>Whether on a Sunday morning or at Thursday's Stay and Play, we'd love to welcome you and your family to Emmanuel.</p>
+        <h3>{{ sitePages['children-families'].calloutHeading }}</h3>
+        {{ sitePages['children-families'].calloutBody | portableText | safe }}
       </div>
       <div style="display:flex;gap:14px;flex-wrap:wrap">
         <a href="contact.html" class="em-btn em-btn--tan">Contact the parish office</a>

@@ -58,11 +58,7 @@ permalink: /ui_kits/website/contact.html
   <section class="em-intro">
     <div class="inner">
       <div class="em-body">
-        {% if sitePages['contact'].introBody %}{{ sitePages['contact'].introBody | portableText | safe }}{% else %}<p class="em-lead">Whatever is on your heart — a prayer request, a question, or simply wanting to get in touch — we would be glad to hear from you.</p>{% endif %}
-        <p>The clergy can be reached through the Parish Office, and we aim to respond as soon as we are able. If your enquiry concerns a baptism, wedding or funeral, do let us know and we will pass it to the right person.</p>
-        <p>You are always welcome to come and find us in person, too — before or after any of our services, or by arranging a time to visit the church and the Nazareth Chapel for quiet prayer.</p>
-        <h3>Join our email list and newsletter</h3>
-        <p>If you'd like to join our email list — which includes receiving our regular newsletter — please <a href="https://emmanuelnw6.us9.list-manage.com/subscribe?u=82a1a8e47d9788dccae693588&id=bbf2ae4052" target="_blank" rel="noopener">click here</a>. We send updates fortnightly, with news, service times and what's coming up across the parish.</p>
+        {{ sitePages['contact'].introBody | portableText | safe }}
       </div>
       <aside class="em-aside">
         <div class="ct-contactcard">

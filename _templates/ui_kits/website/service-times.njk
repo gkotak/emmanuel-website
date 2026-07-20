@@ -71,7 +71,7 @@ permalink: /ui_kits/website/service-times.html
         <span>Service &amp; Prayer Times</span>
       </div>
       <h1>Service &amp; <em>Prayer</em> Times</h1>
-      <p class="deck">The Eucharist and the daily office shape the rhythm of our shared life. All are welcome at every service.</p>
+      <p class="deck">{{ sitePages['service-times'].deck }}</p>
       <div class="meta-row">
         <div class="item"><div class="k">Sundays</div><div class="v">{% set sundayTimes = [] %}{% for st in serviceTimes %}{% if st.group === "sunday" %}{% set sundayTimes = (sundayTimes.push(st.time), sundayTimes) %}{% endif %}{% endfor %}{{ sundayTimes | join(" · ") }}</div></div>
         <div class="item"><div class="k">Weekdays</div><div class="v">{% for st in serviceTimes %}{% if st.name === "Morning Prayer" %}Morning Prayer {{ st.time }}{% endif %}{% endfor %}</div></div>
@@ -150,8 +150,8 @@ permalink: /ui_kits/website/service-times.html
   <section class="em-callout">
     <div class="inner">
       <div>
-        <h3>Join us in <em>prayer</em>.</h3>
-        <p>Whether for the first time or the thousandth, there is a place for you at the table at Emmanuel.</p>
+        <h3>{{ sitePages['service-times'].calloutHeading }}</h3>
+        {{ sitePages['service-times'].calloutBody | portableText | safe }}
       </div>
       <div style="display:flex;gap:14px;flex-wrap:wrap">
         <a href="/ui_kits/website/im-new.html" class="em-btn em-btn--tan">What to expect</a>
