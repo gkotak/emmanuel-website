@@ -54,7 +54,7 @@ permalink: /ui_kits/website/donations.html
     <div class="inner">
       <div class="em-breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><span>Donations &amp; How You Can Help</span></div>
       <h1>{% if sitePages['donations'].headline %}{{ sitePages['donations'].headline }}{% else %}How can I <em>help?</em>{% endif %}</h1>
-      <p class="deck">It costs £15,000 a month to run Emmanuel. We raise all of it ourselves, locally — it doesn't come from the Government or the Church of England.</p>
+      <p class="deck">{{ sitePages['donations'].deck }}</p>
       <div class="meta-row">
         <div class="item"><div class="k">Monthly running cost</div><div class="v">£15,000</div></div>
         <div class="item"><div class="k">Funded by</div><div class="v">Our congregation</div></div>
@@ -77,7 +77,7 @@ permalink: /ui_kits/website/donations.html
     </div>
   </section>
 
-  <section class="em-section" style="padding-top:0">
+  <section class="em-section" style="padding-top:0;padding-bottom:0">
     <div class="inner">
       <div class="em-sectionhead" style="margin-bottom:36px">
         <div class="em-ornament is-leading">Where it goes</div>
@@ -123,26 +123,26 @@ permalink: /ui_kits/website/donations.html
       <div class="dn-ways">
         <div class="dn-way" style="flex-direction:column;gap:20px;padding:32px 28px 36px">
           <span class="ic"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg></span>
-          <div>
+          <div style="display:flex;flex-direction:column;flex:1">
             <h4>Parish Giving Scheme</h4>
-            <p style="margin-bottom:16px">Our recommended option. PGS reduces our administration, improves our budgeting, and collects Gift Aid automatically — adding 25% to every eligible gift at no extra cost to you. Supports both monthly and one-off donations.</p>
-            <a href="https://www.parishgiving.org.uk/donors/find-your-parish/west-hampstead-emmanuel-nw6-1ju" target="_blank" rel="noopener" class="em-btn em-btn--primary" style="font-size:13px;padding:10px 18px">Give via Parish Giving Scheme</a>
+            <p style="margin-bottom:16px;flex:1">Our recommended option. PGS reduces our administration, improves our budgeting, and collects Gift Aid automatically — adding 25% to every eligible gift at no extra cost to you. Supports both monthly and one-off donations.</p>
+            <a href="https://www.parishgiving.org.uk/donors/find-your-parish/west-hampstead-emmanuel-nw6-1ju" target="_blank" rel="noopener" class="em-btn em-btn--primary" style="font-size:13px;padding:10px 18px;align-self:flex-start">Give via Parish Giving Scheme</a>
           </div>
         </div>
         <div class="dn-way" style="flex-direction:column;gap:20px;padding:32px 28px 36px">
           <span class="ic"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/><path d="M12 6v6l4 2"/></svg></span>
-          <div>
+          <div style="display:flex;flex-direction:column;flex:1">
             <h4>Givealittle</h4>
-            <p style="margin-bottom:16px">Give online via Givealittle, where you can choose a specific date each month for your payment. Supports both regular monthly giving and one-off donations.</p>
-            <a href="https://givealittle.co/c/2SsrQulH24nbGRr8xtfwvo" target="_blank" rel="noopener" class="em-btn em-btn--primary" style="font-size:13px;padding:10px 18px">Give via Givealittle</a>
+            <p style="margin-bottom:16px;flex:1">Give online via Givealittle, where you can choose a specific date each month for your payment. Supports both regular monthly giving and one-off donations.</p>
+            <a href="https://givealittle.co/c/2SsrQulH24nbGRr8xtfwvo" target="_blank" rel="noopener" class="em-btn em-btn--primary" style="font-size:13px;padding:10px 18px;align-self:flex-start">Give via Givealittle</a>
           </div>
         </div>
         <div class="dn-way" style="flex-direction:column;gap:20px;padding:32px 28px 36px">
           <span class="ic"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 10H2"/></svg></span>
-          <div>
+          <div style="display:flex;flex-direction:column;flex:1">
             <h4>Standing order</h4>
-            <p style="margin-bottom:16px">Set up a direct bank transfer to Emmanuel at the frequency that suits you. Email our treasurer for bank details and a Gift Aid declaration form.</p>
-            <a href="mailto:treasurer@emmanuelnw6.com" class="em-btn em-btn--primary" style="font-size:13px;padding:10px 18px">Email the treasurer</a>
+            <p style="margin-bottom:16px;flex:1">Set up a direct bank transfer to Emmanuel at the frequency that suits you. Email our treasurer for bank details and a Gift Aid declaration form.</p>
+            <a href="mailto:treasurer@emmanuelnw6.com" class="em-btn em-btn--primary" style="font-size:13px;padding:10px 18px;align-self:flex-start">Email the treasurer</a>
           </div>
         </div>
       </div>
@@ -219,7 +219,7 @@ permalink: /ui_kits/website/donations.html
   <!-- Callout -->
   <section class="em-callout">
     <div class="inner">
-      <div><h3>{% if sitePages['donations'].calloutHeading %}{{ sitePages['donations'].calloutHeading }}{% else %}Every gift keeps the <em>doors open</em>.{% endif %}</h3><p>Thank you for supporting the life, worship and ministry of Emmanuel Church.</p></div>
+      <div><h3>{{ sitePages['donations'].calloutHeading }}</h3>{{ sitePages['donations'].calloutBody | portableText | safe }}</div>
       <div style="display:flex;gap:14px;flex-wrap:wrap"><a href="https://www.parishgiving.org.uk/donors/find-your-parish/west-hampstead-emmanuel-nw6-1ju" target="_blank" rel="noopener" class="em-btn em-btn--tan">Give via PGS</a><a href="mailto:emmanuelchurchgiving@gmail.com" class="em-btn em-btn--ghost-light">Ask about giving</a></div>
     </div>
   </section>
