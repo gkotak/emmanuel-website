@@ -535,7 +535,7 @@
 .em-pagehead {
   background: var(--paper);
   border-bottom: 1.5px solid var(--rule-ink);
-  padding: 64px var(--gutter) 64px;
+  padding: 32px var(--gutter) 64px;
 }
 /* equal breathing room below the pagehead divider on every page */
 .em-pagehead + section { padding-top: 64px; }
