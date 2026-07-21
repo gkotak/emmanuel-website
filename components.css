@@ -533,14 +533,13 @@
    Replaces the full-bleed photo hero on content pages.
    ============================================================ */
 .em-pagehead {
-  background: var(--paper);
   border-bottom: 1.5px solid var(--rule-ink);
-  padding: 0 var(--gutter) 56px;
+  padding: 24px 0 56px;
 }
 /* equal breathing room below the pagehead divider on every page */
 .em-pagehead + section { padding-top: 64px; }
 .em-pagehead--band { background: var(--cream); }
-.em-pagehead .inner { max-width: var(--container); margin: 0 auto; }
+.em-pagehead .inner { max-width: var(--container); margin: 0 auto; padding: 0 var(--gutter); }
 .em-breadcrumb {
   font-family: var(--font-sans);
   font-size: 12px;
