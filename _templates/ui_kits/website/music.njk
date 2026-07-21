@@ -91,73 +91,15 @@ permalink: /ui_kits/website/music.html
     </div>
   </section>
 
-  <!-- Heritage -->
-  <section class="heritage">
-    <div class="inner">
-      <div class="em-feature em-feature--reverse">
-        <div class="media em-well">
-          <img src="../../assets/music-choir.jpg" alt="The Emmanuel choir singing in the stalls beneath the organ, led by the Director of Music" />
-        </div>
-        <div>
-          <span class="flag">Optional — longer draft</span>
-          <div class="em-ornament is-leading" style="margin-bottom:0">Our musical heritage</div>
-          <h2>A tradition stretching back <em>over a century</em>.</h2>
-          <p>Music at Emmanuel is steeped in illustrious tradition. The English composer Harold Darke was organist at the church from 1906–1911, during which period he composed his setting of Christina Rossetti's "In the Bleak Midwinter".</p>
-          <p>In contrast to many choral societies, the choir tackles new repertoire on a weekly basis, with the aim of providing fulfilling and musically enriching opportunities no matter your previous choral experience.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- People -->
-  <section class="people">
-    <div class="inner">
-      <div class="em-ornament is-leading">Those who lead our music</div>
-      <div class="people-grid">
-        <div class="person-row">
-          <div class="em-portrait"><div class="em-img-placeholder"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div></div>
-          <div>
-            <div class="role">Director of Music</div>
-            <h3>Will Rose</h3>
-            <p>Will studied Music at Queens' College, Cambridge, where he was a Choral Scholar. At university he won several prestigious conducting prizes and conducted every major instrumental ensemble across the University. Away from Emmanuel, Will is a music teacher at a top London secondary school.</p>
-          </div>
-        </div>
-        <div class="person-row">
-          <div class="em-portrait"><div class="em-img-placeholder"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div></div>
-          <div>
-            <div class="role">Organist</div>
-            <h3>Joseph Verdin</h3>
-            <p>On Sundays the choir is joined by Joseph Verdin, who held multiple Organ Scholarships at Durham University and has accompanied guest services at St Paul's Cathedral, St George's Chapel, Windsor, and York Minster.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Children's choir -->
-  <section class="childrens">
-    <div class="inner">
-      <div class="em-feature">
-        <div class="media em-well">
-          <img src="../../assets/childrens-choir.jpg" alt="Robed young choristers gathered at the altar during a sung service" />
-        </div>
-        <div>
-          <div class="em-ornament is-leading">For our youngest singers</div>
-          <h2>Children's <em>Choir</em></h2>
-          <p>Come and sing with the Emmanuel Church choir! We rehearse once a week in the church with our choir director, Will. We sing in the church on the first Sunday of every month, and also in special services, including at Easter.</p>
-          <p>We learn loads of exciting music, and always have lots of fun in our rehearsals. You don't need to be able to read sheet music to join, and it's a great way to make new friends! All rehearsals are free to attend.</p>
-          <p style="margin-top:8px">To find out more, please contact Will at <a href="mailto:w.g.rose41@gmail.com">w.g.rose41@gmail.com</a>.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+  {% set sections = sitePages['music'].sections %}
+  {% include "sections.njk" %}
 
   <!-- CTA -->
   <section class="em-callout">
     <div class="inner">
       <div>
-        <h3>{% if sitePages['music'].calloutHeading %}{{ sitePages['music'].calloutHeading }}{% else %}Lift your <em>voice</em> with us.{% endif %}</h3>
-        <p>Whatever your experience, there's a place for you in our music. New singers and musicians are always warmly welcome.</p>
+        <h3>{{ sitePages['music'].calloutHeading }}</h3>
+        {{ sitePages['music'].calloutBody | portableText | safe }}
       </div>
       <div style="display:flex;gap:14px;flex-wrap:wrap">
         <a href="mailto:w.g.rose41@gmail.com" class="em-btn em-btn--tan">Email Will Rose</a>

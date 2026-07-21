@@ -115,18 +115,17 @@ permalink: /ui_kits/website/children-families.html
         <h2>Children's &amp; Youth Church</h2>
       </div>
       <div class="cf-twocol">
-        <div class="cf-card">
-          <div class="ages">Ages 4–11 · Godly Play</div>
-          <h3>Children's Church</h3>
-          <p>Throughout term time, Children's Church meets during the 10:30 Sunday service. Our curriculum follows the Godly Play method of Bible storytelling — an approach which seeks to inspire curiosity and wonder in our younger members.</p>
-          <p>It fosters a sense of the overwhelming love God has for all God's people, helping each child discover their own place in the story of faith.</p>
-        </div>
-        <div class="cf-card">
-          <div class="ages">Ages 9–11 · Up to Year 7</div>
-          <h3>Youth Church</h3>
-          <p>Youth Church typically involves some games, music and a lively exploration of the Gospel of the Day, or a chosen topic for the term.</p>
-          <p>Older children are welcome to join, but we find that by Year 7 they tend to be ready to join us for the service in church — singing, serving, or leading prayers and readings.</p>
-        </div>
+        {% for sec in sitePages['children-families'].sections %}
+          {% if sec._type == "cardGridSection" %}
+            {% for card in sec.cards %}
+            <div class="cf-card">
+              {% if card.eyebrow %}<div class="ages">{{ card.eyebrow }}</div>{% endif %}
+              {% if card.title %}<h3>{{ card.title }}</h3>{% endif %}
+              {% for para in card.body.split("\n\n") %}<p>{{ para }}</p>{% endfor %}
+            </div>
+            {% endfor %}
+          {% endif %}
+        {% endfor %}
       </div>
       <div class="cf-pattern">
         <div class="pat"><span class="o">1st</span><span class="txt"><b>All Age Worship</b>The whole congregation gathers for intergenerational worship on the first Sunday.</span></div>
@@ -171,23 +170,10 @@ permalink: /ui_kits/website/children-families.html
     </div>
   </section>
 
-  <!-- Stay and Play -->
-  <section class="cf-feature is-band">
-    <div class="inner">
-      <div class="em-feature">
-        <div class="media em-well">
-          <img src="../../assets/children-families.jpg" alt="Children gathered at the altar steps with clergy during an all-age service" />
-        </div>
-        <div>
-          <div class="em-ornament is-leading">Thursdays in term time</div>
-          <h2>Stay and <em>Play</em></h2>
-          <p>Stay and Play happens every Thursday in term time, 9:30 to 11:00am. This is a relaxed, friendly drop-in session with loads of great toys and usually a bit of a sing-song at the end.</p>
-          <p>It's a great way to meet other local parents and carers, and to get answers to questions about life in West Hampstead with kids. Coffee, toast and healthy snacks are provided, and one of the clergy or our youth worker is always around to host.</p>
-          <p>All babies, toddlers and pre-school age children, together with their parents and carers, are warmly welcome — with plenty of tea and coffee for the adults.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- Stay and Play (CMS feature section) -->
+  {% set sections = sitePages['children-families'].sections %}
+  {% set skipCardGrids = true %}
+  {% include "sections.njk" %}
 
   <!-- Seasonal workshops -->
   <section class="cf-admissions" style="padding: 90px var(--gutter) 0;">

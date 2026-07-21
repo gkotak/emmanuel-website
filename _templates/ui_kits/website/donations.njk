@@ -83,32 +83,23 @@ permalink: /ui_kits/website/donations.html
         <div class="em-ornament is-leading">Where it goes</div>
         <h2>What your giving <em>supports</em></h2>
       </div>
+      {% set dnCostIcons = [
+        '<path d="M12 2a3 3 0 0 0-3 3c0 1.5 1 2.5 1 4H7l-1 4h12l-1-4h-3c0-1.5 1-2.5 1-4a3 3 0 0 0-3-3z"/><path d="M6 13v3a6 6 0 0 0 12 0v-3"/><path d="M9 22h6"/>',
+        '<path d="M3 21h18"/><path d="M5 21V8l7-5 7 5v13"/><path d="M9 21v-6h6v6"/>',
+        '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h8"/><path d="M8 17h5"/>',
+        '<path d="M12 3v18"/><path d="M5 8l7-5 7 5"/><path d="M5 8v8a7 7 0 0 0 14 0V8"/>',
+        '<path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 1 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/>'
+      ] %}
       <div class="dn-costs">
-        <div class="dn-cost">
-          <span class="ic"><svg viewBox="0 0 24 24"><path d="M12 2a3 3 0 0 0-3 3c0 1.5 1 2.5 1 4H7l-1 4h12l-1-4h-3c0-1.5 1-2.5 1-4a3 3 0 0 0-3-3z"/><path d="M6 13v3a6 6 0 0 0 12 0v-3"/><path d="M9 22h6"/></svg></span>
-          <h4>Ministry</h4>
-          <p>Clergy pay, housing and pension — the people who lead our worship and care.</p>
-        </div>
-        <div class="dn-cost">
-          <span class="ic"><svg viewBox="0 0 24 24"><path d="M3 21h18"/><path d="M5 21V8l7-5 7 5v13"/><path d="M9 21v-6h6v6"/></svg></span>
-          <h4>Building</h4>
-          <p>Maintenance, utilities and insurance for a much-loved Victorian church.</p>
-        </div>
-        <div class="dn-cost">
-          <span class="ic"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h8"/><path d="M8 17h5"/></svg></span>
-          <h4>Administration</h4>
-          <p>Office costs for the day-to-day operation of the parish and its activities.</p>
-        </div>
-        <div class="dn-cost">
-          <span class="ic"><svg viewBox="0 0 24 24"><path d="M12 3v18"/><path d="M5 8l7-5 7 5"/><path d="M5 8v8a7 7 0 0 0 14 0V8"/></svg></span>
-          <h4>Services</h4>
-          <p>The direct costs of worship — music, liturgy, candles, vestments and more.</p>
-        </div>
-        <div class="dn-cost">
-          <span class="ic"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 1 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg></span>
-          <h4>Outreach</h4>
-          <p>Reaching beyond our walls — the food bank, night shelter and other care.</p>
-        </div>
+        {% for sec in sitePages['donations'].sections %}{% if sec._key == "dn-costs" %}
+          {% for card in sec.cards %}
+          <div class="dn-cost">
+            <span class="ic"><svg viewBox="0 0 24 24">{{ dnCostIcons[loop.index0] | safe }}</svg></span>
+            {% if card.title %}<h4>{{ card.title }}</h4>{% endif %}
+            {% if card.body %}<p>{{ card.body }}</p>{% endif %}
+          </div>
+          {% endfor %}
+        {% endif %}{% endfor %}
       </div>
     </div>
   </section>
@@ -186,31 +177,23 @@ permalink: /ui_kits/website/donations.html
         <h2>Other ways you can <em>contribute</em></h2>
         <p class="em-lead">There are many ways to get involved and help Emmanuel — through our services, the upkeep of the building, and supporting the wider community. Here are just a few ideas.</p>
       </div>
+      {% set dnWayIcons = [
+        '<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>',
+        '<path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/>',
+        '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
+        '<path d="M12 2a3 3 0 0 0-3 3c0 1.5 1 2.5 1 4H7l-1 4h12l-1-4h-3c0-1.5 1-2.5 1-4a3 3 0 0 0-3-3z"/><path d="M6 13v3a6 6 0 0 0 12 0v-3"/>',
+        '<path d="M12 22c4-2 8-6 8-12a8 8 0 0 0-16 0c0 6 4 10 8 12z"/><path d="M12 13c-2 0-4-1.5-4-4"/><path d="M12 13c2 0 4-1.5 4-4"/>',
+        '<path d="M14.7 6.3a4 4 0 0 0-5.6 5.6l-6 6a2 2 0 1 0 2.8 2.8l6-6a4 4 0 0 0 5.6-5.6l-2.5 2.5-2.1-2.1z"/>'
+      ] %}
       <div class="dn-ways">
-        <div class="dn-way">
-          <span class="ic"><svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span>
-          <div><h4>Reading at a service</h4><p>Share in the liturgy by reading the lessons aloud.</p></div>
-        </div>
-        <div class="dn-way">
-          <span class="ic"><svg viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></span>
-          <div><h4>Joining the choir</h4><p>Add your voice to the music of the Sung Eucharist.</p></div>
-        </div>
-        <div class="dn-way">
-          <span class="ic"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
-          <div><h4>Greeting people</h4><p>Welcome visitors and regulars as they arrive at church.</p></div>
-        </div>
-        <div class="dn-way">
-          <span class="ic"><svg viewBox="0 0 24 24"><path d="M12 2a3 3 0 0 0-3 3c0 1.5 1 2.5 1 4H7l-1 4h12l-1-4h-3c0-1.5 1-2.5 1-4a3 3 0 0 0-3-3z"/><path d="M6 13v3a6 6 0 0 0 12 0v-3"/></svg></span>
-          <div><h4>Sunday School</h4><p>Lead or support our children during the morning service.</p></div>
-        </div>
-        <div class="dn-way">
-          <span class="ic"><svg viewBox="0 0 24 24"><path d="M12 22c4-2 8-6 8-12a8 8 0 0 0-16 0c0 6 4 10 8 12z"/><path d="M12 13c-2 0-4-1.5-4-4"/><path d="M12 13c2 0 4-1.5 4-4"/></svg></span>
-          <div><h4>Gardening</h4><p>Help keep the church grounds and green looking their best.</p></div>
-        </div>
-        <div class="dn-way">
-          <span class="ic"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0-5.6 5.6l-6 6a2 2 0 1 0 2.8 2.8l6-6a4 4 0 0 0 5.6-5.6l-2.5 2.5-2.1-2.1z"/></svg></span>
-          <div><h4>Small building works</h4><p>Lend a hand with the practical upkeep of the building.</p></div>
-        </div>
+        {% for sec in sitePages['donations'].sections %}{% if sec._key == "dn-other" %}
+          {% for card in sec.cards %}
+          <div class="dn-way">
+            <span class="ic"><svg viewBox="0 0 24 24">{{ dnWayIcons[loop.index0] | safe }}</svg></span>
+            <div>{% if card.title %}<h4>{{ card.title }}</h4>{% endif %}{% if card.body %}<p>{{ card.body }}</p>{% endif %}</div>
+          </div>
+          {% endfor %}
+        {% endif %}{% endfor %}
       </div>
       <p style="font-family:var(--font-sans); font-size:16px; line-height:1.6; color:var(--ink-soft); margin:32px 0 0; max-width:760px">If you'd like to help us, please talk to one of the clergy or Church Wardens, or email us at <a href="mailto:info@emmanuelnw6.com" style="color:var(--brown);text-decoration:underline;text-underline-offset:3px">info@emmanuelnw6.com</a>.</p>
     </div>

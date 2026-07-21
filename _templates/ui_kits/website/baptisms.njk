@@ -19,35 +19,26 @@ permalink: /ui_kits/website/baptisms.html
   <section class="em-pagehead em-pagehead--band">
     <div class="inner">
       <div class="em-breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><a href="baptisms.html">Life Events</a><span class="sep">/</span><span>Baptisms & Confirmation</span></div>
-      <h1>{{ sitePages['baptisms'].headline if sitePages['baptisms'].headline else "Baptism, First Communion & Confirmation" }}</h1>
-      <p class="deck">{{ sitePages['baptisms'].deck if sitePages['baptisms'].deck else "We gladly baptise new members of whatever age into the family of God — praying for them as they embark on their pilgrimage of faith." }}</p>
+      <h1>{{ sitePages['baptisms'].headline }}</h1>
+      <p class="deck">{{ sitePages['baptisms'].deck }}</p>
       <div class="meta-row"><div class="item"><div class="k">Baptisms</div><div class="v">10:30, third Sunday</div></div><div class="item"><div class="k">Confirmation</div><div class="v">Once a year, with the Bishop</div></div><div class="item"><div class="k">First Communion</div><div class="v">Good Shepherd Sunday</div></div></div>
     </div>
   </section>
   <section class="em-intro">
     <div class="inner">
       <div class="em-body">
-        {% if sitePages['baptisms'].introBody %}
-          {{ sitePages['baptisms'].introBody | portableText | safe }}
-        {% else %}
-          <p class="em-lead">At Emmanuel we gladly baptise new members of whatever age into the family of God, praying for them as they embark on their exciting journey and pilgrimage of faith.</p>
-          <p>Our baptism services tend to take place at our 10:30 service on the third Sunday of the month. If you'd prefer, we can also offer baptism at our 9:15 Joyful Noise service.</p>
-        {% endif %}
-        <div class="em-infocard" style="margin-top:36px">
-          <span class="tag">The sacrament of belonging</span>
-          <h3>Baptism</h3>
-          <p>Through baptism we are welcomed into the family of God and the life of the Church. We baptise people of every age — infants, children and adults alike — and walk with each household as they prepare.</p>
-        </div>
-        <div class="em-infocard">
-          <span class="tag">Once a year · taken by the Bishop</span>
-          <h3>Confirmation</h3>
-          <p>We have a confirmation service once a year. Confirmations are taken by the Bishop and are the occasion for baptised people to 'confirm' the vows that were made on their behalf when they were baptised.</p>
-        </div>
-        <div class="em-infocard">
-          <span class="tag">Good Shepherd Sunday · from age 8</span>
-          <h3>First Holy Communion</h3>
-          <p>At Emmanuel we admit to First Holy Communion those children who would like to take part in the Eucharist but are not yet old enough to be confirmed. We encourage children to wait to be confirmed until they are much older (around 16 or older), but invite them to participate fully in the sacrament of Holy Communion from around age 8. Admission typically takes place on Good Shepherd Sunday, following a series of 6–8 sessions teaching about the Eucharist.</p>
-        </div>
+        {{ sitePages['baptisms'].introBody | portableText | safe }}
+        {% for sec in sitePages['baptisms'].sections %}
+          {% if sec._type == "cardGridSection" %}
+            {% for card in sec.cards %}
+            <div class="em-infocard"{% if loop.first %} style="margin-top:36px"{% endif %}>
+              {% if card.eyebrow %}<span class="tag">{{ card.eyebrow }}</span>{% endif %}
+              {% if card.title %}<h3>{{ card.title }}</h3>{% endif %}
+              {% if card.body %}<p>{{ card.body }}</p>{% endif %}
+            </div>
+            {% endfor %}
+          {% endif %}
+        {% endfor %}
       </div>
       <aside class="em-aside">
         <div class="em-aside-card">
@@ -62,28 +53,15 @@ permalink: /ui_kits/website/baptisms.html
       </aside>
     </div>
   </section>
-  <section class="em-section em-section--band">
-    <div class="inner">
-      <div class="em-feature">
-        <div class="media em-well"><img src="../../assets/first-communion.jpg" alt="Children and adults presented to the Bishop at a Confirmation and First Holy Communion service" /></div>
-        <div>
-          <div class="em-ornament is-leading">A growing faith</div>
-          <h2>Welcomed to the <em>Lord's table</em></h2>
-          <p>From the youngest children admitted to First Holy Communion, to those confirmed by the Bishop, we walk with each person as they take their next step in the life of faith — surrounded by the prayers of the whole community.</p>
-          <a href="contact.html" class="em-readmore">Speak to the parish office →</a>
-        </div>
-      </div>
-    </div>
-  </section>
+  {% set sections = sitePages['baptisms'].sections %}
+  {% set skipCardGrids = true %}
+  {% include "sections.njk" %}
+
   <section class="em-callout">
     <div class="inner">
       <div>
-        <h3>{{ sitePages['baptisms'].calloutHeading if sitePages['baptisms'].calloutHeading else "A new beginning." }}</h3>
-        {% if sitePages['baptisms'].calloutBody %}
-          {{ sitePages['baptisms'].calloutBody | portableText | safe }}
-        {% else %}
-          <p>Whatever your age, there is a place for you in the family of God at Emmanuel. We would love to walk this journey with you.</p>
-        {% endif %}
+        <h3>{{ sitePages['baptisms'].calloutHeading }}</h3>
+        {{ sitePages['baptisms'].calloutBody | portableText | safe }}
       </div>
       <div style="display:flex;gap:14px;flex-wrap:wrap"><a href="contact.html" class="em-btn em-btn--tan">Contact the parish office</a><a href="service-times.html" class="em-btn em-btn--ghost-light">Service times</a></div>
     </div>

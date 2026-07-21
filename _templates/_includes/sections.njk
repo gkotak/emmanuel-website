@@ -14,6 +14,9 @@
     </div>
   </section>
 
+  {% elif sec._type == "cardGridSection" and skipCardGrids %}
+  {# rendered inline by the page template #}
+
   {% elif sec._type == "cardGridSection" and sec.layout == "iconList" %}
   <section class="sec sec--iconlist">
     <div class="sec__inner">
@@ -53,11 +56,12 @@
   </section>
 
   {% elif sec._type == "featureSection" %}
-  <section class="sec sec--feature">
+  <section class="sec sec--feature{% if sec.isBand %} is-band{% endif %}">
     <div class="sec__inner">
       <div class="em-feature{% if sec.reverse %} em-feature--reverse{% endif %}">
-        {% if sec.imageUrl %}
-        <div class="media em-well"><img src="{{ sec.imageUrl }}" alt="{{ sec.imageAlt }}" /></div>
+        {% set featImg = sec.imageUrl or sec.imagePath %}
+        {% if featImg %}
+        <div class="media em-well"><img src="{{ featImg }}" alt="{{ sec.imageAlt }}" /></div>
         {% endif %}
         <div>
           {% if sec.eyebrow %}<div class="em-ornament is-leading">{{ sec.eyebrow }}</div>{% endif %}
@@ -85,7 +89,8 @@
         {% for p in sec.people %}
         <div class="sec-person">
           <div class="em-portrait">
-            {% if p.imageUrl %}<img src="{{ p.imageUrl }}" alt="{{ p.name }}" />
+            {% set pImg = p.imageUrl or p.imagePath %}
+            {% if pImg %}<img src="{{ pImg }}" alt="{{ p.name }}" />
             {% else %}<div class="em-img-placeholder"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>{% endif %}
           </div>
           <div>

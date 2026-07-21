@@ -67,10 +67,10 @@ module.exports = function (eleventyConfig) {
         pageId, headline, deck,
         introBody,
         sections[]{
-          _type, _key, eyebrow, heading, body, quote, cite, reverse, imageAlt, layout,
+          _type, _key, eyebrow, heading, body, quote, cite, reverse, imageAlt, isBand, layout, imagePath,
           "imageUrl": image.asset->url,
           cards[]{ _key, eyebrow, title, body },
-          people[]{ _key, role, name, bio, "imageUrl": image.asset->url }
+          people[]{ _key, role, name, bio, imagePath, "imageUrl": image.asset->url }
         },
         calloutHeading, calloutBody
       }
