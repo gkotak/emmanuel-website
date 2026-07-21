@@ -152,7 +152,7 @@ permalink: /ui_kits/website/index.html
 
   <!-- Hero -->
   <section class="em-hero">
-    <div class="em-hero__bg" style="background-image:url('/assets/hero-congregation.jpg');background-position:center 60%"></div>
+    <div class="em-hero__bg" style="background-image:url('{{ siteImages['home-hero'].url or '/assets/hero-congregation.jpg' }}');background-position:center 60%"></div>
     <div class="em-hero__scrim"></div>
     <div class="em-hero__content">
       <div class="em-hero__eyebrow">Welcome to</div>
@@ -208,7 +208,7 @@ permalink: /ui_kits/website/index.html
   <section class="welcome">
     <div class="inner">
       <div class="em-well">
-        <img src="/assets/welcome-group.jpg" alt="A large, diverse group of parishioners gathered together in the nave" />
+        <img src="{{ siteImages['home-welcome-group'].url or '/assets/welcome-group.jpg' }}" alt="{{ siteImages['home-welcome-group'].alt or 'A large, diverse group of parishioners gathered together in the nave' }}" />
         <div class="caption">Friends and families gathered at Emmanuel</div>
       </div>
       <div>
@@ -229,7 +229,7 @@ permalink: /ui_kits/website/index.html
   </section>
 
   <!-- Pull quote -->
-  <section class="em-photoband" style="background-image:url('/assets/nave-wide.jpg')">
+  <section class="em-photoband" style="background-image:url('{{ siteImages['home-nave'].url or '/assets/nave-wide.jpg' }}')">
     <div class="inner">
       <blockquote>I came that they may have <em>life</em>, and have it in <em>abundance</em>.</blockquote>
       <cite>John 10:10</cite>

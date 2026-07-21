@@ -86,9 +86,9 @@ permalink: /ui_kits/website/weddings.html
           </div>
         </details>
         <div class="wedding-photo-row" style="margin-top:36px">
-          <div class="em-well"><img src="../../assets/wedding-bw.jpg" alt="A bride and groom standing together at the altar during their wedding ceremony, surrounded by candles and flowers" /></div>
-          <div class="em-well"><img src="../../assets/wedding-couple.jpg" alt="A newly married couple sharing a joyful moment in the church after their wedding" /></div>
-          <div class="em-well"><img src="../../assets/wedding-aisle.webp" alt="A bride and groom walking together down the aisle at Emmanuel" /></div>
+          <div class="em-well"><img src="{{ siteImages['weddings-1'].url or '/assets/wedding-bw.jpg' }}" alt="{{ siteImages['weddings-1'].alt or 'A bride and groom standing together at the altar during their wedding ceremony, surrounded by candles and flowers' }}" /></div>
+          <div class="em-well"><img src="{{ siteImages['weddings-2'].url or '/assets/wedding-couple.jpg' }}" alt="{{ siteImages['weddings-2'].alt or 'A newly married couple sharing a joyful moment in the church after their wedding' }}" /></div>
+          <div class="em-well"><img src="{{ siteImages['weddings-3'].url or '/assets/wedding-aisle.webp' }}" alt="{{ siteImages['weddings-3'].alt or 'A bride and groom walking together down the aisle at Emmanuel' }}" /></div>
         </div>
       </div>
       <aside class="em-aside">

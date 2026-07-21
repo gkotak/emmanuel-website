@@ -60,6 +60,16 @@ module.exports = function (eleventyConfig) {
     `)
   })
 
+  // Global data: fetch replaceable site image slots from Sanity, keyed by slot
+  eleventyConfig.addGlobalData('siteImages', async () => {
+    const images = await sanity.fetch(`
+      *[_type == "siteImage"] {
+        key, alt, "url": image.asset->url
+      }
+    `)
+    return images.reduce((acc, i) => { acc[i.key] = i; return acc }, {})
+  })
+
   // Global data: fetch site page content (editable text blocks) from Sanity
   eleventyConfig.addGlobalData('sitePages', async () => {
     const pages = await sanity.fetch(`

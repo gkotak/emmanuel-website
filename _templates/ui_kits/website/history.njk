@@ -63,7 +63,7 @@ permalink: /ui_kits/website/history.html
       </div>
       <aside class="em-aside">
         <div class="em-well" style="aspect-ratio:4/5; margin-bottom:18px">
-          <img src="../../assets/nave-wide.jpg" alt="The nave of Emmanuel Church looking east toward the apse" />
+          <img src="{{ siteImages['history-1'].url or '/assets/nave-wide.jpg' }}" alt="{{ siteImages['history-1'].alt or 'The nave of Emmanuel Church looking east toward the apse' }}" />
         </div>
         <p style="font-family:var(--font-editorial); font-style:italic; font-size:14px; color:var(--muted); line-height:1.45; margin:0 0 28px">The nave looking east — "handsome," in the words of Basil Clarke's <em>The Parish Churches of London</em> (1966).</p>
         <div class="em-aside-card">
@@ -124,7 +124,7 @@ permalink: /ui_kits/website/history.html
     <div class="inner">
       <div class="em-feature">
         <div class="em-well media" style="aspect-ratio:4/3">
-          <img src="../../assets/hero.jpg" alt="The interior of Emmanuel Church showing pointed arches and lancet windows" />
+          <img src="{{ siteImages['history-2'].url or '/assets/hero.jpg' }}" alt="{{ siteImages['history-2'].alt or 'The interior of Emmanuel Church showing pointed arches and lancet windows' }}" />
         </div>
         <div>
           <div class="em-ornament is-leading">No. ii · Architecture</div>
@@ -149,7 +149,7 @@ permalink: /ui_kits/website/history.html
       <!-- Font feature -->
       <div class="em-feature em-feature--reverse" style="margin-bottom:64px">
         <div class="em-well media" style="aspect-ratio:4/3">
-          <img src="../../assets/baptism-font.jpg" alt="The stone font at Emmanuel Church with its tall pinnacled oak cover" />
+          <img src="{{ siteImages['history-3'].url or '/assets/baptism-font.jpg' }}" alt="{{ siteImages['history-3'].alt or 'The stone font at Emmanuel Church with its tall pinnacled oak cover' }}" />
         </div>
         <div>
           <h2 style="font-size:var(--fs-h2)">The <em>Font</em></h2>
