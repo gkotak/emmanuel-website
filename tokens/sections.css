@@ -1,0 +1,82 @@
+/* ============================================================
+   Flexible page sections (CMS-driven)
+   Shared base styles for _includes/sections.njk output.
+   Pages may override via their own <style> blocks.
+   ============================================================ */
+
+.sec__inner { max-width: var(--container); margin: 0 auto; }
+.sec__heading {
+  font-family: var(--font-display);
+  font-size: var(--fs-h2);
+  font-weight: var(--fw-medium);
+  color: var(--navy);
+  line-height: 1.05;
+  letter-spacing: -0.015em;
+  margin: 14px 0 0;
+}
+.sec__body { margin-top: 22px; }
+
+/* --- Card grid (bordered boxes) --- */
+.sec--cardgrid { padding: var(--section-y) var(--gutter); }
+.sec-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+.sec--cardgrid .em-ornament + .sec-cards,
+.sec--cardgrid .sec__heading + .sec-cards { margin-top: 48px; }
+.sec-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  padding: 38px 34px 34px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: all var(--dur) var(--ease);
+}
+.sec-card:hover { border-color: var(--brown); transform: translateY(-3px); }
+.sec-card__eyebrow {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: var(--fw-bold);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--brown);
+}
+.sec-card__title { font-family: var(--font-display); font-size: 24px; font-weight: var(--fw-semibold); color: var(--ink); margin: 0; }
+.sec-card__body { font-size: 14.5px; line-height: 1.6; color: var(--muted); margin: 0; flex-grow: 1; }
+
+/* --- Card grid: icon-list layout (heading left, ticked items) --- */
+.sec--iconlist { padding: var(--section-y) var(--gutter); background: var(--cream); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.sec--iconlist .sec__inner { display: grid; grid-template-columns: 380px 1fr; gap: 80px; align-items: start; }
+.sec-iconlist__items { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 40px; }
+.sec-iconitem { display: flex; gap: 16px; align-items: flex-start; }
+.sec-iconitem__ic { width: 40px; height: 40px; flex-shrink: 0; color: var(--brown); border: 1px solid var(--line); display: flex; align-items: center; justify-content: center; background: #fff; }
+.sec-iconitem__ic svg { width: 20px; height: 20px; stroke: currentColor; stroke-width: 1.8; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.sec-iconitem__title { font-family: var(--font-display); font-size: 20px; font-weight: var(--fw-semibold); color: var(--navy); margin: 0 0 4px; }
+.sec-iconitem__body { font-size: 14px; line-height: 1.55; color: var(--ink-soft); margin: 0; }
+
+/* --- Feature (image + text) --- */
+.sec--feature { padding: var(--section-y) var(--gutter); }
+.sec--feature.is-band { background: var(--surface-band); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.sec--feature .em-feature .media { aspect-ratio: 4/3; }
+.sec--feature .sec__body p { font-size: var(--fs-body); line-height: var(--lh-relaxed); color: var(--ink-soft); margin: 0 0 18px; }
+.sec--feature .sec__body p a { color: var(--brown); text-decoration: underline; text-underline-offset: 3px; }
+
+/* --- People --- */
+.sec--people { padding: var(--section-y) var(--gutter); background: var(--cream); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.sec-people { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; margin-top: 52px; }
+.sec-person { display: grid; grid-template-columns: 200px 1fr; gap: 32px; align-items: start; }
+.sec-person .em-portrait { aspect-ratio: 4/5; margin: 0; }
+.sec-person__role { font-size: 11px; font-weight: var(--fw-bold); letter-spacing: 0.22em; text-transform: uppercase; color: var(--brown); }
+.sec-person__name { font-family: var(--font-display); font-size: 28px; font-weight: var(--fw-semibold); color: var(--navy); margin: 8px 0 14px; letter-spacing: -0.01em; }
+.sec-person__bio { font-size: 14.5px; line-height: 1.6; color: var(--ink-soft); margin: 0; }
+
+/* --- Rich text --- */
+.sec--richtext { padding: var(--section-y) var(--gutter); }
+
+@media (max-width: 768px) {
+  .sec-cards { grid-template-columns: 1fr; gap: 16px; }
+  .sec-card { padding: 24px 20px; }
+  .sec--iconlist .sec__inner { grid-template-columns: 1fr; gap: 32px; }
+  .sec-iconlist__items { grid-template-columns: 1fr; gap: 20px; }
+  .sec-people { grid-template-columns: 1fr; gap: 36px; }
+  .sec-person { grid-template-columns: 1fr; gap: 20px; }
+  .sec-person .em-portrait { max-height: 200px; aspect-ratio: 1/1; }
+}

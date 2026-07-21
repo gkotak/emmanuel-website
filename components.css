@@ -15,6 +15,10 @@
    token custom properties — no hard-coded colours or fonts.
    ============================================================ */
 
+/* ---------- Reset ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+
 /* ---------- Primitives ---------- */
 
 .em-eyebrow {
