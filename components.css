@@ -225,7 +225,7 @@
 .em-utility a:hover { color: #fff; }
 .em-utility .socials { display: flex; gap: 14px; }
 
-.em-header { background: var(--surface-page); border-bottom: 1px solid var(--border-hairline); }
+.em-header { background: var(--cream); border-bottom: 1px solid var(--border-hairline); }
 .em-header .wrap {
   max-width: var(--container); margin: 0 auto; padding: 20px var(--gutter);
   display: flex; align-items: center; justify-content: space-between; gap: 28px;
