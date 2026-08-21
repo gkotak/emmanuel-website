@@ -25,6 +25,7 @@ permalink: /ui_kits/website/music.html
 
   .people { padding: 110px var(--gutter); background: var(--cream); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
   .people .inner { max-width: 1320px; margin: 0 auto; }
+  .people .lead { font-size: var(--fs-body); line-height: var(--lh-relaxed); color: var(--ink-soft); max-width: 40em; margin: 18px 0 28px; }
   .people-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; margin-top: 52px; }
   .person-row { display: grid; grid-template-columns: 200px 1fr; gap: 32px; align-items: start; }
   .person-row .em-portrait { aspect-ratio: 4/5; margin: 0; }
@@ -91,8 +92,20 @@ permalink: /ui_kits/website/music.html
     </div>
   </section>
 
-  {% set sections = sitePages['music'].sections %}
-  {% include "sections.njk" %}
+  {% for sec in sitePages['music'].sections %}
+    {% if sec._type == "peopleSection" %}
+  <section class="people">
+    <div class="inner">
+      <div class="em-ornament is-leading">{{ sec.eyebrow or "Those who lead our music" }}</div>
+      <p class="lead">Meet Will Rose (Director of Music) and Joseph Verdin (Organist) with the rest of the parish team.</p>
+      <a href="/ui_kits/website/our-team.html" class="em-btn em-btn--primary">Our Team</a>
+    </div>
+  </section>
+    {% else %}
+      {% set sections = [sec] %}
+      {% include "sections.njk" %}
+    {% endif %}
+  {% endfor %}
 
   <!-- CTA -->
   <section class="em-callout">

@@ -305,10 +305,9 @@ html, body { margin: 0; padding: 0; }
   padding: 32px 0;
   border-bottom: 1px solid var(--line);
   align-items: start;
-  transition: padding var(--dur-fast) var(--ease);
   text-decoration: none;
 }
-.em-row:hover { background: var(--paper); padding-inline: 12px; }
+.em-row:hover { background: var(--paper); }
 .em-row__day { font-size: 12px; color: var(--brown); font-weight: var(--fw-semibold); letter-spacing: 0.18em; text-transform: uppercase; padding-top: 8px; }
 .em-row__lead { display: flex; flex-direction: column; gap: 4px; }
 .em-row__lead .t { font-family: var(--font-display); font-size: 36px; font-weight: var(--fw-medium); color: var(--ink); line-height: 1.05; letter-spacing: -0.02em; }
@@ -388,13 +387,23 @@ html, body { margin: 0; padding: 0; }
 .em-footer-top { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1.4fr; gap: 60px; padding-bottom: 56px; border-bottom: 1px solid var(--on-dark-line); }
 .em-footer h4 { font-size: 11.5px; font-weight: var(--fw-bold); letter-spacing: 0.22em; text-transform: uppercase; color: var(--tan); margin: 0 0 22px; }
 .em-footer .lockup { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; }
-.em-footer .lockup img { width: 44px; filter: brightness(0) invert(1); opacity: 0.95; }
+.em-footer .lockup img { width: 44px; opacity: 0.95; }
 .em-footer .lockup .name { font-family: var(--font-display); font-size: 24px; font-weight: var(--fw-semibold); color: #fff; }
 .em-footer p { line-height: 1.7; color: var(--on-dark-soft); margin: 0 0 14px; }
 .em-footer ul { list-style: none; margin: 0; padding: 0; }
 .em-footer ul li { margin-bottom: 11px; line-height: 1.5; }
 .em-footer a { color: var(--on-dark-soft); text-decoration: none; transition: color var(--dur-fast) var(--ease); }
 .em-footer a:hover { color: var(--tan); }
+.em-footer-contact a {
+  color: #fff;
+  text-decoration: underline;
+  text-decoration-color: rgba(255,255,255,0.35);
+  text-underline-offset: 3px;
+}
+.em-footer-contact a:hover {
+  color: var(--tan);
+  text-decoration-color: var(--tan);
+}
 .em-footer .socials { display: flex; gap: 10px; margin-top: 22px; }
 .em-footer .socials a { width: 38px; height: 38px; border: 1px solid rgba(255,255,255,0.25); border-radius: var(--radius-pill); display: flex; align-items: center; justify-content: center; color: var(--on-dark-soft); }
 .em-footer .socials a:hover { background: var(--tan); color: var(--navy); border-color: var(--tan); }
@@ -402,9 +411,32 @@ html, body { margin: 0; padding: 0; }
 .em-footer-bot .foot-links { display: flex; gap: 22px; flex-wrap: wrap; }
 .em-footer-bot .foot-links a { color: var(--on-dark-soft); }
 .em-footer-bot .foot-links a:hover { color: var(--tan); }
-.em-footer .footer-badges { display: flex; flex-wrap: wrap; gap: 8px 16px; margin-top: 24px; }
-.em-footer .footer-badges span { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--on-dark-faint); font-weight: var(--fw-semibold); }
-.em-footer .footer-badges span:not(:last-child)::after { content: '·'; margin-left: 16px; opacity: 0.5; }
+.em-footer .footer-badges { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 18px; margin-top: 24px; }
+.em-footer .footer-badges .footer-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  opacity: 0.92;
+  transition: opacity var(--dur-fast) var(--ease);
+}
+.em-footer .footer-badges .footer-badge:hover { opacity: 1; }
+.em-footer .footer-badges .footer-badge img {
+  display: block;
+  height: 36px;
+  width: auto;
+  max-width: 120px;
+  object-fit: contain;
+}
+.em-footer .footer-badges .footer-badge--on-light {
+  background: #fff;
+  border-radius: 6px;
+  padding: 6px 8px;
+}
+.em-footer .footer-badges .footer-badge--on-light img {
+  height: 28px;
+  max-width: 110px;
+}
 
 /* ---------- Footer newsletter form ---------- */
 .em-footer .newsletter form { display: flex; flex-direction: column; gap: 10px; margin-top: 16px; }
@@ -443,8 +475,12 @@ html, body { margin: 0; padding: 0; }
 /* ---------- Partners strip ---------- */
 
 .em-partners { background: var(--surface-page); padding: 56px var(--gutter); border-top: 1px solid var(--border-hairline); }
-.em-partners .inner { max-width: var(--container-narrow); margin: 0 auto; display: flex; align-items: center; justify-content: center; gap: 56px; flex-wrap: wrap; }
+.em-partners .inner { max-width: var(--container-narrow); margin: 0 auto; display: flex; align-items: center; justify-content: center; gap: 28px; flex-wrap: wrap; }
 .em-partners .partner { font-family: var(--font-display); font-size: 18px; font-weight: var(--fw-medium); color: var(--navy); opacity: 0.75; }
+.em-partners .partner--logo { opacity: 1; display: inline-flex; align-items: center; text-decoration: none; }
+.em-partners .partner--logo img { display: block; height: 40px; width: auto; max-width: 140px; object-fit: contain; }
+/* CoE / Inclusive Church assets are white — invert on light partners strip */
+.em-partners .partner--logo:not(.partner--dark) img { filter: brightness(0) saturate(100%); opacity: 0.85; }
 .em-partners .dot { width: 4px; height: 4px; background: var(--brown); border-radius: var(--radius-pill); opacity: 0.5; }
 
 /* ---------- Photo band (scripture / quote over full-bleed image) ---------- */

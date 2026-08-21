@@ -14,9 +14,11 @@ permalink: /ui_kits/website/history.html
   .hist-toc { list-style: none; margin: 0; padding: 0; }
   .hist-toc li { border-bottom: 1px solid var(--line); }
   .hist-toc li:first-child { border-top: 1px solid var(--rule-ink); }
-  .hist-toc a { display: flex; gap: 14px; align-items: baseline; padding: 13px 2px; font-family: var(--font-sans); font-size: 14.5px; color: var(--ink); text-decoration: none; transition: all var(--dur-fast) var(--ease); }
-  .hist-toc a:hover { padding-left: 8px; color: var(--brown); }
-  .hist-toc a .n { font-family: var(--font-editorial); font-style: italic; font-size: 14px; color: var(--brown); width: 24px; flex-shrink: 0; }
+  .hist-toc a,
+  .hist-toc .row { display: flex; gap: 14px; align-items: baseline; padding: 13px 2px; font-family: var(--font-sans); font-size: 14.5px; color: var(--ink); text-decoration: none; }
+  .hist-toc a:hover { padding-left: 8px; color: var(--brown); transition: all var(--dur-fast) var(--ease); }
+  .hist-toc a .n,
+  .hist-toc .row .n { font-family: var(--font-editorial); font-style: italic; font-size: 14px; color: var(--brown); width: 24px; flex-shrink: 0; }
   .hist-prose h3 { scroll-margin-top: 32px; }
   .hist-marble { display: flex; gap: 7px; margin: 4px 0 0; }
   .hist-marble span { width: 26px; height: 26px; border-radius: var(--radius-pill); border: 1px solid var(--line); }
@@ -24,7 +26,8 @@ permalink: /ui_kits/website/history.html
   @media (max-width: 768px) {
     .hist-prose { font-size: 15px; }
     .hist-prose h3 { font-size: 22px; }
-    .hist-toc a { font-size: 13px; padding: 11px 2px; }
+    .hist-toc a,
+    .hist-toc .row { font-size: 13px; padding: 11px 2px; }
     .hist-marble span { width: 20px; height: 20px; }
   }
 </style>
@@ -106,12 +109,12 @@ permalink: /ui_kits/website/history.html
           <div class="em-aside-card">
             <h4>A timeline</h4>
             <ul class="hist-toc">
-              <li><a href="#"><span class="n">1874</span>Mission church built on Mill Lane</a></li>
-              <li><a href="#"><span class="n">1885</span>Parish of West End created</a></li>
-              <li><a href="#"><span class="n">1897</span>Foundation stone laid, 19 June</a></li>
-              <li><a href="#"><span class="n">1898</span>Partly-built church consecrated</a></li>
-              <li><a href="#"><span class="n">1903</span>Church completed &amp; dedicated</a></li>
-              <li><a href="#"><span class="n">2016</span>Nave floor &amp; community rooms</a></li>
+              <li><span class="row"><span class="n">1874</span>Mission church built on Mill Lane</span></li>
+              <li><span class="row"><span class="n">1885</span>Parish of West End created</span></li>
+              <li><span class="row"><span class="n">1897</span>Foundation stone laid, 19 June</span></li>
+              <li><span class="row"><span class="n">1898</span>Partly-built church consecrated</span></li>
+              <li><span class="row"><span class="n">1903</span>Church completed &amp; dedicated</span></li>
+              <li><span class="row"><span class="n">2016</span>Nave floor &amp; community rooms</span></li>
             </ul>
           </div>
         </aside>
@@ -242,7 +245,7 @@ permalink: /ui_kits/website/history.html
   <section class="em-callout">
     <div class="inner">
       <div><h3>Come and <em>see</em> for yourself.</h3><p>The best way to know Emmanuel is to step inside. You are warmly welcome at any of our services, or to visit the Lady Chapel for quiet prayer.</p></div>
-      <div style="display:flex;gap:14px;flex-wrap:wrap"><a href="service-times.html" class="em-btn em-btn--tan">Service times</a><a href="contact.html" class="em-btn em-btn--ghost-light">Plan a visit</a></div>
+      <div style="display:flex;gap:14px;flex-wrap:wrap"><a href="contact.html" class="em-btn em-btn--tan">Plan a visit</a></div>
     </div>
   </section>
 

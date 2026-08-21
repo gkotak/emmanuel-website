@@ -1,0 +1,133 @@
+---
+permalink: /ui_kits/website/our-team-print.html
+---
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8" />
+<title>Our Team — Emmanuel Church, West Hampstead</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="/styles.css" />
+<style>
+@media print {
+  @page { size: A4 portrait; margin: 10mm; }
+  html { zoom: 0.54; }
+  *, *::before, *::after {
+    -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important;
+    animation-delay: -99s !important; animation-duration: .001s !important;
+    animation-iteration-count: 1 !important; animation-fill-mode: both !important;
+    animation-play-state: running !important; transition-duration: 0s !important;
+  }
+  .em-header { position: static !important; }
+  .em-section, .em-pagehead, .em-intro, .em-callout, .em-feature,
+  .em-member, .em-member--lead, .em-infocard, .em-doc, .em-table tr { break-inside: avoid; }
+}
+</style>
+<link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+</head>
+<body>
+
+{% include "header.njk" %}
+
+  <section class="em-pagehead em-pagehead--band em-pagehead--plain">
+    <div class="inner">
+      <div class="em-breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><a href="our-team.html">About Us</a><span class="sep">/</span><span>Our Team</span></div>
+      <h1>Our Team</h1>
+      <p class="deck">The clergy, staff and volunteers who together share in the life, worship and care of Emmanuel.</p>
+
+    </div>
+  </section>
+  <section class="em-section">
+    <div class="inner">
+      <div class="em-ornament is-leading">Clergy</div>
+      <div class="em-team-grid" style="margin-bottom:8px">
+        <div class="em-member em-member--lead">
+          <div class="em-portrait"><div class="em-img-placeholder"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div></div>
+          <div>
+            <div class="role">Vicar</div>
+            <h3>The Reverend Dr Catriona Laing</h3>
+            <p>Catriona has been our vicar since September 2023. She discerned God's call to ordained ministry whilst working on humanitarian projects in Iraq in 2004. Whilst pursuing her call to the priesthood she helped to establish the Cambridge Inter-Faith Programme.</p>
+            <p>Her work in inter-faith relations later inspired the subject of her PhD: a study of Muslim–Christian relations with a particular emphasis on prayer. Catriona's vocation continues to be shaped by a concern for inter-faith relations and a deep commitment to social justice. She now combines these with a strong sense of her calling as a parish priest — to encourage and support learning and discipleship within the congregation and community she serves.</p>
+          </div>
+        </div>
+      </div>
+      <div class="em-clergy-assoc">
+
+        <div class="em-member">
+          <div class="em-portrait"><div class="em-img-placeholder"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div></div>
+          <div class="role">Associate Curate</div>
+          <h3>Mthr Melissa Dickinson</h3>
+          <p class="pending">A fuller bio will follow shortly.</p>
+        </div>
+
+        <div class="em-member">
+          <div class="em-portrait"><div class="em-img-placeholder"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div></div>
+          <div class="role">Associate Priest</div>
+          <h3>Mthr Clemency Flitter</h3>
+          <p class="pending">Clemency joined us in 2025; a fuller bio will follow shortly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="em-section em-section--band">
+    <div class="inner">
+      <div class="em-ornament is-leading">Staff &amp; volunteers</div>
+      <div class="em-team-grid">
+
+        <div class="em-member">
+          <div class="em-portrait"><div class="em-img-placeholder"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div></div>
+          <div class="role">Churchwardens</div>
+          <h3>To be confirmed</h3>
+          <p class="pending">Churchwarden names and bios to be added.</p>
+        </div>
+
+        <div class="em-member">
+          <div class="em-portrait"><div class="em-img-placeholder"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div></div>
+          <div class="role">Operations Manager</div>
+          <h3>To be confirmed</h3>
+          <p class="pending">Bio to be taken from the current website.</p>
+        </div>
+
+        <div class="em-member">
+          <div class="em-portrait"><div class="em-img-placeholder"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div></div>
+          <div class="role">Director of Music</div>
+          <h3>Will Rose</h3>
+          <p>Will studied Music at Queens' College, Cambridge, where he was a Choral Scholar, winning several prestigious conducting prizes. Away from Emmanuel he is a music teacher at a top London secondary school. <a href="music.html" style="color:var(--brown);text-decoration:underline">Read more on the Music page →</a></p>
+        </div>
+
+        <div class="em-member">
+          <div class="em-portrait"><div class="em-img-placeholder"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div></div>
+          <div class="role">Children's Champion</div>
+          <h3>Claire Hammett</h3>
+          <p class="pending">Brief bio to follow.</p>
+        </div>
+
+        <div class="em-member">
+          <div class="em-portrait"><div class="em-img-placeholder"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div></div>
+          <div class="role">Youth Worker</div>
+          <h3>To be confirmed</h3>
+          <p class="pending">Name and bio to be added.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="em-callout">
+    <div class="inner">
+      <div><h3>Come and <em>say hello</em>.</h3><p>The best way to meet the team is in person — do introduce yourself after a Sunday service, or get in touch with the parish office any time.</p></div>
+      <div style="display:flex;gap:14px;flex-wrap:wrap"><a href="im-new.html" class="em-btn em-btn--tan">Planning your first visit</a><a href="contact.html" class="em-btn em-btn--ghost-light">Contact us</a></div>
+    </div>
+  </section>
+
+{% include "footer.njk" %}
+
+<script>
+(function(){
+  function go(){ setTimeout(function(){ window.print(); }, 500); }
+  if (document.fonts && document.fonts.ready) { document.fonts.ready.then(go); } else { window.addEventListener('load', go); }
+})();
+</script>
+</body>
+</html>
