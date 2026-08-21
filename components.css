@@ -275,7 +275,7 @@ html, body { margin: 0; padding: 0; }
 .em-hero__content { position: relative; z-index: 2; max-width: var(--container); margin: 0 auto; padding: 80px var(--gutter) 100px; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; }
 .em-hero__eyebrow { color: var(--tan); font-size: 12px; font-weight: var(--fw-semibold); letter-spacing: 0.32em; text-transform: uppercase; margin-bottom: 22px; }
 .em-hero h1 { font-family: var(--font-display); font-weight: var(--fw-medium); font-size: var(--fs-hero); line-height: 0.98; letter-spacing: var(--tracking-display); max-width: 900px; margin: 0 0 28px; }
-.em-hero h1 em { font-style: italic; color: var(--tan); font-weight: var(--fw-medium); }
+.em-hero h1 em { font-style: normal; color: inherit; font-weight: inherit; }
 .em-hero__tagline { font-size: var(--fs-lead); line-height: 1.5; max-width: 640px; color: var(--on-dark-soft); font-weight: var(--fw-light); margin-bottom: 40px; }
 .em-hero__cta { display: flex; gap: 14px; flex-wrap: wrap; }
 

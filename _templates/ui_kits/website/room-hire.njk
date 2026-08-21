@@ -80,7 +80,7 @@ permalink: /ui_kits/website/room-hire.html
       </table>
       <div class="rh-gallery">
         {% for slot in ['room-hire-1', 'room-hire-2', 'room-hire-3'] %}
-        {% set img = siteImages[slot].url or (slot == 'room-hire-1' and '/assets/room-hire-party.jpg') %}
+        {% set img = siteImages[slot].url or (slot == 'room-hire-1' and '/assets/room-hire-party.jpg') or (slot == 'room-hire-2' and '/assets/feedback/room-hire.jpg') %}
         <div class="em-well">
           {% if img %}
           <img src="{{ img }}" alt="{{ siteImages[slot].alt or 'Room hire at Emmanuel Church' }}" />

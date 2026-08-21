@@ -38,7 +38,7 @@ permalink: /ui_kits/website/index.html
   .welcome .em-well { aspect-ratio:4/5; }
   .welcome .em-well .caption { position:absolute; left:0; right:0; bottom:-1px; padding:20px 26px; background:linear-gradient(180deg,rgba(0,0,0,0) 0%, rgba(13,37,71,0.85) 100%); color:#fff; font-family:var(--font-display); font-style:italic; font-size:16px; z-index:3; pointer-events:none; }
   .welcome h2 { font-family:var(--font-display); font-size:var(--fs-display); font-weight:var(--fw-medium); line-height:1.02; color:var(--navy); letter-spacing:-0.015em; margin:18px 0 30px; }
-  .welcome h2 em { font-style:italic; color:var(--brown); font-weight:var(--fw-medium); }
+  .welcome h2 em { font-style:normal; color:inherit; font-weight:inherit; }
   .welcome p { font-size:var(--fs-body); line-height:1.65; color:var(--ink-soft); margin-bottom:22px; }
   .welcome .link-row { display:flex; gap:28px; margin-top:36px; align-items:center; flex-wrap:wrap; }
 
@@ -178,7 +178,7 @@ permalink: /ui_kits/website/index.html
       <div class="em-services-grid">
         {% for st in serviceTimes %}
         <div class="em-service-card">
-          <div class="time"><span class="day">{{ st.day }}</span>{{ st.time }}{% if st.group === "sunday" %}<span class="am">am</span>{% endif %}</div>
+          <div class="time"><span class="day">{{ st.day }}</span>{{ st.time }}</div>
           <div class="name">{{ st.name }}</div>
           {% if st.description %}<p class="desc">{{ st.description }}</p>{% endif %}
         </div>
@@ -193,7 +193,7 @@ permalink: /ui_kits/website/index.html
       <div class="copy">
         <div class="em-ornament">Stay connected</div>
         <h2>Join our <em>newsletter</em>.</h2>
-        <p>News from the parish, service times and what's coming up at Emmanuel — sent to your inbox every fortnight.</p>
+        <p>News from the parish, service times and what's coming up at Emmanuel — sent to your inbox every week.</p>
       </div>
       <form class="signup" action="https://emmanuelnw6.us9.list-manage.com/subscribe/post?u=82a1a8e47d9788dccae693588&amp;id=bbf2ae4052" method="post" target="_blank" novalidate>
         <input type="email" name="EMAIL" placeholder="Your email address" aria-label="Your email address" required />
@@ -263,12 +263,6 @@ permalink: /ui_kits/website/index.html
           <p>Practical love for our neighbours through food, shelter and friendship across the parish we serve.</p>
           <span class="arr">Get involved →</span>
         </a>
-        <a href="/ui_kits/website/donations.html#other-ways" class="em-tile">
-          <div class="icon"><svg viewBox="0 0 48 48"><path d="M14 24v8a10 10 0 0 0 20 0v-8"/><path d="M24 8v16"/><path d="M18 12l6-4 6 4"/></svg></div>
-          <h3>Volunteer</h3>
-          <p>Sidespersons, readers, intercessors, coffee rota and many small jobs that keep the parish running.</p>
-          <span class="arr">Find a role →</span>
-        </a>
         <div class="em-tile">
           <div class="icon"><svg viewBox="0 0 48 48"><path d="M10 40V20l14-10 14 10v20"/><path d="M20 40V28h8v12"/></svg></div>
           <h3>Life Events</h3>
@@ -300,7 +294,7 @@ permalink: /ui_kits/website/index.html
       <div class="right">
         <div><div class="figure">£15k</div><div class="figure-label">Monthly running cost</div></div>
         <a href="https://www.parishgiving.org.uk/donors/find-your-parish/west-hampstead-emmanuel-nw6-1ju" target="_blank" rel="noopener" class="em-btn em-btn--tan">Donate via Parish Giving Scheme</a>
-        <a href="/ui_kits/website/donations.html#other-ways" style="color:rgba(255,255,255,0.7);font-size:14px;font-weight:500">Other ways to give →</a>
+        <a href="/ui_kits/website/donations.html#newsletter" style="color:rgba(255,255,255,0.7);font-size:14px;font-weight:500">Other ways to give →</a>
       </div>
     </div>
   </section>
