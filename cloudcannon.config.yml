@@ -2,6 +2,9 @@
 # Greenfield model: page copy lives in each .njk front matter.
 # Separate collections only for shared inventories (people, services, rates, events).
 
+# Do not auto-discover extra collections (old Site Pages / Site Images / News).
+collections_config_override: true
+
 source_editor:
   tab_size: 2
   theme: monokai
@@ -45,7 +48,8 @@ _structures:
           slug: will-rose
 
 collections_config:
-  website_pages:
+  # New key (pages) so CloudCannon drops the stale "Website pages (visual)" collection.
+  pages:
     path: _templates/ui_kits/website
     name: Pages
     icon: web
