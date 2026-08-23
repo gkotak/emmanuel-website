@@ -3,8 +3,8 @@ permalink: /ui_kits/website/children-families.html
 headline: Children & Families
 deck: From our youngest members to our teenagers, Emmanuel is a place where children and families are warmly welcomed into the life of the church.
 intro_paragraphs:
-  - Children and youth make up a core part of our church community at Emmanuel — and we know how much they have to teach us about spirituality and questions of faith.
-  - "For this reason we invest heavily in their Christian growth: for our youngest members through the Joyful Noise congregation, and for older children and young people through Children's & Youth Church, singing in the choir, joining the serving team, and helping to lead the readings and intercessions at our monthly intergenerational worship."
+  - text: Children and youth make up a core part of our church community at Emmanuel — and we know how much they have to teach us about spirituality and questions of faith.
+  - text: "For this reason we invest heavily in their Christian growth: for our youngest members through the Joyful Noise congregation, and for older children and young people through Children's & Youth Church, singing in the choir, joining the serving team, and helping to lead the readings and intercessions at our monthly intergenerational worship."
 cards:
   - eyebrow: Ages 4–11 · Godly Play
     title: Children's Church
@@ -123,9 +123,13 @@ callout_body: Whether on a Sunday morning or at Thursday's Stay and Play, we'd l
   <section class="cf-intro">
     <div class="inner">
       <div class="intro-body">
+        <div data-editable="array" data-prop="intro_paragraphs">
         {% for para in intro_paragraphs %}
-        <p data-editable="text" data-prop="intro_paragraphs[{{ loop.index0 }}]" data-type="text">{{ para }}</p>
+          <p data-editable="array-item">
+            <span data-editable="text" data-prop="text" data-type="text">{{ para.text if para.text else para }}</span>
+          </p>
         {% endfor %}
+        </div>
       </div>
       <aside class="em-aside">
         <div class="em-aside-card">
@@ -207,7 +211,7 @@ callout_body: Whether on a Sunday morning or at Thursday's Stay and Play, we'd l
           <div class="em-ornament is-leading" data-editable="text" data-prop="feature.eyebrow" data-type="span">{{ feature.eyebrow }}</div>
           <h2 data-editable="text" data-prop="feature.heading" data-type="span">{{ feature.heading }}</h2>
           {% for para in feature.body_paragraphs %}
-          <p data-editable="text" data-prop="feature.body_paragraphs[{{ loop.index0 }}]" data-type="text">{{ para }}</p>
+          <p>{{ para.text if para.text else para }}</p>
           {% endfor %}
         </div>
       </div>

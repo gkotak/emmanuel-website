@@ -3,8 +3,8 @@ permalink: /ui_kits/website/baptisms.html
 headline: Baptism, First Communion & Confirmation
 deck: We gladly baptise new members of whatever age into the family of God — praying for them as they embark on their pilgrimage of faith.
 intro_paragraphs:
-  - At Emmanuel we gladly baptise new members of whatever age into the family of God, praying for them as they embark on their exciting journey and pilgrimage of faith.
-  - Our baptism services tend to take place at our 10:30 service on the third Sunday of the month. If you'd prefer, we can also offer baptism at our 9:15 Joyful Noise service.
+  - text: At Emmanuel we gladly baptise new members of whatever age into the family of God, praying for them as they embark on their exciting journey and pilgrimage of faith.
+  - text: Our baptism services tend to take place at our 10:30 service on the third Sunday of the month. If you'd prefer, we can also offer baptism at our 9:15 Joyful Noise service.
 cards:
   - eyebrow: The sacrament of belonging
     title: Baptism
@@ -56,10 +56,13 @@ callout_body: Whatever your age, there is a place for you in the family of God a
   <section class="em-intro">
     <div class="inner">
       <div class="em-body">
+        <div data-editable="array" data-prop="intro_paragraphs">
         {% for para in intro_paragraphs %}
-          {% if loop.first %}<p class="em-lead" data-editable="text" data-prop="intro_paragraphs[{{ loop.index0 }}]" data-type="text">{{ para }}</p>
-          {% else %}<p data-editable="text" data-prop="intro_paragraphs[{{ loop.index0 }}]" data-type="text">{{ para }}</p>{% endif %}
+          <p{% if loop.first %} class="em-lead"{% endif %} data-editable="array-item">
+            <span data-editable="text" data-prop="text" data-type="text">{{ para.text if para.text else para }}</span>
+          </p>
         {% endfor %}
+        </div>
         <div style="margin-top:36px" data-editable="array" data-prop="cards">
           {% for card in cards %}
           <div class="em-infocard" data-editable="array-item">

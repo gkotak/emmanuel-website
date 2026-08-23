@@ -3,10 +3,10 @@ permalink: /ui_kits/website/funerals.html
 headline: Funerals & Memorials
 deck: We have experience in walking with people through these difficult times, and will do our best to support you as you navigate the sadness and challenges of grief.
 intro_paragraphs:
-  - We know that arranging a funeral or a memorial service can be a very overwhelming experience.
-  - We have experience in walking with people in these difficult times and will do our best to support you as you navigate the sadness and challenges of grief.
-  - In helping you plan and prepare for a funeral or memorial service, we will do our best to help the love of God feel close to you. We are here to pray for and with you, and to work with you to put together a service that honours your loved one in the way that feels most right for you.
-  - If you would like to discuss a funeral, please contact the parish office. We will respond with care and without delay.
+  - text: We know that arranging a funeral or a memorial service can be a very overwhelming experience.
+  - text: We have experience in walking with people in these difficult times and will do our best to support you as you navigate the sadness and challenges of grief.
+  - text: In helping you plan and prepare for a funeral or memorial service, we will do our best to help the love of God feel close to you. We are here to pray for and with you, and to work with you to put together a service that honours your loved one in the way that feels most right for you.
+  - text: If you would like to discuss a funeral, please contact the parish office. We will respond with care and without delay.
 callout_heading: We are here for you.
 callout_body: Whenever you are ready, the parish office will help you take the next step — there is no rush, and no question too small.
 ---
@@ -36,10 +36,13 @@ callout_body: Whenever you are ready, the parish office will help you take the n
   <section class="em-intro">
     <div class="inner">
       <div class="em-body">
+        <div data-editable="array" data-prop="intro_paragraphs">
         {% for para in intro_paragraphs %}
-          {% if loop.first %}<p class="em-lead" data-editable="text" data-prop="intro_paragraphs[{{ loop.index0 }}]" data-type="text">{{ para }}</p>
-          {% else %}<p data-editable="text" data-prop="intro_paragraphs[{{ loop.index0 }}]" data-type="text">{{ para }}</p>{% endif %}
+          <p{% if loop.first %} class="em-lead"{% endif %} data-editable="array-item">
+            <span data-editable="text" data-prop="text" data-type="text">{{ para.text if para.text else para }}</span>
+          </p>
         {% endfor %}
+        </div>
       </div>
       <aside class="em-aside">
         <div class="em-well" style="aspect-ratio:4/3">

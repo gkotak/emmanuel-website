@@ -46,6 +46,12 @@ _structures:
         icon: person
         value:
           slug: will-rose
+  intro_paragraphs:
+    values:
+      - label: Paragraph
+        icon: notes
+        value:
+          text: ''
 
 collections_config:
   # New key (pages) so CloudCannon drops the stale "Website pages (visual)" collection.
@@ -134,6 +140,8 @@ _inputs:
     type: textarea
   intro_paragraphs:
     type: array
+    options:
+      structures: _structures.intro_paragraphs
   archive_note:
     type: textarea
   callout_heading:

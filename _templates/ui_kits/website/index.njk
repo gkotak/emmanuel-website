@@ -5,15 +5,8 @@ deck: >-
   An inclusive community in the catholic tradition of the Church of England,
   in the heart of West Hampstead since 1897.
 intro_paragraphs:
-  - >-
-    Emmanuel is a diverse, inclusive church in the liberal catholic tradition.
-    Together, we are learning to be a community of faith shaped by the
-    celebration of the Eucharist, a regular pattern of prayer and a vocation to
-    share the all-encompassing love of God with the parish we serve.
-  - >-
-    Wherever you find yourself on your journey of exploration of the Christian
-    faith — curious, doubtful, seeking, ambivalent or long-time devout believer
-    — we trust you will find a warm welcome at Emmanuel.
+  - text: >- Emmanuel is a diverse, inclusive church in the liberal catholic tradition. Together, we are learning to be a community of faith shaped by the celebration of the Eucharist, a regular pattern of prayer and a vocation to share the all-encompassing love of God with the parish we serve.
+  - text: >- Wherever you find yourself on your journey of exploration of the Christian faith — curious, doubtful, seeking, ambivalent or long-time devout believer — we trust you will find a warm welcome at Emmanuel.
 callout_heading: Wherever you find yourself, you are welcome here.
 hero_image: /assets/cms/site-images/home-hero.jpg
 hero_image_alt: The congregation gathered for worship in the nave
@@ -234,9 +227,13 @@ pullquote_image: /assets/cms/site-images/home-nave.jpg
       <div>
         <div class="em-ornament">A Warm Welcome</div>
         <h2 data-editable="text" data-prop="callout_heading" data-type="span">{{ callout_heading }}</h2>
+        <div data-editable="array" data-prop="intro_paragraphs">
         {% for para in intro_paragraphs %}
-          <p data-editable="text" data-prop="intro_paragraphs[{{ loop.index0 }}]" data-type="text">{{ para }}</p>
+          <p data-editable="array-item">
+            <span data-editable="text" data-prop="text" data-type="text">{{ para.text if para.text else para }}</span>
+          </p>
         {% endfor %}
+        </div>
         <div class="link-row">
           <a href="/ui_kits/website/im-new.html" class="em-readmore">What to expect on your first visit →</a>
           <a href="/ui_kits/website/history.html" class="em-readmore" style="color:var(--ink);border-color:var(--ink)">Our story since 1897</a>

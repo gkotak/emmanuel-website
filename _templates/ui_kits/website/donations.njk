@@ -5,10 +5,7 @@ deck: >-
   It costs £15,000 a month to run Emmanuel. We raise all of it ourselves,
   locally — it doesn't come from the Government or the Church of England.
 intro_paragraphs:
-  - >-
-    While we hold fundraising events and rent out the church, one of the
-    foundations of our finances is the tremendous support we receive from our
-    congregation through regular donations.
+  - text: >- While we hold fundraising events and rent out the church, one of the foundations of our finances is the tremendous support we receive from our congregation through regular donations.
 cost_cards:
   - title: Ministry
     body: Clergy pay, housing and pension — the people who lead our worship and care.
@@ -104,9 +101,13 @@ volunteer_cards:
   <section class="em-intro em-intro--solo">
     <div class="inner">
       <div class="em-body">
+        <div data-editable="array" data-prop="intro_paragraphs">
         {% for para in intro_paragraphs %}
-        <p{% if loop.first %} class="em-lead"{% endif %} data-editable="text" data-prop="intro_paragraphs[{{ loop.index0 }}]" data-type="text">{{ para }}</p>
+          <p{% if loop.first %} class="em-lead"{% endif %} data-editable="array-item">
+            <span data-editable="text" data-prop="text" data-type="text">{{ para.text if para.text else para }}</span>
+          </p>
         {% endfor %}
+        </div>
         <p>That £15,000 a month covers everything it takes to keep Emmanuel open, alive and serving the parish — from the ministry of our clergy to the upkeep of a Victorian building, and the outreach that reaches beyond our walls.</p>
       </div>
     </div>

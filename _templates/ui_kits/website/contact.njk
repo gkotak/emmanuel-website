@@ -3,13 +3,13 @@ permalink: /ui_kits/website/contact.html
 headline: Contact us
 deck: If you would like to request a prayer for yourself or someone else, or to contact us about any other matter, please reach the clergy via the Parish Office below.
 intro_paragraphs:
-  - Whatever is on your heart — a prayer request, a question, or simply wanting to get in touch — we would be glad to hear from you.
-  - The vicar aims to meet new members of the congregation for a 1-1 meeting within six months of their arrival.
-  - The clergy can be reached through the Parish Office. If your enquiry concerns a baptism, wedding or funeral, do let us know and we will pass it to the right person.
-  - The Church is open daily from 9am–7pm and you are always welcome to come in for prayer, to light a candle or leave a prayer request. When the main church is busy with other activities, the Lady Chapel (to the right of the Jesus statue as you come in) is always available as a quiet place to pray, read and reflect.
-  - If you are unable to get to church, do ask about home communions — the clergy are glad to bring Holy Communion to those who need it.
-  - Sign up to receive our newsletter
-  - If you'd like to receive our weekly newsletter, please click here.
+  - text: Whatever is on your heart — a prayer request, a question, or simply wanting to get in touch — we would be glad to hear from you.
+  - text: The vicar aims to meet new members of the congregation for a 1-1 meeting within six months of their arrival.
+  - text: The clergy can be reached through the Parish Office. If your enquiry concerns a baptism, wedding or funeral, do let us know and we will pass it to the right person.
+  - text: The Church is open daily from 9am–7pm and you are always welcome to come in for prayer, to light a candle or leave a prayer request. When the main church is busy with other activities, the Lady Chapel (to the right of the Jesus statue as you come in) is always available as a quiet place to pray, read and reflect.
+  - text: If you are unable to get to church, do ask about home communions — the clergy are glad to bring Holy Communion to those who need it.
+  - text: Sign up to receive our newsletter
+  - text: If you'd like to receive our weekly newsletter, please click here.
 callout_heading: Stay connected.
 callout_body: Join our email list to receive the regular newsletter, with news and what's on across the parish.
 ---
@@ -70,10 +70,13 @@ callout_body: Join our email list to receive the regular newsletter, with news a
   <section class="em-intro">
     <div class="inner">
       <div class="em-body">
+        <div data-editable="array" data-prop="intro_paragraphs">
         {% for para in intro_paragraphs %}
-          {% if loop.first %}<p class="em-lead" data-editable="text" data-prop="intro_paragraphs[{{ loop.index0 }}]" data-type="text">{{ para }}</p>
-          {% else %}<p data-editable="text" data-prop="intro_paragraphs[{{ loop.index0 }}]" data-type="text">{{ para }}</p>{% endif %}
+          <p{% if loop.first %} class="em-lead"{% endif %} data-editable="array-item">
+            <span data-editable="text" data-prop="text" data-type="text">{{ para.text if para.text else para }}</span>
+          </p>
         {% endfor %}
+        </div>
       </div>
       <aside class="em-aside">
         <div class="ct-contactcard">
