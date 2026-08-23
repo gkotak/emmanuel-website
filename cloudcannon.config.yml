@@ -39,8 +39,6 @@ _structures:
         icon: schedule
         value:
           slug: sung-eucharist
-          # Optional: override blurb for this page only. Leave blank to use Service Times description.
-          body: ''
   featured_people:
     values:
       - label: Person (from Who's Who)
