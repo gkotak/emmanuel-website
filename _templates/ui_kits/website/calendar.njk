@@ -5,7 +5,7 @@ permalink: /ui_kits/website/calendar.html
 <html lang="en-GB">
 <head>
 <meta charset="utf-8" />
-<title>Monthly Calendar — Emmanuel Church, West Hampstead</title>
+<title>Weekly Calendar — Emmanuel Church, West Hampstead</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet" href="../../styles.css" />
 <style>
@@ -67,6 +67,12 @@ permalink: /ui_kits/website/calendar.html
   .cal-wevt { display:block; text-decoration:none; padding:8px 9px; border-radius:3px; }
   .cal-wevt .wt { display:block; font-family:var(--font-sans); font-size:11px; font-weight:var(--fw-bold); letter-spacing:0.03em; opacity:0.85; }
   .cal-wevt .wn { font-family:var(--font-display); font-size:14.5px; line-height:1.2; margin-top:1px; }
+  /* Paused: a regular service not running on this date (e.g. an August break) */
+  .cal-chip.is-paused { opacity:0.55; filter:grayscale(1); }
+  .cal-chip.is-paused .wn, .cal-chip.is-paused b { text-decoration:line-through; }
+  .cal-chip.is-paused .wp { display:block; font-family:var(--font-sans); font-size:10.5px; font-weight:var(--fw-semibold); letter-spacing:0.02em; text-decoration:none; margin-top:2px; }
+  .cal-chip--exhibition.is-paused, .cal-chip--special.is-paused { color:var(--navy); }
+  a.cal-chip.is-paused:hover { filter:grayscale(1) brightness(0.98); }
   .cal-wevt.cal-chip--service { color:var(--navy); }
   .cal-wevt.cal-chip--prayer { color:var(--ink-soft); }
   .cal-wevt.cal-chip--special { color:#fff; }
@@ -83,8 +89,8 @@ permalink: /ui_kits/website/calendar.html
 
   <section class="em-pagehead em-pagehead--band em-pagehead--plain">
     <div class="inner">
-      <div class="em-breadcrumb"><a href="/ui_kits/website/index.html">Home</a><span class="sep">/</span><a href="#">What's On</a><span class="sep">/</span><span>Monthly Calendar</span></div>
-      <h1>Monthly <em>calendar</em></h1>
+      <div class="em-breadcrumb"><a href="/ui_kits/website/index.html">Home</a><span class="sep">/</span><a href="#">What's On</a><span class="sep">/</span><span>Weekly Calendar</span></div>
+      <h1>Weekly <em>calendar</em></h1>
       <p class="deck">Everything happening at Emmanuel: our regular services, weekly bookings in the church, as well as concerts, special events and services.</p>
     </div>
   </section>
@@ -100,8 +106,8 @@ permalink: /ui_kits/website/calendar.html
         <h2 class="cal-title" id="calTitle">—</h2>
         <div class="cal-spacer"></div>
         <div class="cal-toggle">
-          <button id="monthBtn" class="is-on">Month</button>
-          <button id="weekBtn">Week</button>
+          <button id="weekBtn" class="is-on">Week</button>
+          <button id="monthBtn">Month</button>
         </div>
       </div>
 
@@ -132,7 +138,8 @@ permalink: /ui_kits/website/calendar.html
     var RECURRING = [
       {% for st in serviceTimes %}
       {
-        dow: {{ 0 if st.day == "sunday" else (3 if st.day == "wednesday" else (1 if st.day == "monday" else (2 if st.day == "tuesday" else (4 if st.day == "thursday" else (5 if st.day == "friday" else 6))))) }},
+        days: [{% for d in st.days %}"{{ d }}"{% if not loop.last %},{% endif %}{% endfor %}],
+        pauses: [{% for p in st.pauses %}{from:"{{ p.from }}",until:"{{ p.until or '' }}"}{% if not loop.last %},{% endif %}{% endfor %}],
         time: "{{ st.time | replace(" ", "") | truncate(5, true, "") }}",
         title: "{{ st.name | replace('"', '&quot;') }}",
         kind: "{{ 'prayer' if 'prayer' in st.name | lower or 'contemplative' in st.name | lower else 'service' }}"
@@ -169,17 +176,43 @@ permalink: /ui_kits/website/calendar.html
     function fmtTime(t){ var p=t.split(':'); var h=+p[0]; var m=p[1]; var ap=h<12?'am':'pm'; var hh=h%12; if(hh===0)hh=12; return hh+(m==='00'?'':':'+m)+ap; }
     function startOfWeek(d){ var x=new Date(d); x.setDate(x.getDate()-monIndex(x)); x.setHours(0,0,0,0); return x; }
 
+    // Map weekday names from Sanity to JS day numbers (0 = Sunday).
+    var DAYNUM={sunday:0,monday:1,tuesday:2,wednesday:3,thursday:4,friday:5,saturday:6};
+    function dayNums(days){
+      return (days||[]).map(function(d){ return DAYNUM[String(d).toLowerCase().trim()]; })
+                       .filter(function(n){ return n!==undefined; });
+    }
+    RECURRING.forEach(function(r){ r.dows=dayNums(r.days); });
+
+    // A service is paused on a date if that date falls inside any of its
+    // paused periods. A period with no "until" pauses it from "from" onwards.
+    function isPaused(r,key){
+      var ps=r.pauses||[];
+      for(var i=0;i<ps.length;i++){
+        var p=ps[i];
+        if(!p.from) continue;
+        if(key<p.from) continue;
+        if(p.until && key>p.until) continue;
+        return true;
+      }
+      return false;
+    }
+
     function eventsForDate(d){
       var key=iso(d), dow=d.getDay(), list=[];
       SPANS.forEach(function(s){ if(key>=s.from && key<=s.to){ list.push({allday:true,time:'',title:s.title,kind:s.kind,href:s.href}); }});
-      RECURRING.forEach(function(r){ if(r.dow===dow){ list.push({time:r.time,title:r.title,kind:r.kind,href:'/ui_kits/website/service-times.html'}); }});
+      RECURRING.forEach(function(r){
+        if(r.dows.indexOf(dow)===-1) return;
+        list.push({time:r.time,title:r.title,kind:r.kind,paused:isPaused(r,key),
+                   href:'/ui_kits/website/service-times.html'});
+      });
       SPECIAL.forEach(function(s){ if(s.date===key){ list.push({time:s.time,title:s.title,kind:s.kind,href:s.href}); }});
       list.sort(function(a,b){ if(a.allday&&!b.allday) return -1; if(b.allday&&!a.allday) return 1; return (a.time||'').localeCompare(b.time||''); });
       return list;
     }
 
     // ---- State -----------------------------------------------------------
-    var view='month';
+    var view='week';
     var today=new Date();
     var cursor=new Date(today.getFullYear(), today.getMonth(), 1);
 
@@ -187,14 +220,18 @@ permalink: /ui_kits/website/calendar.html
     var elTitle=document.getElementById('calTitle');
 
     function chip(ev,weekStyle){
-      var cls='cal-chip cal-chip--'+ev.kind+(weekStyle?' cal-wevt':'');
+      var cls='cal-chip cal-chip--'+ev.kind+(weekStyle?' cal-wevt':'')+(ev.paused?' is-paused':'');
       var inner;
       if(weekStyle){
-        inner=(ev.allday?'<span class="wt">All day</span>':'<span class="wt">'+fmtTime(ev.time)+'</span>')+'<span class="wn">'+ev.title+'</span>';
+        inner=(ev.allday?'<span class="wt">All day</span>':'<span class="wt">'+fmtTime(ev.time)+'</span>')
+             +'<span class="wn">'+ev.title+'</span>'
+             +(ev.paused?'<span class="wp">No service today</span>':'');
       } else {
         inner=ev.allday?ev.title:'<b>'+fmtTime(ev.time)+'</b> '+ev.title;
+        if(ev.paused) inner+=' <span class="wp">(no service)</span>';
       }
-      return '<a class="'+cls+'" href="'+ev.href+'" title="'+ev.title+'">'+inner+'</a>';
+      var label=ev.title+(ev.paused?' — no service today':'');
+      return '<a class="'+cls+'" href="'+ev.href+'" title="'+label+'">'+inner+'</a>';
     }
 
     function renderMonth(){
@@ -276,6 +313,7 @@ permalink: /ui_kits/website/calendar.html
     document.getElementById('monthBtn').addEventListener('click',function(){ view='month'; syncToggle(); render(); });
     document.getElementById('weekBtn').addEventListener('click',function(){ view='week'; syncToggle(); render(); });
 
+    syncToggle();
     render();
   })();
   </script>
