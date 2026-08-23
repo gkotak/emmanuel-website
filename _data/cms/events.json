@@ -1,0 +1,233 @@
+[
+  {
+    "_id": "4smu7Ks5k1PWjXUh5Cnjz2",
+    "body": [
+      "Emmanuel keeps its Patronal Festival at Corpus Christi \u2014 the feast of the Body of Christ, and of \"God with us,\" the name our church carries.",
+      "We begin with a special Sung Mass at 10:30, after which everyone is warmly invited to stay for a Bring & Share BBQ. Bring a side, a dessert or a soft drink to share \u2014 and a picnic blanket for the garden.",
+      "The festival closes with Choral Evensong at 6:30pm, sung by our parish choir."
+    ],
+    "category": "Patronal Festival",
+    "date": "Sunday 7 June 2026",
+    "deck": "We keep our Patronal Festival at Corpus Christi \u2014 the feast of \"God with us,\" from which Emmanuel takes its name.",
+    "detailRows": [
+      {
+        "label": "Date",
+        "value": "Sunday 7 June 2026"
+      },
+      {
+        "label": "Bring & Share",
+        "value": "After the 10:30 Sung Mass"
+      },
+      {
+        "label": "Choral Evensong",
+        "value": "6:30pm"
+      },
+      {
+        "label": "Where",
+        "value": "Emmanuel Church & garden"
+      },
+      {
+        "label": "Bring",
+        "value": "A dish to share & a blanket"
+      }
+    ],
+    "featured": true,
+    "lede": "A day of thanksgiving, food and music as we celebrate the feast from which our church takes its name.",
+    "location": "Emmanuel Church, NW6",
+    "posters": [
+      {
+        "alt": "Bring & Share BBQ poster \u2014 Corpus Christi",
+        "uploadUrl": null,
+        "url": "https://i0.wp.com/emmanuelnw6.com/wp-content/uploads/2026/06/Patronal-Bring-and-Share-.png?w=1000"
+      },
+      {
+        "alt": "Choral Evensong for Corpus Christi poster",
+        "uploadUrl": null,
+        "url": "https://i0.wp.com/emmanuelnw6.com/wp-content/uploads/2026/06/Choral-Evensong-1-1.png?w=1000"
+      }
+    ],
+    "slug": "corpus-christi",
+    "sortDate": "2026-06-07",
+    "summary": "Join us after the special 10:30 Sung Mass for a Bring & Share BBQ, and Choral Evensong at 6:30pm.",
+    "thumbnailUploadUrl": null,
+    "thumbnailUrl": "https://i0.wp.com/emmanuelnw6.com/wp-content/uploads/2026/06/Patronal-Bring-and-Share-.png?w=720",
+    "title": "Corpus Christi \u2014 our Patronal Festival"
+  },
+  {
+    "_id": "v8p3KAncgjT5f7voAVWz8Q",
+    "body": [
+      "Holy Week takes us with Jesus from the triumph of Palm Sunday, through the Last Supper and the cross of Good Friday, to the empty tomb on Easter morning.",
+      "Services are held jointly between Emmanuel and St Cuthbert's churches. The full schedule for each day \u2014 Palm Sunday, Daily Mass, Maundy Thursday, Good Friday and Easter Sunday \u2014 is shown on the poster.",
+      "All are welcome at every service. Do come and keep these holy days with us."
+    ],
+    "category": "Holy Week & Easter",
+    "date": "Palm Sunday \u2014 Easter Day \u00b7 2026",
+    "deck": "Walk the way of the cross with us, from the triumph of Palm Sunday to the joy of Easter morning.",
+    "detailRows": [
+      {
+        "label": "Palm Sunday",
+        "value": "Blessing of palms & procession"
+      },
+      {
+        "label": "Maundy Thursday",
+        "value": "Eucharist of the Last Supper"
+      },
+      {
+        "label": "Good Friday",
+        "value": "The Liturgy of the day"
+      },
+      {
+        "label": "Easter Day",
+        "value": "The first Eucharist of Easter"
+      },
+      {
+        "label": "Where",
+        "value": "Emmanuel & St Cuthbert's"
+      }
+    ],
+    "featured": false,
+    "lede": "The heart of the Christian year \u2014 the journey with Christ through his Passion, death and resurrection.",
+    "location": "Emmanuel Church, NW6",
+    "posters": [
+      {
+        "alt": "Holy Week service schedule poster",
+        "uploadUrl": null,
+        "url": "https://i0.wp.com/emmanuelnw6.com/wp-content/uploads/2026/03/Holy-Week-Poster-1.png?w=1000"
+      }
+    ],
+    "slug": "holy-week",
+    "sortDate": "2026-03-29",
+    "summary": "Walk the way of the cross with us, from Palm Sunday through to the joy of Easter morning \u2014 with services held jointly at Emmanuel and St Cuthbert's.",
+    "thumbnailUploadUrl": null,
+    "thumbnailUrl": "https://i0.wp.com/emmanuelnw6.com/wp-content/uploads/2026/03/Holy-Week-Poster-1.png?w=720",
+    "title": "Holy Week at Emmanuel"
+  },
+  {
+    "_id": "v8p3KAncgjT5f7voAVWzVn",
+    "body": [
+      "Through the closing weeks of Lent, an exhibition is open within the church \u2014 a quiet space to pause, look and reflect as Holy Week draws near.",
+      "The exhibition is open from Passion Sunday until Good Friday. All are welcome to visit during the church's opening hours; do ask a member of the clergy if you would like to know more."
+    ],
+    "category": "Art & Exhibition",
+    "date": "Passion Sunday \u2014 Good Friday \u00b7 2026",
+    "deck": "An exhibition open in the church through the closing weeks of Lent \u2014 a space to pause, look and reflect.",
+    "detailRows": [
+      {
+        "label": "Opens",
+        "value": "Passion Sunday"
+      },
+      {
+        "label": "Closes",
+        "value": "Good Friday"
+      },
+      {
+        "label": "Where",
+        "value": "Emmanuel Church"
+      },
+      {
+        "label": "Admission",
+        "value": "Free \u2014 all welcome"
+      }
+    ],
+    "featured": false,
+    "lede": "A quiet space within the church to pause and reflect as we travel together towards the cross.",
+    "location": "Emmanuel Church, NW6",
+    "posters": [
+      {
+        "alt": "Lenten exhibition poster",
+        "uploadUrl": null,
+        "url": "https://i0.wp.com/emmanuelnw6.com/wp-content/uploads/2026/03/Exhibition-Sign-scaled.png?w=1000"
+      }
+    ],
+    "slug": "lenten-exhibition",
+    "sortDate": "2026-03-22",
+    "summary": "An exhibition open in the church through the closing weeks of Lent \u2014 a space to pause, look and reflect on the journey towards the cross.",
+    "thumbnailUploadUrl": null,
+    "thumbnailUrl": "https://i0.wp.com/emmanuelnw6.com/wp-content/uploads/2026/03/Exhibition-Sign-scaled.png?w=720",
+    "title": "Lenten Exhibition"
+  },
+  {
+    "_id": "4smu7Ks5k1PWjXUh5Cnlxn",
+    "body": [
+      "A joyful morning for children of all ages: Advent crafts, the story of St Nicholas \u2014 the saint behind Father Christmas \u2014 and the enthronement of our new Child Bishop.",
+      "Each year we choose a Child Bishop, who works with the ministry team to lead prayers and worship at our special festivals through the year. Come and join the fun!"
+    ],
+    "category": "Children & Families",
+    "date": "December 2025",
+    "deck": "Advent crafts, the story of St Nick, and the enthronement of our new Child Bishop.",
+    "detailRows": [
+      {
+        "label": "For",
+        "value": "Children of all ages"
+      },
+      {
+        "label": "What",
+        "value": "Advent crafts & the story of St Nick"
+      },
+      {
+        "label": "Plus",
+        "value": "Enthronement of the Child Bishop"
+      },
+      {
+        "label": "Where",
+        "value": "Emmanuel Church"
+      }
+    ],
+    "featured": false,
+    "lede": "A joyful morning for children of all ages as we begin our journey through Advent.",
+    "location": "Emmanuel Church, NW6",
+    "posters": [
+      {
+        "alt": "St Nicholas Workshop for Kids poster",
+        "uploadUrl": null,
+        "url": "https://i0.wp.com/emmanuelnw6.com/wp-content/uploads/2025/12/St-Nicholas-Workshop-2025.png?w=1000"
+      }
+    ],
+    "slug": "st-nicholas-workshop",
+    "sortDate": "2025-12-06",
+    "summary": "Advent crafts, the story of St Nick, and the enthronement of our new Child Bishop \u2014 a joyful morning for children of all ages.",
+    "thumbnailUploadUrl": null,
+    "thumbnailUrl": "https://i0.wp.com/emmanuelnw6.com/wp-content/uploads/2025/12/St-Nicholas-Workshop-2025.png?w=720",
+    "title": "St Nicholas Workshop for Kids"
+  },
+  {
+    "_id": "4smu7Ks5k1PWjXUh5CnlVF",
+    "body": [
+      "Advent and Christmas can be a difficult time. In the midst of the busyness and the twinkling lights, some of us may be feeling the pain of loneliness, loss, or simply weariness.",
+      "We keep a quiet, gentle space in the Lady Chapel through Advent \u2014 a place to bring whatever you are carrying, and to wait in hope for the coming of Christ."
+    ],
+    "category": "Advent \u00b7 Quiet Prayer",
+    "date": "December 2025",
+    "deck": "A gentle, quiet space for prayer through Advent \u2014 for anyone carrying loneliness, loss or simply weariness.",
+    "detailRows": [
+      {
+        "label": "When",
+        "value": "Through Advent"
+      },
+      {
+        "label": "Where",
+        "value": "The Lady Chapel, Emmanuel"
+      },
+      {
+        "label": "For",
+        "value": "Anyone seeking quiet & prayer"
+      }
+    ],
+    "featured": false,
+    "lede": "Amid the busyness and the twinkling lights, a place to be still and to wait with hope.",
+    "location": "Emmanuel Church, NW6",
+    "posters": [
+      {
+        "alt": "Advent Prayers in the Lady Chapel poster",
+        "uploadUrl": null,
+        "url": "https://i0.wp.com/emmanuelnw6.com/wp-content/uploads/2025/12/Lady-Chapel-Advent-Prayers-1.png?w=1000"
+      }
+    ],
+    "slug": "advent-prayers",
+    "sortDate": "2025-12-01",
+    "summary": "Amid the busyness and the twinkling lights, we keep a quiet space in the Lady Chapel for prayer and stillness.",
+    "thumbnailUploadUrl": null,
+    "thumbnailUrl": "https://i0.wp.com/emmanuelnw6.com/wp-content/uploads/2025/12/Lady-Chapel-Advent-Prayers-1.png?w=720",
+    "title": "Advent Prayers in the Lady Chapel"
+  }
+]

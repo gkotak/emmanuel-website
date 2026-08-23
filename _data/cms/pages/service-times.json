@@ -1,0 +1,54 @@
+{
+  "_id": "sitePage-service-times",
+  "calloutBody": [
+    {
+      "_key": "b0",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "s0",
+          "_type": "span",
+          "marks": [],
+          "text": "Whether for the first time or the thousandth, there is a place for you at the table at Emmanuel."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    }
+  ],
+  "calloutHeading": "Join us in prayer.",
+  "deck": "The Eucharist and the daily office shape the rhythm of our shared life. All are welcome at every service.",
+  "headline": "Service & Prayer Times",
+  "introBody": [
+    {
+      "_key": "b0",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "b0-s0",
+          "_type": "span",
+          "marks": [],
+          "text": "As we gather to meet with Christ and one another, we seek to be a place where we are supported on our spiritual journeys, inspired to connect faith with the rest of our lives, and encouraged to put that faith into action."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "b1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "b1-s0",
+          "_type": "span",
+          "marks": [],
+          "text": "The Eucharist sits at the heart of our understanding of who we are at Emmanuel. From the very young to the very old, we seek to equip our community to discover more fully the presence of God in their lives."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    }
+  ],
+  "pageId": "service-times",
+  "sections": null
+}

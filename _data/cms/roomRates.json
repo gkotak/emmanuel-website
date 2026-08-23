@@ -1,0 +1,65 @@
+[
+  {
+    "_id": "4smu7Ks5k1PWjXUh5C2tVW",
+    "capacity": 14,
+    "featured": false,
+    "note": "Meetings only",
+    "order": 1,
+    "rate": "£21 / hr",
+    "room": "Darke Room"
+  },
+  {
+    "_id": "v8p3KAncgjT5f7voAUdiXe",
+    "capacity": 30,
+    "featured": false,
+    "note": "Plus 10% for one-off hires",
+    "order": 2,
+    "rate": "£36 / hr",
+    "room": "Wood Room"
+  },
+  {
+    "_id": "4smu7Ks5k1PWjXUh5C2tvD",
+    "capacity": 26,
+    "featured": false,
+    "note": "Plus 10% for one-off hires",
+    "order": 3,
+    "rate": "£36 / hr",
+    "room": "Julian Room"
+  },
+  {
+    "_id": "v8p3KAncgjT5f7voAUdjBi",
+    "capacity": 120,
+    "featured": false,
+    "note": "Plus 10% for one-off hires",
+    "order": 4,
+    "rate": "£46 / hr",
+    "room": "Rear Nave"
+  },
+  {
+    "_id": "v8p3KAncgjT5f7voAUdjSP",
+    "capacity": 350,
+    "featured": false,
+    "note": "Including Rear Nave · plus 10% for one-off hires",
+    "order": 5,
+    "rate": "£53 / hr",
+    "room": "Whole Nave"
+  },
+  {
+    "_id": "QR3knQwiU7hQ2mmjtP0WRO",
+    "capacity": 350,
+    "featured": false,
+    "note": "Includes Whole Nave",
+    "order": 6,
+    "rate": "£68 / hr",
+    "room": "Concert"
+  },
+  {
+    "_id": "QR3knQwiU7hQ2mmjtP0WaO",
+    "capacity": 120,
+    "featured": true,
+    "note": "Rear Nave & Wood Room",
+    "order": 7,
+    "rate": "£260 / 3 hrs  or  £335 / 4 hrs",
+    "room": "Children's Party"
+  }
+]

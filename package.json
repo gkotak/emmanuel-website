@@ -1,24 +1,19 @@
 {
-  "name": "site",
+  "name": "site-cloudcannon",
   "version": "1.0.0",
-  "description": "",
+  "description": "Eleventy + local CMS data for CloudCannon experiment (Sanity untouched on main)",
   "main": "image-slot.js",
   "scripts": {
     "build": "eleventy",
-    "dev": "eleventy --serve"
+    "dev": "eleventy --serve --port=8081",
+    "export-cms": "node scripts/export-sanity-to-cms.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/gkotak/emmanuel-website.git"
   },
-  "keywords": [],
-  "author": "",
   "license": "ISC",
   "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/gkotak/emmanuel-website/issues"
-  },
-  "homepage": "https://github.com/gkotak/emmanuel-website#readme",
   "dependencies": {
     "@11ty/eleventy": "^3.1.6",
     "@sanity/client": "^7.22.1"

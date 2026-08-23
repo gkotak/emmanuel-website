@@ -1,0 +1,139 @@
+# CloudCannon — Emmanuel Church (experiment branch)
+# Docs: https://cloudcannon.com/documentation/
+
+source_editor:
+  tab_size: 2
+  theme: monokai
+
+paths:
+  uploads: assets/uploads
+  static: ''
+  data: _data
+  collections: ''
+
+collections_config:
+  service_times:
+    path: _data/cms/serviceTimes.json
+    name: Service Times
+    icon: schedule
+    _enabled_editors:
+      - data
+    schemas:
+      default:
+        name: name
+        day: Sunday
+        time: '10:30'
+        description: ''
+        group: sunday
+        order: 1
+        active: true
+
+  people:
+    path: _data/cms/people.json
+    name: Who's Who
+    icon: people
+    _enabled_editors:
+      - data
+    schemas:
+      default:
+        name: Name
+        role: Role
+        group: staff
+        email: ''
+        order: 1
+        bio: []
+        photoUrl: ''
+
+  room_rates:
+    path: _data/cms/roomRates.json
+    name: Room Hire Rates
+    icon: meeting_room
+    _enabled_editors:
+      - data
+
+  events:
+    path: _data/cms/events.json
+    name: Events & Calendar
+    icon: event
+    _enabled_editors:
+      - data
+
+  news:
+    path: _data/cms/news.json
+    name: News
+    icon: newspaper
+    _enabled_editors:
+      - data
+
+  site_images:
+    path: _data/cms/siteImages.json
+    name: Site Images
+    icon: image
+    _enabled_editors:
+      - data
+
+  site_pages:
+    path: _data/cms/pages
+    glob:
+      - '**/*.json'
+    name: Site Pages
+    icon: article
+    _enabled_editors:
+      - data
+
+data_config:
+  cms_meta:
+    path: _data/cms/_meta.json
+
+_inputs:
+  day:
+    type: select
+    options:
+      values:
+        - Sunday
+        - Monday
+        - Tuesday
+        - Wednesday
+        - Thursday
+        - Friday
+        - Saturday
+        - Mon–Thu
+  group:
+    type: select
+    options:
+      values:
+        - sunday
+        - weekday
+        - clergy
+        - staff
+        - churchwardens
+        - pcc
+  active:
+    type: switch
+  featured:
+    type: switch
+  photoUrl:
+    type: url
+    label: Photo URL
+  url:
+    type: url
+    label: Image URL
+  bio:
+    type: array
+    comment: One paragraph per item
+  headline:
+    type: text
+  deck:
+    type: textarea
+  calloutHeading:
+    type: text
+
+_select_data:
+  person_groups:
+    - clergy
+    - staff
+    - churchwardens
+    - pcc
+  service_groups:
+    - sunday
+    - weekday

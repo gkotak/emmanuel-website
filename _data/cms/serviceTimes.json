@@ -1,0 +1,72 @@
+[
+  {
+    "_id": "4smu7Ks5k1PWjXUh5C2pV9",
+    "active": true,
+    "day": "Sunday",
+    "description": "Said according to the Book of Common Prayer. This short, 30-minute service offers a quiet, reflective start to the week.",
+    "group": "sunday",
+    "name": "Said Eucharist (BCP)",
+    "order": 1,
+    "time": "8:00"
+  },
+  {
+    "_id": "v8p3KAncgjT5f7voAUdd9m",
+    "active": true,
+    "day": "Sunday",
+    "description": "A lively celebration of the Mass designed for pre-school children and their families. Harin leads our music on the guitar and brings wonderful joy and energy to this service! Joyful Noise does not take place during the school summer holidays.",
+    "group": "sunday",
+    "name": "Joyful Noise Eucharist",
+    "order": 2,
+    "time": "9:15"
+  },
+  {
+    "_id": "v8p3KAncgjT5f7voAUddkV",
+    "active": true,
+    "day": "Sunday",
+    "description": "Our more traditional celebration of the Eucharist with music led by our parish choir. During term time our Children's Church and Youth Church meet during the service. On the first Sunday of the month the whole congregation gathers for All Age Worship, and on the third Sunday our children and youth meet for Forest Church in the garden.",
+    "group": "sunday",
+    "name": "Sung Eucharist",
+    "order": 3,
+    "time": "10:30"
+  },
+  {
+    "_id": "v8p3KAncgjT5f7voAUde7s",
+    "active": true,
+    "day": "Mon–Thu",
+    "description": "A 20-minute service of prayer and Bible readings to start the day. All are welcome to join in person.",
+    "group": "weekday",
+    "name": "Morning Prayer",
+    "order": 4,
+    "time": "9:00"
+  },
+  {
+    "_id": "QR3knQwiU7hQ2mmjtP0VLO",
+    "active": true,
+    "day": "Thursday",
+    "description": "Emmanuel School join us for church once a week. On the first Thursday of the month we celebrate the Eucharist together.",
+    "group": "weekday",
+    "name": "School Collective Worship",
+    "order": 5,
+    "time": "14:30"
+  },
+  {
+    "_id": "4smu7Ks5k1PWjXUh5C2qve",
+    "active": true,
+    "day": "Monday",
+    "description": "A simple, quiet service with plenty of time for silence and contemplative prayer. All are welcome to join any time from 18:15 to spend time in silence before the Eucharist.",
+    "group": "weekday",
+    "name": "Contemplative Eucharist",
+    "order": 6,
+    "time": "18:30"
+  },
+  {
+    "_id": "QR3knQwiU7hQ2mmjtP0VTO",
+    "active": true,
+    "day": "Wednesday",
+    "description": "A said Eucharist with a focus on prayers of healing: for ourselves, the world, and those who have commended themselves to our prayers. Healing prayers and anointing are offered at this service.",
+    "group": "weekday",
+    "name": "Healing Eucharist",
+    "order": 7,
+    "time": "12:30"
+  }
+]

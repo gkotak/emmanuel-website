@@ -1,0 +1,145 @@
+{
+  "_id": "sitePage-children-families",
+  "calloutBody": [
+    {
+      "_key": "b0",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "s0",
+          "_type": "span",
+          "marks": [],
+          "text": "Whether on a Sunday morning or at Thursday's Stay and Play, we'd love to welcome you and your family to Emmanuel."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    }
+  ],
+  "calloutHeading": "Come and join us.",
+  "deck": "From our youngest members to our teenagers, Emmanuel is a place where children and families are warmly welcomed into the life of the church.",
+  "headline": "Children & Families",
+  "introBody": [
+    {
+      "_key": "b0",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "s0",
+          "_type": "span",
+          "marks": [],
+          "text": "Children and youth make up a core part of our church community at Emmanuel — and we know how much they have to teach us about spirituality and questions of faith."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "b1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "s1",
+          "_type": "span",
+          "marks": [],
+          "text": "For this reason we invest heavily in their Christian growth: for our youngest members through the Joyful Noise congregation, and for older children and young people through Children's & Youth Church, singing in the choir, joining the serving team, and helping to lead the readings and intercessions at our monthly intergenerational worship."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    }
+  ],
+  "pageId": "children-families",
+  "sections": [
+    {
+      "_key": "cf-sunday",
+      "_type": "cardGridSection",
+      "body": null,
+      "cards": [
+        {
+          "_key": "cc1",
+          "body": "Throughout term time, Children's Church meets during the 10:30 Sunday service. Our curriculum follows the Godly Play method of Bible storytelling — an approach which seeks to inspire curiosity and wonder in our younger members.\n\nIt fosters a sense of the overwhelming love God has for all God's people, helping each child discover their own place in the story of faith.",
+          "eyebrow": "Ages 4–11 · Godly Play",
+          "title": "Children's Church"
+        },
+        {
+          "_key": "cc2",
+          "body": "Youth Church typically involves some games, music and a lively exploration of the Gospel of the Day, or a chosen topic for the term.\n\nOlder children are welcome to join, but we find that by Year 7 they tend to be ready to join us for the service in church — singing, serving, or leading prayers and readings.",
+          "eyebrow": "Ages 9–11 · Up to Year 7",
+          "title": "Youth Church"
+        }
+      ],
+      "cite": null,
+      "eyebrow": null,
+      "heading": null,
+      "imageAlt": null,
+      "imagePath": null,
+      "imageUrl": null,
+      "isBand": null,
+      "layout": null,
+      "people": null,
+      "quote": null,
+      "reverse": null
+    },
+    {
+      "_key": "cf-stayplay",
+      "_type": "featureSection",
+      "body": [
+        {
+          "_key": "b0",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "s0",
+              "_type": "span",
+              "marks": [],
+              "text": "Stay and Play happens every Thursday in term time, 9:30 to 11:00am. This is a relaxed, friendly drop-in session with loads of great toys and usually a bit of a sing-song at the end."
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "b1",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "s1",
+              "_type": "span",
+              "marks": [],
+              "text": "It's a great way to meet other local parents and carers, and to get answers to questions about life in West Hampstead with kids. Coffee, toast and healthy snacks are provided, and one of the clergy or our youth worker is always around to host."
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "b2",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "s2",
+              "_type": "span",
+              "marks": [],
+              "text": "All babies, toddlers and pre-school age children, together with their parents and carers, are warmly welcome — with plenty of tea and coffee for the adults."
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        }
+      ],
+      "cards": null,
+      "cite": null,
+      "eyebrow": "Thursdays in term time",
+      "heading": "Stay and Play",
+      "imageAlt": "Children gathered at the altar steps with clergy during an all-age service",
+      "imagePath": "/assets/children-families.jpg",
+      "imageUrl": "https://cdn.sanity.io/images/tqrrtmwq/production/d7a0f15514f359a8b68765ac2141ce2d72a26722-2048x1536.jpg",
+      "isBand": true,
+      "layout": null,
+      "people": null,
+      "quote": null,
+      "reverse": null
+    }
+  ]
+}

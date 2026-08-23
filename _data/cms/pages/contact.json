@@ -1,0 +1,144 @@
+{
+  "_id": "sitePage-contact",
+  "calloutBody": [
+    {
+      "_key": "b0",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "s0",
+          "_type": "span",
+          "marks": [],
+          "text": "Join our email list to receive the regular newsletter, with news and what's on across the parish."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    }
+  ],
+  "calloutHeading": "Stay connected.",
+  "deck": "If you would like to request a prayer for yourself or someone else, or to contact us about any other matter, please reach the clergy via the Parish Office below.",
+  "headline": "Contact us",
+  "introBody": [
+    {
+      "_key": "ct0",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "ct0-s0",
+          "_type": "span",
+          "marks": [],
+          "text": "Whatever is on your heart — a prayer request, a question, or simply wanting to get in touch — we would be glad to hear from you."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "ct1b",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "ct1b-s0",
+          "_type": "span",
+          "marks": [],
+          "text": "The vicar aims to meet new members of the congregation for a 1-1 meeting within six months of their arrival."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "ct1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "ct1-s0",
+          "_type": "span",
+          "marks": [],
+          "text": "The clergy can be reached through the Parish Office. If your enquiry concerns a baptism, wedding or funeral, do let us know and we will pass it to the right person."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "ct2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "ct2-s0",
+          "_type": "span",
+          "marks": [],
+          "text": "The Church is open daily from 9am–7pm and you are always welcome to come in for prayer, to light a candle or leave a prayer request. When the main church is busy with other activities, the Lady Chapel (to the right of the Jesus statue as you come in) is always available as a quiet place to pray, read and reflect."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "ct-home",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "ct-home-s0",
+          "_type": "span",
+          "marks": [],
+          "text": "If you are unable to get to church, do ask about home communions — the clergy are glad to bring Holy Communion to those who need it."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "ct3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "ct3-s0",
+          "_type": "span",
+          "marks": [],
+          "text": "Sign up to receive our newsletter"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "ct4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "ct4s0",
+          "_type": "span",
+          "marks": [],
+          "text": "If you'd like to receive our weekly newsletter, please "
+        },
+        {
+          "_key": "ct4s1",
+          "_type": "span",
+          "marks": [
+            "ct4l1"
+          ],
+          "text": "click here"
+        },
+        {
+          "_key": "ct4s2",
+          "_type": "span",
+          "marks": [],
+          "text": "."
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "ct4l1",
+          "_type": "link",
+          "href": "https://emmanuelnw6.us9.list-manage.com/subscribe?u=82a1a8e47d9788dccae693588&id=bbf2ae4052"
+        }
+      ],
+      "style": "normal"
+    }
+  ],
+  "pageId": "contact",
+  "sections": null
+}
