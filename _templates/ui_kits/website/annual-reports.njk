@@ -1,11 +1,23 @@
 ---
 permalink: /ui_kits/website/annual-reports.html
+headline: Annual Reports & Accounts
+deck: As a registered charity, we publish our annual report and financial statements each year. You are warmly welcome to read them.
+lead: Each year our Annual Report and Financial Statements are presented at the Annual Parochial Church Meeting (APCM) and made available to the whole congregation.
+report_title: Annual Report 2026
+report_desc: PDF · Presented at the 2026 APCM
+report_url: https://emmanuelchurchnw6.sharepoint.com/:b:/g/IQDgF3ZE7OOQS7zxVUhrKhw5ARaeBa64qaFlJhcFBm57QtQ?e=2xWAci
+statements_title: Financial Statements
+statements_desc: Folder · Annual accounts & financial statements
+statements_url: https://drive.google.com/drive/folders/14A74nipr9J063KBBS8ChooKW--FkoCOt
+archive_note: Earlier years' reports will be linked here as they are added to the archive.
+callout_heading: Questions about our governance?
+callout_body: Members of the congregation are always welcome to ask about the PCC, our finances, or how decisions are made at Emmanuel.
 ---
 <!doctype html>
 <html lang="en-GB">
 <head>
 <meta charset="utf-8" />
-<title>Annual Reports — Emmanuel Church, West Hampstead</title>
+<title>{{ headline }} — Emmanuel Church, West Hampstead</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet" href="/styles.css" />
 <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
@@ -18,37 +30,45 @@ permalink: /ui_kits/website/annual-reports.html
 
   <section class="em-pagehead em-pagehead--band em-pagehead--plain">
     <div class="inner">
-      <div class="em-breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><a href="whos-who.html">About Us</a><span class="sep">/</span><span>Annual Reports</span></div>
-      <h1>Annual Reports &amp; <em>Accounts</em></h1>
-      <p class="deck">As a registered charity, we publish our annual report and financial statements each year. You are warmly welcome to read them.</p>
-
+      <div class="em-breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><a href="our-team.html">About Us</a><span class="sep">/</span><span>Annual Reports</span></div>
+      <h1 data-editable="text" data-prop="headline" data-type="span">{{ headline }}</h1>
+      <p class="deck" data-editable="text" data-prop="deck" data-type="text">{{ deck }}</p>
     </div>
   </section>
   <section class="em-intro em-intro--solo">
     <div class="inner">
       <div class="em-body">
-        <p class="em-lead">Each year our Annual Report and Financial Statements are presented at the Annual Parochial Church Meeting (APCM) and made available to the whole congregation.</p>
+        <p class="em-lead" data-editable="text" data-prop="lead" data-type="text">{{ lead }}</p>
         <div style="margin-top:40px">
-          <a href="https://emmanuelchurchnw6.sharepoint.com/:b:/g/IQDgF3ZE7OOQS7zxVUhrKhw5ARaeBa64qaFlJhcFBm57QtQ?e=2xWAci" target="_blank" rel="noopener" class="em-doc">
+          <a href="{{ report_url }}" target="_blank" rel="noopener" class="em-doc">
             <div class="ic"><svg viewBox="0 0 24 24"><path d="M14 3v5h5"/><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M8 13h8M8 17h6"/></svg></div>
-            <div class="doc-main"><div class="t">Annual Report 2026</div><div class="d">PDF · Presented at the 2026 APCM</div></div>
+            <div class="doc-main">
+              <div class="t" data-editable="text" data-prop="report_title" data-type="span">{{ report_title }}</div>
+              <div class="d" data-editable="text" data-prop="report_desc" data-type="span">{{ report_desc }}</div>
+            </div>
             <div class="arr">Open ↗</div>
           </a>
-          <a href="https://drive.google.com/drive/folders/14A74nipr9J063KBBS8ChooKW--FkoCOt" target="_blank" rel="noopener" class="em-doc">
+          <a href="{{ statements_url }}" target="_blank" rel="noopener" class="em-doc">
             <div class="ic"><svg viewBox="0 0 24 24"><path d="M3 9h18M9 3v18"/><rect x="3" y="3" width="18" height="18" rx="2"/></svg></div>
-            <div class="doc-main"><div class="t">Financial Statements</div><div class="d">Folder · Annual accounts &amp; financial statements</div></div>
+            <div class="doc-main">
+              <div class="t" data-editable="text" data-prop="statements_title" data-type="span">{{ statements_title }}</div>
+              <div class="d" data-editable="text" data-prop="statements_desc" data-type="span">{{ statements_desc }}</div>
+            </div>
             <div class="arr">Open ↗</div>
           </a>
         </div>
         <div class="em-placeholder" style="margin-top:40px">
-          <p>Earlier years' reports will be linked here as they are added to the archive.</p>
+          <p data-editable="text" data-prop="archive_note" data-type="text">{{ archive_note }}</p>
         </div>
       </div>
     </div>
   </section>
   <section class="em-callout">
     <div class="inner">
-      <div><h3>Questions about our <em>governance</em>?</h3><p>Members of the congregation are always welcome to ask about the PCC, our finances, or how decisions are made at Emmanuel.</p></div>
+      <div>
+        <h3 data-editable="text" data-prop="callout_heading" data-type="span">{{ callout_heading }}</h3>
+        <p data-editable="text" data-prop="callout_body" data-type="text">{{ callout_body }}</p>
+      </div>
       <div style="display:flex;gap:14px;flex-wrap:wrap"><a href="electoral-roll.html" class="em-btn em-btn--tan">Join the electoral roll</a><a href="contact.html" class="em-btn em-btn--ghost-light">Contact the parish office</a></div>
     </div>
   </section>

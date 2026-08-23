@@ -12,6 +12,23 @@ paths:
   collections: ''
 
 collections_config:
+  website_pages:
+    path: _templates/ui_kits/website
+    name: Website pages (visual)
+    icon: web
+    glob:
+      - annual-reports.njk
+    url: '/ui_kits/website/annual-reports.html'
+    _enabled_editors:
+      - visual
+      - data
+    preview:
+      text:
+        - key: headline
+        - template: '{basename}'
+      subtext:
+        - key: permalink
+
   service_times:
     path: _data/cms/service-times
     name: Service Times
@@ -100,6 +117,26 @@ collections_config:
       - data
 
 _inputs:
+  headline:
+    type: text
+  deck:
+    type: textarea
+  lead:
+    type: textarea
+  callout_heading:
+    type: text
+  callout_body:
+    type: textarea
+  report_title:
+    type: text
+  report_desc:
+    type: text
+  statements_title:
+    type: text
+  statements_desc:
+    type: text
+  archive_note:
+    type: textarea
   day:
     type: select
     options:
