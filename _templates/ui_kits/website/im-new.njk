@@ -126,7 +126,7 @@ access_cards:
       <div class="sec-cards" data-editable="array" data-prop="featured_services">
       {% for s in services %}
         <div class="sec-card" data-editable="array-item">
-          <div class="sec-card__eyebrow">{{ s.day }} · {{ s.time }}</div>
+          <div class="sec-card__eyebrow">{{ s.days | dayLabel }} · {{ s.time }}</div>
           <h3 class="sec-card__title">{{ s.name }}</h3>
           <p class="sec-card__body" data-editable="text" data-prop="body">{{ s.cardBody }}</p>
         </div>
