@@ -74,7 +74,8 @@ async function run() {
   writeCollection(
     'service-times',
     await client.fetch(`*[_type == "serviceTime"] | order(order asc) {
-      _id, name, day, time, description, group, order, active
+      _id, name, day, days, time, description, group, order, active,
+      "pauses": pauses[]{ from, until }
     }`),
     ['name', '_id'],
   )

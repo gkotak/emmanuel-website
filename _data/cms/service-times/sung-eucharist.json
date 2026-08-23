@@ -6,5 +6,9 @@
   "group": "sunday",
   "name": "Sung Eucharist",
   "order": 3,
-  "time": "10:30"
+  "time": "10:30",
+  "days": [
+    "Sunday"
+  ],
+  "pauses": []
 }

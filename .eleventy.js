@@ -41,6 +41,21 @@ function loadSiteImages() {
   }, {})
 }
 
+/** Map legacy `day` strings onto `days[]` + ensure `pauses` exists (main calendar shape). */
+function normalizeServiceTime(s) {
+  const RANGE = {
+    'Mon–Thu': ['Monday', 'Tuesday', 'Wednesday', 'Thursday'],
+    'Mon-Thu': ['Monday', 'Tuesday', 'Wednesday', 'Thursday'],
+  }
+  if (!Array.isArray(s.days) || !s.days.length) {
+    if (s.day && RANGE[s.day]) s.days = RANGE[s.day]
+    else if (s.day) s.days = [s.day]
+    else s.days = []
+  }
+  if (!Array.isArray(s.pauses)) s.pauses = []
+  return s
+}
+
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({assets: 'assets'})
   eleventyConfig.addPassthroughCopy({uploads: 'uploads'})
@@ -56,6 +71,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addGlobalData('serviceTimes', () => {
     return readJsonDir('service-times')
       .filter((s) => s.active !== false)
+      .map((s) => normalizeServiceTime(s))
       .sort((a, b) => (a.order || 0) - (b.order || 0))
   })
 
@@ -76,6 +92,41 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addGlobalData('siteImages', () => loadSiteImages())
 
   eleventyConfig.addGlobalData('sitePages', () => loadSitePages())
+
+  // Nunjucks filter: render a list of weekday names as readable text.
+  // Consecutive runs collapse into a range: Mon,Tue,Wed,Thu -> "Mon–Thu".
+  eleventyConfig.addFilter('dayLabel', (days) => {
+    const ORDER = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+    const list = (days || []).filter((d) => ORDER.includes(d))
+    if (!list.length) return ''
+    if (list.length === 1) return list[0]
+    if (list.length === 7) return 'Every day'
+    // Order Monday-first so weekday ranges read naturally
+    const weekOrder = ORDER.slice(1).concat(ORDER[0])
+    const idx = list.map((d) => weekOrder.indexOf(d)).sort((a, b) => a - b)
+    const short = (i) => weekOrder[i].slice(0, 3)
+    const runs = []
+    let start = idx[0],
+      prev = idx[0]
+    for (let i = 1; i <= idx.length; i++) {
+      if (i < idx.length && idx[i] === prev + 1) {
+        prev = idx[i]
+        continue
+      }
+      runs.push(
+        start === prev
+          ? weekOrder[start]
+          : prev - start === 1
+            ? `${short(start)} & ${short(prev)}`
+            : `${short(start)}\u2013${short(prev)}`
+      )
+      if (i < idx.length) {
+        start = idx[i]
+        prev = idx[i]
+      }
+    }
+    return runs.join(', ')
+  })
 
   eleventyConfig.addFilter('bioParagraphs', (bioArray) => {
     if (!bioArray || !bioArray.length) return ''

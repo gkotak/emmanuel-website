@@ -6,5 +6,9 @@
   "group": "weekday",
   "name": "Healing Eucharist",
   "order": 7,
-  "time": "12:30"
+  "time": "12:30",
+  "days": [
+    "Wednesday"
+  ],
+  "pauses": []
 }

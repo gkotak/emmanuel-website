@@ -6,5 +6,9 @@
   "group": "weekday",
   "name": "School Collective Worship",
   "order": 5,
-  "time": "14:30"
+  "time": "14:30",
+  "days": [
+    "Thursday"
+  ],
+  "pauses": []
 }

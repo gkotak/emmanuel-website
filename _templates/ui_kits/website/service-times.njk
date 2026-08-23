@@ -113,7 +113,7 @@ callout_body: Whether for the first time or the thousandth, there is a place for
       {% for service in serviceTimes %}
         {% if service.group === "sunday" %}
         <div class="em-row">
-          <div class="em-row__day">{{ service.day }}</div>
+          <div class="em-row__day">{{ service.days | dayLabel }}</div>
           <div class="em-row__lead">
             <div class="t">{{ service.time }}</div>
             <div class="n">{{ service.name }}</div>
@@ -134,7 +134,7 @@ callout_body: Whether for the first time or the thousandth, there is a place for
       {% for service in serviceTimes %}
         {% if service.group === "weekday" %}
         <div class="em-row">
-          <div class="em-row__day">{{ service.day }}</div>
+          <div class="em-row__day">{{ service.days | dayLabel }}</div>
           <div class="em-row__lead">
             <div class="t">{{ service.time }}</div>
             <div class="n">{{ service.name }}</div>

@@ -6,5 +6,9 @@
   "group": "sunday",
   "name": "Joyful Noise Eucharist",
   "order": 2,
-  "time": "9:15"
+  "time": "9:15",
+  "days": [
+    "Sunday"
+  ],
+  "pauses": []
 }
