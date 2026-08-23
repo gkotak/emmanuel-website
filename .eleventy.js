@@ -139,16 +139,18 @@ module.exports = function (eleventyConfig) {
     return items.find((i) => i._slug === slug || i.pageId === slug) || null
   })
 
-  /** Resolve [{slug, body?}, ...] against serviceTimes (optional page body override). */
+  /** Resolve [{slug, body?}, ...] against serviceTimes.
+   *  Empty/missing body → use the collection description (so changing slug picks up new copy after rebuild). */
   eleventyConfig.addFilter('resolveServices', (refs, serviceTimes) => {
     if (!refs || !refs.length) return []
     return refs
       .map((ref) => {
-        const slug = typeof ref === 'string' ? ref : ref.slug
+        const slug = typeof ref === 'string' ? ref : ref && ref.slug
         const svc = (serviceTimes || []).find((s) => s._slug === slug)
         if (!svc) return null
-        const body = typeof ref === 'object' && ref.body ? ref.body : svc.description
-        return Object.assign({}, svc, {cardBody: body})
+        const override = typeof ref === 'object' && ref.body != null ? String(ref.body).trim() : ''
+        const cardBody = override || svc.description || ''
+        return Object.assign({}, svc, {slug, cardBody})
       })
       .filter(Boolean)
   })

@@ -20,6 +20,14 @@ hero_image_alt: The congregation gathered for worship in the nave
 welcome_image: /assets/cms/site-images/home-welcome-group.jpg
 welcome_image_alt: A large, diverse group of parishioners gathered together in the nave
 pullquote_image: /assets/cms/site-images/home-nave.jpg
+featured_services:
+  - slug: said-eucharist-bcp
+  - slug: joyful-noise-eucharist
+  - slug: sung-eucharist
+  - slug: morning-prayer
+  - slug: school-collective-worship
+  - slug: contemplative-eucharist
+  - slug: healing-eucharist
 ---
 <!-- @dsCard group="Website" viewport="1320x1100" name="Home page" subtitle="The Classic home, built on the shared system" -->
 <!DOCTYPE html>
@@ -195,12 +203,13 @@ pullquote_image: /assets/cms/site-images/home-nave.jpg
         </div>
         <a href="/ui_kits/website/service-times.html" class="em-readmore">All services →</a>
       </div>
-      <div class="em-services-grid">
-        {% for st in serviceTimes %}
-        <div class="em-service-card">
+      <div class="em-services-grid" data-editable="array" data-prop="featured_services">
+        {% set homeServices = featured_services | resolveServices(serviceTimes) %}
+        {% for st in homeServices %}
+        <div class="em-service-card" data-editable="array-item">
           <div class="time"><span class="day">{{ st.days | dayLabel }}</span>{{ st.time }}</div>
           <div class="name">{{ st.name }}</div>
-          {% if st.description %}<p class="desc">{{ st.description }}</p>{% endif %}
+          {% if st.cardBody %}<p class="desc">{{ st.cardBody }}</p>{% endif %}
         </div>
         {% endfor %}
       </div>

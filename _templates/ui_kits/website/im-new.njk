@@ -41,18 +41,8 @@ callout_body: >-
 hero_image: /assets/cms/site-images/imnew-hero.jpg
 featured_services:
   - slug: sung-eucharist
-    body: >-
-      Our main Parish Mass — a robed choir, incense and the fullest celebration
-      of the liturgy. Children's &amp; Youth Church meet during term.
   - slug: healing-eucharist
-    body: >-
-      A quiet, simple, 30-minute service said according to the Book of Common
-      Prayer — a reflective start to the week.
   - slug: joyful-noise-eucharist
-    body: >-
-      A lively, noisy celebration of the Mass for pre-school children and their
-      families, with music led on the guitar. Does not meet during the school
-      summer holidays.
 access_cards:
   - eyebrow: ''
     title: Step-free access
@@ -164,7 +154,7 @@ access_cards:
     </div>
   </section>
 
-  <!-- Featured services -->
+  <!-- Featured services (Pattern A: pick from Service Times; title/time/description update after Save → rebuild) -->
   {% set services = featured_services | resolveServices(serviceTimes) %}
   <section class="sec sec--cardgrid">
     <div class="sec__inner">
@@ -173,7 +163,7 @@ access_cards:
         <div class="sec-card" data-editable="array-item">
           <div class="sec-card__eyebrow">{{ s.days | dayLabel }} · {{ s.time }}</div>
           <h3 class="sec-card__title">{{ s.name }}</h3>
-          <p class="sec-card__body" data-editable="text" data-prop="body">{{ s.cardBody }}</p>
+          {% if s.cardBody %}<p class="sec-card__body">{{ s.cardBody }}</p>{% endif %}
         </div>
       {% endfor %}
       </div>
