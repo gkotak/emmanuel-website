@@ -3,12 +3,15 @@ permalink: /ui_kits/website/annual-reports.html
 headline: Annual Reports & Accounts
 deck: As a registered charity, we publish our annual report and financial statements each year. You are warmly welcome to read them.
 lead: Each year our Annual Report and Financial Statements are presented at the Annual Parochial Church Meeting (APCM) and made available to the whole congregation.
-report_title: Annual Report 2026
-report_desc: PDF · Presented at the 2026 APCM
-report_url: https://emmanuelchurchnw6.sharepoint.com/:b:/g/IQDgF3ZE7OOQS7zxVUhrKhw5ARaeBa64qaFlJhcFBm57QtQ?e=2xWAci
-statements_title: Financial Statements
-statements_desc: Folder · Annual accounts & financial statements
-statements_url: https://drive.google.com/drive/folders/14A74nipr9J063KBBS8ChooKW--FkoCOt
+documents:
+  - title: Annual Report 2026
+    description: PDF · Presented at the 2026 APCM
+    href: https://emmanuelchurchnw6.sharepoint.com/:b:/g/IQDgF3ZE7OOQS7zxVUhrKhw5ARaeBa64qaFlJhcFBm57QtQ?e=2xWAci
+    icon: document
+  - title: Financial Statements
+    description: Folder · Annual accounts & financial statements
+    href: https://drive.google.com/drive/folders/14A74nipr9J063KBBS8ChooKW--FkoCOt
+    icon: folder
 archive_note: Earlier years' reports will be linked here as they are added to the archive.
 callout_heading: Questions about our governance?
 callout_body: Members of the congregation are always welcome to ask about the PCC, our finances, or how decisions are made at Emmanuel.
@@ -39,23 +42,24 @@ callout_body: Members of the congregation are always welcome to ask about the PC
     <div class="inner">
       <div class="em-body">
         <p class="em-lead" data-editable="text" data-prop="lead" data-type="text">{{ lead }}</p>
-        <div style="margin-top:40px">
-          <a href="{{ report_url }}" target="_blank" rel="noopener" class="em-doc">
-            <div class="ic"><svg viewBox="0 0 24 24"><path d="M14 3v5h5"/><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M8 13h8M8 17h6"/></svg></div>
+        {# Array Editable Region: add / remove / reorder document rows in Visual or Data #}
+        <div style="margin-top:40px" data-editable="array" data-prop="documents">
+          {% for doc in documents %}
+          <a href="{{ doc.href }}" target="_blank" rel="noopener" class="em-doc" data-editable="array-item">
+            <div class="ic">
+              {% if doc.icon == "folder" %}
+              <svg viewBox="0 0 24 24"><path d="M3 9h18M9 3v18"/><rect x="3" y="3" width="18" height="18" rx="2"/></svg>
+              {% else %}
+              <svg viewBox="0 0 24 24"><path d="M14 3v5h5"/><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M8 13h8M8 17h6"/></svg>
+              {% endif %}
+            </div>
             <div class="doc-main">
-              <div class="t" data-editable="text" data-prop="report_title" data-type="span">{{ report_title }}</div>
-              <div class="d" data-editable="text" data-prop="report_desc" data-type="span">{{ report_desc }}</div>
+              <div class="t" data-editable="text" data-prop="title" data-type="span">{{ doc.title }}</div>
+              <div class="d" data-editable="text" data-prop="description" data-type="span">{{ doc.description }}</div>
             </div>
             <div class="arr">Open ↗</div>
           </a>
-          <a href="{{ statements_url }}" target="_blank" rel="noopener" class="em-doc">
-            <div class="ic"><svg viewBox="0 0 24 24"><path d="M3 9h18M9 3v18"/><rect x="3" y="3" width="18" height="18" rx="2"/></svg></div>
-            <div class="doc-main">
-              <div class="t" data-editable="text" data-prop="statements_title" data-type="span">{{ statements_title }}</div>
-              <div class="d" data-editable="text" data-prop="statements_desc" data-type="span">{{ statements_desc }}</div>
-            </div>
-            <div class="arr">Open ↗</div>
-          </a>
+          {% endfor %}
         </div>
         <div class="em-placeholder" style="margin-top:40px">
           <p data-editable="text" data-prop="archive_note" data-type="text">{{ archive_note }}</p>

@@ -11,14 +11,28 @@ paths:
   data: _data
   collections: ''
 
+# Shapes for addable arrays (e.g. document rows on Annual Reports)
+_structures:
+  documents:
+    values:
+      - label: Document link
+        icon: description
+        value:
+          title: New document
+          description: PDF · Add a short subtitle
+          href: https://
+          icon: document
+
 collections_config:
+  # Page-level copy + structures — open in Visual (pencil) or Data
   website_pages:
     path: _templates/ui_kits/website
-    name: Website pages (visual)
+    name: Page copy (visual)
     icon: web
     glob:
       - annual-reports.njk
-    url: '/ui_kits/website/annual-reports.html'
+      - our-team.njk
+    url: '[permalink]'
     _enabled_editors:
       - visual
       - data
@@ -29,6 +43,7 @@ collections_config:
       subtext:
         - key: permalink
 
+  # Shared / repeatable content — Data forms only (not page layout)
   service_times:
     path: _data/cms/service-times
     name: Service Times
@@ -109,7 +124,7 @@ collections_config:
 
   site_pages:
     path: _data/cms/pages
-    name: Site Pages
+    name: Site Pages (forms)
     icon: article
     glob:
       - '*.json'
@@ -123,20 +138,34 @@ _inputs:
     type: textarea
   lead:
     type: textarea
+  archive_note:
+    type: textarea
   callout_heading:
     type: text
   callout_body:
     type: textarea
-  report_title:
+  clergy_label:
     type: text
-  report_desc:
+  staff_label:
     type: text
-  statements_title:
+  documents:
+    type: array
+    options:
+      structures: _structures.documents
+  title:
     type: text
-  statements_desc:
-    type: text
-  archive_note:
+  description:
     type: textarea
+  href:
+    type: url
+    label: Link URL
+  icon:
+    type: select
+    label: Row icon
+    options:
+      values:
+        - document
+        - folder
   day:
     type: select
     options:
@@ -163,10 +192,10 @@ _inputs:
     type: switch
   featured:
     type: switch
-  url:
+  image:
     type: image
     label: Image
-  image:
+  url:
     type: image
     label: Image
   photoUrl:
@@ -175,10 +204,6 @@ _inputs:
   bio:
     type: array
     comment: One paragraph per item
-  headline:
-    type: text
-  deck:
-    type: textarea
   calloutHeading:
     type: text
   name:
@@ -187,7 +212,5 @@ _inputs:
     type: text
   time:
     type: text
-  description:
-    type: textarea
   order:
     type: number

@@ -1,11 +1,17 @@
 ---
 permalink: /ui_kits/website/our-team.html
+headline: Our Team
+deck: The clergy, staff and volunteers who together share in the life, worship and care of Emmanuel.
+clergy_label: Clergy
+staff_label: Staff & volunteers
+callout_heading: Come and say hello.
+callout_body: The best way to meet the team is in person — do introduce yourself after a Sunday service, or get in touch with the parish office any time.
 ---
 <!doctype html>
 <html lang="en-GB">
 <head>
 <meta charset="utf-8" />
-<title>Our Team — Emmanuel Church, West Hampstead</title>
+<title>{{ headline }} — Emmanuel Church, West Hampstead</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet" href="/styles.css" />
 <style>
@@ -46,16 +52,16 @@ permalink: /ui_kits/website/our-team.html
 
   <section class="em-pagehead em-pagehead--band em-pagehead--plain">
     <div class="inner">
-      <div class="em-breadcrumb"><a href="/ui_kits/website/index.html">Home</a><span class="sep">/</span><a href="#">About Us</a><span class="sep">/</span><span>Our Team</span></div>
-      <h1>Our Team</h1>
-      <p class="deck">The clergy, staff and volunteers who together share in the life, worship and care of Emmanuel.</p>
+      <div class="em-breadcrumb"><a href="/ui_kits/website/index.html">Home</a><span class="sep">/</span><a href="#">About Us</a><span class="sep">/</span><span>{{ headline }}</span></div>
+      <h1 data-editable="text" data-prop="headline" data-type="span">{{ headline }}</h1>
+      <p class="deck" data-editable="text" data-prop="deck" data-type="text">{{ deck }}</p>
     </div>
   </section>
 
-  {# Clergy section #}
+  {# Clergy section — people come from Who's Who collection (Data editor), not this page #}
   <section class="em-section">
     <div class="inner">
-      <div class="em-ornament is-leading">Clergy</div>
+      <div class="em-ornament is-leading" data-editable="text" data-prop="clergy_label" data-type="span">{{ clergy_label }}</div>
       {% for person in people %}
         {% if person.group === "clergy" and loop.first %}
         <div class="em-team-grid" style="margin-bottom:8px">
@@ -104,7 +110,7 @@ permalink: /ui_kits/website/our-team.html
   {# Staff & volunteers section #}
   <section class="em-section em-section--band">
     <div class="inner">
-      <div class="em-ornament is-leading">Staff &amp; volunteers</div>
+      <div class="em-ornament is-leading" data-editable="text" data-prop="staff_label" data-type="span">{{ staff_label }}</div>
       <div class="em-team-grid">
         {% for person in people %}
           {% if person.group === "staff" or person.group === "churchwardens" %}
@@ -130,7 +136,10 @@ permalink: /ui_kits/website/our-team.html
 
   <section class="em-callout">
     <div class="inner">
-      <div><h3>Come and <em>say hello</em>.</h3><p>The best way to meet the team is in person — do introduce yourself after a Sunday service, or get in touch with the parish office any time.</p></div>
+      <div>
+        <h3 data-editable="text" data-prop="callout_heading" data-type="span">{{ callout_heading }}</h3>
+        <p data-editable="text" data-prop="callout_body" data-type="text">{{ callout_body }}</p>
+      </div>
       <div style="display:flex;gap:14px;flex-wrap:wrap">
         <a href="/ui_kits/website/im-new.html" class="em-btn em-btn--tan">Planning your first visit</a>
         <a href="/ui_kits/website/contact.html" class="em-btn em-btn--ghost-light">Contact us</a>
