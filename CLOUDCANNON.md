@@ -41,7 +41,9 @@ Needs `SANITY_TOKEN` in `studio/.env` (read-only is fine).
    `git push -u origin experiment/cloudcannon`
 2. In CloudCannon: create a site from `gkotak/emmanuel-website`, select branch `experiment/cloudcannon`.
 3. Build command: `npm run build`  
-   Output: `dist`
+   Output: `dist`  
+   Install: leave default, or set to `npm install` if offered  
+   (This branch also runs `.cloudcannon/preinstall` → `npm install` automatically.)
 4. Edit **Service Times**, **Who’s Who**, **Site Images**, **Site Pages**, etc. in the CloudCannon UI — saves commit to this branch.
 
 ## Editing notes

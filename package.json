@@ -4,8 +4,8 @@
   "description": "Eleventy + local CMS data for CloudCannon experiment (Sanity untouched on main)",
   "main": "image-slot.js",
   "scripts": {
-    "build": "eleventy",
-    "dev": "eleventy --serve --port=8081",
+    "build": "npx --no-install eleventy",
+    "dev": "npx --no-install eleventy --serve --port=8081",
     "export-cms": "node scripts/export-sanity-to-cms.js"
   },
   "repository": {
