@@ -3,5 +3,7 @@
   "alt": "The nave of Emmanuel Church looking east toward the apse",
   "key": "history-1",
   "label": "History \u2014 photo 1",
-  "url": "https://cdn.sanity.io/images/tqrrtmwq/production/88147291754ebb16ea4be0e988f3b48e7ab3d7cc-2400x1601.jpg"
+  "url": "/assets/cms/site-images/history-1.jpg",
+  "image": "/assets/cms/site-images/history-1.jpg",
+  "sanityUrl": "https://cdn.sanity.io/images/tqrrtmwq/production/88147291754ebb16ea4be0e988f3b48e7ab3d7cc-2400x1601.jpg"
 }

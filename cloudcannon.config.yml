@@ -77,6 +77,18 @@ collections_config:
       - '*.json'
     _enabled_editors:
       - data
+    preview:
+      text:
+        - key: label
+      subtext:
+        - key: key
+      image:
+        - key: image
+        - key: url
+    schemas:
+      default:
+        path: .cloudcannon/schemas/site-image.json
+        name: Site image
 
   site_pages:
     path: _data/cms/pages
@@ -114,12 +126,15 @@ _inputs:
     type: switch
   featured:
     type: switch
-  photoUrl:
-    type: url
-    label: Photo URL
   url:
-    type: url
-    label: Image URL
+    type: image
+    label: Image
+  image:
+    type: image
+    label: Image
+  photoUrl:
+    type: image
+    label: Photo
   bio:
     type: array
     comment: One paragraph per item

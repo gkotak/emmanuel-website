@@ -3,5 +3,7 @@
   "alt": "A children's party inflatable set up in the nave",
   "key": "room-hire-1",
   "label": "Room Hire \u2014 gallery photo 1",
-  "url": "https://cdn.sanity.io/images/tqrrtmwq/production/115d5de7204ffb25c634c8a2a1bd2c44b3748414-2048x1536.jpg"
+  "url": "/assets/cms/site-images/room-hire-1.jpg",
+  "image": "/assets/cms/site-images/room-hire-1.jpg",
+  "sanityUrl": "https://cdn.sanity.io/images/tqrrtmwq/production/115d5de7204ffb25c634c8a2a1bd2c44b3748414-2048x1536.jpg"
 }

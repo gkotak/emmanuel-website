@@ -3,5 +3,7 @@
   "alt": "A large, diverse group of parishioners gathered together in the nave",
   "key": "home-welcome-group",
   "label": "Home \u2014 welcome group photo",
-  "url": "https://cdn.sanity.io/images/tqrrtmwq/production/7e820aa3b27cfd84b0a7b64faac386c0c47ebc67-1600x1200.jpg"
+  "url": "/assets/cms/site-images/home-welcome-group.jpg",
+  "image": "/assets/cms/site-images/home-welcome-group.jpg",
+  "sanityUrl": "https://cdn.sanity.io/images/tqrrtmwq/production/7e820aa3b27cfd84b0a7b64faac386c0c47ebc67-1600x1200.jpg"
 }
