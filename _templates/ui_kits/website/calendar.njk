@@ -224,7 +224,9 @@ permalink: /ui_kits/website/calendar.html
     // ---- State -----------------------------------------------------------
     var view='week';
     var today=new Date();
-    var cursor=new Date(today.getFullYear(), today.getMonth(), 1);
+    // Open on today. The week view shows the week containing the cursor, and
+    // the month view derives its month from it, so both land on the present.
+    var cursor=new Date(today.getFullYear(), today.getMonth(), today.getDate());
 
     var elView=document.getElementById('calView');
     var elTitle=document.getElementById('calTitle');
@@ -317,8 +319,11 @@ permalink: /ui_kits/website/calendar.html
       document.getElementById('weekBtn').classList.toggle('is-on',view==='week');
     }
 
-    document.getElementById('prevBtn').addEventListener('click',function(){ if(view==='month') cursor.setMonth(cursor.getMonth()-1); else cursor.setDate(cursor.getDate()-7); render(); });
-    document.getElementById('nextBtn').addEventListener('click',function(){ if(view==='month') cursor.setMonth(cursor.getMonth()+1); else cursor.setDate(cursor.getDate()+7); render(); });
+    // Step whole months from the 1st so a cursor on the 29th-31st cannot
+    // overflow into the month after next (e.g. 31 Aug + 1 month = 1 Oct).
+    function shiftMonth(n){ cursor=new Date(cursor.getFullYear(),cursor.getMonth()+n,1); }
+    document.getElementById('prevBtn').addEventListener('click',function(){ if(view==='month') shiftMonth(-1); else cursor.setDate(cursor.getDate()-7); render(); });
+    document.getElementById('nextBtn').addEventListener('click',function(){ if(view==='month') shiftMonth(1); else cursor.setDate(cursor.getDate()+7); render(); });
     document.getElementById('todayBtn').addEventListener('click',function(){ cursor=new Date(); render(); });
     document.getElementById('monthBtn').addEventListener('click',function(){ view='month'; syncToggle(); render(); });
     document.getElementById('weekBtn').addEventListener('click',function(){ view='week'; syncToggle(); render(); });
