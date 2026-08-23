@@ -47,6 +47,8 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({'components.css': 'components.css'})
   eleventyConfig.addPassthroughCopy({'image-slot.js': 'image-slot.js'})
   eleventyConfig.addPassthroughCopy({ui_kits: 'ui_kits'})
+  // CloudCannon preview root → website kit
+  eleventyConfig.addPassthroughCopy({'index.html': 'index.html'})
 
   eleventyConfig.addGlobalData('cmsMeta', () => readJson('_meta.json', {}))
 
