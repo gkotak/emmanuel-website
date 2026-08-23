@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# CloudCannon sources this after npm run build. Their runner expects SYNC_PATHS
+# to be set when nounset is on; we only need an empty default (no file sync-back).
+export SYNC_PATHS="${SYNC_PATHS-}"
+export CLOUDCANNON_SYNC_PATHS="${CLOUDCANNON_SYNC_PATHS-}"
