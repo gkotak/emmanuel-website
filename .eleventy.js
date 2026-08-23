@@ -23,7 +23,8 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addGlobalData('serviceTimes', async () => {
     return sanity.fetch(`
       *[_type == "serviceTime" && active == true] | order(order asc) {
-        name, day, time, description, group
+        name, days, time, description, group,
+        "pauses": pauses[]{ from, until }
       }
     `)
   })
@@ -87,6 +88,30 @@ module.exports = function (eleventyConfig) {
     `)
     // Index by pageId for easy lookup in templates: sitePages['weddings']
     return pages.reduce((acc, p) => { acc[p.pageId] = p; return acc }, {})
+  })
+
+  // Nunjucks filter: render a list of weekday names as readable text.
+  // Consecutive runs collapse into a range: Mon,Tue,Wed,Thu -> "Mon–Thu".
+  eleventyConfig.addFilter('dayLabel', (days) => {
+    const ORDER = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday']
+    const list = (days || []).filter(d => ORDER.includes(d))
+    if (!list.length) return ''
+    if (list.length === 1) return list[0]
+    if (list.length === 7) return 'Every day'
+    // Order Monday-first so weekday ranges read naturally
+    const weekOrder = ORDER.slice(1).concat(ORDER[0])
+    const idx = list.map(d => weekOrder.indexOf(d)).sort((a, b) => a - b)
+    const short = i => weekOrder[i].slice(0, 3)
+    const runs = []
+    let start = idx[0], prev = idx[0]
+    for (let i = 1; i <= idx.length; i++) {
+      if (i < idx.length && idx[i] === prev + 1) { prev = idx[i]; continue }
+      runs.push(start === prev ? weekOrder[start]
+              : prev - start === 1 ? `${short(start)} & ${short(prev)}`
+              : `${short(start)}\u2013${short(prev)}`)
+      if (i < idx.length) { start = idx[i]; prev = idx[i] }
+    }
+    return runs.join(', ')
   })
 
   // Nunjucks filter: join bio paragraphs into <p> tags
