@@ -13,27 +13,25 @@ function readJson(file, fallback) {
   return JSON.parse(fs.readFileSync(full, 'utf8'))
 }
 
+function readJsonDir(dir) {
+  const full = path.join(CMS, dir)
+  if (!fs.existsSync(full)) return []
+  return fs
+    .readdirSync(full)
+    .filter((n) => n.endsWith('.json'))
+    .map((n) => JSON.parse(fs.readFileSync(path.join(full, n), 'utf8')))
+}
+
 function loadSitePages() {
-  const pagesDir = path.join(CMS, 'pages')
-  if (fs.existsSync(pagesDir)) {
-    const out = {}
-    for (const name of fs.readdirSync(pagesDir)) {
-      if (!name.endsWith('.json')) continue
-      const page = JSON.parse(fs.readFileSync(path.join(pagesDir, name), 'utf8'))
-      if (page.pageId) out[page.pageId] = page
-    }
-    return out
-  }
-  const list = readJson('sitePages.json', [])
-  return list.reduce((acc, p) => {
+  const pages = readJsonDir('pages')
+  return pages.reduce((acc, p) => {
     if (p.pageId) acc[p.pageId] = p
     return acc
   }, {})
 }
 
 function loadSiteImages() {
-  const list = readJson('siteImages.json', [])
-  return list.reduce((acc, i) => {
+  return readJsonDir('site-images').reduce((acc, i) => {
     if (i.key) acc[i.key] = i
     return acc
   }, {})
@@ -47,27 +45,29 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({'components.css': 'components.css'})
   eleventyConfig.addPassthroughCopy({'image-slot.js': 'image-slot.js'})
   eleventyConfig.addPassthroughCopy({ui_kits: 'ui_kits'})
-  // CloudCannon preview root → website kit
   eleventyConfig.addPassthroughCopy({'index.html': 'index.html'})
 
   eleventyConfig.addGlobalData('cmsMeta', () => readJson('_meta.json', {}))
 
   eleventyConfig.addGlobalData('serviceTimes', () => {
-    const all = readJson('serviceTimes.json', [])
-    return all.filter((s) => s.active !== false).sort((a, b) => (a.order || 0) - (b.order || 0))
+    return readJsonDir('service-times')
+      .filter((s) => s.active !== false)
+      .sort((a, b) => (a.order || 0) - (b.order || 0))
   })
 
   eleventyConfig.addGlobalData('people', () => {
-    return readJson('people.json', []).sort((a, b) => (a.order || 0) - (b.order || 0))
+    return readJsonDir('people').sort((a, b) => (a.order || 0) - (b.order || 0))
   })
 
   eleventyConfig.addGlobalData('roomRates', () => {
-    return readJson('roomRates.json', []).sort((a, b) => (a.order || 0) - (b.order || 0))
+    return readJsonDir('room-rates').sort((a, b) => (a.order || 0) - (b.order || 0))
   })
 
-  eleventyConfig.addGlobalData('events', () => readJson('events.json', []))
+  eleventyConfig.addGlobalData('events', () => {
+    return readJsonDir('events').sort((a, b) => String(b.sortDate || '').localeCompare(String(a.sortDate || '')))
+  })
 
-  eleventyConfig.addGlobalData('news', () => readJson('news.json', []))
+  eleventyConfig.addGlobalData('news', () => readJsonDir('news'))
 
   eleventyConfig.addGlobalData('siteImages', () => loadSiteImages())
 
@@ -78,7 +78,6 @@ module.exports = function (eleventyConfig) {
     return bioArray.map((t) => `<p>${t}</p>`).join('')
   })
 
-  // Same shape as Sanity portable text (exported blocks)
   eleventyConfig.addFilter('portableText', (blocks) => {
     if (!blocks || !blocks.length) return ''
     return blocks

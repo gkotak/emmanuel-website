@@ -1,5 +1,5 @@
 # CloudCannon — Emmanuel Church (experiment branch)
-# Docs: https://cloudcannon.com/documentation/
+# Collections are folders of one JSON file per item (Sanity-like list UI).
 
 source_editor:
   tab_size: 2
@@ -13,77 +13,79 @@ paths:
 
 collections_config:
   service_times:
-    path: _data/cms/serviceTimes.json
+    path: _data/cms/service-times
     name: Service Times
     icon: schedule
+    glob:
+      - '*.json'
     _enabled_editors:
       - data
     schemas:
       default:
-        name: name
-        day: Sunday
-        time: '10:30'
-        description: ''
-        group: sunday
-        order: 1
-        active: true
+        path: .cloudcannon/schemas/service-time.json
+        name: Service time
+    create:
+      path: '[relative_base_path]/{name|slugify}.json'
 
   people:
-    path: _data/cms/people.json
+    path: _data/cms/people
     name: Who's Who
     icon: people
+    glob:
+      - '*.json'
     _enabled_editors:
       - data
     schemas:
       default:
-        name: Name
-        role: Role
-        group: staff
-        email: ''
-        order: 1
-        bio: []
-        photoUrl: ''
+        path: .cloudcannon/schemas/person.json
+        name: Person
+    create:
+      path: '[relative_base_path]/{name|slugify}.json'
 
   room_rates:
-    path: _data/cms/roomRates.json
+    path: _data/cms/room-rates
     name: Room Hire Rates
     icon: meeting_room
+    glob:
+      - '*.json'
     _enabled_editors:
       - data
 
   events:
-    path: _data/cms/events.json
+    path: _data/cms/events
     name: Events & Calendar
     icon: event
+    glob:
+      - '*.json'
     _enabled_editors:
       - data
 
   news:
-    path: _data/cms/news.json
+    path: _data/cms/news
     name: News
     icon: newspaper
+    glob:
+      - '*.json'
     _enabled_editors:
       - data
 
   site_images:
-    path: _data/cms/siteImages.json
+    path: _data/cms/site-images
     name: Site Images
     icon: image
+    glob:
+      - '*.json'
     _enabled_editors:
       - data
 
   site_pages:
     path: _data/cms/pages
-    glob:
-      - '**/*.json'
     name: Site Pages
     icon: article
+    glob:
+      - '*.json'
     _enabled_editors:
       - data
-
-data_config:
-  cms_meta:
-    path: _data/cms/_meta.json
 
 _inputs:
   day:
@@ -127,13 +129,13 @@ _inputs:
     type: textarea
   calloutHeading:
     type: text
-
-_select_data:
-  person_groups:
-    - clergy
-    - staff
-    - churchwardens
-    - pcc
-  service_groups:
-    - sunday
-    - weekday
+  name:
+    type: text
+  role:
+    type: text
+  time:
+    type: text
+  description:
+    type: textarea
+  order:
+    type: number

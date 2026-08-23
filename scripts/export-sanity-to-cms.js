@@ -1,6 +1,6 @@
 /**
- * One-way snapshot: Sanity → local _data/cms (does not write to Sanity).
- * Run from site-cloudcannon: node scripts/export-sanity-to-cms.js
+ * One-way snapshot: Sanity → local `_data/cms/*/item.json` (does not write to Sanity).
+ * Run: node scripts/export-sanity-to-cms.js
  */
 const fs = require('fs')
 const path = require('path')
@@ -32,39 +32,70 @@ const client = createClient({
 
 const OUT = path.join(__dirname, '../_data/cms')
 
-function write(name, data) {
-  const file = path.join(OUT, name)
-  fs.mkdirSync(path.dirname(file), {recursive: true})
-  fs.writeFileSync(file, JSON.stringify(data, null, 2) + '\n')
-  console.log(`  wrote ${name} (${Array.isArray(data) ? data.length + ' items' : typeof data})`)
+function slugify(s, fallback = 'item') {
+  const base = String(s || fallback)
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '')
+  return base || fallback
+}
+
+function writeCollection(dir, items, keyFields) {
+  const dest = path.join(OUT, dir)
+  fs.mkdirSync(dest, {recursive: true})
+  for (const f of fs.readdirSync(dest).filter((n) => n.endsWith('.json'))) {
+    fs.unlinkSync(path.join(dest, f))
+  }
+  const used = new Set()
+  items.forEach((item, i) => {
+    let base
+    for (const k of keyFields) {
+      if (item[k]) {
+        base = slugify(String(item[k]))
+        break
+      }
+    }
+    base = base || `item-${i + 1}`
+    let name = base
+    let n = 2
+    while (used.has(name)) {
+      name = `${base}-${n++}`
+    }
+    used.add(name)
+    fs.writeFileSync(path.join(dest, `${name}.json`), JSON.stringify(item, null, 2) + '\n')
+  })
+  console.log(`  wrote ${dir}/ (${items.length} files)`)
 }
 
 async function run() {
   fs.mkdirSync(OUT, {recursive: true})
   console.log('Exporting Sanity →', OUT)
 
-  const serviceTimes = await client.fetch(`
-    *[_type == "serviceTime"] | order(order asc) {
+  writeCollection(
+    'service-times',
+    await client.fetch(`*[_type == "serviceTime"] | order(order asc) {
       _id, name, day, time, description, group, order, active
-    }
-  `)
-  write('serviceTimes.json', serviceTimes)
+    }`),
+    ['name', '_id'],
+  )
 
-  const people = await client.fetch(`
-    *[_type == "person"] | order(order asc) {
+  writeCollection(
+    'people',
+    await client.fetch(`*[_type == "person"] | order(order asc) {
       _id, name, role, group, email, order,
       "bio": bio[].children[].text,
       "photoUrl": photo.asset->url
-    }
-  `)
-  write('people.json', people)
+    }`),
+    ['name', '_id'],
+  )
 
-  const roomRates = await client.fetch(`
-    *[_type == "roomHireRate"] | order(order asc) {
+  writeCollection(
+    'room-rates',
+    await client.fetch(`*[_type == "roomHireRate"] | order(order asc) {
       _id, room, note, rate, capacity, featured, order
-    }
-  `)
-  write('roomRates.json', roomRates)
+    }`),
+    ['room', '_id'],
+  )
 
   const events = await client.fetch(`
     *[_type == "event" && !(_id in path("drafts.**"))] | order(sortDate desc) {
@@ -77,7 +108,6 @@ async function run() {
       "detailRows": detailRows[]{ label, value }
     }
   `)
-  // Unique by slug (skip empty / placeholder tests)
   const eventSlugs = new Set()
   const eventsUnique = []
   for (const e of events) {
@@ -87,22 +117,24 @@ async function run() {
     eventSlugs.add(slug)
     eventsUnique.push(e)
   }
-  write('events.json', eventsUnique)
+  writeCollection('events', eventsUnique, ['slug', 'title', '_id'])
 
-  const news = await client.fetch(`
-    *[_type == "newsPost"] | order(date desc) {
+  writeCollection(
+    'news',
+    await client.fetch(`*[_type == "newsPost"] | order(date desc) {
       _id, title, "slug": slug.current, date, summary, body,
       "imageUrl": image.asset->url
-    }
-  `)
-  write('news.json', news)
+    }`),
+    ['slug', 'title', '_id'],
+  )
 
-  const siteImages = await client.fetch(`
-    *[_type == "siteImage"] | order(key asc) {
+  writeCollection(
+    'site-images',
+    await client.fetch(`*[_type == "siteImage"] | order(key asc) {
       _id, key, label, alt, "url": image.asset->url
-    }
-  `)
-  write('siteImages.json', siteImages)
+    }`),
+    ['key', 'label', '_id'],
+  )
 
   const sitePages = await client.fetch(`
     *[_type == "sitePage"] | order(pageId asc) {
@@ -117,21 +149,29 @@ async function run() {
       calloutHeading, calloutBody
     }
   `)
-  write('sitePages.json', sitePages)
-
-  // Per-page files for CloudCannon (one document = one editable page)
   const pagesDir = path.join(OUT, 'pages')
   fs.mkdirSync(pagesDir, {recursive: true})
+  for (const f of fs.readdirSync(pagesDir).filter((n) => n.endsWith('.json'))) {
+    fs.unlinkSync(path.join(pagesDir, f))
+  }
   for (const page of sitePages) {
     const id = page.pageId || page._id
-    write(`pages/${id}.json`, page)
+    fs.writeFileSync(path.join(pagesDir, `${id}.json`), JSON.stringify(page, null, 2) + '\n')
   }
+  console.log(`  wrote pages/ (${sitePages.length} files)`)
 
-  write('_meta.json', {
-    exportedAt: new Date().toISOString(),
-    source: 'sanity:tqrrtmwq/production',
-    note: 'Snapshot for CloudCannon experiment. Does not sync back to Sanity.',
-  })
+  fs.writeFileSync(
+    path.join(OUT, '_meta.json'),
+    JSON.stringify(
+      {
+        exportedAt: new Date().toISOString(),
+        source: 'sanity:tqrrtmwq/production',
+        note: 'Snapshot for CloudCannon experiment. Does not sync back to Sanity.',
+      },
+      null,
+      2,
+    ) + '\n',
+  )
 
   console.log('Done.')
 }
