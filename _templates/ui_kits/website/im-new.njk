@@ -1,33 +1,74 @@
 ---
 permalink: /ui_kits/website/im-new.html
 headline: Come as you are.
-deck: Whether you've been going to Anglican churches all your life or this is the first time you'll step inside, we hope you'll find a warm welcome.
+deck: >-
+  Whether you've been going to Anglican churches all your life or this is the
+  first time you'll step inside, we hope you'll find a warm welcome.
 intro_paragraphs:
-  - text: "We hope you will find a warm welcome when you first attend Emmanuel — whether in the week or on Sundays. Please do introduce yourself to one of the welcomers or clergy; we'll be happy to tell you more about our congregation and community life."
-  - text: "Whilst we are proud of our Anglican identity, we are a very international community, with a number of different Christian denominations represented in our congregation."
-  - text: "To help each of us find a place in worship, we have a number of services of Holy Communion during the week and on Sundays. Don't hesitate to contact a member of the clergy if you'd like to learn more. Even better, just come and visit!"
-  - text: "At our main Parish Mass you can expect a robed choir, acolytes and incense, with a team of servers who reflect the diversity of our congregation. Our said Eucharists are more simple, and Joyful Noise is more noisy! The thread that ties them together is Eucharistic-centred worship."
-  - text: "We are working hard to make Emmanuel an inclusive and welcoming space. The Church is accessible to wheelchair and mobility scooter users via the Bell Porch entrance. Disabled toilets are located at the back of the church. The Church has a hearing aid loop installed."
-  - text: "The vicar aims to meet new members of the congregation for a 1-1 meeting within six months of their arrival. Please contact her if you'd like to arrange a meeting."
+  - text: >-
+      We hope you will find a warm welcome when you first attend Emmanuel —
+      whether in the week or on Sundays. Please do introduce yourself to one of
+      the welcomers or clergy; we'll be happy to tell you more about our
+      congregation and community life.
+  - text: >-
+      Whilst we are proud of our Anglican identity, we are a very international
+      community, with a number of different Christian denominations represented
+      in our congregation.
+  - text: >-
+      To help each of us find a place in worship, we have a number of services
+      of Holy Communion during the week and on Sundays. Don't hesitate to
+      contact a member of the clergy if you'd like to learn more. Even better,
+      just come and visit!
+  - text: >-
+      At our main Parish Mass you can expect a robed choir, acolytes and
+      incense, with a team of servers who reflect the diversity of our
+      congregation. Our said Eucharists are more simple, and Joyful Noise is
+      more noisy! The thread that ties them together is Eucharistic-centred
+      worship.
+  - text: >-
+      We are working hard to make Emmanuel an inclusive and welcoming space. The
+      Church is accessible to wheelchair and mobility scooter users via the Bell
+      Porch entrance. Disabled toilets are located at the back of the church.
+      The Church has a hearing aid loop installed.
+  - text: >-
+      The vicar aims to meet new members of the congregation for a 1-1 meeting
+      within six months of their arrival. Please contact her if you'd like to
+      arrange a meeting.
 callout_heading: Still have a question?
-callout_body: Don't hesitate to contact a member of the clergy if you'd like to learn more — or simply come along this Sunday.
+callout_body: >-
+  Don't hesitate to contact a member of the clergy if you'd like to learn more —
+  or simply come along this Sunday.
 hero_image: /assets/cms/site-images/imnew-hero.jpg
 featured_services:
   - slug: sung-eucharist
-    body: Our main Parish Mass — a robed choir, incense and the fullest celebration of the liturgy. Children's & Youth Church meet during term.
-  - slug: said-eucharist-bcp
-    body: A quiet, simple, 30-minute service said according to the Book of Common Prayer — a reflective start to the week.
+    body: >-
+      Our main Parish Mass — a robed choir, incense and the fullest celebration
+      of the liturgy. Children's &amp; Youth Church meet during term.
+  - slug: healing-eucharist
+    body: >-
+      A quiet, simple, 30-minute service said according to the Book of Common
+      Prayer — a reflective start to the week.
   - slug: joyful-noise-eucharist
-    body: A lively, noisy celebration of the Mass for pre-school children and their families, with music led on the guitar. Does not meet during the school summer holidays.
+    body: >-
+      A lively, noisy celebration of the Mass for pre-school children and their
+      families, with music led on the guitar. Does not meet during the school
+      summer holidays.
 access_cards:
-  - title: Step-free access
-    body: Both Emmanuel and St Cuthbert's are accessible for wheelchairs, with bathrooms for disabled access at both buildings.
-  - title: Hearing loop
-    body: Our sound system at Emmanuel is fitted with a hearing aid loop throughout the church.
-  - title: Disabled access bathroom
+  - eyebrow: ''
+    title: Step-free access
+    body: >-
+      Both Emmanuel and St Cuthbert's are accessible for wheelchairs, with
+      bathrooms for disabled access at both buildings.
+  - eyebrow: ''
+    title: Hearing loop
+    body: >-
+      Our sound system at Emmanuel is fitted with a hearing aid loop throughout
+      the church.
+  - eyebrow: ''
+    title: Disabled access bathroom
     body: Disabled toilets are located at the back of the church.
 ---
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en-GB">
 <head>
 <meta charset="utf-8" />
@@ -115,7 +156,7 @@ access_cards:
       <aside class="em-aside">
         <div class="em-aside-card">
           <h4>Planning your first visit</h4>
-          <p class="big" style="margin-bottom:16px">Sundays at<br/>8:00 · 9:15 · 10:30</p>
+          <p class="big" style="margin-bottom:16px">Sundays at<br />8:00 · 9:15 · 10:30</p>
           <p>Lyncroft Gardens, London NW6 1JU. Step-free access at the side entrance.</p>
           <a href="service-times.html" class="em-readmore" style="margin-top:4px">See all service times →</a>
         </div>
@@ -149,7 +190,7 @@ access_cards:
       <div class="sec-iconlist__items" data-editable="array" data-prop="access_cards">
         {% for card in access_cards %}
         <div class="sec-iconitem" data-editable="array-item">
-          <div class="sec-iconitem__ic"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div>
+          <div class="sec-iconitem__ic"><svg viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg></div>
           <div>
             <h4 class="sec-iconitem__title" data-editable="text" data-prop="title" data-type="span">{{ card.title }}</h4>
             <p class="sec-iconitem__body" data-editable="text" data-prop="body" data-type="text">{{ card.body }}</p>
