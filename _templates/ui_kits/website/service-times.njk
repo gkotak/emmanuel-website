@@ -1,11 +1,18 @@
 ---
 permalink: /ui_kits/website/service-times.html
+headline: Service & Prayer Times
+deck: The Eucharist and the daily office shape the rhythm of our shared life. All are welcome at every service.
+intro_paragraphs:
+  - As we gather to meet with Christ and one another, we seek to be a place where we are supported on our spiritual journeys, inspired to connect faith with the rest of our lives, and encouraged to put that faith into action.
+  - The Eucharist sits at the heart of our understanding of who we are at Emmanuel. From the very young to the very old, we seek to equip our community to discover more fully the presence of God in their lives.
+callout_heading: Join us in prayer.
+callout_body: Whether for the first time or the thousandth, there is a place for you at the table at Emmanuel.
 ---
 <!doctype html>
 <html lang="en-GB">
 <head>
 <meta charset="utf-8" />
-<title>Service &amp; Prayer Times — Emmanuel Church, West Hampstead</title>
+<title>{{ headline }} — Emmanuel Church, West Hampstead</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet" href="/styles.css" />
 <style>
@@ -70,8 +77,8 @@ permalink: /ui_kits/website/service-times.html
         <a href="/ui_kits/website/index.html">Home</a><span class="sep">/</span>
         <span>Service &amp; Prayer Times</span>
       </div>
-      <h1>Service &amp; <em>Prayer</em> Times</h1>
-      <p class="deck">{{ sitePages['service-times'].deck }}</p>
+      <h1 data-editable="text" data-prop="headline" data-type="span">{{ headline }}</h1>
+      <p class="deck" data-editable="text" data-prop="deck" data-type="text">{{ deck }}</p>
       <div class="meta-row">
         <div class="item"><div class="k">Sundays</div><div class="v">{% set sundayTimes = [] %}{% for st in serviceTimes %}{% if st.group === "sunday" %}{% set sundayTimes = (sundayTimes.push(st.time), sundayTimes) %}{% endif %}{% endfor %}{{ sundayTimes | join(" · ") }}</div></div>
         <div class="item"><div class="k">Weekdays</div><div class="v">{% for st in serviceTimes %}{% if st.name === "Morning Prayer" %}Morning Prayer {{ st.time }}{% endif %}{% endfor %}</div></div>
@@ -83,12 +90,10 @@ permalink: /ui_kits/website/service-times.html
   <section class="st-intro">
     <div class="inner">
       <div>
-        {% if sitePages['service-times'].introBody %}
-          {{ sitePages['service-times'].introBody | portableText | safe }}
-        {% else %}
-          <p class="lead-para">As we gather to meet with Christ and one another, we seek to be a place where we are supported on our spiritual journeys, inspired to connect faith with the rest of our lives, and encouraged to put that faith into action.</p>
-          <p>The Eucharist sits at the heart of our understanding of who we are at Emmanuel. From the very young to the very old, we seek to equip our community to discover more fully the presence of God in their lives.</p>
-        {% endif %}
+        {% for para in intro_paragraphs %}
+          {% if loop.first %}<p class="lead-para" data-editable="text" data-prop="intro_paragraphs[{{ loop.index0 }}]" data-type="text">{{ para }}</p>
+          {% else %}<p data-editable="text" data-prop="intro_paragraphs[{{ loop.index0 }}]" data-type="text">{{ para }}</p>{% endif %}
+        {% endfor %}
       </div>
       <aside class="em-aside">
         <div class="em-aside-card">
@@ -149,8 +154,8 @@ permalink: /ui_kits/website/service-times.html
   <section class="em-callout">
     <div class="inner">
       <div>
-        <h3>{{ sitePages['service-times'].calloutHeading }}</h3>
-        {{ sitePages['service-times'].calloutBody | portableText | safe }}
+        <h3 data-editable="text" data-prop="callout_heading" data-type="span">{{ callout_heading }}</h3>
+        <p data-editable="text" data-prop="callout_body" data-type="text">{{ callout_body }}</p>
       </div>
       <div style="display:flex;gap:14px;flex-wrap:wrap">
         <a href="/ui_kits/website/im-new.html" class="em-btn em-btn--tan">What to expect</a>

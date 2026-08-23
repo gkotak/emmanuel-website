@@ -1,5 +1,34 @@
 ---
 permalink: /ui_kits/website/children-families.html
+headline: Children & Families
+deck: From our youngest members to our teenagers, Emmanuel is a place where children and families are warmly welcomed into the life of the church.
+intro_paragraphs:
+  - Children and youth make up a core part of our church community at Emmanuel — and we know how much they have to teach us about spirituality and questions of faith.
+  - "For this reason we invest heavily in their Christian growth: for our youngest members through the Joyful Noise congregation, and for older children and young people through Children's & Youth Church, singing in the choir, joining the serving team, and helping to lead the readings and intercessions at our monthly intergenerational worship."
+cards:
+  - eyebrow: Ages 4–11 · Godly Play
+    title: Children's Church
+    body: |-
+      Throughout term time, Children's Church meets during the 10:30 Sunday service. Our curriculum follows the Godly Play method of Bible storytelling — an approach which seeks to inspire curiosity and wonder in our younger members.
+
+      It fosters a sense of the overwhelming love God has for all God's people, helping each child discover their own place in the story of faith.
+  - eyebrow: Ages 9–11 · Up to Year 7
+    title: Youth Church
+    body: |-
+      Youth Church typically involves some games, music and a lively exploration of the Gospel of the Day, or a chosen topic for the term.
+
+      Older children are welcome to join, but we find that by Year 7 they tend to be ready to join us for the service in church — singing, serving, or leading prayers and readings.
+feature:
+  eyebrow: Thursdays in term time
+  heading: Stay and Play
+  body_paragraphs:
+    - Stay and Play happens every Thursday in term time, 9:30 to 11:00am. This is a relaxed, friendly drop-in session with loads of great toys and usually a bit of a sing-song at the end.
+    - It's a great way to meet other local parents and carers, and to get answers to questions about life in West Hampstead with kids. Coffee, toast and healthy snacks are provided, and one of the clergy or our youth worker is always around to host.
+    - All babies, toddlers and pre-school age children, together with their parents and carers, are warmly welcome — with plenty of tea and coffee for the adults.
+  image: /assets/children-families.jpg
+  image_alt: Children gathered at the altar steps with clergy during an all-age service
+callout_heading: Come and join us.
+callout_body: Whether on a Sunday morning or at Thursday's Stay and Play, we'd love to welcome you and your family to Emmanuel.
 ---
 <!doctype html>
 <html lang="en-GB">
@@ -85,7 +114,8 @@ permalink: /ui_kits/website/children-families.html
         <a href="#">Get Involved</a><span class="sep">/</span>
         <span>Children &amp; Families</span>
       </div>
-      <h1>{% if sitePages['children-families'].headline %}{{ sitePages['children-families'].headline }}{% else %}Children &amp; <em>Families</em>{% endif %}</h1>
+      <h1 data-editable="text" data-prop="headline" data-type="span">{{ headline }}</h1>
+      <p class="deck" data-editable="text" data-prop="deck" data-type="text">{{ deck }}</p>
     </div>
   </section>
 
@@ -93,7 +123,9 @@ permalink: /ui_kits/website/children-families.html
   <section class="cf-intro">
     <div class="inner">
       <div class="intro-body">
-        {{ sitePages['children-families'].introBody | portableText | safe }}
+        {% for para in intro_paragraphs %}
+        <p data-editable="text" data-prop="intro_paragraphs[{{ loop.index0 }}]" data-type="text">{{ para }}</p>
+        {% endfor %}
       </div>
       <aside class="em-aside">
         <div class="em-aside-card">
@@ -114,17 +146,13 @@ permalink: /ui_kits/website/children-families.html
         <div class="em-ornament is-leading">Sundays at Emmanuel</div>
         <h2>Children's &amp; Youth Church</h2>
       </div>
-      <div class="cf-twocol">
-        {% for sec in sitePages['children-families'].sections %}
-          {% if sec._type == "cardGridSection" %}
-            {% for card in sec.cards %}
-            <div class="cf-card">
-              {% if card.eyebrow %}<div class="ages">{{ card.eyebrow }}</div>{% endif %}
-              {% if card.title %}<h3>{{ card.title }}</h3>{% endif %}
-              {% for para in card.body.split("\n\n") %}<p>{{ para }}</p>{% endfor %}
-            </div>
-            {% endfor %}
-          {% endif %}
+      <div class="cf-twocol" data-editable="array" data-prop="cards">
+        {% for card in cards %}
+        <div class="cf-card" data-editable="array-item">
+          {% if card.eyebrow %}<div class="ages" data-editable="text" data-prop="eyebrow" data-type="span">{{ card.eyebrow }}</div>{% endif %}
+          {% if card.title %}<h3 data-editable="text" data-prop="title" data-type="span">{{ card.title }}</h3>{% endif %}
+          {% for para in card.body.split("\n\n") %}<p data-editable="text" data-prop="body" data-type="text">{{ para }}</p>{% endfor %}
+        </div>
         {% endfor %}
       </div>
       <div class="cf-pattern">
@@ -170,10 +198,21 @@ permalink: /ui_kits/website/children-families.html
     </div>
   </section>
 
-  <!-- Stay and Play (CMS feature section) -->
-  {% set sections = sitePages['children-families'].sections %}
-  {% set skipCardGrids = true %}
-  {% include "sections.njk" %}
+  <!-- Stay and Play -->
+  <section class="cf-feature is-band">
+    <div class="inner">
+      <div class="em-feature">
+        <div class="media em-well"><img src="{{ feature.image }}" alt="{{ feature.image_alt }}" /></div>
+        <div>
+          <div class="em-ornament is-leading" data-editable="text" data-prop="feature.eyebrow" data-type="span">{{ feature.eyebrow }}</div>
+          <h2 data-editable="text" data-prop="feature.heading" data-type="span">{{ feature.heading }}</h2>
+          {% for para in feature.body_paragraphs %}
+          <p data-editable="text" data-prop="feature.body_paragraphs[{{ loop.index0 }}]" data-type="text">{{ para }}</p>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- Seasonal workshops -->
   <section class="cf-admissions" style="padding: 90px var(--gutter) 0;">
@@ -217,8 +256,8 @@ permalink: /ui_kits/website/children-families.html
   <section class="em-callout">
     <div class="inner">
       <div>
-        <h3>{{ sitePages['children-families'].calloutHeading }}</h3>
-        {{ sitePages['children-families'].calloutBody | portableText | safe }}
+        <h3 data-editable="text" data-prop="callout_heading" data-type="span">{{ callout_heading }}</h3>
+        <p data-editable="text" data-prop="callout_body" data-type="text">{{ callout_body }}</p>
       </div>
       <div style="display:flex;gap:14px;flex-wrap:wrap">
         <a href="contact.html" class="em-btn em-btn--tan">Contact the parish office</a>

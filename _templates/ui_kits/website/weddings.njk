@@ -1,11 +1,25 @@
 ---
 permalink: /ui_kits/website/weddings.html
+headline: Weddings & Banns of Marriage
+deck: We love weddings — and are always delighted to pray for and accompany couples as they take this important step.
+intro_paragraphs:
+  - If you are engaged and considering getting married at Emmanuel or St Cuthbert's, we would love to hear from you!
+  - We love weddings and are always delighted to pray for and accompany couples as they take this important step. We warmly encourage couples to attend three or four marriage preparation sessions ahead of the wedding day; these will be arranged between the priest and the couple, and will ensure that sessions are compatible with work and other commitments.
+  - If you would like to know more about weddings in either of our churches, please contact the parish office in the first instance and a member of the clergy will be in touch.
+wedding_image_1: /assets/cms/site-images/weddings-1.jpg
+wedding_image_1_alt: A bride and groom standing together at the altar during their wedding ceremony, surrounded by candles and flowers
+wedding_image_2: /assets/cms/site-images/weddings-2.jpg
+wedding_image_2_alt: A newly married couple sharing a joyful moment in the church after their wedding
+wedding_image_3: /assets/cms/site-images/weddings-3.jpg
+wedding_image_3_alt: A bride and groom walking together down the aisle at Emmanuel
+callout_heading: Let's begin the conversation.
+callout_body: Tell us a little about you and your plans, and a member of the clergy will be in touch to talk through the next steps.
 ---
 <!doctype html>
 <html lang="en-GB">
 <head>
 <meta charset="utf-8" />
-<title>Weddings & Banns of Marriage — Emmanuel Church, West Hampstead</title>
+<title>{{ headline }} — Emmanuel Church, West Hampstead</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet" href="/styles.css" />
 <style>
@@ -95,22 +109,18 @@ permalink: /ui_kits/website/weddings.html
   <section class="em-pagehead em-pagehead--band">
     <div class="inner">
       <div class="em-breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><a href="baptisms.html">Life Events</a><span class="sep">/</span><span>Weddings & Banns of Marriage</span></div>
-      <h1>{{ sitePages['weddings'].headline if sitePages['weddings'].headline else "Weddings & Banns of Marriage" }}</h1>
-      <p class="deck">{{ sitePages['weddings'].deck if sitePages['weddings'].deck else "We love weddings — and are always delighted to pray for and accompany couples as they take this important step." }}</p>
+      <h1 data-editable="text" data-prop="headline" data-type="span">{{ headline }}</h1>
+      <p class="deck" data-editable="text" data-prop="deck" data-type="text">{{ deck }}</p>
       <div class="meta-row"><div class="item"><div class="k">Where</div><div class="v">Emmanuel or St Cuthbert's</div></div><div class="item"><div class="k">Preparation</div><div class="v">3–4 sessions</div></div><div class="item"><div class="k">First step</div><div class="v">Contact the parish office</div></div></div>
     </div>
   </section>
   <section class="em-intro">
     <div class="inner">
       <div class="em-body">
-        {% if sitePages['weddings'].introBody %}
-          {{ sitePages['weddings'].introBody | portableText | safe }}
-        {% else %}
-          <p class="em-lead">If you are engaged and considering getting married at Emmanuel or St Cuthbert's, we would love to hear from you!</p>
-          <p>We love weddings and are always delighted to pray for and accompany couples as they take this important step. We warmly encourage couples to attend three or four marriage preparation sessions ahead of the wedding day.</p>
-          <p>In accordance with current practice in the Church of England, we will gladly hold services of blessing for same sex marriages.</p>
-          <p>If you would like to know more about weddings in either of our churches, please contact the parish office in the first instance and a member of the clergy will be in touch.</p>
-        {% endif %}
+        {% for para in intro_paragraphs %}
+          {% if loop.first %}<p class="em-lead" data-editable="text" data-prop="intro_paragraphs[{{ loop.index0 }}]" data-type="text">{{ para }}</p>
+          {% else %}<p data-editable="text" data-prop="intro_paragraphs[{{ loop.index0 }}]" data-type="text">{{ para }}</p>{% endif %}
+        {% endfor %}
         <details class="em-faq" style="margin-top:36px">
           <summary>
             <div class="em-ornament is-leading">A common question</div>
@@ -134,9 +144,9 @@ permalink: /ui_kits/website/weddings.html
           </div>
         </details>
         <div class="wedding-photo-row" style="margin-top:36px">
-          <div class="em-well"><img src="{{ siteImages['weddings-1'].url or '/assets/wedding-bw.jpg' }}" alt="{{ siteImages['weddings-1'].alt or 'A bride and groom standing together at the altar during their wedding ceremony, surrounded by candles and flowers' }}" /></div>
-          <div class="em-well"><img src="{{ siteImages['weddings-2'].url or '/assets/wedding-couple.jpg' }}" alt="{{ siteImages['weddings-2'].alt or 'A newly married couple sharing a joyful moment in the church after their wedding' }}" /></div>
-          <div class="em-well"><img src="{{ siteImages['weddings-3'].url or '/assets/wedding-aisle.webp' }}" alt="{{ siteImages['weddings-3'].alt or 'A bride and groom walking together down the aisle at Emmanuel' }}" /></div>
+          <div class="em-well"><img src="{{ wedding_image_1 }}" alt="{{ wedding_image_1_alt }}" /></div>
+          <div class="em-well"><img src="{{ wedding_image_2 }}" alt="{{ wedding_image_2_alt }}" /></div>
+          <div class="em-well"><img src="{{ wedding_image_3 }}" alt="{{ wedding_image_3_alt }}" /></div>
         </div>
       </div>
       <aside class="em-aside">
@@ -152,12 +162,8 @@ permalink: /ui_kits/website/weddings.html
   <section class="em-callout">
     <div class="inner">
       <div>
-        <h3>{{ sitePages['weddings'].calloutHeading if sitePages['weddings'].calloutHeading else "Let's begin the conversation." }}</h3>
-        {% if sitePages['weddings'].calloutBody %}
-          {{ sitePages['weddings'].calloutBody | portableText | safe }}
-        {% else %}
-          <p>Tell us a little about you and your plans, and a member of the clergy will be in touch to talk through the next steps.</p>
-        {% endif %}
+        <h3 data-editable="text" data-prop="callout_heading" data-type="span">{{ callout_heading }}</h3>
+        <p data-editable="text" data-prop="callout_body" data-type="text">{{ callout_body }}</p>
       </div>
       <div style="display:flex;gap:14px;flex-wrap:wrap"><a href="contact.html" class="em-btn em-btn--tan">Contact the parish office</a><a href="electoral-roll.html" class="em-btn em-btn--ghost-light">About the electoral roll</a></div>
     </div>

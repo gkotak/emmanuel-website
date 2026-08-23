@@ -1,5 +1,36 @@
 ---
 permalink: /ui_kits/website/music.html
+headline: Music & Choir
+deck: Music is at the heart of worship at Emmanuel — and our choir combines choral excellence with a welcoming, inclusive spirit.
+intro_paragraphs:
+  - We believe that music plays a pivotal part in congregational worship, enhancing and deepening our connection to God.
+  - Our choir combines choral excellence with a welcoming and inclusive spirit. We sing at the 10:30am Eucharist every Sunday, offering a diverse repertoire of sacred music, ranging from Renaissance polyphony to contemporary works. In addition to our weekly worship, the choir leads the music for special services at key points in the liturgical year.
+  - We are always keen to welcome new singers and musicians of all ages and abilities. The choir rehearses once a week from 7:15–8:15pm on Wednesday evenings, and sings as part of the 10:30am Eucharist each Sunday. Whilst regular commitment is encouraged, it is not necessary to be available for every rehearsal and service to be a member of the choir.
+  - We are a friendly and welcoming choir, with a great social scene, often going for drinks post-rehearsal. An ability to read sheet music is desirable, but not necessary provided you have a willingness to learn. If you are interested, please contact our Director of Music, Will, at w.g.rose41@gmail.com.
+callout_heading: Lift your voice with us.
+callout_body: Whatever your experience, there's a place for you in our music. New singers and musicians are always warmly welcome.
+people_eyebrow: Those who lead our music
+features:
+  - eyebrow: Our musical heritage
+    heading: A tradition stretching back over a century.
+    body_paragraphs:
+      - Music at Emmanuel is steeped in illustrious tradition. The English composer Harold Darke was organist at the church from 1906–1911, during which period he composed his setting of Christina Rossetti's "In the Bleak Midwinter".
+      - In contrast to many choral societies, the choir tackles new repertoire on a weekly basis, with the aim of providing fulfilling and musically enriching opportunities no matter your previous choral experience.
+    image: /assets/music-choir.jpg
+    image_alt: The Emmanuel choir singing in the stalls beneath the organ, led by the Director of Music
+    reverse: true
+  - eyebrow: For our youngest singers
+    heading: Children's Choir
+    body_paragraphs:
+      - Come and sing with the Emmanuel Church choir! We rehearse once a week in the church with our choir director, Will. We sing in the church on the first Sunday of every month, and also in special services, including at Easter.
+      - We learn loads of exciting music, and always have lots of fun in our rehearsals. You don't need to be able to read sheet music to join, and it's a great way to make new friends! All rehearsals are free to attend.
+      - To find out more, please contact Will at w.g.rose41@gmail.com.
+    image: /assets/childrens-choir.jpg
+    image_alt: Robed young choristers gathered at the altar during a sung service
+    reverse: false
+featured_people:
+  - slug: will-rose
+  - slug: joseph-verdin
 ---
 <!doctype html>
 <html lang="en-GB">
@@ -64,8 +95,8 @@ permalink: /ui_kits/website/music.html
         <a href="#">Get Involved</a><span class="sep">/</span>
         <span>Music &amp; Choir</span>
       </div>
-      <h1>{% if sitePages['music'].headline %}{{ sitePages['music'].headline }}{% else %}Music &amp; <em>Choir</em>{% endif %}</h1>
-      <p class="deck">{% if sitePages['music'].deck %}{{ sitePages['music'].deck }}{% else %}Music is at the heart of worship at Emmanuel — and our choir combines choral excellence with a welcoming, inclusive spirit.{% endif %}</p>
+      <h1 data-editable="text" data-prop="headline" data-type="span">{{ headline }}</h1>
+      <p class="deck" data-editable="text" data-prop="deck" data-type="text">{{ deck }}</p>
       <div class="meta-row">
         <div class="item"><div class="k">Sings</div><div class="v">Sundays, 10:30 Eucharist</div></div>
         <div class="item"><div class="k">Rehearsals</div><div class="v">Wednesdays, 7:15–8:15pm</div></div>
@@ -78,7 +109,9 @@ permalink: /ui_kits/website/music.html
   <section class="mu-intro">
     <div class="inner">
       <div class="intro-body">
-        {{ sitePages['music'].introBody | portableText | safe }}
+        {% for para in intro_paragraphs %}
+        <p data-editable="text" data-prop="intro_paragraphs[{{ loop.index0 }}]" data-type="text">{{ para }}</p>
+        {% endfor %}
       </div>
       <aside class="em-aside">
         <div class="em-aside-card">
@@ -92,27 +125,53 @@ permalink: /ui_kits/website/music.html
     </div>
   </section>
 
-  {% for sec in sitePages['music'].sections %}
-    {% if sec._type == "peopleSection" %}
-  <section class="people">
-    <div class="inner">
-      <div class="em-ornament is-leading">{{ sec.eyebrow or "Those who lead our music" }}</div>
-      <p class="lead">Meet Will Rose (Director of Music) and Joseph Verdin (Organist) with the rest of the parish team.</p>
-      <a href="/ui_kits/website/our-team.html" class="em-btn em-btn--primary">Our Team</a>
+  {% for feature in features %}
+  <section class="{% if loop.first %}heritage{% else %}childrens{% endif %}" data-editable="array" data-prop="features">
+    <div class="inner" data-editable="array-item">
+      <div class="em-feature{% if feature.reverse %} em-feature--reverse{% endif %}">
+        <div class="media em-well"><img src="{{ feature.image }}" alt="{{ feature.image_alt }}" /></div>
+        <div>
+          <div class="em-ornament is-leading" data-editable="text" data-prop="eyebrow" data-type="span">{{ feature.eyebrow }}</div>
+          <h2 data-editable="text" data-prop="heading" data-type="span">{{ feature.heading }}</h2>
+          {% for para in feature.body_paragraphs %}
+          <p data-editable="text" data-prop="body_paragraphs[{{ loop.index0 }}]" data-type="text">{{ para }}</p>
+          {% endfor %}
+        </div>
+      </div>
     </div>
   </section>
-    {% else %}
-      {% set sections = [sec] %}
-      {% include "sections.njk" %}
-    {% endif %}
+  {% if loop.first %}
+  {% set music_people = featured_people | resolvePeople(people) %}
+  <section class="people">
+    <div class="inner">
+      <div class="em-ornament is-leading" data-editable="text" data-prop="people_eyebrow" data-type="span">{{ people_eyebrow }}</div>
+      <div class="people-grid" data-editable="array" data-prop="featured_people">
+        {% for person in music_people %}
+        <div class="person-row" data-editable="array-item">
+          <div class="em-portrait">
+            {% if person.photoUrl %}<img src="{{ person.photoUrl }}" alt="{{ person.name }}" />
+            {% else %}<div class="em-img-placeholder"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>{% endif %}
+          </div>
+          <div>
+            <div class="role">{{ person.role }}</div>
+            <h3>{{ person.name }}</h3>
+            {% for para in person.bio %}<p>{{ para }}</p>{% endfor %}
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      <a href="/ui_kits/website/our-team.html" class="em-btn em-btn--primary" style="margin-top:52px">Our Team</a>
+    </div>
+  </section>
+  {% endif %}
   {% endfor %}
 
   <!-- CTA -->
   <section class="em-callout">
     <div class="inner">
       <div>
-        <h3>{{ sitePages['music'].calloutHeading }}</h3>
-        {{ sitePages['music'].calloutBody | portableText | safe }}
+        <h3 data-editable="text" data-prop="callout_heading" data-type="span">{{ callout_heading }}</h3>
+        <p data-editable="text" data-prop="callout_body" data-type="text">{{ callout_body }}</p>
       </div>
       <div style="display:flex;gap:14px;flex-wrap:wrap">
         <a href="mailto:w.g.rose41@gmail.com" class="em-btn em-btn--tan">Email Will Rose</a>

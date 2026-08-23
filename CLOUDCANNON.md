@@ -6,10 +6,26 @@ This directory is a **git worktree** of `emmanuel-website` on branch `experiment
 |---|---|---|
 | Folder | `site/` | `site-cloudcannon/` |
 | Branch | `main` | `experiment/cloudcannon` |
-| Content source | Sanity live fetch | `_data/cms/*.json` (snapshot) |
+| Content source | Sanity live fetch | Page front matter + collection JSON |
 | Dev server | `npm run dev` → :8080 | `npm run dev` → :8081 |
 
-**Sanity is not modified.** The JSON under `_data/cms` is a one-way export.
+**Sanity is not modified.** Legacy `_data/cms/pages` and `site-images` may still exist on disk but are **not** used by templates.
+
+## Content model (greenfield)
+
+**Pages** — copy lives in each `.njk` front matter (YAML + HTML together). Edit via **Pages** in CloudCannon (Visual or Data). File Browser opens the same file.
+
+**Collections** (shared inventories only):
+- Who’s Who (`_data/cms/people`)
+- Service Times (`_data/cms/service-times`)
+- Room Hire Rates (`_data/cms/room-rates`)
+- Events (`_data/cms/events`)
+
+**Card patterns**
+- **A** — page stores slugs that resolve to a collection (e.g. I’m New `featured_services`, Music `featured_people`)
+- **B** — freeform cards on the page (Baptisms, accessibility, donations)
+
+Images are inline on the page (or on person records), not a Site Images library.
 
 ## Quick start (local)
 
@@ -19,39 +35,11 @@ npm install
 npm run dev          # http://localhost:8081/ui_kits/website/
 ```
 
-Sanity version in parallel:
-
-```bash
-cd site
-npm run dev          # http://localhost:8080/ui_kits/website/
-```
-
-## Refresh content from Sanity (optional)
-
-```bash
-cd site-cloudcannon
-node scripts/export-sanity-to-cms.js
-```
-
-Needs `SANITY_TOKEN` in `studio/.env` (read-only is fine).
-
 ## Connect CloudCannon
 
-1. Push this branch:  
-   `git push -u origin experiment/cloudcannon`
-2. In CloudCannon: create a site from `gkotak/emmanuel-website`, select branch `experiment/cloudcannon`.
-3. Build command: `npm run build`  
-   Output: `dist`  
-   Install: leave default, or set to `npm install` if offered  
-   (This branch also runs `.cloudcannon/preinstall` → `npm install` automatically.)
-4. Edit **Service Times**, **Who’s Who**, **Site Images**, **Site Pages**, etc. in the CloudCannon UI — saves commit to this branch.
-
-## Editing notes
-
-- Structured collections are JSON arrays/objects under `_data/cms/`.
-- **Site Pages** are one file per page in `_data/cms/pages/` (same portable-text shape as Sanity so templates keep working).
-- Image fields currently store URLs (often still Sanity CDN from the export). For a full cutover later, upload into `assets/uploads/` and point URLs there.
-- Re-exporting from Sanity will **overwrite** local JSON — treat CloudCannon edits as the source of truth on this branch once you start editing there.
+1. Branch: `experiment/cloudcannon`
+2. Build: `npm run build` · Output: `dist`
+3. Do **not** publish to `main` until you explicitly cut over
 
 ## Do not merge to main until ready
 

@@ -1,5 +1,6 @@
 # CloudCannon — Emmanuel Church (experiment branch)
-# Collections are folders of one JSON file per item (Sanity-like list UI).
+# Greenfield model: page copy lives in each .njk front matter.
+# Separate collections only for shared inventories (people, services, rates, events).
 
 source_editor:
   tab_size: 2
@@ -11,7 +12,6 @@ paths:
   data: _data
   collections: ''
 
-# Shapes for addable arrays (e.g. document rows on Annual Reports)
 _structures:
   documents:
     values:
@@ -22,16 +22,46 @@ _structures:
           description: PDF · Add a short subtitle
           href: https://
           icon: document
+  cards:
+    values:
+      - label: Card
+        icon: web_asset
+        value:
+          eyebrow: ''
+          title: New card
+          body: ''
+  featured_services:
+    values:
+      - label: Service (from Service Times)
+        icon: schedule
+        value:
+          slug: sung-eucharist
+          body: ''
+  featured_people:
+    values:
+      - label: Person (from Who's Who)
+        icon: person
+        value:
+          slug: will-rose
 
 collections_config:
-  # Page-level copy + structures — open in Visual (pencil) or Data
   website_pages:
     path: _templates/ui_kits/website
-    name: Page copy (visual)
+    name: Pages
     icon: web
     glob:
       - annual-reports.njk
+      - baptisms.njk
+      - children-families.njk
+      - contact.njk
+      - donations.njk
+      - funerals.njk
+      - im-new.njk
+      - index.njk
+      - music.njk
       - our-team.njk
+      - service-times.njk
+      - weddings.njk
     url: '[permalink]'
     _enabled_editors:
       - visual
@@ -43,7 +73,6 @@ collections_config:
       subtext:
         - key: permalink
 
-  # Shared / repeatable content — Data forms only (not page layout)
   service_times:
     path: _data/cms/service-times
     name: Service Times
@@ -92,45 +121,6 @@ collections_config:
     _enabled_editors:
       - data
 
-  news:
-    path: _data/cms/news
-    name: News
-    icon: newspaper
-    glob:
-      - '*.json'
-    _enabled_editors:
-      - data
-
-  site_images:
-    path: _data/cms/site-images
-    name: Site Images
-    icon: image
-    glob:
-      - '*.json'
-    _enabled_editors:
-      - data
-    preview:
-      text:
-        - key: label
-      subtext:
-        - key: key
-      image:
-        - key: image
-        - key: url
-    schemas:
-      default:
-        path: .cloudcannon/schemas/site-image.json
-        name: Site image
-
-  site_pages:
-    path: _data/cms/pages
-    name: Site Pages (forms)
-    icon: article
-    glob:
-      - '*.json'
-    _enabled_editors:
-      - data
-
 _inputs:
   headline:
     type: text
@@ -138,6 +128,8 @@ _inputs:
     type: textarea
   lead:
     type: textarea
+  intro_paragraphs:
+    type: array
   archive_note:
     type: textarea
   callout_heading:
@@ -152,7 +144,55 @@ _inputs:
     type: array
     options:
       structures: _structures.documents
+  cards:
+    type: array
+    options:
+      structures: _structures.cards
+  access_cards:
+    type: array
+    options:
+      structures: _structures.cards
+  cost_cards:
+    type: array
+    options:
+      structures: _structures.cards
+  volunteer_cards:
+    type: array
+    options:
+      structures: _structures.cards
+  featured_services:
+    type: array
+    options:
+      structures: _structures.featured_services
+  featured_people:
+    type: array
+    options:
+      structures: _structures.featured_people
+  slug:
+    type: select
+    label: Collection item
+    options:
+      values:
+        - sung-eucharist
+        - said-eucharist-bcp
+        - joyful-noise-eucharist
+        - contemplative-eucharist
+        - healing-eucharist
+        - morning-prayer
+        - school-collective-worship
+        - will-rose
+        - joseph-verdin
+        - the-reverend-dr-catriona-laing
+        - mthr-clemency-flitter
+        - mthr-melissa-dickinson
+        - emma-clark
+        - claire-hammett
+        - antony-edwards
   title:
+    type: text
+  body:
+    type: textarea
+  eyebrow:
     type: text
   description:
     type: textarea
@@ -195,17 +235,12 @@ _inputs:
   image:
     type: image
     label: Image
-  url:
-    type: image
-    label: Image
   photoUrl:
     type: image
     label: Photo
   bio:
     type: array
     comment: One paragraph per item
-  calloutHeading:
-    type: text
   name:
     type: text
   role:
@@ -214,3 +249,7 @@ _inputs:
     type: text
   order:
     type: number
+  hero_image:
+    type: image
+  feature_image:
+    type: image

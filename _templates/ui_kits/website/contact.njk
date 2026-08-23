@@ -1,11 +1,23 @@
 ---
 permalink: /ui_kits/website/contact.html
+headline: Contact us
+deck: If you would like to request a prayer for yourself or someone else, or to contact us about any other matter, please reach the clergy via the Parish Office below.
+intro_paragraphs:
+  - Whatever is on your heart — a prayer request, a question, or simply wanting to get in touch — we would be glad to hear from you.
+  - The vicar aims to meet new members of the congregation for a 1-1 meeting within six months of their arrival.
+  - The clergy can be reached through the Parish Office. If your enquiry concerns a baptism, wedding or funeral, do let us know and we will pass it to the right person.
+  - The Church is open daily from 9am–7pm and you are always welcome to come in for prayer, to light a candle or leave a prayer request. When the main church is busy with other activities, the Lady Chapel (to the right of the Jesus statue as you come in) is always available as a quiet place to pray, read and reflect.
+  - If you are unable to get to church, do ask about home communions — the clergy are glad to bring Holy Communion to those who need it.
+  - Sign up to receive our newsletter
+  - If you'd like to receive our weekly newsletter, please click here.
+callout_heading: Stay connected.
+callout_body: Join our email list to receive the regular newsletter, with news and what's on across the parish.
 ---
 <!doctype html>
 <html lang="en-GB">
 <head>
 <meta charset="utf-8" />
-<title>Contact Us — Emmanuel Church, West Hampstead</title>
+<title>{{ headline }} — Emmanuel Church, West Hampstead</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet" href="/styles.css" />
 <style>
@@ -49,8 +61,8 @@ permalink: /ui_kits/website/contact.html
   <section class="em-pagehead em-pagehead--band">
     <div class="inner">
       <div class="em-breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><span>Contact Us</span></div>
-      <h1>{% if sitePages['contact'].headline %}{{ sitePages['contact'].headline }}{% else %}Contact <em>us</em>{% endif %}</h1>
-      <p class="deck">{% if sitePages['contact'].deck %}{{ sitePages['contact'].deck }}{% else %}If you would like to request a prayer for yourself or someone else, or to contact us about any other matter, please reach the clergy via the Parish Office below.{% endif %}</p>
+      <h1 data-editable="text" data-prop="headline" data-type="span">{{ headline }}</h1>
+      <p class="deck" data-editable="text" data-prop="deck" data-type="text">{{ deck }}</p>
     </div>
   </section>
 
@@ -58,7 +70,10 @@ permalink: /ui_kits/website/contact.html
   <section class="em-intro">
     <div class="inner">
       <div class="em-body">
-        {{ sitePages['contact'].introBody | portableText | safe }}
+        {% for para in intro_paragraphs %}
+          {% if loop.first %}<p class="em-lead" data-editable="text" data-prop="intro_paragraphs[{{ loop.index0 }}]" data-type="text">{{ para }}</p>
+          {% else %}<p data-editable="text" data-prop="intro_paragraphs[{{ loop.index0 }}]" data-type="text">{{ para }}</p>{% endif %}
+        {% endfor %}
       </div>
       <aside class="em-aside">
         <div class="ct-contactcard">
@@ -151,7 +166,7 @@ permalink: /ui_kits/website/contact.html
   <!-- Callout -->
   <section class="em-callout">
     <div class="inner">
-      <div><h3>{% if sitePages['contact'].calloutHeading %}{{ sitePages['contact'].calloutHeading }}{% else %}Stay <em>connected</em>.{% endif %}</h3><p>Join our email list to receive the regular newsletter, with news and what's on across the parish.</p></div>
+      <div><h3 data-editable="text" data-prop="callout_heading" data-type="span">{{ callout_heading }}</h3><p data-editable="text" data-prop="callout_body" data-type="text">{{ callout_body }}</p></div>
       <div style="display:flex;gap:14px;flex-wrap:wrap"><a href="https://emmanuelnw6.us9.list-manage.com/subscribe?u=82a1a8e47d9788dccae693588&id=bbf2ae4052" target="_blank" rel="noopener" class="em-btn em-btn--tan">Join the newsletter</a><a href="mailto:info@emmanuelnw6.com" class="em-btn em-btn--ghost-light">Email the office</a></div>
     </div>
   </section>

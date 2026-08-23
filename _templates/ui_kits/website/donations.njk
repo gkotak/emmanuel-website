@@ -1,5 +1,38 @@
 ---
 permalink: /ui_kits/website/donations.html
+headline: Every gift keeps the doors open.
+deck: >-
+  It costs £15,000 a month to run Emmanuel. We raise all of it ourselves,
+  locally — it doesn't come from the Government or the Church of England.
+intro_paragraphs:
+  - >-
+    While we hold fundraising events and rent out the church, one of the
+    foundations of our finances is the tremendous support we receive from our
+    congregation through regular donations.
+cost_cards:
+  - title: Ministry
+    body: Clergy pay, housing and pension — the people who lead our worship and care.
+  - title: Building
+    body: Maintenance, utilities and insurance for a much-loved Victorian church.
+  - title: Administration
+    body: Office costs for the day-to-day operation of the parish and its activities.
+  - title: Services
+    body: The direct costs of worship — music, liturgy, candles, vestments and more.
+  - title: Outreach
+    body: Reaching beyond our walls — the food bank, night shelter and other care.
+volunteer_cards:
+  - title: Reading at a service
+    body: Share in the liturgy by reading the lessons aloud.
+  - title: Joining the choir
+    body: Add your voice to the music of the Sung Eucharist.
+  - title: Greeting people
+    body: Welcome visitors and regulars as they arrive at church.
+  - title: Sunday School
+    body: Lead or support our children during the morning service.
+  - title: Gardening
+    body: Help keep the church grounds and green looking their best.
+  - title: Small building works
+    body: Lend a hand with the practical upkeep of the building.
 ---
 <!doctype html>
 <html lang="en-GB">
@@ -53,8 +86,8 @@ permalink: /ui_kits/website/donations.html
   <section class="em-pagehead em-pagehead--band">
     <div class="inner">
       <div class="em-breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><span>Donations &amp; How You Can Help</span></div>
-      <h1>{{ sitePages['donations'].headline }}</h1>
-      <p class="deck">{{ sitePages['donations'].deck }}</p>
+      <h1 data-editable="text" data-prop="headline" data-type="span">{{ headline }}</h1>
+      <p class="deck" data-editable="text" data-prop="deck" data-type="text">{{ deck }}</p>
       <div class="meta-row">
         <div class="item"><div class="k">Monthly running cost</div><div class="v">£15,000</div></div>
         <div class="item"><div class="k">Funded by</div><div class="v">Our congregation</div></div>
@@ -71,7 +104,9 @@ permalink: /ui_kits/website/donations.html
   <section class="em-intro em-intro--solo">
     <div class="inner">
       <div class="em-body">
-        {% if sitePages['donations'].introBody %}{{ sitePages['donations'].introBody | portableText | safe }}{% else %}<p class="em-lead">While we hold fundraising events and rent out the church, one of the foundations of our finances is the tremendous support we receive from our congregation through regular donations.</p>{% endif %}
+        {% for para in intro_paragraphs %}
+        <p{% if loop.first %} class="em-lead"{% endif %} data-editable="text" data-prop="intro_paragraphs[{{ loop.index0 }}]" data-type="text">{{ para }}</p>
+        {% endfor %}
         <p>That £15,000 a month covers everything it takes to keep Emmanuel open, alive and serving the parish — from the ministry of our clergy to the upkeep of a Victorian building, and the outreach that reaches beyond our walls.</p>
       </div>
     </div>
@@ -90,16 +125,14 @@ permalink: /ui_kits/website/donations.html
         '<path d="M12 3v18"/><path d="M5 8l7-5 7 5"/><path d="M5 8v8a7 7 0 0 0 14 0V8"/>',
         '<path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 1 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/>'
       ] %}
-      <div class="dn-costs">
-        {% for sec in sitePages['donations'].sections %}{% if sec._key == "dn-costs" %}
-          {% for card in sec.cards %}
-          <div class="dn-cost">
+      <div class="dn-costs" data-editable="array" data-prop="cost_cards">
+          {% for card in cost_cards %}
+          <div class="dn-cost" data-editable="array-item">
             <span class="ic"><svg viewBox="0 0 24 24">{{ dnCostIcons[loop.index0] | safe }}</svg></span>
-            {% if card.title %}<h4>{{ card.title }}</h4>{% endif %}
-            {% if card.body %}<p>{{ card.body }}</p>{% endif %}
+            {% if card.title %}<h4 data-editable="text" data-prop="title" data-type="span">{{ card.title }}</h4>{% endif %}
+            {% if card.body %}<p data-editable="text" data-prop="body" data-type="text">{{ card.body }}</p>{% endif %}
           </div>
           {% endfor %}
-        {% endif %}{% endfor %}
       </div>
     </div>
   </section>

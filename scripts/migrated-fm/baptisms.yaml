@@ -1,0 +1,44 @@
+headline: Baptism, First Communion & Confirmation
+deck: We gladly baptise new members of whatever age into the family of God — praying for them as they
+  embark on their pilgrimage of faith.
+intro_paragraphs:
+- At Emmanuel we gladly baptise new members of whatever age into the family of God, praying for them as
+  they embark on their exciting journey and pilgrimage of faith.
+- Our baptism services tend to take place at our 10:30 service on the third Sunday of the month. If you'd
+  prefer, we can also offer baptism at our 9:15 Joyful Noise service.
+callout_heading: A new beginning.
+callout_body: Whatever your age, there is a place for you in the family of God at Emmanuel. We would love
+  to walk this journey with you.
+card_sections:
+- heading: null
+  eyebrow: null
+  layout: cards
+  cards:
+  - eyebrow: The sacrament of belonging
+    title: Baptism
+    body: Through baptism we are welcomed into the family of God and the life of the Church. We baptise
+      people of every age — infants, children and adults alike — and walk with each household as they
+      prepare.
+  - eyebrow: Once a year · taken by the Bishop
+    title: Confirmation
+    body: We have a confirmation service once a year. Confirmations are taken by the Bishop and are the
+      occasion for baptised people to 'confirm' the vows that were made on their behalf when they were
+      baptised.
+  - eyebrow: Good Shepherd Sunday · from age 8
+    title: First Holy Communion
+    body: At Emmanuel we admit to First Holy Communion those children who would like to take part in the
+      Eucharist but are not yet old enough to be confirmed. We encourage children to wait to be confirmed
+      until they are much older (around 16 or older), but invite them to participate fully in the sacrament
+      of Holy Communion from around age 8. Admission typically takes place on Good Shepherd Sunday, following
+      a series of 6–8 sessions teaching about the Eucharist.
+features:
+- eyebrow: A growing faith
+  heading: Welcomed to the Lord's table
+  body_paragraphs:
+  - From the youngest children admitted to First Holy Communion, to those confirmed by the Bishop, we
+    walk with each person as they take their next step in the life of faith — surrounded by the prayers
+    of the whole community.
+  image: /assets/first-communion.jpg
+  image_alt: Children and adults presented to the Bishop at a Confirmation and First Holy Communion service
+  reverse: false
+  is_band: true

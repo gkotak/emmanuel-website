@@ -19,7 +19,11 @@ function readJsonDir(dir) {
   return fs
     .readdirSync(full)
     .filter((n) => n.endsWith('.json'))
-    .map((n) => JSON.parse(fs.readFileSync(path.join(full, n), 'utf8')))
+    .map((n) => {
+      const data = JSON.parse(fs.readFileSync(path.join(full, n), 'utf8'))
+      data._slug = n.replace(/\.json$/, '')
+      return data
+    })
 }
 
 function loadSitePages() {
@@ -76,6 +80,37 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter('bioParagraphs', (bioArray) => {
     if (!bioArray || !bioArray.length) return ''
     return bioArray.map((t) => `<p>${t}</p>`).join('')
+  })
+
+  /** Look up one collection item by filename slug (e.g. sung-eucharist). */
+  eleventyConfig.addFilter('bySlug', (items, slug) => {
+    if (!items || !slug) return null
+    return items.find((i) => i._slug === slug || i.pageId === slug) || null
+  })
+
+  /** Resolve [{slug, body?}, ...] against serviceTimes (optional page body override). */
+  eleventyConfig.addFilter('resolveServices', (refs, serviceTimes) => {
+    if (!refs || !refs.length) return []
+    return refs
+      .map((ref) => {
+        const slug = typeof ref === 'string' ? ref : ref.slug
+        const svc = (serviceTimes || []).find((s) => s._slug === slug)
+        if (!svc) return null
+        const body = typeof ref === 'object' && ref.body ? ref.body : svc.description
+        return Object.assign({}, svc, {cardBody: body})
+      })
+      .filter(Boolean)
+  })
+
+  /** Resolve [slug | {slug}, ...] against people collection. */
+  eleventyConfig.addFilter('resolvePeople', (slugs, people) => {
+    if (!slugs || !slugs.length) return []
+    return slugs
+      .map((ref) => {
+        const slug = typeof ref === 'string' ? ref : ref && ref.slug
+        return (people || []).find((p) => p._slug === slug)
+      })
+      .filter(Boolean)
   })
 
   eleventyConfig.addFilter('portableText', (blocks) => {
