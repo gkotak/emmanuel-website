@@ -173,6 +173,12 @@ permalink: /ui_kits/website/calendar.html
     function iso(d){ return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate()); }
     function sameDay(a,b){ return a.getFullYear()===b.getFullYear() && a.getMonth()===b.getMonth() && a.getDate()===b.getDate(); }
     function monIndex(d){ return (d.getDay()+6)%7; }
+    // Sort by clock time, not string order: "10:30" must follow "8:00".
+    function mins(t){
+      if(!t) return -1;
+      var p=String(t).split(':');
+      return (+p[0]||0)*60+(+p[1]||0);
+    }
     function fmtTime(t){ var p=t.split(':'); var h=+p[0]; var m=p[1]; var ap=h<12?'am':'pm'; var hh=h%12; if(hh===0)hh=12; return hh+(m==='00'?'':':'+m)+ap; }
     function startOfWeek(d){ var x=new Date(d); x.setDate(x.getDate()-monIndex(x)); x.setHours(0,0,0,0); return x; }
 
@@ -207,7 +213,11 @@ permalink: /ui_kits/website/calendar.html
                    href:'/ui_kits/website/service-times.html'});
       });
       SPECIAL.forEach(function(s){ if(s.date===key){ list.push({time:s.time,title:s.title,kind:s.kind,href:s.href}); }});
-      list.sort(function(a,b){ if(a.allday&&!b.allday) return -1; if(b.allday&&!a.allday) return 1; return (a.time||'').localeCompare(b.time||''); });
+      list.sort(function(a,b){
+        if(a.allday&&!b.allday) return -1;
+        if(b.allday&&!a.allday) return 1;
+        return mins(a.time)-mins(b.time);
+      });
       return list;
     }
 
