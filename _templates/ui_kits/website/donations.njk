@@ -1,37 +1,55 @@
 ---
-permalink: /ui_kits/website/donations.html
+permalink: /donate
 headline: Every gift keeps the doors open.
 deck: >-
   It costs £15,000 a month to run Emmanuel. We raise all of it ourselves,
   locally — it doesn't come from the Government or the Church of England.
 intro_paragraphs:
-  - text: "While we hold fundraising events and rent out the church, one of the foundations of our finances is the tremendous support we receive from our congregation through regular donations."
+  - text: >-
+      While we hold fundraising events and rent out the church, one of the
+      foundations of our finances is the tremendous support we receive from our
+      congregation through regular donations.
 cost_cards:
-  - title: Ministry
-    body: Clergy pay, housing and pension — the people who lead our worship and care.
-  - title: Building
+  - eyebrow: ''
+    title: Ministry
+    body: >-
+      Clergy pay, housing and pension — the people who lead our worship and
+      care.
+  - eyebrow: ''
+    title: Building
     body: Maintenance, utilities and insurance for a much-loved Victorian church.
-  - title: Administration
-    body: Office costs for the day-to-day operation of the parish and its activities.
-  - title: Services
+  - eyebrow:
+    title: Administration
+    body: >-
+      Office costs for the day-to-day operation of the parish and its
+      activities.
+  - eyebrow: ''
+    title: Services
     body: The direct costs of worship — music, liturgy, candles, vestments and more.
-  - title: Outreach
+  - eyebrow: ''
+    title: Outreach
     body: Reaching beyond our walls — the food bank, night shelter and other care.
 volunteer_cards:
-  - title: Reading at a service
+  - eyebrow: ''
+    title: Reading at a service
     body: Share in the liturgy by reading the lessons aloud.
-  - title: Joining the choir
+  - eyebrow: ''
+    title: Joining the choir
     body: Add your voice to the music of the Sung Eucharist.
-  - title: Greeting people
+  - eyebrow: ''
+    title: Greeting people
     body: Welcome visitors and regulars as they arrive at church.
-  - title: Sunday School
+  - eyebrow: ''
+    title: Sunday School
     body: Lead or support our children during the morning service.
-  - title: Gardening
+  - eyebrow: ''
+    title: Gardening
     body: Help keep the church grounds and green looking their best.
-  - title: Small building works
+  - eyebrow: ''
+    title: Small building works
     body: Lend a hand with the practical upkeep of the building.
 ---
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en-GB">
 <head>
 <meta charset="utf-8" />
@@ -105,9 +123,9 @@ volunteer_cards:
         {% for para in intro_paragraphs %}
           <p{% if loop.first %} class="em-lead"{% endif %} data-editable="array-item">
             <span data-editable="text" data-prop="text" data-type="text">{{ para.text if para.text else para }}</span>
-          </p>
+          <p></p>
         {% endfor %}
-        </div>
+        </p{% if loop.first %}</div>
         <p>That £15,000 a month covers everything it takes to keep Emmanuel open, alive and serving the parish — from the ministry of our clergy to the upkeep of a Victorian building, and the outreach that reaches beyond our walls.</p>
       </div>
     </div>
@@ -120,16 +138,16 @@ volunteer_cards:
         <h2>What your giving <em>supports</em></h2>
       </div>
       {% set dnCostIcons = [
-        '<path d="M12 2a3 3 0 0 0-3 3c0 1.5 1 2.5 1 4H7l-1 4h12l-1-4h-3c0-1.5 1-2.5 1-4a3 3 0 0 0-3-3z"/><path d="M6 13v3a6 6 0 0 0 12 0v-3"/><path d="M9 22h6"/>',
-        '<path d="M3 21h18"/><path d="M5 21V8l7-5 7 5v13"/><path d="M9 21v-6h6v6"/>',
-        '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h8"/><path d="M8 17h5"/>',
-        '<path d="M12 3v18"/><path d="M5 8l7-5 7 5"/><path d="M5 8v8a7 7 0 0 0 14 0V8"/>',
-        '<path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 1 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/>'
+        '<path d="M12 2a3 3 0 0 0-3 3c0 1.5 1 2.5 1 4H7l-1 4h12l-1-4h-3c0-1.5 1-2.5 1-4a3 3 0 0 0-3-3z" /><path d="M6 13v3a6 6 0 0 0 12 0v-3" /><path d="M9 22h6" />',
+        '<path d="M3 21h18" /><path d="M5 21V8l7-5 7 5v13" /><path d="M9 21v-6h6v6" />',
+        '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><path d="M14 2v6h6" /><path d="M8 13h8" /><path d="M8 17h5" />',
+        '<path d="M12 3v18" /><path d="M5 8l7-5 7 5" /><path d="M5 8v8a7 7 0 0 0 14 0V8" />',
+        '<path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 1 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z" />'
       ] %}
       <div class="dn-costs" data-editable="array" data-prop="cost_cards">
           {% for card in cost_cards %}
           <div class="dn-cost" data-editable="array-item">
-            <span class="ic"><svg viewBox="0 0 24 24">{{ dnCostIcons[loop.index0] | safe }}</svg></span>
+            <span class="ic"><svg viewbox="0 0 24 24">{{ dnCostIcons[loop.index0] | safe }}</svg></span>
             {% if card.title %}<h4 data-editable="text" data-prop="title" data-type="span">{{ card.title }}</h4>{% endif %}
             {% if card.body %}<p data-editable="text" data-prop="body" data-type="text">{{ card.body }}</p>{% endif %}
           </div>
@@ -147,7 +165,7 @@ volunteer_cards:
       </div>
       <div class="dn-ways">
         <div class="dn-way" style="flex-direction:column;gap:20px;padding:32px 28px 36px">
-          <span class="ic"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg></span>
+          <span class="ic"><svg viewbox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2" /><path d="M2 10h20" /></svg></span>
           <div style="display:flex;flex-direction:column;flex:1">
             <h4>Parish Giving Scheme</h4>
             <p style="margin-bottom:16px;flex:1">Our recommended option. PGS reduces our administration, improves our budgeting, and collects Gift Aid automatically — adding 25% to every eligible gift at no extra cost to you. Supports both monthly and one-off donations.</p>
@@ -155,7 +173,7 @@ volunteer_cards:
           </div>
         </div>
         <div class="dn-way" style="flex-direction:column;gap:20px;padding:32px 28px 36px">
-          <span class="ic"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/><path d="M12 6v6l4 2"/></svg></span>
+          <span class="ic"><svg viewbox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z" /><path d="M12 6v6l4 2" /></svg></span>
           <div style="display:flex;flex-direction:column;flex:1">
             <h4>Givealittle</h4>
             <p style="margin-bottom:16px;flex:1">Give online via Givealittle, where you can choose a specific date each month for your payment. Supports both regular monthly giving and one-off donations.</p>
@@ -163,7 +181,7 @@ volunteer_cards:
           </div>
         </div>
         <div class="dn-way" style="flex-direction:column;gap:20px;padding:32px 28px 36px">
-          <span class="ic"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 10H2"/></svg></span>
+          <span class="ic"><svg viewbox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" /><path d="M22 10H2" /></svg></span>
           <div style="display:flex;flex-direction:column;flex:1">
             <h4>Standing order</h4>
             <p style="margin-bottom:16px;flex:1">Set up a direct bank transfer to Emmanuel at the frequency that suits you. Email our treasurer for bank details and a Gift Aid declaration form.</p>
