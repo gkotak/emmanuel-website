@@ -5,7 +5,7 @@
   "description": "A said Eucharist with a focus on prayers of healing: for ourselves, the world, and those who have commended themselves to our prayers. Healing prayers and anointing are offered at this service.",
   "group": "weekday",
   "name": "Healing Eucharist",
-  "order": 7,
+  "order": 6,
   "time": "12:30",
   "days": [
     "Wednesday"

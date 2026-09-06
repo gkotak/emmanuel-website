@@ -5,7 +5,7 @@
   "description": "Emmanuel School join us for church once a week. On the first Thursday of the month we celebrate the Eucharist together.",
   "group": "weekday",
   "name": "School Collective Worship",
-  "order": 5,
+  "order": 7,
   "time": "14:30",
   "days": [
     "Thursday"
