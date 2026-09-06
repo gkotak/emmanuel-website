@@ -1,0 +1,43 @@
+name: Build
+
+# The CMS commits straight to main, so a bad save from the Visual Editor
+# reaches production with no review step. Eleventy fails the whole build on
+# a single malformed template — one unbalanced {% if %} writes zero pages,
+# not one broken page — so build every push and fail loudly instead of
+# discovering it from the live site.
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build site
+        run: npm run build
+
+      # Eleventy can exit 0 having written nothing if every template is
+      # filtered out, which would sail past the build step above.
+      - name: Check the build produced pages
+        run: |
+          count=$(find dist -name '*.html' | wc -l)
+          echo "Built $count HTML pages."
+          if [ "$count" -lt 20 ]; then
+            echo "::error::Expected at least 20 HTML pages, got $count. The build likely failed silently."
+            exit 1
+          fi
