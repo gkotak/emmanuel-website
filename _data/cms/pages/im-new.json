@@ -1,0 +1,183 @@
+{
+  "_id": "sitePage-im-new",
+  "calloutBody": [
+    {
+      "_key": "b0",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "s0",
+          "_type": "span",
+          "marks": [],
+          "text": "Don't hesitate to contact a member of the clergy if you'd like to learn more — or simply come along this Sunday."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    }
+  ],
+  "calloutHeading": "Still have a question?",
+  "deck": "Whether you've been going to Anglican churches all your life or this is the first time you'll step inside, we hope you'll find a warm welcome.",
+  "headline": "Come as you are.",
+  "introBody": [
+    {
+      "_key": "b-welcome",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "b-welcome-s0",
+          "_type": "span",
+          "marks": [],
+          "text": "We hope you will find a warm welcome when you first attend Emmanuel — whether in the week or on Sundays. Please do introduce yourself to one of the welcomers or clergy; we'll be happy to tell you more about our congregation and community life."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "b0",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "b0-s0",
+          "_type": "span",
+          "marks": [],
+          "text": "Whilst we are proud of our Anglican identity, we are a very international community, with a number of different Christian denominations represented in our congregation."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "b2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "b2-s0",
+          "_type": "span",
+          "marks": [],
+          "text": "To help each of us find a place in worship, we have a number of services of Holy Communion during the week and on Sundays. Don't hesitate to contact a member of the clergy if you'd like to learn more. Even better, just come and visit!"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "b1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "b1-s0",
+          "_type": "span",
+          "marks": [],
+          "text": "At our main Parish Mass you can expect a robed choir, acolytes and incense, with a team of servers who reflect the diversity of our congregation. Our said Eucharists are more simple, and Joyful Noise is more noisy! The thread that ties them together is Eucharistic-centred worship."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "b-access",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "b-access-s0",
+          "_type": "span",
+          "marks": [],
+          "text": "We are working hard to make Emmanuel an inclusive and welcoming space. The Church is accessible to wheelchair and mobility scooter users via the Bell Porch entrance. Disabled toilets are located at the back of the church. The Church has a hearing aid loop installed."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "b-vicar",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "b-vicar-s0",
+          "_type": "span",
+          "marks": [],
+          "text": "The vicar aims to meet new members of the congregation for a 1-1 meeting within six months of their arrival. Please contact her if you'd like to arrange a meeting."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    }
+  ],
+  "pageId": "im-new",
+  "sections": [
+    {
+      "_key": "imnew-services",
+      "_type": "cardGridSection",
+      "body": null,
+      "cards": [
+        {
+          "_key": "c1",
+          "body": "Our main Parish Mass — a robed choir, incense and the fullest celebration of the liturgy. Children's & Youth Church meet during term.",
+          "eyebrow": "Sunday · 10:30",
+          "title": "Sung Eucharist"
+        },
+        {
+          "_key": "c2",
+          "body": "A quiet, simple, 30-minute service said according to the Book of Common Prayer — a reflective start to the week.",
+          "eyebrow": "Sunday · 8:00",
+          "title": "Said Eucharist (BCP)"
+        },
+        {
+          "_key": "c3",
+          "body": "A lively, noisy celebration of the Mass for pre-school children and their families, with music led on the guitar. Does not meet during the school summer holidays.",
+          "eyebrow": "Sunday · 9:15",
+          "title": "Joyful Noise"
+        }
+      ],
+      "cite": null,
+      "eyebrow": null,
+      "heading": null,
+      "imageAlt": null,
+      "imagePath": null,
+      "imageUrl": null,
+      "isBand": null,
+      "layout": null,
+      "people": null,
+      "quote": null,
+      "reverse": null
+    },
+    {
+      "_key": "imnew-access",
+      "_type": "cardGridSection",
+      "body": null,
+      "cards": [
+        {
+          "_key": "a1",
+          "body": "Both Emmanuel and St Cuthbert's are accessible for wheelchairs, with bathrooms for disabled access at both buildings.",
+          "eyebrow": null,
+          "title": "Step-free access"
+        },
+        {
+          "_key": "a2",
+          "body": "Our sound system at Emmanuel is fitted with a hearing aid loop throughout the church.",
+          "eyebrow": null,
+          "title": "Hearing loop"
+        },
+        {
+          "_key": "a3",
+          "body": "Disabled toilets are located at the back of the church.",
+          "eyebrow": null,
+          "title": "Disabled access bathroom"
+        }
+      ],
+      "cite": null,
+      "eyebrow": "Coming to Emmanuel",
+      "heading": "Everyone is welcome here.",
+      "imageAlt": null,
+      "imagePath": null,
+      "imageUrl": null,
+      "isBand": null,
+      "layout": "iconList",
+      "people": null,
+      "quote": null,
+      "reverse": null
+    }
+  ]
+}

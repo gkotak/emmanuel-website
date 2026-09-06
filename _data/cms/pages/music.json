@@ -1,0 +1,263 @@
+{
+  "_id": "sitePage-music",
+  "calloutBody": [
+    {
+      "_key": "b0",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "s0",
+          "_type": "span",
+          "marks": [],
+          "text": "Whatever your experience, there's a place for you in our music. New singers and musicians are always warmly welcome."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    }
+  ],
+  "calloutHeading": "Lift your voice with us.",
+  "deck": "Music is at the heart of worship at Emmanuel — and our choir combines choral excellence with a welcoming, inclusive spirit.",
+  "headline": "Music & Choir",
+  "introBody": [
+    {
+      "_key": "mu0",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "mu0s0",
+          "_type": "span",
+          "marks": [],
+          "text": "We believe that music plays a pivotal part in congregational worship, enhancing and deepening our connection to God."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "mu1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "mu1s0",
+          "_type": "span",
+          "marks": [],
+          "text": "Our choir combines choral excellence with a welcoming and inclusive spirit. We sing at the 10:30am Eucharist every Sunday, offering a diverse repertoire of sacred music, ranging from Renaissance polyphony to contemporary works. In addition to our weekly worship, the choir leads the music for special services at key points in the liturgical year."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "mu2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "mu2s0",
+          "_type": "span",
+          "marks": [],
+          "text": "We are always keen to welcome new singers and musicians of all ages and abilities. The choir rehearses once a week from 7:15–8:15pm on Wednesday evenings, and sings as part of the 10:30am Eucharist each Sunday. Whilst regular commitment is encouraged, it is not necessary to be available for every rehearsal and service to be a member of the choir."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "mu3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "mu3s0",
+          "_type": "span",
+          "marks": [],
+          "text": "We are a friendly and welcoming choir, with a great social scene, often going for drinks post-rehearsal. An ability to read sheet music is desirable, but not necessary provided you have a willingness to learn. If you are interested, please contact our Director of Music, Will, at "
+        },
+        {
+          "_key": "mu3s1",
+          "_type": "span",
+          "marks": [
+            "mu3l1"
+          ],
+          "text": "w.g.rose41@gmail.com"
+        },
+        {
+          "_key": "mu3s2",
+          "_type": "span",
+          "marks": [],
+          "text": "."
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "mu3l1",
+          "_type": "link",
+          "href": "mailto:w.g.rose41@gmail.com"
+        }
+      ],
+      "style": "normal"
+    }
+  ],
+  "pageId": "music",
+  "sections": [
+    {
+      "_key": "mu-heritage",
+      "_type": "featureSection",
+      "body": [
+        {
+          "_key": "b0",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "s0",
+              "_type": "span",
+              "marks": [],
+              "text": "Music at Emmanuel is steeped in illustrious tradition. The English composer Harold Darke was organist at the church from 1906–1911, during which period he composed his setting of Christina Rossetti's \"In the Bleak Midwinter\"."
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "b1",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "s1",
+              "_type": "span",
+              "marks": [],
+              "text": "In contrast to many choral societies, the choir tackles new repertoire on a weekly basis, with the aim of providing fulfilling and musically enriching opportunities no matter your previous choral experience."
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        }
+      ],
+      "cards": null,
+      "cite": null,
+      "eyebrow": "Our musical heritage",
+      "heading": "A tradition stretching back over a century.",
+      "imageAlt": "The Emmanuel choir singing in the stalls beneath the organ, led by the Director of Music",
+      "imagePath": "/assets/music-choir.jpg",
+      "imageUrl": "https://cdn.sanity.io/images/tqrrtmwq/production/faa051e75a080c8b306953c8fd7d7665d23569ad-1600x1200.jpg",
+      "isBand": null,
+      "layout": null,
+      "people": null,
+      "quote": null,
+      "reverse": true
+    },
+    {
+      "_key": "mu-people",
+      "_type": "peopleSection",
+      "body": null,
+      "cards": null,
+      "cite": null,
+      "eyebrow": "Those who lead our music",
+      "heading": null,
+      "imageAlt": null,
+      "imagePath": null,
+      "imageUrl": null,
+      "isBand": null,
+      "layout": null,
+      "people": [
+        {
+          "_key": "p1",
+          "bio": "Will studied Music at Queens' College, Cambridge, where he was a Choral Scholar. At university he won several prestigious conducting prizes and conducted every major instrumental ensemble across the University. Away from Emmanuel, Will is a music teacher at a top London secondary school.",
+          "imagePath": null,
+          "imageUrl": null,
+          "name": "Will Rose",
+          "role": "Director of Music"
+        },
+        {
+          "_key": "p2",
+          "bio": "On Sundays the choir is joined by Joseph Verdin, who held multiple Organ Scholarships at Durham University and has accompanied guest services at St Paul's Cathedral, St George's Chapel, Windsor, and York Minster.",
+          "imagePath": null,
+          "imageUrl": null,
+          "name": "Joseph Verdin",
+          "role": "Organist"
+        }
+      ],
+      "quote": null,
+      "reverse": null
+    },
+    {
+      "_key": "mu-childrens",
+      "_type": "featureSection",
+      "body": [
+        {
+          "_key": "cc0",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "cc0s0",
+              "_type": "span",
+              "marks": [],
+              "text": "Come and sing with the Emmanuel Church choir! We rehearse once a week in the church with our choir director, Will. We sing in the church on the first Sunday of every month, and also in special services, including at Easter."
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "cc1",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "cc1s0",
+              "_type": "span",
+              "marks": [],
+              "text": "We learn loads of exciting music, and always have lots of fun in our rehearsals. You don't need to be able to read sheet music to join, and it's a great way to make new friends! All rehearsals are free to attend."
+            }
+          ],
+          "markDefs": [],
+          "style": "normal"
+        },
+        {
+          "_key": "cc2",
+          "_type": "block",
+          "children": [
+            {
+              "_key": "cc2s0",
+              "_type": "span",
+              "marks": [],
+              "text": "To find out more, please contact Will at "
+            },
+            {
+              "_key": "cc2s1",
+              "_type": "span",
+              "marks": [
+                "cc2l1"
+              ],
+              "text": "w.g.rose41@gmail.com"
+            },
+            {
+              "_key": "cc2s2",
+              "_type": "span",
+              "marks": [],
+              "text": "."
+            }
+          ],
+          "markDefs": [
+            {
+              "_key": "cc2l1",
+              "_type": "link",
+              "href": "mailto:w.g.rose41@gmail.com"
+            }
+          ],
+          "style": "normal"
+        }
+      ],
+      "cards": null,
+      "cite": null,
+      "eyebrow": "For our youngest singers",
+      "heading": "Children's Choir",
+      "imageAlt": "Robed young choristers gathered at the altar during a sung service",
+      "imagePath": "/assets/childrens-choir.jpg",
+      "imageUrl": "https://cdn.sanity.io/images/tqrrtmwq/production/2a4ab9938b446f3e66a9e621b7dc12d74dce7a15-3066x2044.jpg",
+      "isBand": null,
+      "layout": null,
+      "people": null,
+      "quote": null,
+      "reverse": null
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 {#
-  Renders a sitePage's flexible `sections` array.
-  Usage:  {% set sections = sitePages['im-new'].sections %}{% include "sections.njk" %}
+  Renders a page's flexible `sections` array.
+  Usage:  {% set sections = page_sections %}{% include "sections.njk" %}
   Each section type maps to stable class names that per-page CSS can style:
     .sec, .sec--richtext, .sec--cardgrid, .sec--feature, .sec--quote, .sec--people
 #}
@@ -10,7 +10,7 @@
     <div class="sec__inner">
       {% if sec.eyebrow %}<div class="em-ornament is-leading">{{ sec.eyebrow }}</div>{% endif %}
       {% if sec.heading %}<h2 class="sec__heading">{{ sec.heading }}</h2>{% endif %}
-      {% if sec.body %}<div class="sec__body em-body">{{ sec.body | portableText | safe }}</div>{% endif %}
+      {% if sec.body %}<div class="sec__body em-body">{{ sec.body | safe }}</div>{% endif %}
     </div>
   </section>
 
@@ -66,7 +66,7 @@
         <div>
           {% if sec.eyebrow %}<div class="em-ornament is-leading">{{ sec.eyebrow }}</div>{% endif %}
           {% if sec.heading %}<h2 class="sec__heading">{{ sec.heading }}</h2>{% endif %}
-          {% if sec.body %}<div class="sec__body">{{ sec.body | portableText | safe }}</div>{% endif %}
+          {% if sec.body %}<div class="sec__body">{{ sec.body | safe }}</div>{% endif %}
         </div>
       </div>
     </div>

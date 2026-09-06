@@ -1,0 +1,266 @@
+# CloudCannon — Emmanuel Church (experiment branch)
+# Greenfield model: page copy lives in each .njk front matter.
+# Separate collections only for shared inventories (people, services, rates, events).
+
+# Do not auto-discover extra collections (old Site Pages / Site Images / News).
+collections_config_override: true
+
+source_editor:
+  tab_size: 2
+  theme: monokai
+
+paths:
+  uploads: assets/uploads
+  static: ''
+  data: _data
+  collections: ''
+
+_structures:
+  documents:
+    values:
+      - label: Document link
+        icon: description
+        value:
+          title: New document
+          description: PDF · Add a short subtitle
+          href: https://
+          icon: document
+  cards:
+    values:
+      - label: Card
+        icon: web_asset
+        value:
+          eyebrow: ''
+          title: New card
+          body: ''
+  featured_services:
+    values:
+      - label: Service (from Service Times)
+        icon: schedule
+        value:
+          slug: sung-eucharist
+  featured_people:
+    values:
+      - label: Person (from Who's Who)
+        icon: person
+        value:
+          slug: will-rose
+  intro_paragraphs:
+    values:
+      - label: Paragraph
+        icon: notes
+        value:
+          text: ''
+
+collections_config:
+  # New key (pages) so CloudCannon drops the stale "Website pages (visual)" collection.
+  pages:
+    path: _templates/ui_kits/website
+    name: Pages
+    icon: web
+    glob:
+      - annual-reports.njk
+      - baptisms.njk
+      - children-families.njk
+      - contact.njk
+      - donations.njk
+      - funerals.njk
+      - im-new.njk
+      - index.njk
+      - music.njk
+      - our-team.njk
+      - service-times.njk
+      - weddings.njk
+    url: '[permalink]'
+    _enabled_editors:
+      - visual
+      - data
+    preview:
+      text:
+        - key: headline
+        - template: '{basename}'
+      subtext:
+        - key: permalink
+
+  service_times:
+    path: _data/cms/service-times
+    name: Service Times
+    icon: schedule
+    glob:
+      - '*.json'
+    _enabled_editors:
+      - data
+    schemas:
+      default:
+        path: .cloudcannon/schemas/service-time.json
+        name: Service time
+    create:
+      path: '[relative_base_path]/{name|slugify}.json'
+
+  people:
+    path: _data/cms/people
+    name: Who's Who
+    icon: people
+    glob:
+      - '*.json'
+    _enabled_editors:
+      - data
+    schemas:
+      default:
+        path: .cloudcannon/schemas/person.json
+        name: Person
+    create:
+      path: '[relative_base_path]/{name|slugify}.json'
+
+  room_rates:
+    path: _data/cms/room-rates
+    name: Room Hire Rates
+    icon: meeting_room
+    glob:
+      - '*.json'
+    _enabled_editors:
+      - data
+
+  events:
+    path: _data/cms/events
+    name: Events & Calendar
+    icon: event
+    glob:
+      - '*.json'
+    _enabled_editors:
+      - data
+
+_inputs:
+  headline:
+    type: text
+  deck:
+    type: textarea
+  lead:
+    type: textarea
+  intro_paragraphs:
+    type: array
+    options:
+      structures: _structures.intro_paragraphs
+  archive_note:
+    type: textarea
+  callout_heading:
+    type: text
+  callout_body:
+    type: textarea
+  clergy_label:
+    type: text
+  staff_label:
+    type: text
+  documents:
+    type: array
+    options:
+      structures: _structures.documents
+  cards:
+    type: array
+    options:
+      structures: _structures.cards
+  access_cards:
+    type: array
+    options:
+      structures: _structures.cards
+  cost_cards:
+    type: array
+    options:
+      structures: _structures.cards
+  volunteer_cards:
+    type: array
+    options:
+      structures: _structures.cards
+  featured_services:
+    type: array
+    options:
+      structures: _structures.featured_services
+  featured_people:
+    type: array
+    options:
+      structures: _structures.featured_people
+  slug:
+    type: select
+    label: Collection item
+    options:
+      values:
+        - sung-eucharist
+        - said-eucharist-bcp
+        - joyful-noise-eucharist
+        - contemplative-eucharist
+        - healing-eucharist
+        - morning-prayer
+        - school-collective-worship
+        - will-rose
+        - joseph-verdin
+        - the-reverend-dr-catriona-laing
+        - mthr-clemency-flitter
+        - mthr-melissa-dickinson
+        - emma-clark
+        - claire-hammett
+        - antony-edwards
+  title:
+    type: text
+  body:
+    type: textarea
+  eyebrow:
+    type: text
+  description:
+    type: textarea
+  href:
+    type: url
+    label: Link URL
+  icon:
+    type: select
+    label: Row icon
+    options:
+      values:
+        - document
+        - folder
+  day:
+    type: select
+    options:
+      values:
+        - Sunday
+        - Monday
+        - Tuesday
+        - Wednesday
+        - Thursday
+        - Friday
+        - Saturday
+        - Mon–Thu
+  group:
+    type: select
+    options:
+      values:
+        - sunday
+        - weekday
+        - clergy
+        - staff
+        - churchwardens
+        - pcc
+  active:
+    type: switch
+  featured:
+    type: switch
+  image:
+    type: image
+    label: Image
+  photoUrl:
+    type: image
+    label: Photo
+  bio:
+    type: array
+    comment: One paragraph per item
+  name:
+    type: text
+  role:
+    type: text
+  time:
+    type: text
+  order:
+    type: number
+  hero_image:
+    type: image
+  feature_image:
+    type: image

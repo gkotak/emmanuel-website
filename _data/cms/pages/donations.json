@@ -1,0 +1,128 @@
+{
+  "_id": "sitePage-donations",
+  "calloutBody": null,
+  "calloutHeading": null,
+  "deck": "It costs £15,000 a month to run Emmanuel. We raise all of it ourselves, locally — it doesn't come from the Government or the Church of England.",
+  "headline": "Every gift keeps the doors open.",
+  "introBody": [
+    {
+      "_key": "b0",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "s0",
+          "_type": "span",
+          "marks": [],
+          "text": "While we hold fundraising events and rent out the church, one of the foundations of our finances is the tremendous support we receive from our congregation through regular donations."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    }
+  ],
+  "pageId": "donations",
+  "sections": [
+    {
+      "_key": "dn-costs",
+      "_type": "cardGridSection",
+      "body": null,
+      "cards": [
+        {
+          "_key": "dc1",
+          "body": "Clergy pay, housing and pension — the people who lead our worship and care.",
+          "eyebrow": null,
+          "title": "Ministry"
+        },
+        {
+          "_key": "dc2",
+          "body": "Maintenance, utilities and insurance for a much-loved Victorian church.",
+          "eyebrow": null,
+          "title": "Building"
+        },
+        {
+          "_key": "dc3",
+          "body": "Office costs for the day-to-day operation of the parish and its activities.",
+          "eyebrow": null,
+          "title": "Administration"
+        },
+        {
+          "_key": "dc4",
+          "body": "The direct costs of worship — music, liturgy, candles, vestments and more.",
+          "eyebrow": null,
+          "title": "Services"
+        },
+        {
+          "_key": "dc5",
+          "body": "Reaching beyond our walls — the food bank, night shelter and other care.",
+          "eyebrow": null,
+          "title": "Outreach"
+        }
+      ],
+      "cite": null,
+      "eyebrow": null,
+      "heading": null,
+      "imageAlt": null,
+      "imagePath": null,
+      "imageUrl": null,
+      "isBand": null,
+      "layout": null,
+      "people": null,
+      "quote": null,
+      "reverse": null
+    },
+    {
+      "_key": "dn-other",
+      "_type": "cardGridSection",
+      "body": null,
+      "cards": [
+        {
+          "_key": "do1",
+          "body": "Share in the liturgy by reading the lessons aloud.",
+          "eyebrow": null,
+          "title": "Reading at a service"
+        },
+        {
+          "_key": "do2",
+          "body": "Add your voice to the music of the Sung Eucharist.",
+          "eyebrow": null,
+          "title": "Joining the choir"
+        },
+        {
+          "_key": "do3",
+          "body": "Welcome visitors and regulars as they arrive at church.",
+          "eyebrow": null,
+          "title": "Greeting people"
+        },
+        {
+          "_key": "do4",
+          "body": "Lead or support our children during the morning service.",
+          "eyebrow": null,
+          "title": "Sunday School"
+        },
+        {
+          "_key": "do5",
+          "body": "Help keep the church grounds and green looking their best.",
+          "eyebrow": null,
+          "title": "Gardening"
+        },
+        {
+          "_key": "do6",
+          "body": "Lend a hand with the practical upkeep of the building.",
+          "eyebrow": null,
+          "title": "Small building works"
+        }
+      ],
+      "cite": null,
+      "eyebrow": null,
+      "heading": null,
+      "imageAlt": null,
+      "imagePath": null,
+      "imageUrl": null,
+      "isBand": null,
+      "layout": null,
+      "people": null,
+      "quote": null,
+      "reverse": null
+    }
+  ]
+}

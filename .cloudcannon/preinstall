@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Runs on CloudCannon before each build (experiment branch only).
+set -euo pipefail
+npm install --no-fund --no-audit

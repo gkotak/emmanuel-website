@@ -1,0 +1,44 @@
+{
+  "_id": "v8p3KAncgjT5f7voAVWzVn",
+  "body": [
+    "Through the closing weeks of Lent, an exhibition is open within the church \u2014 a quiet space to pause, look and reflect as Holy Week draws near.",
+    "The exhibition is open from Passion Sunday until Good Friday. All are welcome to visit during the church's opening hours; do ask a member of the clergy if you would like to know more."
+  ],
+  "category": "Art & Exhibition",
+  "date": "Passion Sunday \u2014 Good Friday \u00b7 2026",
+  "deck": "An exhibition open in the church through the closing weeks of Lent \u2014 a space to pause, look and reflect.",
+  "detailRows": [
+    {
+      "label": "Opens",
+      "value": "Passion Sunday"
+    },
+    {
+      "label": "Closes",
+      "value": "Good Friday"
+    },
+    {
+      "label": "Where",
+      "value": "Emmanuel Church"
+    },
+    {
+      "label": "Admission",
+      "value": "Free \u2014 all welcome"
+    }
+  ],
+  "featured": false,
+  "lede": "A quiet space within the church to pause and reflect as we travel together towards the cross.",
+  "location": "Emmanuel Church, NW6",
+  "posters": [
+    {
+      "alt": "Lenten exhibition poster",
+      "uploadUrl": null,
+      "url": "https://i0.wp.com/emmanuelnw6.com/wp-content/uploads/2026/03/Exhibition-Sign-scaled.png?w=1000"
+    }
+  ],
+  "slug": "lenten-exhibition",
+  "sortDate": "2026-03-22",
+  "summary": "An exhibition open in the church through the closing weeks of Lent \u2014 a space to pause, look and reflect on the journey towards the cross.",
+  "thumbnailUploadUrl": null,
+  "thumbnailUrl": "https://i0.wp.com/emmanuelnw6.com/wp-content/uploads/2026/03/Exhibition-Sign-scaled.png?w=720",
+  "title": "Lenten Exhibition"
+}

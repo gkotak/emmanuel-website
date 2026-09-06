@@ -1,0 +1,49 @@
+{
+  "_id": "v8p3KAncgjT5f7voAVWz8Q",
+  "body": [
+    "Holy Week takes us with Jesus from the triumph of Palm Sunday, through the Last Supper and the cross of Good Friday, to the empty tomb on Easter morning.",
+    "Services are held jointly between Emmanuel and St Cuthbert's churches. The full schedule for each day \u2014 Palm Sunday, Daily Mass, Maundy Thursday, Good Friday and Easter Sunday \u2014 is shown on the poster.",
+    "All are welcome at every service. Do come and keep these holy days with us."
+  ],
+  "category": "Holy Week & Easter",
+  "date": "Palm Sunday \u2014 Easter Day \u00b7 2026",
+  "deck": "Walk the way of the cross with us, from the triumph of Palm Sunday to the joy of Easter morning.",
+  "detailRows": [
+    {
+      "label": "Palm Sunday",
+      "value": "Blessing of palms & procession"
+    },
+    {
+      "label": "Maundy Thursday",
+      "value": "Eucharist of the Last Supper"
+    },
+    {
+      "label": "Good Friday",
+      "value": "The Liturgy of the day"
+    },
+    {
+      "label": "Easter Day",
+      "value": "The first Eucharist of Easter"
+    },
+    {
+      "label": "Where",
+      "value": "Emmanuel & St Cuthbert's"
+    }
+  ],
+  "featured": false,
+  "lede": "The heart of the Christian year \u2014 the journey with Christ through his Passion, death and resurrection.",
+  "location": "Emmanuel Church, NW6",
+  "posters": [
+    {
+      "alt": "Holy Week service schedule poster",
+      "uploadUrl": null,
+      "url": "https://i0.wp.com/emmanuelnw6.com/wp-content/uploads/2026/03/Holy-Week-Poster-1.png?w=1000"
+    }
+  ],
+  "slug": "holy-week",
+  "sortDate": "2026-03-29",
+  "summary": "Walk the way of the cross with us, from Palm Sunday through to the joy of Easter morning \u2014 with services held jointly at Emmanuel and St Cuthbert's.",
+  "thumbnailUploadUrl": null,
+  "thumbnailUrl": "https://i0.wp.com/emmanuelnw6.com/wp-content/uploads/2026/03/Holy-Week-Poster-1.png?w=720",
+  "title": "Holy Week at Emmanuel"
+}
