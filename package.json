@@ -5,8 +5,7 @@
   "main": "image-slot.js",
   "scripts": {
     "build": "npx --no-install eleventy",
-    "dev": "npx --no-install eleventy --serve --port=8081",
-    "export-cms": "node scripts/export-sanity-to-cms.js"
+    "dev": "npx --no-install eleventy --serve --port=8081"
   },
   "repository": {
     "type": "git",
@@ -15,7 +14,6 @@
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
-    "@11ty/eleventy": "^3.1.6",
-    "@sanity/client": "^7.22.1"
+    "@11ty/eleventy": "^3.1.6"
   }
 }
