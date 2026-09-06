@@ -123,9 +123,9 @@ volunteer_cards:
         {% for para in intro_paragraphs %}
           <p{% if loop.first %} class="em-lead"{% endif %} data-editable="array-item">
             <span data-editable="text" data-prop="text" data-type="text">{{ para.text if para.text else para }}</span>
-          <p></p>
+          </p>
         {% endfor %}
-        </p{% if loop.first %}</div>
+        </div>
         <p>That £15,000 a month covers everything it takes to keep Emmanuel open, alive and serving the parish — from the ministry of our clergy to the upkeep of a Victorian building, and the outreach that reaches beyond our walls.</p>
       </div>
     </div>
