@@ -1,14 +1,14 @@
 {
-  "_id": "v8p3KAncgjT5f7voAUdhgE",
+  "_schema": "default",
+  "name": "Emma Clark",
+  "role": "Operations Manager",
+  "group": "staff",
+  "email": "info@emmanuelnw6.com",
+  "order": 6,
   "bio": [
     "Emma has been supporting the day to day running of Emmanuel since January 2024. Having always lived in or near West Hampstead joining the team felt like a natural and meaningful step. ",
     "Her daughter attends Emmanuel school and was baptised here in 2018, further strengthening her family ties to the community. Emma is passionate about helping to maintain the welcoming, supportive and caring environment that make Emmanuel such a special place. ",
     "Ask Emma about all things hire, special occasions and volunteering opportunities. "
   ],
-  "email": "info@emmanuelnw6.com",
-  "group": "staff",
-  "name": "Emma Clark",
-  "order": 6,
-  "photoUrl": null,
-  "role": "Operations Manager"
+  "photoUrl": "/assets/cms/people/team-emma.jpg"
 }
