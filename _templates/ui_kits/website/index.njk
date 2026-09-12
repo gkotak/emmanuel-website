@@ -39,21 +39,6 @@ welcome_image_alt: A large, diverse group of parishioners gathered together in t
   .welcome { padding: var(--section-y) var(--gutter); background: var(--paper); }
   .welcome .inner { max-width:1240px; margin:0 auto; display:grid; grid-template-columns:1fr 1.15fr; gap:80px; align-items:center; }
 
-  .newsletter-cta { background: var(--navy-deep); color:#fff; padding: 84px var(--gutter); position:relative; overflow:hidden; }
-  .newsletter-cta::after { content:''; position:absolute; width:520px; height:520px; right:-180px; top:-180px; border:1px solid rgba(212,184,150,0.14); border-radius:50%; pointer-events:none; }
-  .newsletter-cta .inner { max-width:1240px; margin:0 auto; display:grid; grid-template-columns:1.1fr 1fr; gap:64px; align-items:center; position:relative; z-index:1; }
-  .newsletter-cta .em-ornament { color:var(--tan); }
-  .newsletter-cta .em-ornament::before, .newsletter-cta .em-ornament::after { background:var(--tan); opacity:0.6; }
-  .newsletter-cta h2 { font-family:var(--font-display); font-size:var(--fs-display); font-weight:var(--fw-medium); line-height:1.0; letter-spacing:-0.02em; color:#fff; margin:16px 0 18px; }
-  .newsletter-cta h2 em { font-style:italic; color:var(--tan); }
-  .newsletter-cta p { font-size:var(--fs-lead); line-height:1.5; color:var(--on-dark-soft); font-weight:var(--fw-light); margin:0; max-width:460px; }
-  .newsletter-cta .signup { display:flex; gap:14px; align-items:stretch; flex-wrap:wrap; }
-  .newsletter-cta .signup input { flex:1; min-width:240px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.28); border-radius:var(--radius-sm); padding:0 22px; height:60px; color:#fff; font-family:var(--font-editorial); font-style:italic; font-size:19px; outline:none; transition:border-color var(--dur) var(--ease); }
-  .newsletter-cta .signup input::placeholder { color:rgba(255,255,255,0.5); }
-  .newsletter-cta .signup input:focus { border-color:var(--tan); }
-  .newsletter-cta .signup button { background:var(--tan); color:var(--navy-deep); border:none; border-radius:var(--radius-sm); padding:0 34px; height:60px; font-family:var(--font-sans); font-size:13px; font-weight:var(--fw-bold); letter-spacing:0.16em; text-transform:uppercase; cursor:pointer; white-space:nowrap; transition:background var(--dur) var(--ease); }
-  .newsletter-cta .signup button:hover { background:var(--tan-soft); }
-  @media (max-width:880px){ .newsletter-cta .inner { grid-template-columns:1fr; gap:36px; } }
   .welcome .em-well { aspect-ratio:4/5; }
   .welcome .em-well .caption { position:absolute; left:0; right:0; bottom:-1px; padding:20px 26px; background:linear-gradient(180deg,rgba(0,0,0,0) 0%, rgba(13,37,71,0.85) 100%); color:#fff; font-family:var(--font-display); font-style:italic; font-size:16px; z-index:3; pointer-events:none; }
   .welcome h2 { font-family:var(--font-display); font-size:var(--fs-display); font-weight:var(--fw-medium); line-height:1.02; color:var(--navy); letter-spacing:-0.015em; margin:18px 0 30px; }
@@ -105,14 +90,6 @@ welcome_image_alt: A large, diverse group of parishioners gathered together in t
     .em-service-card .time { font-size: 32px; }
     .em-service-card .name { font-size: 16px; margin-bottom: 4px; }
     .em-service-card .desc { display: none; }
-
-    /* Newsletter CTA */
-    .newsletter-cta { padding: 48px var(--gutter); }
-    .newsletter-cta h2 { font-size: 36px; }
-    .newsletter-cta p { font-size: 16px; }
-    .newsletter-cta .signup { flex-direction: column; }
-    .newsletter-cta .signup input { min-width: 0; }
-    .newsletter-cta .signup button { width: 100%; }
 
     /* Welcome section */
     .welcome .inner { grid-template-columns: 1fr; gap: 36px; }
@@ -225,23 +202,6 @@ welcome_image_alt: A large, diverse group of parishioners gathered together in t
         </div>
         {% endfor %}
       </div>
-    </div>
-  </section>
-
-  <!-- Newsletter CTA -->
-  <section class="newsletter-cta">
-    <div class="inner">
-      <div class="copy">
-        <div class="em-ornament">Stay connected</div>
-        <h2>Join our <em>newsletter</em>.</h2>
-        <p>News from the parish, service times and what's coming up at Emmanuel — sent to your inbox every week.</p>
-      </div>
-      <form class="signup" action="https://emmanuelnw6.us9.list-manage.com/subscribe/post?u=82a1a8e47d9788dccae693588&amp;id=bbf2ae4052" method="post" target="_blank" novalidate>
-        <input type="email" name="EMAIL" placeholder="Your email address" aria-label="Your email address" required />
-        <div style="position:absolute;left:-5000px" aria-hidden="true"><input type="text" name="b_82a1a8e47d9788dccae693588_bbf2ae4052" tabindex="-1" value="" /></div>
-        <button type="submit">Sign up</button>
-      </form>
-      <a href="https://us9.campaign-archive.com/home/?u=82a1a8e47d9788dccae693588&amp;id=bbf2ae4052" target="_blank" rel="noopener" style="display:block;margin-top:14px;color:rgba(255,255,255,0.7);font-size:14px;font-weight:500">View past newsletters →</a>
     </div>
   </section>
 
