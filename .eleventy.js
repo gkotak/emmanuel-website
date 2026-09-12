@@ -155,6 +155,26 @@ module.exports = function (eleventyConfig) {
       .filter(Boolean)
   })
 
+  /**
+   * Order services for the homepage: Sunday first, then the rest of the week
+   * by the earliest day each one runs, and by clock time within a day.
+   */
+  eleventyConfig.addFilter('byDayThenTime', (services) => {
+    const WEEK = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+    const dayRank = (s) => {
+      const idx = (s.days || []).map((d) => WEEK.indexOf(d)).filter((i) => i >= 0)
+      // Services with no day recorded sort last rather than ahead of Sunday.
+      return idx.length ? Math.min(...idx) : WEEK.length
+    }
+    const minutes = (s) => {
+      const m = /^(\d{1,2}):(\d{2})/.exec(s.time || '')
+      return m ? Number(m[1]) * 60 + Number(m[2]) : 24 * 60
+    }
+    return [...(services || [])].sort(
+      (a, b) => dayRank(a) - dayRank(b) || minutes(a) - minutes(b)
+    )
+  })
+
   /** Resolve [slug | {slug}, ...] against people collection. */
   eleventyConfig.addFilter('resolvePeople', (slugs, people) => {
     if (!slugs || !slugs.length) return []
