@@ -82,7 +82,7 @@ callout_body: Whether for the first time or the thousandth, there is a place for
       <div class="meta-row">
         <div class="item"><div class="k">Sundays</div><div class="v">{% set sundayTimes = [] %}{% for st in serviceTimes %}{% if st.group === "sunday" %}{% set sundayTimes = (sundayTimes.push(st.time), sundayTimes) %}{% endif %}{% endfor %}{{ sundayTimes | join(" · ") }}</div></div>
         <div class="item"><div class="k">Weekdays</div><div class="v">{% for st in serviceTimes %}{% if st.name === "Morning Prayer" %}Morning Prayer {{ st.time }}{% endif %}{% endfor %}</div></div>
-        <div class="item"><div class="k">Where</div><div class="v">11 Lyncroft Gardens, NW6</div></div>
+        <div class="item"><div class="k">Where</div><div class="v">Lyncroft Gardens, NW6</div></div>
       </div>
     </div>
   </section>
