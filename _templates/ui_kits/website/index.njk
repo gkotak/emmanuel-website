@@ -184,6 +184,31 @@ pullquote_image: /assets/cms/site-images/home-nave.jpg
     </div>
   </section>
 
+  <!-- Welcome -->
+  <section class="welcome">
+    <div class="inner">
+      <div class="em-well">
+        <img src="{{ welcome_image }}" alt="{{ welcome_image_alt }}" />
+        <div class="caption">Friends and families gathered at Emmanuel</div>
+      </div>
+      <div>
+        <div class="em-ornament">A Warm Welcome</div>
+        <h2 data-editable="text" data-prop="callout_heading" data-type="span">{{ callout_heading }}</h2>
+        <div data-editable="array" data-prop="intro_paragraphs">
+        {% for para in intro_paragraphs %}
+          <p data-editable="array-item">
+            <span data-editable="text" data-prop="text" data-type="text">{{ para.text if para.text else para }}</span>
+          </p>
+        {% endfor %}
+        </div>
+        <div class="link-row">
+          <a href="/ui_kits/website/im-new.html" class="em-readmore">What to expect on your first visit →</a>
+          <a href="/ui_kits/website/history.html" class="em-readmore" style="color:var(--ink);border-color:var(--ink)">Our story since 1897</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Services -->
   <section class="home-services">
     <div class="em-inner">
@@ -219,31 +244,6 @@ pullquote_image: /assets/cms/site-images/home-nave.jpg
         <button type="submit">Sign up</button>
       </form>
       <a href="https://us9.campaign-archive.com/home/?u=82a1a8e47d9788dccae693588&amp;id=bbf2ae4052" target="_blank" rel="noopener" style="display:block;margin-top:14px;color:rgba(255,255,255,0.7);font-size:14px;font-weight:500">View past newsletters →</a>
-    </div>
-  </section>
-
-  <!-- Welcome -->
-  <section class="welcome">
-    <div class="inner">
-      <div class="em-well">
-        <img src="{{ welcome_image }}" alt="{{ welcome_image_alt }}" />
-        <div class="caption">Friends and families gathered at Emmanuel</div>
-      </div>
-      <div>
-        <div class="em-ornament">A Warm Welcome</div>
-        <h2 data-editable="text" data-prop="callout_heading" data-type="span">{{ callout_heading }}</h2>
-        <div data-editable="array" data-prop="intro_paragraphs">
-        {% for para in intro_paragraphs %}
-          <p data-editable="array-item">
-            <span data-editable="text" data-prop="text" data-type="text">{{ para.text if para.text else para }}</span>
-          </p>
-        {% endfor %}
-        </div>
-        <div class="link-row">
-          <a href="/ui_kits/website/im-new.html" class="em-readmore">What to expect on your first visit →</a>
-          <a href="/ui_kits/website/history.html" class="em-readmore" style="color:var(--ink);border-color:var(--ink)">Our story since 1897</a>
-        </div>
-      </div>
     </div>
   </section>
 
