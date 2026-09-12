@@ -20,21 +20,6 @@ hero_image_alt: The congregation gathered for worship in the nave
 welcome_image: /assets/cms/site-images/home-welcome-group.jpg
 welcome_image_alt: A large, diverse group of parishioners gathered together in the nave
 pullquote_image: /assets/cms/site-images/home-nave.jpg
-featured_services:
-  - slug: school-collective-worship
-    body: ''
-  - slug: joyful-noise-eucharist
-    body: ''
-  - slug: sung-eucharist
-    body: ''
-  - slug: morning-prayer
-    body: ''
-  - slug: school-collective-worship
-    body: ''
-  - slug: contemplative-eucharist
-    body: ''
-  - slug: healing-eucharist
-    body: ''
 ---
 <!-- @dsCard group="Website" viewport="1320x1100" name="Home page" subtitle="The Classic home, built on the shared system" -->
 <!DOCTYPE html>
@@ -207,15 +192,13 @@ featured_services:
           <div class="em-ornament">Join us on Sundays &amp; in the week</div>
           <h2>Worship at Emmanuel</h2>
         </div>
-        <a href="/ui_kits/website/service-times.html" class="em-readmore">All services →</a>
+        <a href="/ui_kits/website/service-times.html" class="em-readmore">See details →</a>
       </div>
-      <div class="em-services-grid" data-editable="array" data-prop="featured_services">
-        {% set homeServices = featured_services | resolveServices(serviceTimes) %}
-        {% for st in homeServices %}
-        <div class="em-service-card" data-editable="array-item">
+      <div class="em-services-grid">
+        {% for st in serviceTimes | byDayThenTime %}
+        <div class="em-service-card">
           <div class="time"><span class="day">{{ st.days | dayLabel }}</span>{{ st.time }}</div>
           <div class="name">{{ st.name }}</div>
-          {% if st.cardBody %}<p class="desc">{{ st.cardBody }}</p>{% endif %}
         </div>
         {% endfor %}
       </div>
