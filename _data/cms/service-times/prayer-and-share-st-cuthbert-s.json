@@ -1,0 +1,10 @@
+{
+  "_schema": "default",
+  "name": "Prayer and Share @ St Cuthbert's",
+  "day": "Wednesday",
+  "time": "18:30",
+  "description": "",
+  "group": "weekday",
+  "order": 3,
+  "active": true
+}

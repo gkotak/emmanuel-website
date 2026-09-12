@@ -1,14 +1,10 @@
 {
-  "_id": "4smu7Ks5k1PWjXUh5C2qve",
-  "active": true,
+  "_schema": "default",
+  "name": "Contemplative Eucharist",
   "day": "Monday",
+  "time": "1",
   "description": "A simple, quiet service with plenty of time for silence and contemplative prayer. All are welcome to join any time from 18:15 to spend time in silence before the Eucharist.",
   "group": "weekday",
-  "name": "Contemplative Eucharist",
   "order": 5,
-  "time": "18:30",
-  "days": [
-    "Monday"
-  ],
-  "pauses": []
+  "active": true
 }
