@@ -1,12 +1,12 @@
 {
-  "_id": "v8p3KAncgjT5f7voAUdfQ0",
+  "_schema": "default",
+  "name": "Mthr Melissa Dickinson",
+  "role": "Associate Curate",
+  "group": "clergy",
+  "email": null,
+  "order": 2,
   "bio": [
     "A fuller bio will follow shortly."
   ],
-  "email": null,
-  "group": "clergy",
-  "name": "Mthr Melissa Dickinson",
-  "order": 2,
-  "photoUrl": null,
-  "role": "Associate Curate"
+  "photoUrl": "/assets/uploads/team-melissa.jpg"
 }
