@@ -280,7 +280,7 @@ html, body { margin: 0; padding: 0; }
 .em-hero__cta { display: flex; gap: 14px; flex-wrap: wrap; }
 
 /* editorial oversized hero variant */
-.em-hero--editorial h1 { font-family: var(--font-editorial); font-style: italic; font-weight: var(--fw-regular); font-size: var(--fs-hero-xl); line-height: 0.92; }
+.em-hero--editorial h1 { font-family: var(--font-editorial); font-style: normal; font-weight: var(--fw-regular); font-size: var(--fs-hero-xl); line-height: 0.92; }
 .em-hero--editorial h1 .ro { font-style: normal; }
 
 /* ---------- Service rows / cards ---------- */
@@ -604,7 +604,7 @@ html, body { margin: 0; padding: 0; }
   margin: 0;
   max-width: 1000px;
 }
-.em-pagehead h1 em { font-style: italic; color: var(--navy); }
+.em-pagehead h1 em { font-style: normal; color: var(--navy); }
 .em-pagehead .deck {
   font-family: var(--font-editorial);
   font-size: 24px;
