@@ -101,9 +101,9 @@ callout_body: Join our email list to receive the regular newsletter, with news
         {% for para in intro_paragraphs %}
           <p{% if loop.first %} class="lead-para"{% endif %} data-editable="array-item">
             <span data-editable="text" data-prop="text" data-type="text">{{ para.text if para.text else para }}</span>
-          <p></p>
+          </p>
         {% endfor %}
-        </p{% if loop.first %}</div>
+        </div>
       </div>
       <aside class="em-aside">
         <div class="em-aside-card">
