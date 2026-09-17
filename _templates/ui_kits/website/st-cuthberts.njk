@@ -11,6 +11,35 @@ permalink: /ui_kits/website/st-cuthberts.html
 <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<style>
+  .ct-contactcard { background:#fff; border:1px solid var(--line); padding:34px 34px 36px; display:flex; flex-direction:column; gap:24px; }
+  .ct-line { display:flex; gap:18px; align-items:flex-start; }
+  .ct-line .ic { width:42px; height:42px; flex-shrink:0; border:1px solid var(--line); background:var(--cream); display:flex; align-items:center; justify-content:center; color:var(--brown); }
+  .ct-line .ic svg { width:20px; height:20px; stroke:currentColor; stroke-width:1.5; fill:none; }
+  .ct-line .k { font-family:var(--font-sans); font-size:11px; font-weight:var(--fw-bold); letter-spacing:0.2em; text-transform:uppercase; color:var(--brown); margin-bottom:5px; }
+  .ct-line .v { font-family:var(--font-display); font-size:21px; color:var(--ink); line-height:1.3; }
+  .ct-line .v a { color:var(--ink); text-decoration:none; }
+  .ct-line .v a:hover { color:var(--brown); }
+  .ct-line .v small { display:block; font-family:var(--font-sans); font-size:14px; color:var(--muted); margin-top:3px; }
+  .ct-travel { display:grid; grid-template-columns:1fr 1fr; gap:0; }
+  .ct-travel .col { padding:40px 44px; }
+  .ct-travel .col:first-child { border-right:1px solid var(--line); padding-left:0; }
+  .ct-travel .col:last-child { padding-right:0; }
+  .ct-travel .head { display:flex; align-items:center; gap:14px; margin-bottom:24px; }
+  .ct-travel .head .ic { width:46px; height:46px; color:var(--brown); }
+  .ct-travel .head .ic svg { width:100%; height:100%; stroke:currentColor; stroke-width:1.4; fill:none; }
+  .ct-travel .head h3 { font-family:var(--font-display); font-size:28px; font-weight:var(--fw-semibold); color:var(--navy); margin:0; }
+  .ct-route { padding:18px 0; border-top:1px solid var(--line); }
+  .ct-route:last-child { border-bottom:1px solid var(--line); }
+  .ct-route .rt { font-family:var(--font-sans); font-size:11px; font-weight:var(--fw-bold); letter-spacing:0.16em; text-transform:uppercase; color:var(--brown); margin-bottom:7px; display:flex; flex-wrap:wrap; gap:6px; }
+  .ct-route .rt b { background:var(--navy); color:#fff; padding:2px 8px; border-radius:var(--radius-sm); font-weight:var(--fw-bold); letter-spacing:0.04em; }
+  .ct-route p { font-family:var(--font-sans); font-size:15px; line-height:1.55; color:var(--ink-soft); margin:0; }
+  .ct-route p b { color:var(--ink); font-weight:var(--fw-semibold); }
+  @media (max-width: 768px) {
+  .ct-travel { grid-template-columns: 1fr; }
+  .ct-travel > div:not(:last-child) { border-bottom: 1px solid var(--line); padding-bottom: 28px; margin-bottom: 28px; }
+  }
+</style>
 </head>
 <body>
 
@@ -33,18 +62,87 @@ permalink: /ui_kits/website/st-cuthberts.html
         <p>Alongside this, St Cuthbert’s has become a thriving centre of community life. A growing range of projects and events make the church building a place of welcome throughout the week, including Saturday’s FoodCycle community lunches (the largest in London!), our local Scouts group, a repair café, and other social outreach initiatives. At St Cuthbert’s, worship and community life grow side by side.</p>
       </div>
       <aside class="em-aside">
-        <div class="em-aside-card">
-          <h4>Community at St Cuthbert’s</h4>
-          <p>FoodCycle lunch, Repair Club, Gardening Club, Scouts and more — see what’s happening across our two churches.</p>
-          <a href="food-bank.html" class="em-readmore">Community Outreach →</a>
-        </div>
-        <div class="em-aside-card" style="margin-top:16px">
-          <h4>Talk to us</h4>
-          <p>Mthr Clemency has particular responsibility for the life and ministry of St Cuthbert’s. The parish office can also help with questions.</p>
-          <a href="mailto:vicar@emmanuelnw6.com" class="em-readmore">Email the vicar →</a>
-          <a href="contact.html" class="em-readmore" style="display:block;margin-top:8px">Contact the office →</a>
+        <div class="ct-contactcard">
+          <div class="ct-line">
+            <span class="ic"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+            <div><div class="k">Address</div><div class="v">St Cuthbert’s Church<small>61 Fordwych Road, London, NW2 3TN</small></div></div>
+          </div>
+          <div class="ct-line">
+            <span class="ic"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+            <div><div class="k">Phone</div><div class="v"><a href="tel:+447368158998">07368 158 998</a></div></div>
+          </div>
+          <div class="ct-line">
+            <span class="ic"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg></span>
+            <div><div class="k">Email the Parish Office</div><div class="v"><a href="mailto:motherclemecy@emmanuelnw6.com">motherclemecy@emmanuelnw6.com</a></div></div>
+          </div>
+          <div class="ct-line">
+            <span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span>
+            <div><div class="k">Office Hours</div><div class="v">Monday–Wednesday &amp; Friday<small>9am–2pm</small></div></div>
+          </div>
         </div>
       </aside>
+    </div>
+  </section>
+
+  <!-- Getting here -->
+  <section class="em-section em-section--band">
+    <div class="inner">
+      <div class="em-sectionhead">
+        <div class="em-ornament is-leading">Finding us</div>
+        <h2>How to get to <em>St Cuthbert’s</em></h2>
+        <p class="em-lead">The church stands on Fordwych Road in Kilburn, a short walk from West Hampstead and Kilburn stations.</p>
+      </div>
+      <div class="ct-travel">
+        <div class="col">
+          <div class="head">
+            <span class="ic"><svg viewBox="0 0 24 24"><path d="M8 6v6"/><path d="M16 6v6"/><path d="M2 12h20"/><path d="M18 18h1a2 2 0 0 0 2-2v-6a8 8 0 0 0-8-8H9a8 8 0 0 0-8 8v6a2 2 0 0 0 2 2h1"/><path d="M9 18h6"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg></span>
+            <h3>By bus</h3>
+          </div>
+          <div class="ct-route">
+            <div class="rt"><b>16</b><b>32</b><b>189</b><b>316</b></div>
+            <p>Along Shoot-up Hill and Kilburn High Road. Alight at the <b>Mill Lane</b> stop.</p>
+          </div>
+          <div class="ct-route">
+            <div class="rt"><b>328</b><b>C11</b></div>
+            <p>Through West Hampstead and Cricklewood. Alight on <b>Mill Lane</b>, then turn into Fordwych Road.</p>
+          </div>
+        </div>
+        <div class="col">
+          <div class="head">
+            <span class="ic"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="14" rx="2"/><path d="M4 11h16"/><path d="M8 21l2-3"/><path d="M16 21l-2-3"/><circle cx="8.5" cy="14" r="0.5"/><circle cx="15.5" cy="14" r="0.5"/></svg></span>
+            <h3>By rail</h3>
+          </div>
+          <div class="ct-route">
+            <div class="rt"><b>Jubilee Line</b> · Zone 2</div>
+            <p>Kilburn or West Hampstead — about a <b>ten-minute walk</b> from either.</p>
+          </div>
+          <div class="ct-route">
+            <div class="rt"><b>London Overground</b></div>
+            <p>Brondesbury or West Hampstead — head north onto <b>Mill Lane</b>, then into Fordwych Road.</p>
+          </div>
+          <div class="ct-route">
+            <div class="rt"><b>Thameslink</b></div>
+            <p>Cricklewood or West Hampstead — both a short walk from the church.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Map -->
+  <section class="em-section">
+    <div class="inner">
+      <div style="width:100%; aspect-ratio:21/8; min-height:280px; overflow:hidden; border:1px solid var(--line);">
+        <iframe
+          src="https://maps.google.com/maps?q=St+Cuthbert%27s+Church+61+Fordwych+Road+London+NW2+3TN&output=embed"
+          width="100%"
+          height="100%"
+          style="border:0; display:block;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="St Cuthbert’s Church, 61 Fordwych Road, London NW2 3TN"></iframe>
+      </div>
     </div>
   </section>
 
