@@ -85,12 +85,6 @@ callout_body: Join our email list to receive the regular newsletter, with news
         <span>Service &amp; Prayer Times</span>
       </div>
       <h1 data-editable="text" data-prop="headline" data-type="span">{{ headline }}</h1>
-      <p class="deck" data-editable="text" data-prop="deck" data-type="text">{{ deck }}</p>
-      <div class="meta-row">
-        <div class="item"><div class="k">Sundays</div><div class="v">{% set sundayTimes = [] %}{% for st in serviceTimes %}{% if st.group === "sunday" %}{% set sundayTimes = (sundayTimes.push(st.time), sundayTimes) %}{% endif %}{% endfor %}{{ sundayTimes | join(" · ") }}</div></div>
-        <div class="item"><div class="k">Weekdays</div><div class="v">{% for st in serviceTimes %}{% if st.name === "Morning Prayer" %}Morning Prayer {{ st.time }}{% endif %}{% endfor %}</div></div>
-        <div class="item"><div class="k">Where</div><div class="v">Lyncroft Gardens, NW6</div></div>
-      </div>
     </div>
   </section>
 
