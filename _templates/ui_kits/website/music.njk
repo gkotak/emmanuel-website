@@ -37,6 +37,11 @@ features:
   body { margin: 0; background: var(--paper); font-family: var(--font-sans); color: var(--ink); -webkit-font-smoothing: antialiased; }
 
   .mu-intro { padding: 96px var(--gutter) 100px; }
+  .mu-director { display: inline-flex; align-items: center; gap: 8px; }
+  .mu-email { display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border: 1px solid var(--line); border-radius: var(--radius-sm); color: var(--brown); flex: none; transition: background var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease); }
+  .mu-email svg { width: 15px; height: 15px; }
+  .mu-email:hover { background: var(--brown); color: #fff; }
+  .mu-email:focus-visible { outline: 2px solid var(--brown); outline-offset: 2px; }
   .mu-intro .inner { max-width: 1320px; margin: 0 auto; display: grid; grid-template-columns: 1fr 380px; gap: 80px; align-items: start; }
   .mu-intro .lead-para { font-family: var(--font-editorial); font-size: 30px; line-height: 1.34; color: var(--ink); font-style: italic; margin: 0 0 30px; letter-spacing: -0.01em; }
   .mu-intro p { font-family: var(--font-sans); font-size: var(--fs-body); line-height: var(--lh-relaxed); color: var(--ink-soft); margin: 0 0 22px; }
@@ -91,10 +96,9 @@ features:
       <aside class="em-aside">
         <div class="em-aside-card">
           <h4>Sing with us</h4>
-          <p class="big" style="margin-bottom:16px">All ages &amp; abilities welcome</p>
           <p><b style="color:var(--ink)">Rehearsals</b><br/>Children’s choir Wed, 6:15–7pm<br/>Adult choir Wed, 7:15–8:15pm</p>
           <p><b style="color:var(--ink)">Sings</b><br/>Sunday 10:30 Eucharist &amp;<br/>major festivals</p>
-          <a href="mailto:w.g.rose41@gmail.com" class="em-btn em-btn--primary" style="margin-top:8px">Email Will Rose</a>
+          <p><b style="color:var(--ink)">Director</b><br/><span class="mu-director">Will Rose<a class="mu-email" href="mailto:w.g.rose41@gmail.com" aria-label="Email Will Rose" title="Email Will Rose"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a></span></p>
         </div>
       </aside>
     </div>
