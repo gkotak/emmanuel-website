@@ -1,31 +1,47 @@
 ---
 permalink: /ui_kits/website/music.html
-headline: Music & Choir
-deck: Music is at the heart of worship at Emmanuel — and our choir combines choral excellence with a welcoming, inclusive spirit.
+headline: Music &amp; Choir
+deck: Music is at the heart of worship at Emmanuel — and our choir combines
+  choral excellence with a welcoming, inclusive spirit.
 intro_paragraphs:
-  - text: "Music is at the heart of worship at Emmanuel — and our choir combines choral excellence with a welcoming, inclusive spirit."
-  - text: "Our choir combines choral excellence with a welcoming and inclusive spirit, offering a diverse repertoire of sacred music, ranging from Renaissance polyphony to contemporary works. In addition to our weekly worship, the choir leads the music for special services at key points in the liturgical year."
-  - text: "We are always keen to welcome new singers and musicians of all ages and abilities. Whilst regular commitment is encouraged, it is not necessary to be available for every rehearsal and service to be a member of the choir."
-  - text: "We are a friendly and welcoming choir, with a great social scene, often going for drinks post-rehearsal. An ability to read sheet music is desirable, but not necessary provided you have a willingness to learn."
+  - text: Music is at the heart of worship at Emmanuel — and our choir combines
+      choral excellence with a welcoming, inclusive spirit.
+  - text: Our choir combines choral excellence with a welcoming and inclusive
+      spirit, offering a diverse repertoire of sacred music, ranging from
+      Renaissance polyphony to contemporary works. In addition to our weekly
+      worship, the choir leads the music for special services at key points in
+      the liturgical year.
+  - text: 'We are always keen to welcome new singers and musicians of all ages and
+      abilities. '
+  - text: "We are a friendly and welcoming choir, with a great social scene, often
+      going for drinks post-rehearsal. An ability to read sheet music is
+      desirable, but not necessary provided you have a willingness to learn.
+      We'd love to have you join us! "
 features:
   - eyebrow: For adults of all abilities
     heading: Adult Choir
     body_paragraphs:
-      - Our adult choir combines choral excellence with a welcoming and inclusive spirit, singing at the 10:30am Eucharist every Sunday and leading music for special services throughout the liturgical year.
-      - We are a friendly choir with a great social scene, often going for drinks after rehearsal. Whether you're an experienced singer or simply keen to learn, there's a place for you here.
+      - Our adult choir combines choral excellence with a welcoming and
+        inclusive spirit, singing at the 10:30am Eucharist every Sunday and
+        leading music for special services throughout the liturgical year.
     image: /assets/cms/site-images/choir-adult.jpg
     image_alt: Robed adult choristers singing during a service
     reverse: true
   - eyebrow: For our youngest singers
     heading: Children's Choir
     body_paragraphs:
-      - Come and sing with the Emmanuel Church choir! We rehearse once a week in the church with our choir director, Will. We sing in the church on the first Sunday of every month, and also in special services, including at Easter.
-      - We learn loads of exciting music, and always have lots of fun in our rehearsals. You don't need to be able to read sheet music to join, and it's a great way to make new friends! All rehearsals are free to attend.
+      - Come and sing with the Emmanuel Church choir! We rehearse once a week in
+        the church with our choir director, Will. We sing in the church on the
+        first Sunday of every month, and also in special services, including at
+        Easter.
+      - We learn loads of exciting music, and always have lots of fun in our
+        rehearsals. You don't need to be able to read sheet music to join, and
+        it's a great way to make new friends! All rehearsals are free to attend.
     image: /assets/cms/site-images/choir-children.jpg
     image_alt: Robed young choristers gathered at the altar during a sung service
     reverse: false
 ---
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en-GB">
 <head>
 <meta charset="utf-8" />
@@ -89,16 +105,16 @@ features:
         {% for para in intro_paragraphs %}
           <p{% if loop.first %} class="lead-para"{% endif %} data-editable="array-item">
             <span data-editable="text" data-prop="text" data-type="text">{{ para.text if para.text else para }}</span>
-          </p>
+          <p></p>
         {% endfor %}
-        </div>
+        </p{% if loop.first %}</div>
       </div>
       <aside class="em-aside">
         <div class="em-aside-card">
           <h4>Sing with us</h4>
-          <p><b style="color:var(--ink)">Rehearsals</b><br/>Children’s choir Wed, 6:15–7pm<br/>Adult choir Wed, 7:15–8:15pm</p>
-          <p><b style="color:var(--ink)">Sings</b><br/>Sunday 10:30 Eucharist &amp;<br/>major festivals</p>
-          <p><b style="color:var(--ink)">Director</b><br/><span class="mu-director">Will Rose<a class="mu-email" href="mailto:w.g.rose41@gmail.com" aria-label="Email Will Rose" title="Email Will Rose"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a></span></p>
+          <p><b style="color:var(--ink)">Rehearsals</b><br />Children’s choir Wed, 6:15–7pm<br />Adult choir Wed, 7:15–8:15pm</p>
+          <p><b style="color:var(--ink)">Sings</b><br />Sunday 10:30 Eucharist &amp;<br />major festivals</p>
+          <p><b style="color:var(--ink)">Director</b><br /><span class="mu-director">Will Rose<a class="mu-email" href="mailto:w.g.rose41@gmail.com" aria-label="Email Will Rose" title="Email Will Rose"><svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="m3 7 9 6 9-6" /></svg></a></span></p>
         </div>
       </aside>
     </div>
