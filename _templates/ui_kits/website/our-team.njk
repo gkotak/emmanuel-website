@@ -1,8 +1,6 @@
 ---
 permalink: /ui_kits/website/our-team.html
 headline: Our Team
-deck: The clergy, staff and volunteers who together share in the life, worship
-  and care of Emmanuel.
 clergy_label: Clergy
 staff_label: Staff and Volunteers
 callout_heading: Come and say hello!
@@ -18,16 +16,13 @@ callout_body: The best way to meet the team is in person — do introduce yourse
 <link rel="stylesheet" href="/styles.css" />
 <style>
   @media (max-width: 768px) {
-    /* Lead clergy: stack portrait above bio */
-    .em-member--lead { grid-column: span 1 !important; grid-template-columns: 1fr !important; gap: 24px !important; }
-    .em-member--lead .em-portrait { aspect-ratio: 4/3; height: auto; }
-
-    /* Associate clergy: single column */
-    .em-clergy-assoc { grid-template-columns: 1fr !important; gap: 32px; margin-top: 32px; }
+    /* Clergy rows: stack portrait above bio */
+    .em-clergy-rows { gap: 32px; }
+    .em-clergy-rows .em-member { grid-template-columns: 1fr !important; gap: 20px !important; }
+    .em-clergy-rows .em-member .em-portrait { aspect-ratio: 4/3; height: auto; }
 
     /* Staff team grid: 2 columns */
     .em-team-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 28px; }
-    .em-member--lead + .em-team-grid { margin-top: 32px; }
 
     /* Portrait height — keep portraits square but not too tall */
     .em-portrait { aspect-ratio: 1/1; height: auto !important; max-height: 180px; }
@@ -56,18 +51,17 @@ callout_body: The best way to meet the team is in person — do introduce yourse
     <div class="inner">
       <div class="em-breadcrumb"><a href="/ui_kits/website/index.html">Home</a><span class="sep">/</span><a href="#">About Us</a><span class="sep">/</span><span>{{ headline }}</span></div>
       <h1 data-editable="text" data-prop="headline" data-type="span">{{ headline }}</h1>
-      <p class="deck" data-editable="text" data-prop="deck" data-type="text">{{ deck }}</p>
     </div>
   </section>
 
   {# Clergy section — people come from Who's Who collection (Data editor), not this page #}
   <section class="em-section">
     <div class="inner">
-      <div class="em-ornament is-leading" data-editable="text" data-prop="clergy_label" data-type="span">{{ clergy_label }}</div>
-      {% for person in people %}
-        {% if person.group === "clergy" and loop.first %}
-        <div class="em-team-grid" style="margin-bottom:8px">
-          <div class="em-member em-member--lead">
+      <div class="em-ornament em-ornament--section is-leading" data-editable="text" data-prop="clergy_label" data-type="span">{{ clergy_label }}</div>
+      <div class="em-clergy-rows">
+        {% for person in people %}
+          {% if person.group === "clergy" %}
+          <div class="em-member">
             {% if person.photoUrl %}
             <div class="em-portrait"><img src="{{ person.photoUrl }}" alt="{{ person.name }}" /></div>
             {% else %}
@@ -83,26 +77,6 @@ callout_body: The best way to meet the team is in person — do introduce yourse
               {% endif %}
             </div>
           </div>
-        </div>
-        {% endif %}
-      {% endfor %}
-      <div class="em-clergy-assoc">
-        {% for person in people %}
-          {% if person.group === "clergy" and not loop.first %}
-          <div class="em-member">
-            {% if person.photoUrl %}
-            <div class="em-portrait"><img src="{{ person.photoUrl }}" alt="{{ person.name }}" /></div>
-            {% else %}
-            <div class="em-portrait"><div class="em-img-placeholder"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" /><circle cx="8.5" cy="8.5" r="1.5" /><polyline points="21 15 16 10 5 21" /></svg></div></div>
-            {% endif %}
-            <div class="role">{{ person.role }}</div>
-            <h3>{{ person.name }}</h3>
-            {% if person.bio %}
-              {% for para in person.bio %}
-                <p class="pending">{{ para }}</p>
-              {% endfor %}
-            {% endif %}
-          </div>
           {% endif %}
         {% endfor %}
       </div>
@@ -112,7 +86,7 @@ callout_body: The best way to meet the team is in person — do introduce yourse
   {# Staff & volunteers section #}
   <section class="em-section em-section--band">
     <div class="inner">
-      <div class="em-ornament is-leading" data-editable="text" data-prop="staff_label" data-type="span">{{ staff_label }}</div>
+      <div class="em-ornament em-ornament--section is-leading" data-editable="text" data-prop="staff_label" data-type="span">{{ staff_label }}</div>
       <div class="em-team-grid">
         {% for person in people %}
           {% if person.group === "staff" or person.group === "churchwardens" %}
