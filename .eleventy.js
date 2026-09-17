@@ -87,6 +87,10 @@ module.exports = function (eleventyConfig) {
     return readJsonDir('events').sort((a, b) => String(b.sortDate || '').localeCompare(String(a.sortDate || '')))
   })
 
+  eleventyConfig.addGlobalData('otherEvents', () => {
+    return readJsonDir('other-events').sort((a, b) => String(a.date || '').localeCompare(String(b.date || '')))
+  })
+
   eleventyConfig.addGlobalData('news', () => readJsonDir('news'))
 
   eleventyConfig.addGlobalData('siteImages', () => loadSiteImages())

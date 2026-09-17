@@ -30,6 +30,7 @@ permalink: /ui_kits/website/calendar.html
   .sw-prayer { background:#f1ede4; border-left:3px solid var(--brown); }
   .sw-special { background:var(--brown); }
   .sw-exhibition { background:var(--tan); }
+  .sw-other { background:#eef1ea; border-left:3px solid #5c7a52; }
   /* Month grid */
   .cal-grid { border:1px solid var(--rule-ink); border-bottom:none; }
   .cal-dows { display:grid; grid-template-columns:repeat(7,1fr); background:var(--navy); }
@@ -50,6 +51,7 @@ permalink: /ui_kits/website/calendar.html
   .cal-chip--special { background:var(--brown); border-left:3px solid var(--brown-deep,#6f5526); color:#fff; font-weight:var(--fw-semibold); }
   .cal-chip--special:hover { background:var(--brown-deep,#6f5526); }
   .cal-chip--exhibition { background:var(--tan); color:var(--navy); border-left:3px solid #c9a24a; font-weight:var(--fw-semibold); }
+  .cal-chip--other { background:#eef1ea; border-left:3px solid #5c7a52; color:#3d5136; }
   a.cal-chip { cursor:pointer; transition:filter var(--dur-fast,0.18s) var(--ease,ease); }
   a.cal-chip:hover { filter:brightness(0.96); }
   .cal-more { font-family:var(--font-sans); font-size:10.5px; font-weight:var(--fw-bold); letter-spacing:0.04em; text-transform:uppercase; color:var(--brown); background:none; border:none; padding:3px 7px; cursor:pointer; text-align:left; }
@@ -76,6 +78,7 @@ permalink: /ui_kits/website/calendar.html
   .cal-wevt.cal-chip--service { color:var(--navy); }
   .cal-wevt.cal-chip--prayer { color:var(--ink-soft); }
   .cal-wevt.cal-chip--special { color:#fff; }
+  .cal-wevt.cal-chip--other { color:#3d5136; }
   .cal-wempty { font-family:var(--font-editorial); font-style:italic; font-size:13px; color:var(--line); padding:8px 9px; }
   .cal-foot-note { font-family:var(--font-editorial); font-style:italic; font-size:16px; color:var(--muted); padding:26px var(--gutter) 0; max-width:1320px; margin:0 auto; }
 </style>
@@ -116,6 +119,7 @@ permalink: /ui_kits/website/calendar.html
         <span><span class="sw sw-prayer"></span> Prayer &amp; quiet</span>
         <span><span class="sw sw-special"></span> Special service / event</span>
         <span><span class="sw sw-exhibition"></span> Exhibition (all day)</span>
+        <span><span class="sw sw-other"></span> Other event</span>
       </div>
 
       <div id="calView"></div>
@@ -154,6 +158,13 @@ permalink: /ui_kits/website/calendar.html
         {% if ev.sortDate %}
         {date:"{{ ev.sortDate }}", time:"10:30", title:"{{ ev.title | replace('"', '&quot;') }}", kind:"special", href:"/ui_kits/website/event-{{ ev.slug }}.html"}{% if not loop.last %},{% endif %}
         {% endif %}
+      {% endfor %}
+    ];
+
+    // ---- Other events (CMS-only; not shown anywhere else on the site) ------
+    var OTHER = [
+      {% for ev in otherEvents %}
+      {date:"{{ ev.date }}", time:"{{ ev.time | replace(" ", "") | truncate(5, true, "") }}", title:"{{ ev.title | replace('"', '&quot;') }}", kind:"other"}{% if not loop.last %},{% endif %}
       {% endfor %}
     ];
 
@@ -213,6 +224,7 @@ permalink: /ui_kits/website/calendar.html
                    href:'/ui_kits/website/service-times.html'});
       });
       SPECIAL.forEach(function(s){ if(s.date===key){ list.push({time:s.time,title:s.title,kind:s.kind,href:s.href}); }});
+      OTHER.forEach(function(s){ if(s.date===key){ list.push({time:s.time,title:s.title,kind:s.kind}); }});
       list.sort(function(a,b){
         if(a.allday&&!b.allday) return -1;
         if(b.allday&&!a.allday) return 1;
@@ -243,6 +255,7 @@ permalink: /ui_kits/website/calendar.html
         if(ev.paused) inner+=' <span class="wp">(no service)</span>';
       }
       var label=ev.title+(ev.paused?' — no service today':'');
+      if(!ev.href) return '<span class="'+cls+'" title="'+label+'">'+inner+'</span>';
       return '<a class="'+cls+'" href="'+ev.href+'" title="'+label+'">'+inner+'</a>';
     }
 

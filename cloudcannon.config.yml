@@ -130,6 +130,21 @@ collections_config:
     _enabled_editors:
       - data
 
+  other_events:
+    path: _data/cms/other-events
+    name: Other Events
+    icon: event
+    glob:
+      - '*.json'
+    _enabled_editors:
+      - data
+    schemas:
+      default:
+        path: .cloudcannon/schemas/other-event.json
+        name: Other event
+    create:
+      path: '[relative_base_path]/{title|slugify}.json'
+
 _inputs:
   headline:
     type: text
