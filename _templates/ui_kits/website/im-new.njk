@@ -165,22 +165,6 @@ access_cards:
     </div>
   </section>
 
-  <!-- Featured services (Pattern A: pick from Service Times; title/time/description update after Save → rebuild) -->
-  {% set services = featured_services | resolveServices(serviceTimes) %}
-  <section class="sec sec--cardgrid">
-    <div class="sec__inner">
-      <div class="sec-cards" data-editable="array" data-prop="featured_services">
-      {% for s in services %}
-        <div class="sec-card" data-editable="array-item">
-          <div class="sec-card__eyebrow">{{ s.days | dayLabel }} · {{ s.time }}</div>
-          <h3 class="sec-card__title">{{ s.name }}</h3>
-          {% if s.cardBody %}<p class="sec-card__body">{{ s.cardBody }}</p>{% endif %}
-        </div>
-      {% endfor %}
-      </div>
-    </div>
-  </section>
-
   <!-- Accessibility -->
   <section class="sec sec--iconlist">
     <div class="sec__inner">
