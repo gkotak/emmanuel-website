@@ -261,7 +261,7 @@ welcome_image_alt: A large, diverse group of parishioners gathered together in t
       </div>
       <div class="news-grid">
         {% for ev in events %}{% if loop.index0 < 3 %}
-        {% set thumbSrc = ev.thumbnailUrl if ev.thumbnailUrl else ev.thumbnailUploadUrl %}
+        {% set thumbSrc = (ev.posters[0].url if ev.posters[0].url else ev.posters[0].uploadUrl) if ev.posters and ev.posters.length else null %}
         <article class="em-news-card">
           <div class="em-news-card__media">
             {% if thumbSrc %}
@@ -271,7 +271,6 @@ welcome_image_alt: A large, diverse group of parishioners gathered together in t
             {% endif %}
           </div>
           <div class="em-news-card__body">
-            <div class="cat">{{ ev.category }}</div>
             <h3>{{ ev.title }}</h3>
             <p>{{ ev.summary if ev.summary else ev.deck }}</p>
             <a href="/ui_kits/website/event-{{ ev.slug }}.html" class="em-readmore">Read more →</a>

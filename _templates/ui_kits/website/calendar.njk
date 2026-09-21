@@ -171,7 +171,7 @@ permalink: /ui_kits/website/calendar.html
     // ---- Multi-day exhibition spans ----------------------------------------
     var SPANS = [
       {% for ev in events %}
-        {% if 'exhibition' in ev.category | lower or 'exhibition' in ev.title | lower %}
+        {% if 'exhibition' in ev.title | lower %}
         {from:"{{ ev.sortDate }}", to:"{{ ev.sortDate }}", title:"{{ ev.title | replace('"', '&quot;') }}", kind:"exhibition", href:"/ui_kits/website/event-{{ ev.slug }}.html"}{% if not loop.last %},{% endif %}
         {% endif %}
       {% endfor %}

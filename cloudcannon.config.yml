@@ -93,13 +93,6 @@ _structures:
       - label: Paragraph
         icon: notes
         value: ''
-  detail_rows:
-    values:
-      - label: Detail row
-        icon: list
-        value:
-          label: ''
-          value: ''
   posters:
     values:
       - label: Poster
@@ -222,7 +215,62 @@ collections_config:
       subtext:
         - key: date
       image:
-        - key: thumbnailUrl
+        - key: posters.0.url
+    # Title first, then the three optional details. Scoped to this collection
+    # because `body` is an array of paragraphs here but a plain textarea
+    # elsewhere on the site.
+    _order:
+      - title
+      - deck
+      - date
+      - time
+      - where
+      - summary
+      - lede
+      - body
+      - posters
+      - featured
+    _inputs:
+      deck:
+        type: textarea
+        label: Subtitle
+        comment: Shown under the title at the top of the event page.
+      date:
+        type: text
+        label: Date
+        comment: Optional. Free text, e.g. "Sunday 7 June 2026".
+      time:
+        type: text
+        label: Time
+        comment: Optional, e.g. "10:30am" or "6:30pm".
+      where:
+        type: text
+        label: Where
+        comment: Optional, e.g. "Emmanuel Church & garden".
+      body:
+        type: array
+        label: Body
+        comment: One paragraph per item.
+        options:
+          structures: _structures.event_body
+      summary:
+        type: textarea
+        label: Summary
+        comment: Short text shown on the events and home page cards.
+      lede:
+        type: textarea
+        label: Lede
+        comment: Opening line on the event page, above the body.
+      featured:
+        type: switch
+        label: Featured
+        comment: Show this event in the highlighted slot on the events page.
+      slug:
+        type: text
+        hidden: true
+      sortDate:
+        type: text
+        hidden: true
 
   other_events:
     path: _data/cms/other-events
@@ -450,26 +498,12 @@ _inputs:
     type: image
   feature_image:
     type: image
-  body_paragraphs:
-    type: array
-    label: Body
-    comment: One paragraph per item
-    options:
-      structures: _structures.event_body
-  detailRows:
-    type: array
-    label: Detail rows
-    comment: Small label/value pairs shown beside the event
-    options:
-      structures: _structures.detail_rows
   posters:
     type: array
     label: Posters
+    comment: The first poster is used as the thumbnail in listings.
     options:
       structures: _structures.posters
-  thumbnailUrl:
-    type: image
-    label: Thumbnail
   # Structural fields — visible but never editable, so an editor cannot
   # break a page's URL or the build.
   permalink:

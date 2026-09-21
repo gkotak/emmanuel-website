@@ -91,15 +91,11 @@ permalink: /ui_kits/website/events.html
         <div class="poster">
           {% if featuredEvent.posters and featuredEvent.posters.length %}
             {% set posterImg = featuredEvent.posters[0].url if featuredEvent.posters[0].url else featuredEvent.posters[0].uploadUrl %}
-          {% elif featuredEvent.thumbnailUrl %}
-            {% set posterImg = featuredEvent.thumbnailUrl %}
-          {% else %}
-            {% set posterImg = featuredEvent.thumbnailUploadUrl %}
           {% endif %}
           {% if posterImg %}<img src="{{ posterImg }}" alt="{{ featuredEvent.title }}" />{% endif %}
         </div>
         <div class="body">
-          <span class="ev-tag">Latest · {{ featuredEvent.category }}</span>
+          <span class="ev-tag">Latest</span>
           <h2>{{ featuredEvent.title }}</h2>
           <div class="ev-date">{{ featuredEvent.date }}</div>
           <p>{{ featuredEvent.deck }}</p>
@@ -115,13 +111,12 @@ permalink: /ui_kits/website/events.html
       <div class="ev-grid">
         {% for ev in events %}
           {% if not ev.featured %}
-          {% set thumbSrc = ev.thumbnailUrl if ev.thumbnailUrl else ev.thumbnailUploadUrl %}
+          {% set thumbSrc = (ev.posters[0].url if ev.posters[0].url else ev.posters[0].uploadUrl) if ev.posters and ev.posters.length else null %}
           <a href="/ui_kits/website/event-{{ ev.slug }}.html" class="ev-card">
             <div class="thumb">
               {% if thumbSrc %}<img src="{{ thumbSrc }}" alt="{{ ev.title }}" />{% endif %}
             </div>
             <div class="meta">
-              <div class="kicker">{{ ev.category }}</div>
               <h3>{{ ev.title }}</h3>
               <div class="d">{{ ev.date }}</div>
               <p>{{ ev.summary if ev.summary else ev.deck }}</p>

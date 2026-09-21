@@ -1,29 +1,15 @@
 {
-  "_id": "4smu7Ks5k1PWjXUh5CnlVF",
+  "title": "Advent Prayers in the Lady Chapel",
+  "deck": "A gentle, quiet space for prayer through Advent — for anyone carrying loneliness, loss or simply weariness.",
+  "date": "December 2025",
+  "time": "",
+  "where": "The Lady Chapel, Emmanuel",
+  "summary": "Amid the busyness and the twinkling lights, we keep a quiet space in the Lady Chapel for prayer and stillness.",
+  "lede": "Amid the busyness and the twinkling lights, a place to be still and to wait with hope.",
   "body": [
     "Advent and Christmas can be a difficult time. In the midst of the busyness and the twinkling lights, some of us may be feeling the pain of loneliness, loss, or simply weariness.",
     "We keep a quiet, gentle space in the Lady Chapel through Advent — a place to bring whatever you are carrying, and to wait in hope for the coming of Christ."
   ],
-  "category": "Advent · Quiet Prayer",
-  "date": "December 2025",
-  "deck": "A gentle, quiet space for prayer through Advent — for anyone carrying loneliness, loss or simply weariness.",
-  "detailRows": [
-    {
-      "label": "When",
-      "value": "Through Advent"
-    },
-    {
-      "label": "Where",
-      "value": "The Lady Chapel, Emmanuel"
-    },
-    {
-      "label": "For",
-      "value": "Anyone seeking quiet & prayer"
-    }
-  ],
-  "featured": false,
-  "lede": "Amid the busyness and the twinkling lights, a place to be still and to wait with hope.",
-  "location": "Emmanuel Church, NW6",
   "posters": [
     {
       "alt": "Advent Prayers in the Lady Chapel poster",
@@ -31,10 +17,8 @@
       "url": "https://i0.wp.com/emmanuelnw6.com/wp-content/uploads/2025/12/Lady-Chapel-Advent-Prayers-1.png?w=1000"
     }
   ],
+  "featured": false,
   "slug": "advent-prayers",
   "sortDate": "2025-12-01",
-  "summary": "Amid the busyness and the twinkling lights, we keep a quiet space in the Lady Chapel for prayer and stillness.",
-  "thumbnailUploadUrl": null,
-  "thumbnailUrl": "https://i0.wp.com/emmanuelnw6.com/wp-content/uploads/2025/12/Lady-Chapel-Advent-Prayers-1.png?w=720",
-  "title": "Advent Prayers in the Lady Chapel"
+  "_id": "4smu7Ks5k1PWjXUh5CnlVF"
 }
