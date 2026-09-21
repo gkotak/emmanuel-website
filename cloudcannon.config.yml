@@ -345,6 +345,12 @@ _inputs:
     comment: Add any number of photos — they lay out four per row.
     options:
       structures: _structures.wedding_images
+  photos:
+    type: array
+    label: Photos
+    comment: Add up to three photos — they lay out three per row.
+    options:
+      structures: _structures.wedding_images
   image_alt:
     type: text
     label: Alt text

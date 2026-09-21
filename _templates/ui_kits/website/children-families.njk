@@ -13,7 +13,7 @@ intro_paragraphs:
       the choir, joining the serving team, and helping to lead the readings and
       intercessions at our monthly intergenerational worship."'
 sunday_1030:
-  eyebrow: Sundays at Emmanuel
+  eyebrow: Sundays at 10:30
   heading: Children's & Youth Church
   cards:
     - eyebrow: Ages 4–11 · Godly Play
@@ -43,15 +43,19 @@ sunday_1030:
   room_image: /assets/cms/site-images/room-hire-1.jpg
   room_image_alt: A quiet room set aside for young children, with books and toys
 sunday_915:
-  eyebrow: Sundays at Emmanuel
-  heading: Joyful Noise
-  cards:
-    - eyebrow: Ages 0–4 · Pre-schoolers
-      title: Joyful Noise
-      body: Joyful Noise is our lively, informal 9:15 service for pre-school
-        children and their families, with music, movement and storytelling
-        woven into a short, playful celebration of the Mass. It runs during
-        term time.
+  eyebrow: Sundays at 9:15
+  heading: Joyful Noise · Ages 0–4
+  intro: Joyful Noise is our lively, informal 9:15 service for pre-school
+    children and their families, with music, movement and storytelling
+    woven into a short, playful celebration of the Mass. It runs during
+    term time.
+  photos:
+    - image: /assets/cms/site-images/children-youth-1.jpg
+      image_alt: Pre-school children taking part in the Joyful Noise service
+    - image: /assets/cms/site-images/children-youth-2.jpg
+      image_alt: Families gathered together during the Joyful Noise service
+    - image: /assets/cms/site-images/children-youth-3.jpg
+      image_alt: A child enjoying music and movement at Joyful Noise
   steps:
     - heading: Arrive & be welcomed
       body: Joyful Noise meets in the church building. A welcomer will guide you if you or your child are unsure of where to go.
@@ -119,6 +123,10 @@ callout_body: Whether on a Sunday morning or at Thursday's Stay and Play, we'd
   .cf-card h3 { font-family: var(--font-display); font-size: 30px; font-weight: 600; color: var(--navy); margin: 10px 0 16px; letter-spacing: -0.01em; }
   .cf-card p { font-size: 15px; line-height: 1.6; color: var(--ink-soft); margin: 0 0 16px; }
 
+  .cf-plainintro { font-size: 18px; line-height: 1.6; color: var(--ink-soft); max-width: 800px; margin: 0; }
+  .cf-photorow { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 36px; }
+  .cf-photorow .em-well { aspect-ratio: 4/3; }
+
   .cf-expect { padding: 64px 0 0; }
   .cf-expect .head { margin-bottom: 40px; }
   .cf-expect .head h2 { font-family: var(--font-display); font-size: var(--fs-h2); font-weight: 500; color: var(--navy); margin: 14px 0 0; letter-spacing: -0.015em; line-height: 1.02; }
@@ -155,6 +163,7 @@ callout_body: Whether on a Sunday morning or at Thursday's Stay and Play, we'd
   @media (max-width: 768px) {
     .cf-intro .inner { grid-template-columns: 1fr; gap: 36px; }
     .cf-twocol { grid-template-columns: 1fr; gap: 20px; }
+    .cf-photorow { grid-template-columns: 1fr; gap: 16px; }
     .cf-steps { grid-template-columns: 1fr; gap: 16px; }
     .cf-admissions .inner { grid-template-columns: 1fr; gap: 36px; }
     .cf-glance { grid-template-columns: 1fr; gap: 24px; }
@@ -265,15 +274,15 @@ callout_body: Whether on a Sunday morning or at Thursday's Stay and Play, we'd
         <div class="em-ornament is-leading">{{ sunday_915.eyebrow }}</div>
         <h2>{{ sunday_915.heading }}</h2>
       </div>
-      <div class="cf-twocol is-solo">
-        {% for card in sunday_915.cards %}
-        <div class="cf-card">
-          {% if card.eyebrow %}<div class="ages">{{ card.eyebrow }}</div>{% endif %}
-          {% if card.title %}<h3>{{ card.title }}</h3>{% endif %}
-          {% for para in card.body.split("\n\n") %}<p>{{ para }}</p>{% endfor %}
-        </div>
+      <p class="cf-plainintro">{{ sunday_915.intro }}</p>
+
+      {% if sunday_915.photos and sunday_915.photos.length %}
+      <div class="cf-photorow">
+        {% for photo in sunday_915.photos %}
+        <div class="em-well"><img src="{{ photo.image }}" alt="{{ photo.image_alt }}" /></div>
         {% endfor %}
       </div>
+      {% endif %}
 
       <!-- What to expect -->
       <section class="cf-expect">
