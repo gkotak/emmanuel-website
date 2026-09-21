@@ -225,7 +225,7 @@ html, body { margin: 0; padding: 0; }
   letter-spacing: var(--tracking-display);
   margin: 10px 0 0;
 }
-.em-section-head h2 em { font-style: italic; color: var(--navy); }
+.em-section-head h2 em { font-style: normal; color: var(--navy); }
 .em-section-head--center { flex-direction: column; align-items: center; text-align: center; border-bottom: none; }
 
 /* heavy editorial rule variant */
@@ -662,7 +662,7 @@ html, body { margin: 0; padding: 0; }
 .em-callout { background: var(--navy); color: #fff; padding: 56px var(--gutter); }
 .em-callout .inner { max-width: var(--container-narrow); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 48px; flex-wrap: wrap; }
 .em-callout h3 { font-family: var(--font-display); font-size: 36px; font-weight: var(--fw-medium); color: #fff; margin: 0 0 10px; letter-spacing: -0.01em; }
-.em-callout h3 em { font-style: italic; color: var(--tan); }
+.em-callout h3 em { font-style: normal; color: var(--tan); }
 .em-callout p { font-size: 16px; color: var(--on-dark-soft); margin: 0; max-width: 560px; line-height: 1.55; }
 
 /* ---------- Shared inner-page intro / body ---------- */
@@ -681,7 +681,7 @@ html, body { margin: 0; padding: 0; }
 .em-section .inner--narrow { max-width: var(--container-narrow); }
 .em-sectionhead { max-width: 780px; margin-bottom: 52px; }
 .em-sectionhead h2 { font-family: var(--font-display); font-size: var(--fs-h2); font-weight: var(--fw-medium); color: var(--navy); letter-spacing: -0.015em; line-height: 1.04; margin: 14px 0 0; }
-.em-sectionhead h2 em { font-style: italic; color: var(--navy); }
+.em-sectionhead h2 em { font-style: normal; color: var(--navy); }
 .em-sectionhead .em-lead { margin-top: 22px; }
 
 /* Sacrament / info card stack */
@@ -763,7 +763,7 @@ html, body { margin: 0; padding: 0; }
 .em-feature--reverse .media { order: 2; }
 .em-feature .media { aspect-ratio: 4/3; }
 .em-feature h2 { font-family: var(--font-display); font-size: var(--fs-display); font-weight: var(--fw-medium); color: var(--navy); line-height: 1.02; letter-spacing: -0.015em; margin: 16px 0 24px; }
-.em-feature h2 em { font-style: italic; color: var(--navy); }
+.em-feature h2 em { font-style: normal; color: var(--navy); }
 .em-feature p { font-family: var(--font-sans); font-size: var(--fs-body); line-height: var(--lh-relaxed); color: var(--ink-soft); margin: 0 0 20px; }
 
 /* ============================================================
