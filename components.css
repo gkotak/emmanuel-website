@@ -622,7 +622,6 @@ html, body { margin: 0; padding: 0; }
   color: var(--ink-soft);
   max-width: 720px;
   margin: 30px 0 0;
-  font-style: italic;
 }
 .em-pagehead .meta-row {
   display: flex;
@@ -669,7 +668,11 @@ html, body { margin: 0; padding: 0; }
 .em-intro { padding: 92px var(--gutter) 96px; }
 .em-intro .inner { max-width: var(--container); margin: 0 auto; display: grid; grid-template-columns: 1fr 380px; gap: 80px; align-items: start; }
 .em-intro--solo .inner { grid-template-columns: minmax(0, 800px); }
-.em-lead { font-family: var(--font-editorial); font-size: 30px; line-height: 1.34; color: var(--ink); font-style: italic; margin: 0 0 30px; letter-spacing: -0.01em; }
+.em-lead { font-family: var(--font-editorial); font-size: 30px; line-height: 1.34; color: var(--ink); margin: 0 0 30px; letter-spacing: -0.01em; }
+/* First intro paragraph reads as the lead. Done structurally rather than with a
+   {% if loop.first %} class in the markup — template tags inside an HTML tag are
+   what the CloudCannon visual editor used to mangle. */
+.em-body [data-prop="intro_paragraphs"] > p:first-child { font-family: var(--font-editorial); font-size: 30px; line-height: 1.34; color: var(--ink); margin: 0 0 30px; letter-spacing: -0.01em; }
 .em-body p { font-family: var(--font-sans); font-size: var(--fs-body); line-height: var(--lh-relaxed); color: var(--ink-soft); margin: 0 0 22px; }
 .em-body p:last-child { margin-bottom: 0; }
 .em-body p a { color: var(--brown); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }

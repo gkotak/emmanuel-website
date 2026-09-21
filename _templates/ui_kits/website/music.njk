@@ -59,7 +59,7 @@ features:
   .mu-email:hover { background: var(--brown); color: #fff; }
   .mu-email:focus-visible { outline: 2px solid var(--brown); outline-offset: 2px; }
   .mu-intro .inner { max-width: 1320px; margin: 0 auto; display: grid; grid-template-columns: 1fr 380px; gap: 80px; align-items: start; }
-  .mu-intro .lead-para { font-family: var(--font-editorial); font-size: 30px; line-height: 1.34; color: var(--ink); font-style: italic; margin: 0 0 30px; letter-spacing: -0.01em; }
+  .mu-intro [data-prop="intro_paragraphs"] > p:first-child { font-family: var(--font-editorial); font-size: 30px; line-height: 1.34; color: var(--ink); margin: 0 0 30px; letter-spacing: -0.01em; }
   .mu-intro p { font-family: var(--font-sans); font-size: var(--fs-body); line-height: var(--lh-relaxed); color: var(--ink-soft); margin: 0 0 22px; }
   .mu-intro p a { color: var(--brown); text-decoration: underline; text-underline-offset: 3px; }
 
@@ -103,7 +103,7 @@ features:
       <div class="intro-body">
         <div data-editable="array" data-prop="intro_paragraphs">
         {% for para in intro_paragraphs %}
-          <p{% if loop.first %} class="lead-para"{% endif %} data-editable="array-item">
+          <p data-editable="array-item">
             <span data-editable="text" data-prop="text" data-type="text">{{ para.text if para.text else para }}</span>
           </p>
         {% endfor %}
