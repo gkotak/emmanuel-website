@@ -97,9 +97,8 @@ permalink: /ui_kits/website/events.html
         <div class="body">
           <span class="ev-tag">Latest</span>
           <h2>{{ featuredEvent.title }}</h2>
-          <div class="ev-date">{{ featuredEvent.date }}</div>
+          <div class="ev-date">{{ featuredEvent.display_date if featuredEvent.display_date else (featuredEvent.date | eventDate) }}</div>
           <p>{{ featuredEvent.deck }}</p>
-          {% if featuredEvent.summary and featuredEvent.summary != featuredEvent.deck %}<p>{{ featuredEvent.summary }}</p>{% endif %}
           <div class="acts">
             <a href="/ui_kits/website/event-{{ featuredEvent.slug }}.html" class="em-btn em-btn--primary">View event</a>
             <a href="/ui_kits/website/calendar.html" class="em-btn em-btn--outline">See on calendar</a>
@@ -118,8 +117,8 @@ permalink: /ui_kits/website/events.html
             </div>
             <div class="meta">
               <h3>{{ ev.title }}</h3>
-              <div class="d">{{ ev.date }}</div>
-              <p>{{ ev.summary if ev.summary else ev.deck }}</p>
+              <div class="d">{{ ev.display_date if ev.display_date else (ev.date | eventDate) }}</div>
+              <p>{{ ev.deck }}</p>
               <span class="more">View event →</span>
             </div>
           </a>

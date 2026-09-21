@@ -84,7 +84,7 @@ module.exports = function (eleventyConfig) {
   })
 
   eleventyConfig.addGlobalData('events', () => {
-    return readJsonDir('events').sort((a, b) => String(b.sortDate || '').localeCompare(String(a.sortDate || '')))
+    return readJsonDir('events').sort((a, b) => String(b.date || '').localeCompare(String(a.date || '')))
   })
 
   eleventyConfig.addGlobalData('otherEvents', () => {
@@ -99,6 +99,28 @@ module.exports = function (eleventyConfig) {
 
   // Nunjucks filter: render a list of weekday names as readable text.
   // Consecutive runs collapse into a range: Mon,Tue,Wed,Thu -> "Mon–Thu".
+  // Event date/time display. `date` is a real ISO date so it can sort and feed
+  // the calendar; these render it for the page when no display override is set.
+  eleventyConfig.addFilter('eventDate', (iso) => {
+    if (!iso) return ''
+    const d = new Date(iso + 'T00:00:00Z')
+    if (isNaN(d)) return iso
+    return d.toLocaleDateString('en-GB', {
+      weekday: 'long', day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC',
+    }).replace(',', '')
+  })
+
+  eleventyConfig.addFilter('eventTime', (t) => {
+    if (!t) return ''
+    const m = /^(\d{1,2}):(\d{2})/.exec(t)
+    if (!m) return t
+    let h = Number(m[1])
+    const min = m[2]
+    const suffix = h >= 12 ? 'pm' : 'am'
+    h = h % 12 || 12
+    return min === '00' ? `${h}${suffix}` : `${h}:${min}${suffix}`
+  })
+
   eleventyConfig.addFilter('dayLabel', (days) => {
     const ORDER = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
     const list = (days || []).filter((d) => ORDER.includes(d))

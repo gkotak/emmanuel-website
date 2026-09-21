@@ -208,6 +208,7 @@ collections_config:
       text:
         - key: title
       subtext:
+        - key: display_date
         - key: date
       image:
         - key: posters.0.url
@@ -218,10 +219,9 @@ collections_config:
       - title
       - deck
       - date
+      - display_date
       - time
       - where
-      - summary
-      - lede
       - body
       - posters
       - featured
@@ -229,15 +229,22 @@ collections_config:
       deck:
         type: textarea
         label: Subtitle
-        comment: Shown under the title at the top of the event page.
+        comment: Shown under the title on the event page, and as the description
+          on the events and home page cards.
       date:
-        type: text
+        type: date
         label: Date
-        comment: Optional. Free text, e.g. "Sunday 7 June 2026".
-      time:
+        comment: Sorts the event and places it on the calendar.
+      display_date:
         type: text
+        label: Display date
+        comment: Optional. Overrides how the date reads on the page — use for a
+          range, e.g. "Palm Sunday — Easter Day · 2026". Leave blank to show the
+          date above.
+      time:
+        type: time
         label: Time
-        comment: Optional, e.g. "10:30am" or "6:30pm".
+        comment: Optional.
       where:
         type: text
         label: Where
@@ -255,22 +262,11 @@ collections_config:
           undo: true
           redo: true
           removeformat: true
-      summary:
-        type: textarea
-        label: Summary
-        comment: Short text shown on the events and home page cards.
-      lede:
-        type: textarea
-        label: Lede
-        comment: Opening line on the event page, above the body.
       featured:
         type: switch
         label: Featured
         comment: Show this event in the highlighted slot on the events page.
       slug:
-        type: text
-        hidden: true
-      sortDate:
         type: text
         hidden: true
 

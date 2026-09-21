@@ -1,11 +1,10 @@
 {
   "title": "St Nicholas Workshop for Kids",
   "deck": "Advent crafts, the story of St Nick, and the enthronement of our new Child Bishop.",
-  "date": "December 2025",
+  "date": "2025-12-06",
+  "display_date": "December 2025",
   "time": "",
   "where": "Emmanuel Church",
-  "summary": "Advent crafts, the story of St Nick, and the enthronement of our new Child Bishop — a joyful morning for children of all ages.",
-  "lede": "A joyful morning for children of all ages as we begin our journey through Advent.",
   "body": "<p>A joyful morning for children of all ages: Advent crafts, the story of St Nicholas — the saint behind Father Christmas — and the enthronement of our new Child Bishop.</p>\n<p>Each year we choose a Child Bishop, who works with the ministry team to lead prayers and worship at our special festivals through the year. Come and join the fun!</p>",
   "posters": [
     {
@@ -16,6 +15,5 @@
   ],
   "featured": false,
   "slug": "st-nicholas-workshop",
-  "sortDate": "2025-12-06",
   "_id": "4smu7Ks5k1PWjXUh5Cnlxn"
 }

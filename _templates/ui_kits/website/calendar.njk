@@ -155,8 +155,8 @@ permalink: /ui_kits/website/calendar.html
     // Each event may span multiple dates; we expand them here
     var SPECIAL = [
       {% for ev in events %}
-        {% if ev.sortDate %}
-        {date:"{{ ev.sortDate }}", time:"10:30", title:"{{ ev.title | replace('"', '&quot;') }}", kind:"special", href:"/ui_kits/website/event-{{ ev.slug }}.html"}{% if not loop.last %},{% endif %}
+        {% if ev.date %}
+        {date:"{{ ev.date }}", time:"{{ ev.time if ev.time else '10:30' }}", title:"{{ ev.title | replace('"', '&quot;') }}", kind:"special", href:"/ui_kits/website/event-{{ ev.slug }}.html"}{% if not loop.last %},{% endif %}
         {% endif %}
       {% endfor %}
     ];
@@ -172,7 +172,7 @@ permalink: /ui_kits/website/calendar.html
     var SPANS = [
       {% for ev in events %}
         {% if 'exhibition' in ev.title | lower %}
-        {from:"{{ ev.sortDate }}", to:"{{ ev.sortDate }}", title:"{{ ev.title | replace('"', '&quot;') }}", kind:"exhibition", href:"/ui_kits/website/event-{{ ev.slug }}.html"}{% if not loop.last %},{% endif %}
+        {from:"{{ ev.date }}", to:"{{ ev.date }}", title:"{{ ev.title | replace('"', '&quot;') }}", kind:"exhibition", href:"/ui_kits/website/event-{{ ev.slug }}.html"}{% if not loop.last %},{% endif %}
         {% endif %}
       {% endfor %}
     ];

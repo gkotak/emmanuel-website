@@ -272,7 +272,7 @@ welcome_image_alt: A large, diverse group of parishioners gathered together in t
           </div>
           <div class="em-news-card__body">
             <h3>{{ ev.title }}</h3>
-            <p>{{ ev.summary if ev.summary else ev.deck }}</p>
+            <p>{{ ev.deck }}</p>
             <a href="/ui_kits/website/event-{{ ev.slug }}.html" class="em-readmore">Read more →</a>
           </div>
         </article>

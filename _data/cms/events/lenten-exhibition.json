@@ -1,11 +1,10 @@
 {
   "title": "Lenten Exhibition",
   "deck": "An exhibition open in the church through the closing weeks of Lent — a space to pause, look and reflect.",
-  "date": "Passion Sunday — Good Friday · 2026",
+  "date": "2026-03-22",
+  "display_date": "Passion Sunday — Good Friday · 2026",
   "time": "",
   "where": "Emmanuel Church",
-  "summary": "An exhibition open in the church through the closing weeks of Lent — a space to pause, look and reflect on the journey towards the cross.",
-  "lede": "A quiet space within the church to pause and reflect as we travel together towards the cross.",
   "body": "<p>Through the closing weeks of Lent, an exhibition is open within the church — a quiet space to pause, look and reflect as Holy Week draws near.</p>\n<p>The exhibition is open from Passion Sunday until Good Friday. All are welcome to visit during the church's opening hours; do ask a member of the clergy if you would like to know more.</p>",
   "posters": [
     {
@@ -16,6 +15,5 @@
   ],
   "featured": false,
   "slug": "lenten-exhibition",
-  "sortDate": "2026-03-22",
   "_id": "v8p3KAncgjT5f7voAVWzVn"
 }

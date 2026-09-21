@@ -20,7 +20,6 @@ permalink: /ui_kits/website/event-{{ ev.slug }}.html
   .ed-content h2 { font-family:var(--font-display); font-size:32px; font-weight:var(--fw-medium); color:var(--navy); letter-spacing:-0.015em; margin:0 0 22px; }
   .ed-content p { font-family:var(--font-sans); font-size:17.5px; line-height:1.66; color:var(--ink-soft); margin:0 0 20px; }
   .ed-content p strong { color:var(--ink); font-weight:var(--fw-semibold); }
-  .ed-content .lede { font-family:var(--font-editorial); font-style:italic; font-size:23px; line-height:1.45; color:var(--ink); margin:0 0 26px; letter-spacing:-0.01em; }
   .ed-acts { display:flex; gap:14px; flex-wrap:wrap; }
   .ed-pager { display:flex; justify-content:space-between; gap:20px; border-top:1.5px solid var(--rule-ink); margin-top:8px; padding-top:30px; }
   .ed-pager a { text-decoration:none; max-width:46%; }
@@ -44,8 +43,9 @@ permalink: /ui_kits/website/event-{{ ev.slug }}.html
       <h1>{{ ev.title }}</h1>
       <p class="deck">{{ ev.deck }}</p>
       <div class="meta-row">
-        {% if ev.date %}<div class="item"><div class="k">Date</div><div class="v">{{ ev.date }}</div></div>{% endif %}
-        {% if ev.time %}<div class="item"><div class="k">Time</div><div class="v">{{ ev.time }}</div></div>{% endif %}
+        {% set shownDate = ev.display_date if ev.display_date else (ev.date | eventDate) %}
+        {% if shownDate %}<div class="item"><div class="k">Date</div><div class="v">{{ shownDate }}</div></div>{% endif %}
+        {% if ev.time %}<div class="item"><div class="k">Time</div><div class="v">{{ ev.time | eventTime }}</div></div>{% endif %}
         {% if ev.where %}<div class="item"><div class="k">Where</div><div class="v">{{ ev.where }}</div></div>{% endif %}
       </div>
     </div>
@@ -67,7 +67,6 @@ permalink: /ui_kits/website/event-{{ ev.slug }}.html
         </div>
 
         <div class="ed-content">
-          {% if ev.lede %}<p class="lede">{{ ev.lede }}</p>{% endif %}
           {% if ev.body %}{{ ev.body | safe }}{% endif %}
 
           <div class="ed-acts">

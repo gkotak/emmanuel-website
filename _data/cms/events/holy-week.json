@@ -1,11 +1,10 @@
 {
   "title": "Holy Week at Emmanuel",
   "deck": "Walk the way of the cross with us, from the triumph of Palm Sunday to the joy of Easter morning.",
-  "date": "Palm Sunday — Easter Day · 2026",
+  "date": "2026-03-29",
+  "display_date": "Palm Sunday — Easter Day · 2026",
   "time": "",
   "where": "Emmanuel & St Cuthbert's",
-  "summary": "Walk the way of the cross with us, from Palm Sunday through to the joy of Easter morning — with services held jointly at Emmanuel and St Cuthbert's.",
-  "lede": "The heart of the Christian year — the journey with Christ through his Passion, death and resurrection.",
   "body": "<p>Holy Week takes us with Jesus from the triumph of Palm Sunday, through the Last Supper and the cross of Good Friday, to the empty tomb on Easter morning.</p>\n<p>Services are held jointly between Emmanuel and St Cuthbert's churches. The full schedule for each day — Palm Sunday, Daily Mass, Maundy Thursday, Good Friday and Easter Sunday — is shown on the poster.</p>\n<p>All are welcome at every service. Do come and keep these holy days with us.</p>",
   "posters": [
     {
@@ -16,6 +15,5 @@
   ],
   "featured": false,
   "slug": "holy-week",
-  "sortDate": "2026-03-29",
   "_id": "v8p3KAncgjT5f7voAVWz8Q"
 }

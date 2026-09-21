@@ -1,11 +1,10 @@
 {
   "title": "Corpus Christi — our Patronal Festival",
   "deck": "We keep our Patronal Festival at Corpus Christi — the feast of \"God with us,\" from which Emmanuel takes its name.",
-  "date": "Sunday 7 June 2026",
+  "date": "2026-06-07",
+  "display_date": "",
   "time": "",
   "where": "Emmanuel Church & garden",
-  "summary": "Join us after the special 10:30 Sung Mass for a Bring & Share BBQ, and Choral Evensong at 6:30pm.",
-  "lede": "A day of thanksgiving, food and music as we celebrate the feast from which our church takes its name.",
   "body": "<p>Emmanuel keeps its Patronal Festival at Corpus Christi — the feast of the Body of Christ, and of \"God with us,\" the name our church carries.</p>\n<p>We begin with a special Sung Mass at 10:30, after which everyone is warmly invited to stay for a Bring & Share BBQ. Bring a side, a dessert or a soft drink to share — and a picnic blanket for the garden.</p>\n<p>The festival closes with Choral Evensong at 6:30pm, sung by our parish choir.</p>",
   "posters": [
     {
@@ -21,6 +20,5 @@
   ],
   "featured": true,
   "slug": "corpus-christi",
-  "sortDate": "2026-06-07",
   "_id": "4smu7Ks5k1PWjXUh5Cnjz2"
 }
