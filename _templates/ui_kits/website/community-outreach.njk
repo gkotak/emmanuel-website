@@ -131,9 +131,9 @@ aside_image_alt: Food donations collected at Emmanuel
         {% for para in intro_paragraphs %}
           <p{% if loop.first %} class="em-lead"{% endif %} data-editable="array-item">
             <span data-editable="text" data-prop="text" data-type="html">{{ (para.text if para.text else para) | safe }}</span>
-          <p></p>
+          </p>
         {% endfor %}
-        </p{% if loop.first %}</div>
+        </div>
 
         <div data-editable="array" data-prop="projects">
         {% for project in projects %}
