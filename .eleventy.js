@@ -101,24 +101,36 @@ module.exports = function (eleventyConfig) {
   // Consecutive runs collapse into a range: Mon,Tue,Wed,Thu -> "Mon–Thu".
   // Event date/time display. `date` is a real ISO date so it can sort and feed
   // the calendar; these render it for the page when no display override is set.
-  eleventyConfig.addFilter('eventDate', (iso) => {
-    if (!iso) return ''
-    const d = new Date(iso + 'T00:00:00Z')
-    if (isNaN(d)) return iso
+  eleventyConfig.addFilter('eventDate', (value) => {
+    if (!value) return ''
+    const d = new Date(/T/.test(value) ? value : value + 'T00:00:00Z')
+    if (isNaN(d)) return value
     return d.toLocaleDateString('en-GB', {
       weekday: 'long', day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC',
     }).replace(',', '')
   })
 
-  eleventyConfig.addFilter('eventTime', (t) => {
-    if (!t) return ''
-    const m = /^(\d{1,2}):(\d{2})/.exec(t)
-    if (!m) return t
+  // Time comes from the same datetime as the date. Midnight means "no time
+  // given", so it renders as nothing rather than "12am".
+  eleventyConfig.addFilter('eventTime', (value) => {
+    if (!value) return ''
+    const m = /T(\d{2}):(\d{2})/.exec(value)
+    if (!m) return ''
     let h = Number(m[1])
     const min = m[2]
+    if (h === 0 && min === '00') return ''
     const suffix = h >= 12 ? 'pm' : 'am'
     h = h % 12 || 12
     return min === '00' ? `${h}${suffix}` : `${h}:${min}${suffix}`
+  })
+
+  // "2026-06-07T18:30:00Z" -> "2026-06-07", for the calendar.
+  eleventyConfig.addFilter('isoDate', (value) => String(value || '').slice(0, 10))
+
+  // "2026-06-07T18:30:00Z" -> "18:30", for the calendar.
+  eleventyConfig.addFilter('isoTime', (value) => {
+    const m = /T(\d{2}:\d{2})/.exec(String(value || ''))
+    return m ? m[1] : ''
   })
 
   eleventyConfig.addFilter('dayLabel', (days) => {

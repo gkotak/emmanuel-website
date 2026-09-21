@@ -220,7 +220,7 @@ collections_config:
       - deck
       - date
       - display_date
-      - time
+      - display_time
       - where
       - body
       - posters
@@ -232,19 +232,20 @@ collections_config:
         comment: Shown under the title on the event page, and as the description
           on the events and home page cards.
       date:
-        type: date
-        label: Date
-        comment: Sorts the event and places it on the calendar.
+        type: datetime
+        label: Date & time
+        comment: When the event happens. Sorts the event and places it on the
+          calendar. Leave the time at 00:00 if there is no set time.
       display_date:
         type: text
-        label: Display date
-        comment: Optional. Overrides how the date reads on the page — use for a
-          range, e.g. "Palm Sunday — Easter Day · 2026". Leave blank to show the
-          date above.
-      time:
-        type: time
-        label: Time
-        comment: Optional.
+        label: Display date (optional)
+        comment: Overrides how the date reads on the page — use for a range, e.g.
+          "Palm Sunday — Easter Day · 2026". Leave blank to show the date above.
+      display_time:
+        type: text
+        label: Display time (optional)
+        comment: Overrides how the time reads, e.g. "10:30 Mass & 6:30pm Evensong".
+          Leave blank to show the time above.
       where:
         type: text
         label: Where
