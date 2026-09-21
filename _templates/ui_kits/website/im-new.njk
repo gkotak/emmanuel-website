@@ -44,6 +44,7 @@ callout_heading: Still have a question?
 callout_body: >-
     Don't hesitate to contact a member of the clergy if you'd like to learn more.
 hero_image: /assets/cms/site-images/imnew-hero.jpg
+hero_image_alt: The congregation gathered for worship beneath the flags of the nations
 featured_services:
     -
         slug: joyful-noise-eucharist
@@ -134,7 +135,7 @@ access_cards:
 
   <!-- Hero -->
   <section class="em-hero welcome-hero">
-    <div class="em-hero__bg" style="background-image:url('{{ hero_image }}');background-position:center 60%"></div>
+    <div class="em-hero__bg" style="background-image:url('{{ hero_image }}');background-position:center 60%" role="img" aria-label="{{ hero_image_alt }}"></div>
     <div class="em-hero__scrim"></div>
     <div class="em-hero__content">
       <h1 data-editable="text" data-prop="headline" data-type="span">{{ headline }}</h1>
