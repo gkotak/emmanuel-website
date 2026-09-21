@@ -63,26 +63,47 @@ sunday_915:
       body: Parents and carers stay together with their children throughout — there's singing, movement and a short, simple talk.
     - heading: Sign in for next time
       body: On your first visit you'll fill out a short form. If you make Emmanuel your church home, we'll add their details to ChurchSuite for future signing-in.
-  room_heading: The Harold Darke Room
-  room_body: Children of all ages are truly welcome at every service. For those who need a break, this room — next to the kitchen at the back of the church — has books and toys, and is specifically set aside for children under 4. Come and go as you need.
-  room_image: /assets/cms/site-images/room-hire-1.jpg
-  room_image_alt: A quiet room set aside for young children, with books and toys
-feature:
-  eyebrow: Thursdays in term time
-  heading: Stay and Play
-  body_paragraphs:
-    - Stay and Play happens every Thursday in term time, 9:30 to 11:00am. This
-      is a relaxed, friendly drop-in session with loads of great toys and
-      usually a bit of a sing-song at the end.
-    - It's a great way to meet other local parents and carers, and to get
-      answers to questions about life in West Hampstead with kids. Coffee, toast
-      and healthy snacks are provided, and one of the clergy or our youth worker
-      is always around to host.
-    - All babies, toddlers and pre-school age children, together with their
-      parents and carers, are warmly welcome — with plenty of tea and coffee for
-      the adults.
-  image: /assets/children-families.jpg
-  image_alt: Children gathered at the altar steps with clergy during an all-age service
+midweek:
+  - eyebrow: Thursdays in term time
+    heading: Stay and Play
+    body_paragraphs:
+      - Stay and Play happens every Thursday in term time, 9:30 to 11:00am. This
+        is a relaxed, friendly drop-in session with loads of great toys and
+        usually a bit of a sing-song at the end.
+      - It's a great way to meet other local parents and carers, and to get
+        answers to questions about life in West Hampstead with kids. Coffee, toast
+        and healthy snacks are provided, and one of the clergy or our youth worker
+        is always around to host.
+      - All babies, toddlers and pre-school age children, together with their
+        parents and carers, are warmly welcome — with plenty of tea and coffee for
+        the adults.
+    image: /assets/children-families.jpg
+    image_alt: Children gathered at the altar steps with clergy during an all-age service
+  - eyebrow: Throughout the year
+    heading: Seasonal workshops
+    body_paragraphs:
+      - In addition to our regular Sunday offerings, we run a number of seasonal
+        workshops through the year — from our St Nicholas' workshop in Advent
+        right through to Good Friday.
+      - These arts and crafts workshops are open to children of all ages.
+        They're great fun, and always include a suitable amount of messy craft!
+    image: ''
+    image_alt: ''
+  - eyebrow: Tuesdays
+    heading: Cubs & Scouts
+    body_paragraphs:
+      - The West Hampstead Cubs & Scouts group. Cubs & Scouts meet at 6:30pm
+        on Tuesdays at St Cuthbert's.
+    image: /assets/cms/site-images/cubs-scouts.jpg
+    image_alt: The West Hampstead Cubs and Scouts group
+  - eyebrow: For teenagers
+    heading: Youth Group
+    body_paragraphs:
+      - Details to follow.
+    image: ''
+    image_alt: ''
+school_link_label: Find details here
+school_link_href: emmanuel-school.html
 callout_heading: Come and join us.
 callout_body: Whether on a Sunday morning or at Thursday's Stay and Play, we'd
   love to welcome you and your family to Emmanuel.
@@ -103,13 +124,6 @@ callout_body: Whether on a Sunday morning or at Thursday's Stay and Play, we'd
   .cf-intro .lead-para,
   .cf-intro .intro-body > p:first-child { font-family: var(--font-editorial); font-size: 30px; line-height: 1.34; color: var(--ink); font-style: italic; margin: 0 0 30px; letter-spacing: -0.01em; }
   .cf-intro p { font-family: var(--font-sans); font-size: var(--fs-body); line-height: var(--lh-relaxed); color: var(--ink-soft); margin: 0 0 22px; }
-
-  .cf-glance { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-top: 48px; border-top: 1px solid var(--line); padding-top: 40px; }
-  .cf-glance .item { padding: 0 32px; border-right: 1px solid var(--line); }
-  .cf-glance .item:first-child { padding-left: 0; }
-  .cf-glance .item:last-child { border-right: none; }
-  .cf-glance .k { font-family: var(--font-display); font-size: 20px; font-weight: 600; color: var(--navy); margin: 0 0 8px; }
-  .cf-glance .v { font-size: 14.5px; line-height: 1.55; color: var(--ink-soft); margin: 0; }
 
   .cf-sunday { padding: 110px var(--gutter); background: var(--cream); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
   .cf-sunday + .cf-sunday { border-top: none; }
@@ -143,17 +157,19 @@ callout_body: Whether on a Sunday morning or at Thursday's Stay and Play, we'd
   .cf-room .media { min-height: 280px; }
   .cf-room .media img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-  .cf-feature { padding: 110px var(--gutter); }
-  .cf-feature.is-band { background: var(--paper-warm); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-  .cf-feature .inner { max-width: 1320px; margin: 0 auto; }
-  .cf-feature .em-feature .media { aspect-ratio: 4/3; }
+  .cf-midweekhead { padding: 90px var(--gutter) 0; max-width: 1320px; margin: 0 auto; }
+  .cf-midweekhead h2 { font-family: var(--font-display); font-size: 44px; font-weight: 500; color: var(--navy); margin: 14px 0 0; letter-spacing: -0.015em; line-height: 1.02; }
 
-  .cf-admissions { padding: 100px var(--gutter); }
+  .cf-admissions { padding: 90px var(--gutter) 0; }
   .cf-admissions .inner { max-width: 1320px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
   .cf-admissions h2 { font-family: var(--font-display); font-size: 40px; font-weight: 500; color: var(--navy); margin: 14px 0 0; letter-spacing: -0.015em; line-height: 1.05; }
   .cf-admissions p { font-size: var(--fs-body); line-height: var(--lh-relaxed); color: var(--ink-soft); margin: 0 0 20px; }
   .cf-admissions p a { color: var(--brown); text-decoration: underline; text-underline-offset: 3px; }
-  .placeholder-link { color: var(--brown); border-bottom: 1px dashed var(--brown-soft); font-style: italic; }
+  .cf-admissions .media { margin-top: 18px; aspect-ratio: 4/3; }
+
+  .cf-schoolsection { padding: 90px var(--gutter) 100px; }
+  .cf-schoolsection .inner { max-width: 1320px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+  .cf-schoolsection h2 { font-family: var(--font-display); font-size: 40px; font-weight: 500; color: var(--navy); margin: 14px 0 0; letter-spacing: -0.015em; line-height: 1.05; }
 
   .cf-dbs { display: flex; align-items: flex-start; gap: 28px; padding: 40px 44px; background: var(--cream); border: 1px solid var(--line); margin-top: 8px; }
   .cf-dbs .ic { width: 56px; height: 56px; flex-shrink: 0; color: var(--brown); margin-top: 2px; }
@@ -166,9 +182,7 @@ callout_body: Whether on a Sunday morning or at Thursday's Stay and Play, we'd
     .cf-photorow { grid-template-columns: 1fr; gap: 16px; }
     .cf-steps { grid-template-columns: 1fr; gap: 16px; }
     .cf-admissions .inner { grid-template-columns: 1fr; gap: 36px; }
-    .cf-glance { grid-template-columns: 1fr; gap: 24px; }
-    .cf-glance .item { padding: 0; border-right: none; border-bottom: 1px solid var(--line); padding-bottom: 20px; }
-    .cf-glance .item:last-child { border-bottom: none; padding-bottom: 0; }
+    .cf-schoolsection .inner { grid-template-columns: 1fr; gap: 36px; }
     .cf-room { grid-template-columns: 1fr; }
     .cf-room .media { min-height: 200px; order: -1; }
     .cf-dbs { flex-direction: column; align-items: flex-start; gap: 12px; }
@@ -192,6 +206,10 @@ callout_body: Whether on a Sunday morning or at Thursday's Stay and Play, we'd
       </div>
       <h1 data-editable="text" data-prop="headline" data-type="span">{{ headline }}</h1>
       <p class="deck" data-editable="text" data-prop="deck" data-type="text">{{ deck }}</p>
+      <div class="meta-row">
+        <div class="item"><div class="k">10:30</div><div class="v">Children &amp; Youth</div></div>
+        <div class="item"><div class="k">9:15</div><div class="v">Joyful Noise</div></div>
+      </div>
     </div>
   </section>
 
@@ -205,20 +223,6 @@ callout_body: Whether on a Sunday morning or at Thursday's Stay and Play, we'd
             <span data-editable="text" data-prop="text" data-type="text">{{ para.text if para.text else para }}</span>
           </p>
         {% endfor %}
-        </div>
-      </div>
-      <div class="cf-glance">
-        <div class="item">
-          <div class="k">Sundays, 10:30</div>
-          <p class="v">Children's &amp; Youth Church (ages 4–11), term time</p>
-        </div>
-        <div class="item">
-          <div class="k">Joyful Noise</div>
-          <p class="v">Sundays 9:15, for pre-schoolers</p>
-        </div>
-        <div class="item">
-          <div class="k">Stay &amp; Play</div>
-          <p class="v">Thursdays 9:30–11:00am, term time</p>
         </div>
       </div>
       <a href="service-times.html" class="em-readmore" style="margin-top:24px">See all service times →</a>
@@ -298,63 +302,31 @@ callout_body: Whether on a Sunday morning or at Thursday's Stay and Play, we'd
           </div>
           {% endfor %}
         </div>
-        <div class="cf-room">
-          <div class="txt">
-            <h3>{{ sunday_915.room_heading }}</h3>
-            <p>{{ sunday_915.room_body }}</p>
-          </div>
-          <div class="media"><img src="{{ sunday_915.room_image }}" alt="{{ sunday_915.room_image_alt }}" /></div>
-        </div>
       </section>
     </div>
   </section>
 
-  <!-- Stay and Play -->
-  <section class="cf-feature is-band">
-    <div class="inner">
-      <div class="em-feature">
-        <div class="media em-well"><img src="{{ feature.image }}" alt="{{ feature.image_alt }}" /></div>
-        <div>
-          <div class="em-ornament is-leading" data-editable="text" data-prop="feature.eyebrow" data-type="span">{{ feature.eyebrow }}</div>
-          <h2 data-editable="text" data-prop="feature.heading" data-type="span">{{ feature.heading }}</h2>
-          {% for para in feature.body_paragraphs %}
-          <p>{{ para.text if para.text else para }}</p>
-          {% endfor %}
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Seasonal workshops -->
+  <!-- Midweek Activities -->
+  <div class="cf-midweekhead">
+    <div class="em-ornament is-leading">Midweek Activities</div>
+  </div>
+  {% for item in midweek %}
   <section class="cf-admissions" style="padding: 90px var(--gutter) 0;">
     <div class="inner">
       <div>
-        <div class="em-ornament is-leading">Throughout the year</div>
-        <h2>Seasonal workshops</h2>
+        <div class="em-ornament is-leading">{{ item.eyebrow }}</div>
+        <h2>{{ item.heading }}</h2>
       </div>
       <div>
-        <p>In addition to our regular Sunday offerings, we run a number of seasonal workshops through the year — from our St Nicholas' workshop in Advent right through to Good Friday.</p>
-        <p>These arts and crafts workshops are open to children of all ages. They're great fun, and always include a suitable amount of messy craft!</p>
+        {% for para in item.body_paragraphs %}<p>{{ para.text if para.text else para }}</p>{% endfor %}
+        {% if item.image %}<div class="media em-well"><img src="{{ item.image }}" alt="{{ item.image_alt }}" /></div>{% endif %}
       </div>
     </div>
   </section>
-
-  <!-- Cubs & Scouts -->
-  <section class="cf-admissions" style="padding: 90px var(--gutter) 0;">
-    <div class="inner">
-      <div>
-        <div class="em-ornament is-leading">Tuesdays</div>
-        <h2>Cubs &amp; Scouts</h2>
-      </div>
-      <div>
-        <p>The West Hampstead Cubs &amp; Scouts group. Cubs &amp; Scouts meet at 6:30pm on Tuesdays at St Cuthbert's.</p>
-        <div class="media em-well" style="margin-top:18px"><img src="/assets/cms/site-images/cubs-scouts.jpg" alt="The West Hampstead Cubs and Scouts group" /></div>
-      </div>
-    </div>
-  </section>
+  {% endfor %}
 
   <!-- Safeguarding note -->
-  <section style="padding: 80px var(--gutter) 0;">
+  <section style="padding: 90px var(--gutter) 0;">
     <div style="max-width:1320px;margin:0 auto">
       <div class="cf-dbs">
         <div class="ic"><svg viewbox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z" /><path d="M9 12l2 2 4-4" /></svg></div>
@@ -363,16 +335,15 @@ callout_body: Whether on a Sunday morning or at Thursday's Stay and Play, we'd
     </div>
   </section>
 
-  <!-- School admissions -->
-  <section class="cf-admissions">
+  <!-- School Admissions -->
+  <section class="cf-schoolsection">
     <div class="inner">
       <div>
-        <div class="em-ornament is-leading">For school applications</div>
+        <div class="em-ornament is-leading">School Admissions</div>
         <h2>Church attendance &amp; CofE school admissions</h2>
       </div>
       <div>
-        <p>If you are considering applying to a Church of England primary or secondary school, please make sure you read the admissions policy of the school, because their criteria vary. <a href="#" class="placeholder-link">Admissions Policy for Emmanuel CofE Primary School — link to follow</a>.</p>
-        <p>If you would like to register your child's attendance for the purposes of school applications, please make sure your child is registered with us on ChurchSuite. You will then be able to sign them in at any of our Sunday services. If you have any questions about registering your child, please contact the parish office.</p>
+        <a href="{{ school_link_href }}" class="em-readmore">{{ school_link_label }} →</a>
       </div>
     </div>
   </section>
