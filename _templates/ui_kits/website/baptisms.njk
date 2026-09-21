@@ -51,9 +51,9 @@ callout_body: Whatever your age, there is a place for you in the family of God a
   .bp-sacraments .inner { max-width: 1320px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px; }
   .bp-sacrament { display: grid; grid-template-columns: 1fr 420px; gap: 0; align-items: stretch; background: var(--cream); border: 1px solid var(--line); overflow: hidden; }
   .bp-sacrament__text { padding: 40px 44px; display: flex; flex-direction: column; justify-content: center; }
-  .bp-sacrament__text .tag { display: inline-block; align-self: flex-start; font-size: 11px; font-weight: var(--fw-bold); letter-spacing: 0.18em; text-transform: uppercase; color: var(--brown); margin-bottom: 12px; }
-  .bp-sacrament__text h3 { font-family: var(--font-display); font-size: 32px; font-weight: var(--fw-semibold); color: var(--navy); margin: 0 0 14px; line-height: 1.12; }
-  .bp-sacrament__text p { font-size: var(--fs-body); line-height: var(--lh-relaxed); color: var(--ink-soft); margin: 0; }
+  .bp-sacrament__text .em-ornament { margin-bottom: 14px; }
+  .bp-sacrament__text h2 { font-family: var(--font-display); font-size: var(--fs-h2); font-weight: var(--fw-medium); color: var(--navy); margin: 0 0 20px; line-height: 1.04; letter-spacing: -0.015em; }
+  .bp-sacrament__text p { font-size: var(--fs-lead); line-height: var(--lh-relaxed); color: var(--ink-soft); margin: 0; }
   .bp-sacrament__media { position: relative; background: var(--paper); }
   .bp-slide { margin: 0; height: 100%; }
   .bp-slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
@@ -78,7 +78,8 @@ callout_body: Whatever your age, there is a place for you in the family of God a
     .bp-sacrament__text { padding: 28px 24px; order: 2; }
     .bp-sacrament__media { order: 1; }
     .bp-sacrament__media > .bp-slide, .bp-slider { min-height: 0; aspect-ratio: 16/10; }
-    .bp-sacrament__text h3 { font-size: 26px; }
+    .bp-sacrament__text h2 { font-size: 32px; }
+    .bp-sacrament__text p { font-size: var(--fs-body); }
   }
   @media (prefers-reduced-motion: reduce) {
     .bp-slider__track { transition: none; }
@@ -116,8 +117,8 @@ callout_body: Whatever your age, there is a place for you in the family of God a
       {% for card in sacrament_cards %}
       <article class="bp-sacrament" data-editable="array-item">
         <div class="bp-sacrament__text">
-          {% if card.eyebrow %}<span class="tag" data-editable="text" data-prop="eyebrow" data-type="span">{{ card.eyebrow }}</span>{% endif %}
-          {% if card.title %}<h3 data-editable="text" data-prop="title" data-type="span">{{ card.title }}</h3>{% endif %}
+          {% if card.eyebrow %}<div class="em-ornament is-leading" data-editable="text" data-prop="eyebrow" data-type="span">{{ card.eyebrow }}</div>{% endif %}
+          {% if card.title %}<h2 data-editable="text" data-prop="title" data-type="span">{{ card.title }}</h2>{% endif %}
           {% if card.body %}<p data-editable="text" data-prop="body" data-type="text">{{ card.body }}</p>{% endif %}
         </div>
         {% if card.images and card.images.length %}
