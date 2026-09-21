@@ -121,7 +121,7 @@ collections_config:
       - contact.njk
       - donations.njk
       - emmanuel-school.njk
-      - food-bank.njk
+      - community-outreach.njk
       - funerals.njk
       - history.njk
       - im-new.njk
@@ -287,6 +287,16 @@ _inputs:
   intro_image_alt:
     type: text
     label: Alt text
+  help_heading:
+    type: text
+    label: Help card heading
+  help_body:
+    type: textarea
+    label: Help card text
+  help_link_label:
+    type: text
+    label: Help card button
+    comment: Links to the Contact page.
   aside_image:
     type: image
     options:
