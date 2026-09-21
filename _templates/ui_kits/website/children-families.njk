@@ -12,22 +12,57 @@ intro_paragraphs:
       children and young people through Children''s & Youth Church, singing in
       the choir, joining the serving team, and helping to lead the readings and
       intercessions at our monthly intergenerational worship."'
-cards:
-  - eyebrow: Ages 4–11 · Godly Play
-    title: Children's Church
-    body: Throughout term time, Children's Church meets during the 10:30 Sunday
-      service. Our curriculum follows the Godly Play method of Bible
-      storytelling — an approach which seeks to inspire curiosity and wonder in
-      our younger members. It fosters a sense of the overwhelming love God has
-      for all God's people, helping each child discover their own place in the
-      story of faith.
-  - eyebrow: Ages 9–11 · Up to Year 7
-    title: Youth Church
-    body: Youth Church typically involves some games, music and a lively exploration
-      of the Gospel of the Day, or a chosen topic for the term.  Older children
-      are welcome to join, but we find that by Year 7 they tend to be ready to
-      join us for the service in church — singing, serving, or leading prayers
-      and readings.
+sunday_1030:
+  eyebrow: Sundays at Emmanuel
+  heading: Children's & Youth Church
+  cards:
+    - eyebrow: Ages 4–11 · Godly Play
+      title: Children's Church
+      body: Throughout term time, Children's Church meets during the 10:30 Sunday
+        service. Our curriculum follows the Godly Play method of Bible
+        storytelling — an approach which seeks to inspire curiosity and wonder in
+        our younger members. It fosters a sense of the overwhelming love God has
+        for all God's people, helping each child discover their own place in the
+        story of faith.
+    - eyebrow: Ages 9–11 · Up to Year 7
+      title: Youth Church
+      body: Youth Church typically involves some games, music and a lively exploration
+        of the Gospel of the Day, or a chosen topic for the term.  Older children
+        are welcome to join, but we find that by Year 7 they tend to be ready to
+        join us for the service in church — singing, serving, or leading prayers
+        and readings.
+  steps:
+    - heading: Arrive & be welcomed
+      body: Our children's groups meet in the church building. A welcomer will guide you if you or your child are unsure of where to go.
+    - heading: Off to their groups
+      body: Children are invited to go to their groups during the opening hymn, and re-join their families at the distribution of Holy Communion.
+    - heading: Sign in for next time
+      body: On your first visit you'll fill out a short form. If you make Emmanuel your church home, we'll add their details to ChurchSuite for future signing-in.
+  room_heading: The Harold Darke Room
+  room_body: Children of all ages are truly welcome at every service. For those who need a break, this room — next to the kitchen at the back of the church — has books and toys, and is specifically set aside for children under 4. Come and go as you need.
+  room_image: /assets/cms/site-images/room-hire-1.jpg
+  room_image_alt: A quiet room set aside for young children, with books and toys
+sunday_915:
+  eyebrow: Sundays at Emmanuel
+  heading: Joyful Noise
+  cards:
+    - eyebrow: Ages 0–4 · Pre-schoolers
+      title: Joyful Noise
+      body: Joyful Noise is our lively, informal 9:15 service for pre-school
+        children and their families, with music, movement and storytelling
+        woven into a short, playful celebration of the Mass. It runs during
+        term time.
+  steps:
+    - heading: Arrive & be welcomed
+      body: Joyful Noise meets in the church building. A welcomer will guide you if you or your child are unsure of where to go.
+    - heading: Join in together
+      body: Parents and carers stay together with their children throughout — there's singing, movement and a short, simple talk.
+    - heading: Sign in for next time
+      body: On your first visit you'll fill out a short form. If you make Emmanuel your church home, we'll add their details to ChurchSuite for future signing-in.
+  room_heading: The Harold Darke Room
+  room_body: Children of all ages are truly welcome at every service. For those who need a break, this room — next to the kitchen at the back of the church — has books and toys, and is specifically set aside for children under 4. Come and go as you need.
+  room_image: /assets/cms/site-images/room-hire-1.jpg
+  room_image_alt: A quiet room set aside for young children, with books and toys
 feature:
   eyebrow: Thursdays in term time
   heading: Stay and Play
@@ -60,35 +95,45 @@ callout_body: Whether on a Sunday morning or at Thursday's Stay and Play, we'd
   body { margin: 0; background: var(--paper); font-family: var(--font-sans); color: var(--ink); -webkit-font-smoothing: antialiased; }
 
   .cf-intro { padding: 96px var(--gutter) 100px; }
-  .cf-intro .inner { max-width: 1320px; margin: 0 auto; display: grid; grid-template-columns: 1fr 380px; gap: 80px; align-items: start; }
+  .cf-intro .inner { max-width: 1320px; margin: 0 auto; }
   .cf-intro .lead-para,
   .cf-intro .intro-body > p:first-child { font-family: var(--font-editorial); font-size: 30px; line-height: 1.34; color: var(--ink); font-style: italic; margin: 0 0 30px; letter-spacing: -0.01em; }
   .cf-intro p { font-family: var(--font-sans); font-size: var(--fs-body); line-height: var(--lh-relaxed); color: var(--ink-soft); margin: 0 0 22px; }
 
+  .cf-glance { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-top: 48px; border-top: 1px solid var(--line); padding-top: 40px; }
+  .cf-glance .item { padding: 0 32px; border-right: 1px solid var(--line); }
+  .cf-glance .item:first-child { padding-left: 0; }
+  .cf-glance .item:last-child { border-right: none; }
+  .cf-glance .k { font-family: var(--font-display); font-size: 20px; font-weight: 600; color: var(--navy); margin: 0 0 8px; }
+  .cf-glance .v { font-size: 14.5px; line-height: 1.55; color: var(--ink-soft); margin: 0; }
+
   .cf-sunday { padding: 110px var(--gutter); background: var(--cream); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .cf-sunday + .cf-sunday { border-top: none; }
   .cf-sunday .inner { max-width: 1320px; margin: 0 auto; }
   .cf-grouphead { max-width: 760px; margin-bottom: 52px; }
   .cf-grouphead h2 { font-family: var(--font-editorial); font-style: normal; font-size: 60px; font-weight: 500; color: var(--navy); margin: 14px 0 0; letter-spacing: -0.02em; line-height: 1; }
   .cf-twocol { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+  .cf-twocol.is-solo { grid-template-columns: 1fr; }
   .cf-card { background: #fff; border: 1px solid var(--line); padding: 40px 38px; }
   .cf-card .ages { font-family: var(--font-sans); font-size: 11px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--brown); }
   .cf-card h3 { font-family: var(--font-display); font-size: 30px; font-weight: 600; color: var(--navy); margin: 10px 0 16px; letter-spacing: -0.01em; }
   .cf-card p { font-size: 15px; line-height: 1.6; color: var(--ink-soft); margin: 0 0 16px; }
-  .cf-pattern { display: flex; gap: 40px; margin-top: 44px; flex-wrap: wrap; }
-  .cf-pattern .pat { display: flex; gap: 16px; align-items: baseline; }
-  .cf-pattern .pat .o { font-family: var(--font-display); font-size: 32px; color: var(--brown); font-style: italic; line-height: 1; }
-  .cf-pattern .pat .txt { font-size: 14.5px; color: var(--ink-soft); line-height: 1.45; max-width: 260px; }
-  .cf-pattern .pat .txt b { color: var(--navy); font-weight: 600; display: block; font-family: var(--font-display); font-size: 18px; margin-bottom: 2px; }
 
-  .cf-expect { padding: 110px var(--gutter); }
-  .cf-expect .inner { max-width: 1320px; margin: 0 auto; }
-  .cf-expect .head { max-width: 760px; margin-bottom: 56px; }
+  .cf-expect { padding: 64px 0 0; }
+  .cf-expect .head { margin-bottom: 40px; }
   .cf-expect .head h2 { font-family: var(--font-display); font-size: var(--fs-h2); font-weight: 500; color: var(--navy); margin: 14px 0 0; letter-spacing: -0.015em; line-height: 1.02; }
-  .cf-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-bottom: 56px; }
+  .cf-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-bottom: 44px; }
   .cf-step { border-top: 2px solid var(--brown); padding-top: 22px; }
   .cf-step .n { font-family: var(--font-display); font-size: 18px; font-style: italic; color: var(--brown); margin-bottom: 12px; }
   .cf-step h4 { font-family: var(--font-display); font-size: 22px; font-weight: 600; color: var(--navy); margin: 0 0 10px; }
   .cf-step p { font-size: 14.5px; line-height: 1.6; color: var(--ink-soft); margin: 0; }
+
+  .cf-room { display: grid; grid-template-columns: 1fr 1fr; background: var(--paper-warm); border: 1px solid var(--line); }
+  .cf-room .txt { padding: 56px var(--gutter-wide,48px); display: flex; flex-direction: column; justify-content: center; }
+  .cf-room h3 { font-family: var(--font-display); font-size: 30px; font-weight: 600; color: var(--navy); margin: 0 0 14px; letter-spacing: -0.01em; }
+  .cf-room p { font-size: 16px; line-height: 1.6; color: var(--ink-soft); margin: 0; }
+  .cf-room .media { min-height: 280px; }
+  .cf-room .media img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
   .cf-feature { padding: 110px var(--gutter); }
   .cf-feature.is-band { background: var(--paper-warm); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
@@ -112,7 +157,11 @@ callout_body: Whether on a Sunday morning or at Thursday's Stay and Play, we'd
     .cf-twocol { grid-template-columns: 1fr; gap: 20px; }
     .cf-steps { grid-template-columns: 1fr; gap: 16px; }
     .cf-admissions .inner { grid-template-columns: 1fr; gap: 36px; }
-    .cf-pattern { flex-direction: column; gap: 16px; }
+    .cf-glance { grid-template-columns: 1fr; gap: 24px; }
+    .cf-glance .item { padding: 0; border-right: none; border-bottom: 1px solid var(--line); padding-bottom: 20px; }
+    .cf-glance .item:last-child { border-bottom: none; padding-bottom: 0; }
+    .cf-room { grid-template-columns: 1fr; }
+    .cf-room .media { min-height: 200px; order: -1; }
     .cf-dbs { flex-direction: column; align-items: flex-start; gap: 12px; }
   }
 </style>
@@ -125,7 +174,7 @@ callout_body: Whether on a Sunday morning or at Thursday's Stay and Play, we'd
 {% include "header.njk" %}
 
   <!-- Page head -->
-  <section class="em-pagehead" style="border-bottom:none; padding-bottom:0;">
+  <section class="em-pagehead em-pagehead--band">
     <div class="inner">
       <div class="em-breadcrumb">
         <a href="index.html">Home</a><span class="sep">/</span>
@@ -149,74 +198,105 @@ callout_body: Whether on a Sunday morning or at Thursday's Stay and Play, we'd
         {% endfor %}
         </div>
       </div>
-      <aside class="em-aside">
-        <div class="em-aside-card">
-          <h4>At a glance</h4>
-          <p><b style="color:var(--ink)">Sundays, 10:30</b><br />Children's &amp; Youth Church (ages 4–11), term time</p>
-          <p><b style="color:var(--ink)">Joyful Noise</b><br />Sundays 9:15, for pre-schoolers</p>
-          <p><b style="color:var(--ink)">Stay &amp; Play</b><br />Thursdays 9:30–11:00am, term time</p>
-          <a href="service-times.html" class="em-readmore" style="margin-top:4px">See all service times →</a>
+      <div class="cf-glance">
+        <div class="item">
+          <div class="k">Sundays, 10:30</div>
+          <p class="v">Children's &amp; Youth Church (ages 4–11), term time</p>
         </div>
-      </aside>
+        <div class="item">
+          <div class="k">Joyful Noise</div>
+          <p class="v">Sundays 9:15, for pre-schoolers</p>
+        </div>
+        <div class="item">
+          <div class="k">Stay &amp; Play</div>
+          <p class="v">Thursdays 9:30–11:00am, term time</p>
+        </div>
+      </div>
+      <a href="service-times.html" class="em-readmore" style="margin-top:24px">See all service times →</a>
     </div>
   </section>
 
-  <!-- Sundays -->
+  <!-- Sundays 10:30 -->
   <section class="cf-sunday">
     <div class="inner">
       <div class="cf-grouphead">
-        <div class="em-ornament is-leading">Sundays at Emmanuel</div>
-        <h2>Children's &amp; Youth Church</h2>
+        <div class="em-ornament is-leading">{{ sunday_1030.eyebrow }}</div>
+        <h2>{{ sunday_1030.heading }}</h2>
       </div>
-      <div class="cf-twocol" data-editable="array" data-prop="cards">
-        {% for card in cards %}
-        <div class="cf-card" data-editable="array-item">
-          {% if card.eyebrow %}<div class="ages" data-editable="text" data-prop="eyebrow" data-type="span">{{ card.eyebrow }}</div>{% endif %}
-          {% if card.title %}<h3 data-editable="text" data-prop="title" data-type="span">{{ card.title }}</h3>{% endif %}
-          {% for para in card.body.split("\n\n") %}<p data-editable="text" data-prop="body" data-type="text">{{ para }}</p>{% endfor %}
+      <div class="cf-twocol">
+        {% for card in sunday_1030.cards %}
+        <div class="cf-card">
+          {% if card.eyebrow %}<div class="ages">{{ card.eyebrow }}</div>{% endif %}
+          {% if card.title %}<h3>{{ card.title }}</h3>{% endif %}
+          {% for para in card.body.split("\n\n") %}<p>{{ para }}</p>{% endfor %}
         </div>
         {% endfor %}
       </div>
-      <div class="cf-pattern">
-        <div class="pat"><span class="o">1st</span><span class="txt"><b>All Age Worship</b>The whole congregation gathers for intergenerational worship on the first Sunday.</span></div>
-        <div class="pat"><span class="o">3rd</span><span class="txt"><b>Forest Church</b>On the third Sunday, the children meet for Forest Church in the Church Garden.</span></div>
-        <div class="pat"><span class="o">★</span><span class="txt"><b>Child Bishop</b>Chosen once a year to help lead prayers and worship at special festivals.</span></div>
-      </div>
+
+      <!-- What to expect -->
+      <section class="cf-expect">
+        <div class="head">
+          <div class="em-ornament is-leading">What to expect</div>
+        </div>
+        <div class="cf-steps">
+          {% for step in sunday_1030.steps %}
+          <div class="cf-step">
+            <div class="n">{{ ["i.", "ii.", "iii."][loop.index0] }}</div>
+            <h4>{{ step.heading }}</h4>
+            <p>{{ step.body }}</p>
+          </div>
+          {% endfor %}
+        </div>
+        <div class="cf-room">
+          <div class="txt">
+            <h3>{{ sunday_1030.room_heading }}</h3>
+            <p>{{ sunday_1030.room_body }}</p>
+          </div>
+          <div class="media"><img src="{{ sunday_1030.room_image }}" alt="{{ sunday_1030.room_image_alt }}" /></div>
+        </div>
+      </section>
     </div>
   </section>
 
-  <!-- What to expect at 10:30 -->
-  <section class="cf-expect">
+  <!-- Sundays 9:15 -->
+  <section class="cf-sunday">
     <div class="inner">
-      <div class="head">
-        <div class="em-ornament is-leading">What to expect at 10:30</div>
-        <h2>Your first Sunday with children</h2>
+      <div class="cf-grouphead">
+        <div class="em-ornament is-leading">{{ sunday_915.eyebrow }}</div>
+        <h2>{{ sunday_915.heading }}</h2>
       </div>
-      <div class="cf-steps">
-        <div class="cf-step">
-          <div class="n">i.</div>
-          <h4>Arrive &amp; be welcomed</h4>
-          <p>Our children's groups meet in the church building. A welcomer will guide you if you or your child are unsure of where to go.</p>
+      <div class="cf-twocol is-solo">
+        {% for card in sunday_915.cards %}
+        <div class="cf-card">
+          {% if card.eyebrow %}<div class="ages">{{ card.eyebrow }}</div>{% endif %}
+          {% if card.title %}<h3>{{ card.title }}</h3>{% endif %}
+          {% for para in card.body.split("\n\n") %}<p>{{ para }}</p>{% endfor %}
         </div>
-        <div class="cf-step">
-          <div class="n">ii.</div>
-          <h4>Off to their groups</h4>
-          <p>Children are invited to go to their groups during the opening hymn, and re-join their families at the distribution of Holy Communion.</p>
-        </div>
-        <div class="cf-step">
-          <div class="n">iii.</div>
-          <h4>Sign in for next time</h4>
-          <p>On your first visit you'll fill out a short form. If you make Emmanuel your church home, we'll add their details to ChurchSuite for future signing-in.</p>
-        </div>
+        {% endfor %}
       </div>
-      <div class="em-callout" style="padding:48px var(--gutter-wide); margin: 0;">
-        <div class="inner" style="max-width:1240px">
-          <div>
-            <h3>The Harold Darke Room</h3>
-            <p>Children of all ages are truly welcome at every service. For those who need a break, this room — next to the kitchen at the back of the church — has books and toys, and is specifically set aside for children under 4. Come and go as you need.</p>
+
+      <!-- What to expect -->
+      <section class="cf-expect">
+        <div class="head">
+          <div class="em-ornament is-leading">What to expect</div>
+        </div>
+        <div class="cf-steps">
+          {% for step in sunday_915.steps %}
+          <div class="cf-step">
+            <div class="n">{{ ["i.", "ii.", "iii."][loop.index0] }}</div>
+            <h4>{{ step.heading }}</h4>
+            <p>{{ step.body }}</p>
           </div>
+          {% endfor %}
         </div>
-      </div>
+        <div class="cf-room">
+          <div class="txt">
+            <h3>{{ sunday_915.room_heading }}</h3>
+            <p>{{ sunday_915.room_body }}</p>
+          </div>
+          <div class="media"><img src="{{ sunday_915.room_image }}" alt="{{ sunday_915.room_image_alt }}" /></div>
+        </div>
+      </section>
     </div>
   </section>
 
