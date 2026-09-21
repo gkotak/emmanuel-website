@@ -24,20 +24,13 @@ callout_body: Tell us a little about you and your plans, and a member of the cle
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet" href="/styles.css" />
 <style>
-  .em-faq summary {
-    cursor: pointer;
-    list-style: none;
-  }
-  .em-faq summary::-webkit-details-marker,
-  .em-faq summary::marker { display: none; content: ''; }
-  .em-faq summary .em-ornament { margin-bottom: 14px; }
   .em-faq__q {
     display: flex;
     align-items: flex-start;
-    justify-content: space-between;
     gap: 20px;
   }
-  .em-faq summary h2 {
+  .em-faq .em-ornament { margin-bottom: 14px; }
+  .em-faq h2 {
     font-family: var(--font-display);
     font-size: var(--fs-h2);
     font-weight: var(--fw-medium);
@@ -46,43 +39,6 @@ callout_body: Tell us a little about you and your plans, and a member of the cle
     line-height: 1.04;
     margin: 0;
     flex: 1;
-  }
-  .em-faq summary h2 em { font-style: normal; color: var(--brown); }
-  .em-faq__toggle {
-    flex-shrink: 0;
-    width: 40px;
-    height: 40px;
-    margin-top: 4px;
-    border: 1.5px solid var(--navy);
-    border-radius: 50%;
-    background: transparent;
-    color: var(--navy);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
-  }
-  .em-faq__toggle::before,
-  .em-faq__toggle::after {
-    content: '';
-    position: absolute;
-    background: currentColor;
-    border-radius: 1px;
-  }
-  .em-faq__toggle::before { width: 14px; height: 2px; }
-  .em-faq__toggle::after { width: 2px; height: 14px; transition: transform 0.2s ease, opacity 0.2s ease; }
-  .em-faq[open] .em-faq__toggle {
-    background: var(--navy);
-    color: #fff;
-    border-color: var(--navy);
-  }
-  .em-faq[open] .em-faq__toggle::after { transform: scaleY(0); opacity: 0; }
-  .em-faq summary:hover .em-faq__toggle,
-  .em-faq summary:focus-visible .em-faq__toggle {
-    background: var(--navy);
-    color: #fff;
-    border-color: var(--navy);
   }
   .em-faq-body { padding-top: 22px; }
   .em-intro--solo .inner { grid-template-columns: minmax(0, 1fr); }
@@ -94,8 +50,7 @@ callout_body: Tell us a little about you and your plans, and a member of the cle
   @media (max-width: 768px) {
     .em-pagehead .meta-row { flex-direction: column; gap: 14px; }
     .em-intro .inner { grid-template-columns: 1fr !important; gap: 32px; }
-    .em-faq summary h2 { font-size: 26px; }
-    .em-faq__toggle { width: 36px; height: 36px; }
+    .em-faq h2 { font-size: 26px; }
     .wedding-photo-row { grid-template-columns: repeat(2, 1fr) !important; gap: 8px; margin-top: 20px; }
     .wedding-photo-row .em-well { height: 140px; }
     .em-aside { position: static; }
@@ -132,14 +87,11 @@ callout_body: Tell us a little about you and your plans, and a member of the cle
           <div class="em-well" data-editable="array-item"><img src="{{ photo.image }}" alt="{{ photo.image_alt }}" /></div>
         {% endfor %}
         </div>
-        <details class="em-faq" style="margin-top:36px" open>
-          <summary>
-            <div class="em-ornament is-leading">A common question</div>
-            <div class="em-faq__q">
-              <h2>Can I get married at Emmanuel?</h2>
-              <span class="em-faq__toggle" aria-hidden="true"></span>
-            </div>
-          </summary>
+        <div class="em-faq" style="margin-top:36px">
+          <div class="em-ornament is-leading">A common question</div>
+          <div class="em-faq__q">
+            <h2>Can I get married at Emmanuel?</h2>
+          </div>
           <div class="em-faq-body">
             <p class="em-lead" style="font-style:normal;font-family:var(--font-sans);font-size:18px;color:var(--ink-soft);line-height:1.6">If you live in the parish, it is very straightforward. If you don't, we need to establish whether you have a qualifying connection — you only need <em>one</em> of the following:</p>
             <ul class="em-checklist">
@@ -153,7 +105,7 @@ callout_body: Tell us a little about you and your plans, and a member of the cle
               <li>One or both of your parents have habitually attended public worship at Church of England services in the parish for at least 6 months during your lifetime.</li>
             </ul>
           </div>
-        </details>
+        </div>
       </div>
     </div>
   </section>
