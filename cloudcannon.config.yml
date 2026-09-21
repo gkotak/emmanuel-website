@@ -25,6 +25,22 @@ _structures:
           description: PDF · Add a short subtitle
           href: https://
           icon: document
+  sacrament_cards:
+    values:
+      - label: Sacrament section
+        icon: auto_stories
+        value:
+          eyebrow: ''
+          title: New section
+          body: ''
+          images: []
+  sacrament_images:
+    values:
+      - label: Image
+        icon: image
+        value:
+          image: ''
+          alt: ''
   cards:
     values:
       - label: Card
@@ -51,6 +67,13 @@ _structures:
         icon: notes
         value:
           text: ''
+  wedding_images:
+    values:
+      - label: Photo
+        icon: image
+        value:
+          image: ''
+          image_alt: ''
 
 collections_config:
   # New key (pages) so CloudCannon drops the stale "Website pages (visual)" collection.
@@ -170,6 +193,26 @@ _inputs:
     type: array
     options:
       structures: _structures.documents
+  sacrament_cards:
+    type: array
+    label: Sacraments
+    comment: Full-width sections. Add more than one image to a section and it becomes a slider.
+    options:
+      structures: _structures.sacrament_cards
+  images:
+    type: array
+    label: Images
+    comment: One image shows on its own; two or more become a slider.
+    options:
+      structures: _structures.sacrament_images
+  image:
+    type: image
+    options:
+      path: assets/cms/site-images
+  alt:
+    type: text
+    label: Alt text
+    comment: Describe the photograph for anyone using a screen reader.
   cards:
     type: array
     options:
@@ -194,6 +237,16 @@ _inputs:
     type: array
     options:
       structures: _structures.featured_people
+  wedding_images:
+    type: array
+    label: Photos
+    comment: Add any number of photos — they lay out four per row.
+    options:
+      structures: _structures.wedding_images
+  image_alt:
+    type: text
+    label: Alt text
+    comment: Describe the photograph for anyone using a screen reader.
   slug:
     type: select
     label: Collection item

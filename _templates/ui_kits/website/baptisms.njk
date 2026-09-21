@@ -5,28 +5,32 @@ deck: We gladly baptise new members of whatever age into the family of God — p
 intro_paragraphs:
   - text: "At Emmanuel we gladly baptise new members of whatever age into the family of God, praying for them as they embark on their exciting journey and pilgrimage of faith."
   - text: "Our baptism services tend to take place at our 10:30 service on the third Sunday of the month. If you'd prefer, we can also offer baptism at our 9:15 Joyful Noise service."
-cards:
+  - text: "If you are considering having your child baptised, would like to be baptised yourself, or are interested in First Holy Communion or Confirmation, please <a href=\"contact.html\">contact the parish office</a> in the first instance."
+  - text: "One of the clergy will arrange to meet with you to help you prepare and go through the service with you."
+sacrament_cards:
   - eyebrow: The sacrament of belonging
     title: Baptism
     body: Through baptism we are welcomed into the family of God and the life of the Church. We baptise people of every age — infants, children and adults alike — and walk with each household as they prepare.
+    images:
+      - image: /assets/cms/site-images/baptism-1.jpg
+        alt: A baptism at the font at Emmanuel
   - eyebrow: Once a year · taken by the Bishop
     title: Confirmation
     body: We have a confirmation service once a year. Confirmations are taken by the Bishop and are the occasion for baptised people to 'confirm' the vows that were made on their behalf when they were baptised.
+    images:
+      - image: /assets/feedback/confirmation.jpg
+        alt: Confirmation at Emmanuel Church
   - eyebrow: Good Shepherd Sunday · from age 8
     title: First Holy Communion
     body: At Emmanuel we admit to First Holy Communion those children who would like to take part in the Eucharist but are not yet old enough to be confirmed. We encourage children to wait to be confirmed until they are much older (around 16 or older), but invite them to participate fully in the sacrament of Holy Communion from around age 8. Admission typically takes place on Good Shepherd Sunday, following a series of 6–8 sessions teaching about the Eucharist.
+    images:
+      - image: /assets/feedback/first-communion.jpg
+        alt: Preparing children for First Holy Communion at Emmanuel
 feature_eyebrow: A growing faith
 feature_heading: Welcomed to the Lord's table
 feature_body: From the youngest children admitted to First Holy Communion, to those confirmed by the Bishop, we walk with each person as they take their next step in the life of faith — surrounded by the prayers of the whole community.
 feature_image: /assets/first-communion.jpg
 feature_image_alt: Children and adults presented to the Bishop at a Confirmation and First Holy Communion service
-aside_heading: How to begin
-aside_body_1: If you are considering having your child baptised, would like to be baptised yourself, or are interested in First Holy Communion or Confirmation, please contact the parish office in the first instance.
-aside_body_2: One of the clergy will arrange to meet with you to help you prepare and go through the service with you.
-aside_image_1: /assets/feedback/first-communion.jpg
-aside_image_1_alt: Preparing children for First Holy Communion at Emmanuel
-aside_image_2: /assets/feedback/confirmation.jpg
-aside_image_2_alt: Confirmation at Emmanuel Church
 callout_heading: A new beginning.
 callout_body: Whatever your age, there is a place for you in the family of God at Emmanuel. We would love to walk this journey with you.
 ---
@@ -40,6 +44,45 @@ callout_body: Whatever your age, there is a place for you in the family of God a
 <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<style>
+  /* Sacrament sections: full-width row, text left, image panel right */
+  .bp-sacraments { padding: 0 var(--gutter) 90px; background: var(--paper); }
+  .bp-sacraments .inner { max-width: 1320px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px; }
+  .bp-sacrament { display: grid; grid-template-columns: 1fr 420px; gap: 0; align-items: stretch; background: var(--cream); border: 1px solid var(--line); overflow: hidden; }
+  .bp-sacrament__text { padding: 40px 44px; display: flex; flex-direction: column; justify-content: center; }
+  .bp-sacrament__text .tag { display: inline-block; align-self: flex-start; font-size: 11px; font-weight: var(--fw-bold); letter-spacing: 0.18em; text-transform: uppercase; color: var(--brown); margin-bottom: 12px; }
+  .bp-sacrament__text h3 { font-family: var(--font-display); font-size: 32px; font-weight: var(--fw-semibold); color: var(--navy); margin: 0 0 14px; line-height: 1.12; }
+  .bp-sacrament__text p { font-size: var(--fs-body); line-height: var(--lh-relaxed); color: var(--ink-soft); margin: 0; }
+  .bp-sacrament__media { position: relative; background: var(--paper); }
+  .bp-slide { margin: 0; height: 100%; }
+  .bp-slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .bp-sacrament__media > .bp-slide { min-height: 260px; }
+
+  /* Slider, used only when a section carries more than one image */
+  .bp-slider { position: relative; height: 100%; min-height: 260px; overflow: hidden; }
+  .bp-slider__track { display: flex; height: 100%; transition: transform var(--dur) var(--ease); }
+  .bp-slider__track .bp-slide { flex: 0 0 100%; }
+  .bp-slider__btn { position: absolute; top: 50%; transform: translateY(-50%); width: 36px; height: 36px; border: none; border-radius: 50%; background: rgba(12,36,64,0.62); color: #fff; font-size: 20px; line-height: 1; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background var(--dur-fast) var(--ease); }
+  .bp-slider__btn:hover { background: rgba(12,36,64,0.85); }
+  .bp-slider__btn:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+  .bp-slider__btn--prev { left: 12px; }
+  .bp-slider__btn--next { right: 12px; }
+  .bp-slider__dots { position: absolute; left: 0; right: 0; bottom: 12px; display: flex; justify-content: center; gap: 7px; }
+  .bp-dot { width: 8px; height: 8px; padding: 0; border: none; border-radius: 50%; background: rgba(255,255,255,0.55); cursor: pointer; }
+  .bp-dot.is-active { background: #fff; }
+  .bp-dot:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+
+  @media (max-width: 860px) {
+    .bp-sacrament { grid-template-columns: 1fr; }
+    .bp-sacrament__text { padding: 28px 24px; order: 2; }
+    .bp-sacrament__media { order: 1; }
+    .bp-sacrament__media > .bp-slide, .bp-slider { min-height: 0; aspect-ratio: 16/10; }
+    .bp-sacrament__text h3 { font-size: 26px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .bp-slider__track { transition: none; }
+  }
+</style>
 </head>
 <body>
 
@@ -59,34 +102,51 @@ callout_body: Whatever your age, there is a place for you in the family of God a
         <div data-editable="array" data-prop="intro_paragraphs">
         {% for para in intro_paragraphs %}
           <p{% if loop.first %} class="em-lead"{% endif %} data-editable="array-item">
-            <span data-editable="text" data-prop="text" data-type="text">{{ para.text if para.text else para }}</span>
+            <span data-editable="text" data-prop="text" data-type="html">{{ (para.text if para.text else para) | safe }}</span>
           </p>
         {% endfor %}
         </div>
-        <div style="margin-top:36px" data-editable="array" data-prop="cards">
-          {% for card in cards %}
-          <div class="em-infocard" data-editable="array-item">
-            {% if card.eyebrow %}<span class="tag" data-editable="text" data-prop="eyebrow" data-type="span">{{ card.eyebrow }}</span>{% endif %}
-            {% if card.title %}<h3 data-editable="text" data-prop="title" data-type="span">{{ card.title }}</h3>{% endif %}
-            {% if card.body %}<p data-editable="text" data-prop="body" data-type="text">{{ card.body }}</p>{% endif %}
-          </div>
-          {% endfor %}
-        </div>
       </div>
-      <aside class="em-aside">
-        <div class="em-aside-card">
-          <h4 data-editable="text" data-prop="aside_heading" data-type="span">{{ aside_heading }}</h4>
-          <p data-editable="text" data-prop="aside_body_1" data-type="text">{{ aside_body_1 }}</p>
-          <p data-editable="text" data-prop="aside_body_2" data-type="text">{{ aside_body_2 }}</p>
-          <a href="contact.html" class="em-btn em-btn--primary" style="margin-top:6px">Contact the parish office</a>
+    </div>
+  </section>
+
+  <section class="bp-sacraments">
+    <div class="inner" data-editable="array" data-prop="sacrament_cards">
+      {% for card in sacrament_cards %}
+      <article class="bp-sacrament" data-editable="array-item">
+        <div class="bp-sacrament__text">
+          {% if card.eyebrow %}<span class="tag" data-editable="text" data-prop="eyebrow" data-type="span">{{ card.eyebrow }}</span>{% endif %}
+          {% if card.title %}<h3 data-editable="text" data-prop="title" data-type="span">{{ card.title }}</h3>{% endif %}
+          {% if card.body %}<p data-editable="text" data-prop="body" data-type="text">{{ card.body }}</p>{% endif %}
         </div>
-        <div class="em-well" style="aspect-ratio:3/4">
-          <img src="{{ aside_image_1 }}" alt="{{ aside_image_1_alt }}" />
+        {% if card.images and card.images.length %}
+        <div class="bp-sacrament__media">
+          {% if card.images.length > 1 %}
+          <div class="bp-slider" data-bp-slider>
+            <div class="bp-slider__track">
+              {% for shot in card.images %}
+              <figure class="bp-slide"{% if not loop.first %} aria-hidden="true"{% endif %}>
+                <img src="{{ shot.image }}" alt="{{ shot.alt }}" loading="lazy" />
+              </figure>
+              {% endfor %}
+            </div>
+            <button type="button" class="bp-slider__btn bp-slider__btn--prev" aria-label="Previous image">&#8249;</button>
+            <button type="button" class="bp-slider__btn bp-slider__btn--next" aria-label="Next image">&#8250;</button>
+            <div class="bp-slider__dots" role="tablist">
+              {% for shot in card.images %}
+              <button type="button" class="bp-dot{% if loop.first %} is-active{% endif %}" role="tab" aria-label="Image {{ loop.index }} of {{ card.images.length }}"{% if loop.first %} aria-selected="true"{% endif %}></button>
+              {% endfor %}
+            </div>
+          </div>
+          {% else %}
+          {% for shot in card.images %}
+          <figure class="bp-slide"><img src="{{ shot.image }}" alt="{{ shot.alt }}" loading="lazy" /></figure>
+          {% endfor %}
+          {% endif %}
         </div>
-        <div class="em-well" style="aspect-ratio:3/4;margin-top:20px">
-          <img src="{{ aside_image_2 }}" alt="{{ aside_image_2_alt }}" />
-        </div>
-      </aside>
+        {% endif %}
+      </article>
+      {% endfor %}
     </div>
   </section>
 
@@ -112,6 +172,32 @@ callout_body: Whatever your age, there is a place for you in the family of God a
       <div style="display:flex;gap:14px;flex-wrap:wrap"><a href="contact.html" class="em-btn em-btn--tan">Contact the parish office</a><a href="service-times.html" class="em-btn em-btn--ghost-light">Service times</a></div>
     </div>
   </section>
+
+
+  <script>
+    (function () {
+      document.querySelectorAll('[data-bp-slider]').forEach(function (slider) {
+        var track = slider.querySelector('.bp-slider__track');
+        var slides = Array.prototype.slice.call(slider.querySelectorAll('.bp-slide'));
+        var dots = Array.prototype.slice.call(slider.querySelectorAll('.bp-dot'));
+        if (slides.length < 2) return;
+        var i = 0;
+        function show(n) {
+          i = (n + slides.length) % slides.length;
+          track.style.transform = 'translateX(' + (-i * 100) + '%)';
+          slides.forEach(function (s, k) { s.setAttribute('aria-hidden', k === i ? 'false' : 'true'); });
+          dots.forEach(function (d, k) {
+            d.classList.toggle('is-active', k === i);
+            d.setAttribute('aria-selected', k === i ? 'true' : 'false');
+          });
+        }
+        slider.querySelector('.bp-slider__btn--prev').addEventListener('click', function () { show(i - 1); });
+        slider.querySelector('.bp-slider__btn--next').addEventListener('click', function () { show(i + 1); });
+        dots.forEach(function (d, k) { d.addEventListener('click', function () { show(k); }); });
+        show(0);
+      });
+    })();
+  </script>
 
 {% include "footer.njk" %}
 
