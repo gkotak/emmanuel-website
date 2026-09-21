@@ -88,11 +88,6 @@ _structures:
       - label: Paragraph
         icon: notes
         value: ''
-  event_body:
-    values:
-      - label: Paragraph
-        icon: notes
-        value: ''
   posters:
     values:
       - label: Poster
@@ -248,11 +243,18 @@ collections_config:
         label: Where
         comment: Optional, e.g. "Emmanuel Church & garden".
       body:
-        type: array
+        type: html
         label: Body
-        comment: One paragraph per item.
+        comment: The main event description. Use a blank line for a new paragraph.
         options:
-          structures: _structures.event_body
+          bold: true
+          italic: true
+          link: true
+          bulletedlist: true
+          numberedlist: true
+          undo: true
+          redo: true
+          removeformat: true
       summary:
         type: textarea
         label: Summary

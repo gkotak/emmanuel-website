@@ -68,11 +68,7 @@ permalink: /ui_kits/website/event-{{ ev.slug }}.html
 
         <div class="ed-content">
           {% if ev.lede %}<p class="lede">{{ ev.lede }}</p>{% endif %}
-          {% if ev.body %}
-            {% for para in ev.body %}
-              {% if para %}<p>{{ para }}</p>{% endif %}
-            {% endfor %}
-          {% endif %}
+          {% if ev.body %}{{ ev.body | safe }}{% endif %}
 
           <div class="ed-acts">
             <a href="/ui_kits/website/contact.html" class="em-btn em-btn--primary">Ask a question</a>
