@@ -5,13 +5,14 @@ deck: We love weddings — and are always delighted to pray for and accompany co
 intro_paragraphs:
   - text: "If you are engaged and considering getting married at Emmanuel or St Cuthbert's, we would love to hear from you!"
   - text: "We love weddings and are always delighted to pray for and accompany couples as they take this important step. We warmly encourage couples to attend three or four marriage preparation sessions ahead of the wedding day; these will be arranged between the priest and the couple, and will ensure that sessions are compatible with work and other commitments."
-  - text: "If you would like to know more about weddings in either of our churches, please contact the parish office in the first instance and a member of the clergy will be in touch."
-wedding_image_1: /assets/cms/site-images/weddings-1.jpg
-wedding_image_1_alt: A bride and groom standing together at the altar during their wedding ceremony, surrounded by candles and flowers
-wedding_image_2: /assets/cms/site-images/weddings-2.jpg
-wedding_image_2_alt: A newly married couple sharing a joyful moment in the church after their wedding
-wedding_image_3: /assets/cms/site-images/weddings-3.jpg
-wedding_image_3_alt: A bride and groom walking together down the aisle at Emmanuel
+  - text: "If you would like to know more about weddings in either of our churches, please <a href=\"contact.html\">contact the parish office</a> in the first instance and a member of the clergy will be in touch."
+wedding_images:
+  - image: /assets/cms/site-images/weddings-1.jpg
+    image_alt: A bride and groom standing together at the altar during their wedding ceremony, surrounded by candles and flowers
+  - image: /assets/cms/site-images/weddings-2.jpg
+    image_alt: A newly married couple sharing a joyful moment in the church after their wedding
+  - image: /assets/cms/site-images/weddings-3.jpg
+    image_alt: A bride and groom walking together down the aisle at Emmanuel
 callout_heading: Let's begin the conversation.
 callout_body: Tell us a little about you and your plans, and a member of the clergy will be in touch to talk through the next steps.
 ---
@@ -84,17 +85,18 @@ callout_body: Tell us a little about you and your plans, and a member of the cle
     border-color: var(--navy);
   }
   .em-faq-body { padding-top: 22px; }
-  .wedding-photo-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-  .wedding-photo-row .em-well { height: 360px; }
-  @media (max-width: 880px) { .wedding-photo-row { grid-template-columns: 1fr; } }
+  .wedding-photo-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+  .wedding-photo-row .em-well { height: 280px; }
+  @media (max-width: 1024px) { .wedding-photo-row { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px) { .wedding-photo-row { grid-template-columns: 1fr; } }
 
   @media (max-width: 768px) {
     .em-pagehead .meta-row { flex-direction: column; gap: 14px; }
     .em-intro .inner { grid-template-columns: 1fr !important; gap: 32px; }
     .em-faq summary h2 { font-size: 26px; }
     .em-faq__toggle { width: 36px; height: 36px; }
-    .wedding-photo-row { grid-template-columns: repeat(3, 1fr) !important; gap: 8px; margin-top: 20px; }
-    .wedding-photo-row .em-well { height: 110px; }
+    .wedding-photo-row { grid-template-columns: repeat(2, 1fr) !important; gap: 8px; margin-top: 20px; }
+    .wedding-photo-row .em-well { height: 140px; }
     .em-aside { position: static; }
   }
 </style>
@@ -114,13 +116,13 @@ callout_body: Tell us a little about you and your plans, and a member of the cle
       <div class="meta-row"><div class="item"><div class="k">Where</div><div class="v">Emmanuel or St Cuthbert's</div></div><div class="item"><div class="k">Preparation</div><div class="v">3–4 sessions</div></div><div class="item"><div class="k">First step</div><div class="v">Contact the parish office</div></div></div>
     </div>
   </section>
-  <section class="em-intro">
+  <section class="em-intro em-intro--solo">
     <div class="inner">
       <div class="em-body">
         <div data-editable="array" data-prop="intro_paragraphs">
         {% for para in intro_paragraphs %}
           <p{% if loop.first %} class="em-lead"{% endif %} data-editable="array-item">
-            <span data-editable="text" data-prop="text" data-type="text">{{ para.text if para.text else para }}</span>
+            <span data-editable="text" data-prop="text" data-type="text">{{ para.text | safe if para.text else para }}</span>
           </p>
         {% endfor %}
         </div>
@@ -146,20 +148,12 @@ callout_body: Tell us a little about you and your plans, and a member of the cle
             </ul>
           </div>
         </details>
-        <div class="wedding-photo-row" style="margin-top:36px">
-          <div class="em-well"><img src="{{ wedding_image_1 }}" alt="{{ wedding_image_1_alt }}" /></div>
-          <div class="em-well"><img src="{{ wedding_image_2 }}" alt="{{ wedding_image_2_alt }}" /></div>
-          <div class="em-well"><img src="{{ wedding_image_3 }}" alt="{{ wedding_image_3_alt }}" /></div>
+        <div class="wedding-photo-row" style="margin-top:36px" data-editable="array" data-prop="wedding_images">
+        {% for photo in wedding_images %}
+          <div class="em-well" data-editable="array-item"><img src="{{ photo.image }}" alt="{{ photo.image_alt }}" /></div>
+        {% endfor %}
         </div>
       </div>
-      <aside class="em-aside">
-        <div class="em-aside-card">
-          <h4>Get in touch</h4>
-          <p class="big">We'd love to<br/>hear from you</p>
-          <p>Contact the parish office and a member of the clergy will be in touch to begin the conversation.</p>
-          <a href="contact.html" class="em-btn em-btn--primary" style="margin-top:6px">Contact the parish office</a>
-        </div>
-      </aside>
     </div>
   </section>
   <section class="em-callout">
