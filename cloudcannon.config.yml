@@ -5,6 +5,10 @@
 # Do not auto-discover extra collections (old Site Pages / Site Images / News).
 collections_config_override: true
 
+# Date and time inputs are entered and shown in UK local time (GMT in winter,
+# BST in summer) rather than UTC.
+timezone: Europe/London
+
 source_editor:
   tab_size: 2
   theme: monokai
@@ -234,8 +238,9 @@ collections_config:
       date:
         type: datetime
         label: Date & time
-        comment: When the event happens. Sorts the event and places it on the
-          calendar. Leave the time at 00:00 if there is no set time.
+        comment: When the event happens, in UK time. Sorts the event and places
+          it on the calendar. Leave the time at 00:00 if there is no set time —
+          the Time row is then hidden on the page.
       display_date:
         type: text
         label: Display date (optional)

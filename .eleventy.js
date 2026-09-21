@@ -99,11 +99,15 @@ module.exports = function (eleventyConfig) {
 
   // Nunjucks filter: render a list of weekday names as readable text.
   // Consecutive runs collapse into a range: Mon,Tue,Wed,Thu -> "Mon–Thu".
-  // Event date/time display. `date` is a real ISO date so it can sort and feed
-  // the calendar; these render it for the page when no display override is set.
+  // Event date/time display. `date` is stored as London wall-clock time with no
+  // zone suffix (e.g. "2026-06-07T10:30:00"), so it always reads back exactly as
+  // it was entered. The date parts are taken from the string rather than parsed
+  // into a Date, so the build machine's timezone can never shift the day.
   eleventyConfig.addFilter('eventDate', (value) => {
     if (!value) return ''
-    const d = new Date(/T/.test(value) ? value : value + 'T00:00:00Z')
+    const m = /^(\d{4})-(\d{2})-(\d{2})/.exec(String(value))
+    if (!m) return value
+    const d = new Date(Date.UTC(Number(m[1]), Number(m[2]) - 1, Number(m[3])))
     if (isNaN(d)) return value
     return d.toLocaleDateString('en-GB', {
       weekday: 'long', day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC',
@@ -124,10 +128,10 @@ module.exports = function (eleventyConfig) {
     return min === '00' ? `${h}${suffix}` : `${h}:${min}${suffix}`
   })
 
-  // "2026-06-07T18:30:00Z" -> "2026-06-07", for the calendar.
+  // "2026-06-07T18:30:00" -> "2026-06-07", for the calendar.
   eleventyConfig.addFilter('isoDate', (value) => String(value || '').slice(0, 10))
 
-  // "2026-06-07T18:30:00Z" -> "18:30", for the calendar.
+  // "2026-06-07T18:30:00" -> "18:30", for the calendar.
   eleventyConfig.addFilter('isoTime', (value) => {
     const m = /T(\d{2}:\d{2})/.exec(String(value || ''))
     return m ? m[1] : ''
