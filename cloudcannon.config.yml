@@ -25,6 +25,15 @@ _structures:
           description: PDF · Add a short subtitle
           href: https://
           icon: document
+  projects:
+    values:
+      - label: Outreach project
+        icon: volunteer_activism
+        value:
+          title: New project
+          body: ''
+          image: ''
+          image_alt: ''
   sacrament_cards:
     values:
       - label: Sacrament section
@@ -261,6 +270,30 @@ _inputs:
     type: array
     options:
       structures: _structures.documents
+  projects:
+    type: array
+    label: Outreach projects
+    comment: Each project can optionally carry one photograph.
+    options:
+      structures: _structures.projects
+  image_alt:
+    type: text
+    label: Alt text
+    comment: Describe the photograph for anyone using a screen reader. Leave the image empty to show text only.
+  intro_image:
+    type: image
+    options:
+      path: assets/cms/site-images
+  intro_image_alt:
+    type: text
+    label: Alt text
+  aside_image:
+    type: image
+    options:
+      path: assets/cms/site-images
+  aside_image_alt:
+    type: text
+    label: Alt text
   sacrament_cards:
     type: array
     label: Sacraments

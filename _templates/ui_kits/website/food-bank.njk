@@ -1,5 +1,50 @@
 ---
 permalink: /ui_kits/website/food-bank.html
+headline: Community Outreach
+deck: A vocation to share the all-encompassing love of God with the parish we serve — through practical action alongside our neighbours.
+intro_heading: Community Organising
+intro_image: /assets/feedback/community-organising.jpg
+intro_image_alt: Community organising at Emmanuel
+intro_paragraphs:
+  - text: "Emmanuel and St Cuthbert's are members of <a href=\"https://www.citizensuk.org/about-us/\" target=\"_blank\" rel=\"noopener\">Citizens UK</a>."
+  - text: "We partner with local churches, mosques, synagogues, schools, universities and community projects to campaign on issues that concern our communities. North London Citizens campaigns have included: the living wage, youth welfare, support for refugees, and tackling homelessness on our streets."
+projects:
+  - title: C4WS Night Shelter at Emmanuel
+    body: |-
+      From November to February we partner with the charity <a href="https://c4wshomelessproject.org" target="_blank" rel="noopener">C4WS</a> to host a weekly night shelter for up to 16 guests who are homeless. Guests arrive in time for a freshly cooked hot meal. They're able to take a hot shower and spend the rest of the evening playing games, chatting, resting or making use of the church wifi.
+
+      We have a team of volunteers who help with the different shifts: set up, prepare the meal, host the evening, and sleeping overnight in the church. If you'd like to get involved, please <a href="contact.html">get in touch with the parish office</a>.
+    image: ''
+    image_alt: ''
+  - title: Emmanuel Connections
+    body: Emmanuel Connections is a partnership with Hampstead School, the secondary school in our parish. Through this collaboration, the church community helps to facilitate work experience placements, careers talks and workshops at school, as well as setting up 1-1 mentoring between students and people at different stages of their chosen career.
+    image: /assets/feedback/emmanuel-school.jpg
+    image_alt: Students and mentors at Hampstead School
+  - title: FoodCycle Lunch
+    body: A weekly FoodCycle Lunch is held at St Cuthbert's on Saturdays at 1pm. This gives us the privilege of welcoming many from the surrounding communities into our building to share in food and fellowship. The friendly and homely atmosphere has proved extremely popular, and our lunch is now the largest FoodCycle lunch in London!
+    image: /assets/cms/site-images/community-outreach-new.jpg
+    image_alt: Volunteers and guests at the FoodCycle lunch
+  - title: Repair Club
+    body: On the first and third Mondays of each month, the Kilburn Community Repair Club is held at 6:30pm at St Cuthbert's. This club allows the local community to bring small appliances to the group to learn how to get them repaired. This is a wonderful initiative which both saves money and helps stop more appliances going to landfill.
+    image: ''
+    image_alt: ''
+  - title: Gardening Club
+    body: Saturday mornings at St Cuthbert's and at Emmanuel — a varied group of experienced and novice gardeners looking after the garden as well as growing fruit, vegetables and herbs. A great opportunity to enjoy green space, meet new people, and take home some home-grown produce.
+    image: ''
+    image_alt: ''
+  - title: Mitzvah Day
+    body: We are proud to be working in partnership with our friends at Hampstead Synagogue and the JW3 Centre on Finchley Road in collecting for Mitzvah Day each year. We collect food and toiletries for our local food banks in Camden and for the work of the C4WS Winter Night Shelter in Emmanuel Church.
+    image: ''
+    image_alt: ''
+  - title: West Hampstead Community Food Hub
+    body: We have a collection point for the West Hampstead Community Food Hub in both entrances to the church. Food is collected on Fridays and contributes to the WH Foodhub, which runs out of Sidings Community Centre on Saturday mornings. If you would like to support the Foodhub financially or with your time, do <a href="contact.html">get in touch with them directly</a>.
+    image: /assets/feedback/foodhub-outreach.jpg
+    image_alt: Food donations collected for the West Hampstead Community Food Hub
+closing_note: To find out more about how you can get involved, contact the parish office.
+aside_heading: Drop off a donation
+aside_body: Non-perishable food can be left at our collection points any time the church is open. Collections are made every Friday.
+aside_image: /assets/cms/site-images/food-bank.jpg
+aside_image_alt: Food donations collected at Emmanuel
 ---
 <!doctype html>
 <html lang="en-GB">
@@ -11,6 +56,13 @@ permalink: /ui_kits/website/food-bank.html
 <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<style>
+  .co-project { margin-top: 38px; }
+  .co-project:first-child { margin-top: 0; }
+  .co-project h3 { margin-bottom: 14px; }
+  .co-project__media { aspect-ratio: 16/10; max-width: 720px; margin: 0 0 20px; }
+  .co-project__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+</style>
 </head>
 <body>
 
@@ -19,60 +71,57 @@ permalink: /ui_kits/website/food-bank.html
   <section class="em-pagehead em-pagehead--band em-pagehead--plain">
     <div class="inner">
       <div class="em-breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><a href="food-bank.html">Get Involved</a><span class="sep">/</span><span>Community Outreach</span></div>
-      <h1>Community Outreach</h1>
-      <p class="deck">A vocation to share the all-encompassing love of God with the parish we serve — through practical action alongside our neighbours.</p>
+      <h1 data-editable="text" data-prop="headline" data-type="span">{{ headline }}</h1>
+      <p class="deck" data-editable="text" data-prop="deck" data-type="text">{{ deck }}</p>
 
     </div>
   </section>
   <section class="em-intro">
     <div class="inner">
       <div class="em-body">
-        <h2 style="font-family:var(--font-display);font-size:var(--fs-h2);font-weight:var(--fw-medium);color:var(--navy);margin:0 0 18px;letter-spacing:-0.01em">Community Organising</h2>
+        <h2 style="font-family:var(--font-display);font-size:var(--fs-h2);font-weight:var(--fw-medium);color:var(--navy);margin:0 0 18px;letter-spacing:-0.01em" data-editable="text" data-prop="intro_heading" data-type="span">{{ intro_heading }}</h2>
+        {% if intro_image %}
         <div class="em-well" style="aspect-ratio:16/10;margin:0 0 28px;max-width:720px">
-          <img src="/assets/feedback/community-organising.jpg" alt="Community organising at Emmanuel" />
+          <img src="{{ intro_image }}" alt="{{ intro_image_alt }}" />
         </div>
-        <p class="em-lead">Emmanuel and St Cuthbert's are members of <a href="https://www.citizensuk.org/about-us/" target="_blank" rel="noopener">Citizens UK</a>.</p>
-        <p>We partner with local churches, mosques, synagogues, schools, universities and community projects to campaign on issues that concern our communities. North London Citizens campaigns have included: the living wage, youth welfare, support for refugees, and tackling homelessness on our streets.</p>
+        {% endif %}
+        <div data-editable="array" data-prop="intro_paragraphs">
+        {% for para in intro_paragraphs %}
+          <p{% if loop.first %} class="em-lead"{% endif %} data-editable="array-item">
+            <span data-editable="text" data-prop="text" data-type="html">{{ (para.text if para.text else para) | safe }}</span>
+          </p>
+        {% endfor %}
+        </div>
 
-        <h3>C4WS Night Shelter at Emmanuel</h3>
-        <p>From November to February we partner with the charity <a href="https://c4wshomelessproject.org" target="_blank" rel="noopener">C4WS</a> to host a weekly night shelter for up to 16 guests who are homeless. Guests arrive in time for a freshly cooked hot meal. They're able to take a hot shower and spend the rest of the evening playing games, chatting, resting or making use of the church wifi.</p>
-        <p>We have a team of volunteers who help with the different shifts: set up, prepare the meal, host the evening, and sleeping overnight in the church. If you'd like to get involved, please <a href="contact.html">get in touch with the parish office</a>.</p>
+        <div data-editable="array" data-prop="projects">
+        {% for project in projects %}
+          <div class="co-project" data-editable="array-item">
+            <h3 data-editable="text" data-prop="title" data-type="span">{{ project.title }}</h3>
+            {% if project.image %}
+            <div class="em-well co-project__media">
+              <img src="{{ project.image }}" alt="{{ project.image_alt }}" loading="lazy" />
+            </div>
+            {% endif %}
+            <div data-editable="text" data-prop="body" data-type="html">
+              {% for para in project.body.split('\n\n') %}<p>{{ para | trim | safe }}</p>{% endfor %}
+            </div>
+          </div>
+        {% endfor %}
+        </div>
 
-        <h3>Emmanuel Connections</h3>
-        <p>Emmanuel Connections is a partnership with Hampstead School, the secondary school in our parish. Through this collaboration, the church community helps to facilitate work experience placements, careers talks and workshops at school, as well as setting up 1-1 mentoring between students and people at different stages of their chosen career.</p>
-
-        <h3>FoodCycle Lunch</h3>
-        <p>A weekly FoodCycle Lunch is held at St Cuthbert's on Saturdays at 1pm. This gives us the privilege of welcoming many from the surrounding communities into our building to share in food and fellowship. The friendly and homely atmosphere has proved extremely popular, and our lunch is now the largest FoodCycle lunch in London!</p>
-
-        <h3>Repair Club</h3>
-        <p>On the first and third Mondays of each month, the Kilburn Community Repair Club is held at 6:30pm at St Cuthbert's. This club allows the local community to bring small appliances to the group to learn how to get them repaired. This is a wonderful initiative which both saves money and helps stop more appliances going to landfill.</p>
-
-        <h3>Gardening Club</h3>
-        <p>Saturday mornings at St Cuthbert's and at Emmanuel — a varied group of experienced and novice gardeners looking after the garden as well as growing fruit, vegetables and herbs. A great opportunity to enjoy green space, meet new people, and take home some home-grown produce.</p>
-
-        <h3>Mitzvah Day</h3>
-        <p>We are proud to be working in partnership with our friends at Hampstead Synagogue and the JW3 Centre on Finchley Road in collecting for Mitzvah Day each year. We collect food and toiletries for our local food banks in Camden and for the work of the C4WS Winter Night Shelter in Emmanuel Church.</p>
-
-        <h3>West Hampstead Community Food Hub</h3>
-        <p>We have a collection point for the West Hampstead Community Food Hub in both entrances to the church. Food is collected on Fridays and contributes to the WH Foodhub, which runs out of Sidings Community Centre on Saturday mornings. If you would like to support the Foodhub financially or with your time, do <a href="contact.html">get in touch with them directly</a>.</p>
-
-        <p style="margin-top:28px">To find out more about how you can get involved, contact the parish office.</p>
+        <p style="margin-top:28px" data-editable="text" data-prop="closing_note" data-type="text">{{ closing_note }}</p>
       </div>
       <aside class="em-aside">
         <div class="em-aside-card">
-          <p class="big">Drop off a<br/>donation</p>
-          <p>Non-perishable food can be left at our collection points any time the church is open. Collections are made every Friday.</p>
+          <p class="big" data-editable="text" data-prop="aside_heading" data-type="span">{{ aside_heading }}</p>
+          <p data-editable="text" data-prop="aside_body" data-type="text">{{ aside_body }}</p>
         </div>
+        {% if aside_image %}
         <div class="em-well" style="aspect-ratio:4/3">
-          <img src="/assets/feedback/foodhub-outreach.jpg" alt="Community outreach and food donations at Emmanuel" />
+          <img src="{{ aside_image }}" alt="{{ aside_image_alt }}" />
         </div>
+        {% endif %}
       </aside>
-    </div>
-  </section>
-  <section class="em-callout">
-    <div class="inner">
-      <div><h3>Love your neighbour.</h3><p>Whether through a tin of food, an evening at the night shelter or a morning at the hub — there are many ways to share in this work.</p></div>
-      <div style="display:flex;gap:14px;flex-wrap:wrap"><a href="contact.html" class="em-btn em-btn--tan">Volunteer with us</a></div>
     </div>
   </section>
 
