@@ -4,8 +4,9 @@
   "description": "Eleventy + local CMS data for CloudCannon experiment (Sanity untouched on main)",
   "main": "image-slot.js",
   "scripts": {
-    "build": "npx --no-install eleventy",
-    "dev": "npx --no-install eleventy --serve --port=8081"
+    "build": "node scripts/check-templates.js && npx --no-install eleventy",
+    "dev": "npx --no-install eleventy --serve --port=8081",
+    "check": "node scripts/check-templates.js"
   },
   "repository": {
     "type": "git",

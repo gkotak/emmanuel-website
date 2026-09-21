@@ -74,6 +74,30 @@ _structures:
         value:
           image: ''
           image_alt: ''
+  bio_paragraphs:
+    values:
+      - label: Paragraph
+        icon: notes
+        value: ''
+  event_body:
+    values:
+      - label: Paragraph
+        icon: notes
+        value: ''
+  detail_rows:
+    values:
+      - label: Detail row
+        icon: list
+        value:
+          label: ''
+          value: ''
+  posters:
+    values:
+      - label: Poster
+        icon: image
+        value:
+          url: ''
+          alt: ''
 
 collections_config:
   # New key (pages) so CloudCannon drops the stale "Website pages (visual)" collection.
@@ -87,16 +111,26 @@ collections_config:
       - children-families.njk
       - contact.njk
       - donations.njk
+      - emmanuel-school.njk
+      - food-bank.njk
       - funerals.njk
+      - history.njk
       - im-new.njk
       - index.njk
       - music.njk
       - our-team.njk
+      - privacy-policy.njk
+      - room-hire.njk
+      - safeguarding.njk
       - service-times.njk
+      - st-cuthberts.njk
       - weddings.njk
     url: '[permalink]'
+    # Data editor only. The visual editor re-serialises the whole .njk file as
+    # HTML, which mangles the Nunjucks tags in the page body and breaks the
+    # build (see the music.njk outage). All editable copy lives in front
+    # matter, so the data editor reaches 100% of it with none of that risk.
     _enabled_editors:
-      - visual
       - data
     preview:
       text:
@@ -104,6 +138,9 @@ collections_config:
         - template: '{basename}'
       subtext:
         - key: permalink
+      image:
+        - key: hero_image
+        - key: feature_image
 
   service_times:
     path: _data/cms/service-times
@@ -119,6 +156,12 @@ collections_config:
         name: Service time
     create:
       path: '[relative_base_path]/{name|slugify}.json'
+    preview:
+      text:
+        - key: name
+      subtext:
+        - key: day
+        - key: time
 
   people:
     path: _data/cms/people
@@ -134,6 +177,13 @@ collections_config:
         name: Person
     create:
       path: '[relative_base_path]/{name|slugify}.json'
+    preview:
+      text:
+        - key: name
+      subtext:
+        - key: role
+      image:
+        - key: photoUrl
 
   room_rates:
     path: _data/cms/room-rates
@@ -143,6 +193,11 @@ collections_config:
       - '*.json'
     _enabled_editors:
       - data
+    preview:
+      text:
+        - key: room
+      subtext:
+        - key: rate
 
   events:
     path: _data/cms/events
@@ -152,6 +207,13 @@ collections_config:
       - '*.json'
     _enabled_editors:
       - data
+    preview:
+      text:
+        - key: title
+      subtext:
+        - key: date
+      image:
+        - key: thumbnailUrl
 
   other_events:
     path: _data/cms/other-events
@@ -167,6 +229,12 @@ collections_config:
         name: Other event
     create:
       path: '[relative_base_path]/{title|slugify}.json'
+    preview:
+      text:
+        - key: title
+      subtext:
+        - key: date
+        - key: time
 
 _inputs:
   headline:
@@ -207,6 +275,7 @@ _inputs:
       structures: _structures.sacrament_images
   image:
     type: image
+    label: Image
     options:
       path: assets/cms/site-images
   alt:
@@ -311,15 +380,15 @@ _inputs:
     type: switch
   featured:
     type: switch
-  image:
-    type: image
-    label: Image
   photoUrl:
     type: image
     label: Photo
   bio:
     type: array
+    label: Biography
     comment: One paragraph per item
+    options:
+      structures: _structures.bio_paragraphs
   name:
     type: text
   role:
@@ -332,3 +401,31 @@ _inputs:
     type: image
   feature_image:
     type: image
+  body_paragraphs:
+    type: array
+    label: Body
+    comment: One paragraph per item
+    options:
+      structures: _structures.event_body
+  detailRows:
+    type: array
+    label: Detail rows
+    comment: Small label/value pairs shown beside the event
+    options:
+      structures: _structures.detail_rows
+  posters:
+    type: array
+    label: Posters
+    options:
+      structures: _structures.posters
+  thumbnailUrl:
+    type: image
+    label: Thumbnail
+  # Structural fields — visible but never editable, so an editor cannot
+  # break a page's URL or the build.
+  permalink:
+    type: text
+    hidden: true
+  _id:
+    type: text
+    hidden: true
