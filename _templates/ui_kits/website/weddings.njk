@@ -85,6 +85,7 @@ callout_body: Tell us a little about you and your plans, and a member of the cle
     border-color: var(--navy);
   }
   .em-faq-body { padding-top: 22px; }
+  .em-intro--solo .inner { grid-template-columns: minmax(0, 1fr); }
   .wedding-photo-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
   .wedding-photo-row .em-well { height: 280px; }
   @media (max-width: 1024px) { .wedding-photo-row { grid-template-columns: repeat(2, 1fr); } }
@@ -126,7 +127,12 @@ callout_body: Tell us a little about you and your plans, and a member of the cle
           </p>
         {% endfor %}
         </div>
-        <details class="em-faq" style="margin-top:36px">
+        <div class="wedding-photo-row" style="margin-top:36px" data-editable="array" data-prop="wedding_images">
+        {% for photo in wedding_images %}
+          <div class="em-well" data-editable="array-item"><img src="{{ photo.image }}" alt="{{ photo.image_alt }}" /></div>
+        {% endfor %}
+        </div>
+        <details class="em-faq" style="margin-top:36px" open>
           <summary>
             <div class="em-ornament is-leading">A common question</div>
             <div class="em-faq__q">
@@ -148,11 +154,6 @@ callout_body: Tell us a little about you and your plans, and a member of the cle
             </ul>
           </div>
         </details>
-        <div class="wedding-photo-row" style="margin-top:36px" data-editable="array" data-prop="wedding_images">
-        {% for photo in wedding_images %}
-          <div class="em-well" data-editable="array-item"><img src="{{ photo.image }}" alt="{{ photo.image_alt }}" /></div>
-        {% endfor %}
-        </div>
       </div>
     </div>
   </section>
