@@ -1,0 +1,11 @@
+{
+  "_schema": "default",
+  "title": "one time test",
+  "schedule": {
+    "_type": "once",
+    "date": "2026-09-23T00:00:00+01:00"
+  },
+  "start_time": "19:00",
+  "end_time": "",
+  "description": "test"
+}
