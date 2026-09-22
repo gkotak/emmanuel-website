@@ -91,7 +91,38 @@ module.exports = function (eleventyConfig) {
   })
 
   eleventyConfig.addGlobalData('events', () => {
-    return readJsonDir('events').sort((a, b) => String(b.date || '').localeCompare(String(a.date || '')))
+    // The slug is the one variable part of an event's URL. CloudCannon's
+    // Duplicate copies the source record wholesale, including its slug, so two
+    // events would write to the same permalink and fail the build. Derive it
+    // from the title instead: that is what the editor actually types, and
+    // CloudCannon already slugifies the title for the filename.
+    const slugify = (s) =>
+      String(s || '')
+        .toLowerCase()
+        .replace(/['’]/g, '')
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/^-+|-+$/g, '')
+
+    const events = readJsonDir('events').map((e) => ({
+      ...e,
+      slug: slugify(e.title) || e._slug,
+    }))
+
+    // A collision would otherwise surface as an opaque Eleventy permalink
+    // error naming neither event. Fail loudly instead.
+    const seen = new Map()
+    for (const e of events) {
+      if (seen.has(e.slug)) {
+        throw new Error(
+          `Two events share the URL "event-${e.slug}.html": ` +
+            `"${seen.get(e.slug)}" and "${e.title}". ` +
+            `Give one of them a different title.`
+        )
+      }
+      seen.set(e.slug, e.title)
+    }
+
+    return events.sort((a, b) => String(b.date || '').localeCompare(String(a.date || '')))
   })
 
   eleventyConfig.addGlobalData('otherEvents', () => {

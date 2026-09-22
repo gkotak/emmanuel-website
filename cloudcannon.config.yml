@@ -283,6 +283,13 @@ collections_config:
       - posters
       - featured
     _inputs:
+      title:
+        type: text
+        label: Title
+        comment: Also sets the page address, e.g. "Harvest Festival" becomes
+          /event-harvest-festival.html. Two events cannot share a title.
+        options:
+          required: true
       deck:
         type: textarea
         label: Subtitle
@@ -337,9 +344,6 @@ collections_config:
         type: switch
         label: Featured
         comment: Show this event in the highlighted slot on the events page.
-      slug:
-        type: text
-        hidden: true
 
   other_events:
     path: _data/cms/other-events
