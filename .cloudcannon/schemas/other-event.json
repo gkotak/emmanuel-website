@@ -1,9 +1,6 @@
 {
   "title": "",
-  "schedule": {
-    "_type": "once",
-    "date": "2026-01-01"
-  },
+  "schedule": {},
   "start_time": "19:00",
   "end_time": "",
   "description": ""

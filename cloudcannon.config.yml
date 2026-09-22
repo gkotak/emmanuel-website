@@ -21,6 +21,8 @@ paths:
 
 _structures:
   event_schedule:
+    id_key: _type
+    style: select
     values:
       - label: Once
         icon: event
