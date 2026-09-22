@@ -1,6 +1,9 @@
 {
   "title": "Parish Quiz Night",
+  "repeats": "once",
   "date": "2026-04-18",
+  "weekday": "",
+  "day_of_month": null,
   "start_time": "19:00",
   "end_time": "",
   "description": "A fun evening of trivia in the church hall — teams of up to six, bring your own snacks."

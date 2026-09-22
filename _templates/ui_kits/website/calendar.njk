@@ -164,7 +164,7 @@ permalink: /ui_kits/website/calendar.html
     // ---- Other events (CMS-only; not shown anywhere else on the site) ------
     var OTHER = [
       {% for ev in otherEvents %}
-      {date:"{{ ev.date | isoDate }}", time:"{{ ev.start_time }}", end:"{{ ev.end_time }}", title:"{{ ev.title | replace('"', '&quot;') }}", kind:"other"}{% if not loop.last %},{% endif %}
+      {date:"{{ ev.date | isoDate }}", repeats:"{{ ev.repeats or 'once' }}", weekday:"{{ ev.weekday or '' }}", dom:{{ ev.day_of_month or 0 }}, time:"{{ ev.start_time }}", end:"{{ ev.end_time }}", title:"{{ ev.title | replace('"', '&quot;') }}", kind:"other"}{% if not loop.last %},{% endif %}
       {% endfor %}
     ];
 
@@ -247,7 +247,13 @@ permalink: /ui_kits/website/calendar.html
                    href:'/ui_kits/website/service-times.html'});
       });
       SPECIAL.forEach(function(s){ if(s.date===key){ list.push({time:s.time,end:s.end,title:s.title,kind:s.kind,href:s.href}); }});
-      OTHER.forEach(function(s){ if(s.date===key){ list.push({time:s.time,end:s.end,title:s.title,kind:s.kind}); }});
+      OTHER.forEach(function(s){
+        var hit;
+        if(s.repeats==='weekly')      hit = DAYNUM[String(s.weekday||'').toLowerCase().trim()]===dow;
+        else if(s.repeats==='monthly') hit = Number(s.dom)===d.getDate();
+        else                           hit = s.date===key;
+        if(hit) list.push({time:s.time,end:s.end,title:s.title,kind:s.kind});
+      });
       list.sort(function(a,b){
         if(a.allday&&!b.allday) return -1;
         if(b.allday&&!a.allday) return 1;

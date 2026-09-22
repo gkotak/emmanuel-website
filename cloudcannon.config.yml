@@ -181,6 +181,7 @@ collections_config:
         name: Service time
     create:
       path: '[relative_base_path]/{name|slugify}.json'
+    disable_add_folder: true
     preview:
       text:
         - key: name
@@ -323,21 +324,53 @@ collections_config:
       - data
     _order:
       - title
+      - repeats
       - date
+      - weekday
+      - day_of_month
       - start_time
       - end_time
       - description
     _inputs:
+      repeats:
+        type: select
+        label: Repeats
+        options:
+          values:
+            - value: once
+              label: Once
+            - value: weekly
+              label: Every week
+            - value: monthly
+              label: Every month
       date:
         type: date
         label: Date
-        comment: The day the event falls on.
+        comment: Only used for a one-off event.
+      weekday:
+        type: select
+        label: Day of the week
+        comment: Only used when the event repeats weekly.
+        options:
+          values:
+            - Sunday
+            - Monday
+            - Tuesday
+            - Wednesday
+            - Thursday
+            - Friday
+            - Saturday
+      day_of_month:
+        type: number
+        label: Day of the month
+        comment: Only used when the event repeats monthly — 1 to 31.
     schemas:
       default:
         path: .cloudcannon/schemas/other-event.json
         name: Other event
     create:
       path: '[relative_base_path]/{title|slugify}.json'
+    disable_add_folder: true
     preview:
       text:
         - key: title
