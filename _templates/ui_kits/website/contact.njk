@@ -16,8 +16,16 @@ intro_content: >-
 
 
   If you are unable to get to church, do ask about home communions — the clergy are glad to bring Holy Communion to those who need it.
-callout_heading: Stay connected.
-callout_body: Join our email list to receive the regular newsletter, with news and what's on across the parish.
+callout:
+  - heading: Stay connected.
+    body: Join our email list to receive the regular newsletter, with news and what's on across the parish.
+    buttons:
+      - label: Join the newsletter
+        href: https://emmanuelnw6.us9.list-manage.com/subscribe?u=82a1a8e47d9788dccae693588&id=bbf2ae4052
+        style: primary
+      - label: Email the office
+        href: mailto:info@emmanuelnw6.com
+        style: secondary
 ---
 <!doctype html>
 <html lang="en-GB">
@@ -166,12 +174,18 @@ callout_body: Join our email list to receive the regular newsletter, with news a
   </section>
 
   <!-- Callout -->
+  {% for c in callout %}
   <section class="em-callout">
     <div class="inner">
-      <div><h3 data-editable="text" data-prop="callout_heading" data-type="span">{{ callout_heading }}</h3><p data-editable="text" data-prop="callout_body" data-type="text">{{ callout_body }}</p></div>
-      <div style="display:flex;gap:14px;flex-wrap:wrap"><a href="https://emmanuelnw6.us9.list-manage.com/subscribe?u=82a1a8e47d9788dccae693588&id=bbf2ae4052" target="_blank" rel="noopener" class="em-btn em-btn--tan">Join the newsletter</a><a href="mailto:info@emmanuelnw6.com" class="em-btn em-btn--ghost-light">Email the office</a></div>
+      <div><h3 data-editable="text" data-prop="heading" data-type="span">{{ c.heading }}</h3><p data-editable="text" data-prop="body" data-type="text">{{ c.body }}</p></div>
+      {% if c.buttons and c.buttons.length %}
+      <div style="display:flex;gap:14px;flex-wrap:wrap">
+        {% for btn in c.buttons %}<a href="{{ btn.href }}"{% if btn.href | isExternal %} target="_blank" rel="noopener"{% endif %} class="em-btn {{ 'em-btn--tan' if btn.style == 'primary' else 'em-btn--ghost-light' }}">{{ btn.label }}</a>{% endfor %}
+      </div>
+      {% endif %}
     </div>
   </section>
+  {% endfor %}
 
 {% include "footer.njk" %}
 

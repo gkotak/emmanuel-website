@@ -38,9 +38,20 @@ intro_content: >-
     The vicar aims to meet new members of the congregation for a 1-1
     meeting within six months of their arrival. Please contact her if
     you'd like to arrange a meeting.
-callout_heading: Still have a question?
-callout_body: >-
-    Don't hesitate to contact a member of the clergy if you'd like to learn more.
+callout:
+    -
+        heading: Still have a question?
+        body: >-
+            Don't hesitate to contact a member of the clergy if you'd like to learn more.
+        buttons:
+            -
+                label: Contact the clergy
+                href: mailto:vicar@emmanuelnw6.com
+                style: primary
+            -
+                label: Service times
+                href: service-times.html
+                style: secondary
 hero_image: /assets/cms/site-images/imnew-hero.jpg
 hero_image_alt: The congregation gathered for worship beneath the flags of the nations
 featured_services:
@@ -181,18 +192,21 @@ access_cards:
   </section>
 
   <!-- CTA -->
+  {% for c in callout %}
   <section class="em-callout">
     <div class="inner">
       <div>
-        <h3 data-editable="text" data-prop="callout_heading" data-type="span">{{ callout_heading }}</h3>
-        <p data-editable="text" data-prop="callout_body" data-type="text">{{ callout_body }}</p>
+        <h3 data-editable="text" data-prop="heading" data-type="span">{{ c.heading }}</h3>
+        <p data-editable="text" data-prop="body" data-type="text">{{ c.body }}</p>
       </div>
+      {% if c.buttons and c.buttons.length %}
       <div style="display:flex;gap:14px;flex-wrap:wrap">
-        <a href="mailto:vicar@emmanuelnw6.com" class="em-btn em-btn--tan">Contact the clergy</a>
-        <a href="service-times.html" class="em-btn em-btn--ghost-light">Service times</a>
+        {% for btn in c.buttons %}<a href="{{ btn.href }}"{% if btn.href | isExternal %} target="_blank" rel="noopener"{% endif %} class="em-btn {{ 'em-btn--tan' if btn.style == 'primary' else 'em-btn--ghost-light' }}">{{ btn.label }}</a>{% endfor %}
       </div>
+      {% endif %}
     </div>
   </section>
+  {% endfor %}
 
 {% include "footer.njk" %}
 

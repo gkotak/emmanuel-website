@@ -3,9 +3,17 @@ permalink: /ui_kits/website/our-team.html
 title: Our Team
 clergy_label: Clergy
 staff_label: Staff and Volunteers
-callout_heading: Come and say hello!
-callout_body: The best way to meet the team is in person — do introduce yourself
-  after a Sunday service, or get in touch with the parish office any time.
+callout:
+  - heading: Come and say hello!
+    body: The best way to meet the team is in person — do introduce yourself
+      after a Sunday service, or get in touch with the parish office any time.
+    buttons:
+      - label: Planning your first visit
+        href: /ui_kits/website/im-new.html
+        style: primary
+      - label: Contact us
+        href: /ui_kits/website/contact.html
+        style: secondary
 ---
 <!DOCTYPE html>
 <html lang="en-GB">
@@ -110,18 +118,21 @@ callout_body: The best way to meet the team is in person — do introduce yourse
     </div>
   </section>
 
+  {% for c in callout %}
   <section class="em-callout">
     <div class="inner">
       <div>
-        <h3 data-editable="text" data-prop="callout_heading" data-type="span">{{ callout_heading }}</h3>
-        <p data-editable="text" data-prop="callout_body" data-type="text">{{ callout_body }}</p>
+        <h3 data-editable="text" data-prop="heading" data-type="span">{{ c.heading }}</h3>
+        <p data-editable="text" data-prop="body" data-type="text">{{ c.body }}</p>
       </div>
+      {% if c.buttons and c.buttons.length %}
       <div style="display:flex;gap:14px;flex-wrap:wrap">
-        <a href="/ui_kits/website/im-new.html" class="em-btn em-btn--tan">Planning your first visit</a>
-        <a href="/ui_kits/website/contact.html" class="em-btn em-btn--ghost-light">Contact us</a>
+        {% for btn in c.buttons %}<a href="{{ btn.href }}"{% if btn.href | isExternal %} target="_blank" rel="noopener"{% endif %} class="em-btn {{ 'em-btn--tan' if btn.style == 'primary' else 'em-btn--ghost-light' }}">{{ btn.label }}</a>{% endfor %}
       </div>
+      {% endif %}
     </div>
   </section>
+  {% endfor %}
 
 {% include "footer.njk" %}
 

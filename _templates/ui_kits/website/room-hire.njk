@@ -15,8 +15,13 @@ intro_content: >-
 
 
   In addition to a wonderful large space for children's parties, we have smaller rooms which work well for community meetings, meditation sessions or private lessons. Whatever the occasion, we'd be glad to help you find the right space.
-callout_heading: Find your space.
-callout_body: Tell us about your event and we'll help you choose the right room and confirm availability.
+callout:
+  - heading: Find your space.
+    body: Tell us about your event and we'll help you choose the right room and confirm availability.
+    buttons:
+      - label: Enquire about hire
+        href: /ui_kits/website/contact.html
+        style: primary
 ---
 <!doctype html>
 <html lang="en-GB">
@@ -106,14 +111,18 @@ callout_body: Tell us about your event and we'll help you choose the right room 
     </div>
   </section>
 
+  {% for c in callout %}
   <section class="em-callout">
     <div class="inner">
-      <div><h3>{{ callout_heading }}</h3><p>{{ callout_body }}</p></div>
+      <div><h3 data-editable="text" data-prop="heading" data-type="span">{{ c.heading }}</h3><p data-editable="text" data-prop="body" data-type="text">{{ c.body }}</p></div>
+      {% if c.buttons and c.buttons.length %}
       <div style="display:flex;gap:14px;flex-wrap:wrap">
-        <a href="/ui_kits/website/contact.html" class="em-btn em-btn--tan">Enquire about hire</a>
+        {% for btn in c.buttons %}<a href="{{ btn.href }}"{% if btn.href | isExternal %} target="_blank" rel="noopener"{% endif %} class="em-btn {{ 'em-btn--tan' if btn.style == 'primary' else 'em-btn--ghost-light' }}">{{ btn.label }}</a>{% endfor %}
       </div>
+      {% endif %}
     </div>
   </section>
+  {% endfor %}
 
 {% include "footer.njk" %}
 

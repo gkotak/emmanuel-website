@@ -14,9 +14,17 @@ intro_content: >-
 aside_heading: Join the roll
 aside_body: Complete and return an Application for Enrolment form, available below or from the parish
   office.
-callout_heading: Make Emmanuel your church home.
-callout_body: Joining the electoral roll is quick and simple — and it lets you take a full part in the
-  life and decisions of the parish.
+callout:
+  - heading: Make Emmanuel your church home.
+    body: Joining the electoral roll is quick and simple — and it lets you take a full part in the
+      life and decisions of the parish.
+    buttons:
+      - label: Download the form
+        href: https://parishresources.org.uk/wp-content/uploads/Form-1-Application-for-enrolment-church-electoral-roll.pdf
+        style: primary
+      - label: New to Emmanuel?
+        href: im-new.html
+        style: secondary
 ---
 <!doctype html>
 <html lang="en-GB">
@@ -58,12 +66,18 @@ callout_body: Joining the electoral roll is quick and simple — and it lets you
       </aside>
     </div>
   </section>
+  {% for c in callout %}
   <section class="em-callout">
     <div class="inner">
-      <div><h3>{{ callout_heading }}</h3><p>{{ callout_body }}</p></div>
-      <div style="display:flex;gap:14px;flex-wrap:wrap"><a href="https://parishresources.org.uk/wp-content/uploads/Form-1-Application-for-enrolment-church-electoral-roll.pdf" target="_blank" rel="noopener" class="em-btn em-btn--tan">Download the form</a><a href="im-new.html" class="em-btn em-btn--ghost-light">New to Emmanuel?</a></div>
+      <div><h3 data-editable="text" data-prop="heading" data-type="span">{{ c.heading }}</h3><p data-editable="text" data-prop="body" data-type="text">{{ c.body }}</p></div>
+      {% if c.buttons and c.buttons.length %}
+      <div style="display:flex;gap:14px;flex-wrap:wrap">
+        {% for btn in c.buttons %}<a href="{{ btn.href }}"{% if btn.href | isExternal %} target="_blank" rel="noopener"{% endif %} class="em-btn {{ 'em-btn--tan' if btn.style == 'primary' else 'em-btn--ghost-light' }}">{{ btn.label }}</a>{% endfor %}
+      </div>
+      {% endif %}
     </div>
   </section>
+  {% endfor %}
 
 {% include "footer.njk" %}
 

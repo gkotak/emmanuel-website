@@ -150,6 +150,9 @@ module.exports = function (eleventyConfig) {
   // "2026-06-07" (or a legacy "...T18:30:00") -> "2026-06-07", for the calendar.
   eleventyConfig.addFilter('isoDate', (value) => String(value || '').slice(0, 10))
 
+  // True for links that leave the site (http/https), so they can open in a new tab.
+  eleventyConfig.addFilter('isExternal', (href) => /^https?:\/\//i.test(String(href || '')))
+
   eleventyConfig.addFilter('dayLabel', (days) => {
     const ORDER = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
     const list = (days || []).filter((d) => ORDER.includes(d))

@@ -8,9 +8,17 @@ intro_content: >-
 
 
   Safeguarding is the responsibility of the whole church community. If you have any concern about the safety or wellbeing of a child or adult, please do not hesitate to speak to our Parish Safeguarding Officer or a member of the clergy.
-callout_heading: Everyone is responsible.
-callout_body: If something doesn't feel right, please speak up. Our Parish Safeguarding Officer is here
-  to listen and to help.
+callout:
+  - heading: Everyone is responsible.
+    body: If something doesn't feel right, please speak up. Our Parish Safeguarding Officer is here
+      to listen and to help.
+    buttons:
+      - label: Email Sarah Watts
+        href: mailto:safeguarding@emmanuelnw6.com
+        style: primary
+      - label: Contact the clergy
+        href: mailto:vicar@emmanuelnw6.com
+        style: secondary
 ---
 <!doctype html>
 <html lang="en-GB">
@@ -73,12 +81,18 @@ callout_body: If something doesn't feel right, please speak up. Our Parish Safeg
       </div>
     </div>
   </section>
+  {% for c in callout %}
   <section class="em-callout">
     <div class="inner">
-      <div><h3>{{ callout_heading }}</h3><p>{{ callout_body }}</p></div>
-      <div style="display:flex;gap:14px;flex-wrap:wrap"><a href="mailto:safeguarding@emmanuelnw6.com" class="em-btn em-btn--tan">Email Sarah Watts</a><a href="mailto:vicar@emmanuelnw6.com" class="em-btn em-btn--ghost-light">Contact the clergy</a></div>
+      <div><h3 data-editable="text" data-prop="heading" data-type="span">{{ c.heading }}</h3><p data-editable="text" data-prop="body" data-type="text">{{ c.body }}</p></div>
+      {% if c.buttons and c.buttons.length %}
+      <div style="display:flex;gap:14px;flex-wrap:wrap">
+        {% for btn in c.buttons %}<a href="{{ btn.href }}" class="em-btn {{ 'em-btn--tan' if btn.style == 'primary' else 'em-btn--ghost-light' }}">{{ btn.label }}</a>{% endfor %}
+      </div>
+      {% endif %}
     </div>
   </section>
+  {% endfor %}
 
 {% include "footer.njk" %}
 

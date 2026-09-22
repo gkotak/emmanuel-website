@@ -100,9 +100,17 @@ midweek:
     image_alt: ''
 school_link_label: Find details here
 school_link_href: emmanuel-school.html
-callout_heading: Come and join us.
-callout_body: Whether on a Sunday morning or at Thursday's Stay and Play, we'd
-  love to welcome you and your family to Emmanuel.
+callout:
+  - heading: Come and join us.
+    body: Whether on a Sunday morning or at Thursday's Stay and Play, we'd
+      love to welcome you and your family to Emmanuel.
+    buttons:
+      - label: Contact the parish office
+        href: contact.html
+        style: primary
+      - label: Service times
+        href: service-times.html
+        style: secondary
 ---
 <!DOCTYPE html>
 <html lang="en-GB">
@@ -340,18 +348,21 @@ callout_body: Whether on a Sunday morning or at Thursday's Stay and Play, we'd
   </section>
 
   <!-- CTA -->
+  {% for c in callout %}
   <section class="em-callout">
     <div class="inner">
       <div>
-        <h3 data-editable="text" data-prop="callout_heading" data-type="span">{{ callout_heading }}</h3>
-        <p data-editable="text" data-prop="callout_body" data-type="text">{{ callout_body }}</p>
+        <h3 data-editable="text" data-prop="heading" data-type="span">{{ c.heading }}</h3>
+        <p data-editable="text" data-prop="body" data-type="text">{{ c.body }}</p>
       </div>
+      {% if c.buttons and c.buttons.length %}
       <div style="display:flex;gap:14px;flex-wrap:wrap">
-        <a href="contact.html" class="em-btn em-btn--tan">Contact the parish office</a>
-        <a href="service-times.html" class="em-btn em-btn--ghost-light">Service times</a>
+        {% for btn in c.buttons %}<a href="{{ btn.href }}" class="em-btn {{ 'em-btn--tan' if btn.style == 'primary' else 'em-btn--ghost-light' }}">{{ btn.label }}</a>{% endfor %}
       </div>
+      {% endif %}
     </div>
   </section>
+  {% endfor %}
 
 {% include "footer.njk" %}
 

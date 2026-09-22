@@ -20,6 +20,28 @@ paths:
   collections: ''
 
 _structures:
+  callout:
+    values:
+      - label: Callout
+        icon: campaign
+        value:
+          heading: New callout heading
+          body: ''
+          buttons: []
+  callout_buttons:
+    values:
+      - label: Primary button (orange)
+        icon: smart_button
+        value:
+          label: Button label
+          href: https://
+          style: primary
+      - label: Secondary button (outlined)
+        icon: smart_button
+        value:
+          label: Button label
+          href: https://
+          style: secondary
   documents:
     values:
       - label: Document link
@@ -334,10 +356,35 @@ _inputs:
     type: markdown
   archive_note:
     type: textarea
-  callout_heading:
+  callout:
+    type: array
+    label: Callout
+    comment: Optional. A closing call-to-action band shown just above the footer. Add one item to enable it; remove it to hide it. Requires a heading or body.
+    options:
+      structures: _structures.callout
+      min: 0
+      max: 1
+  heading:
     type: text
-  callout_body:
-    type: textarea
+    label: Heading
+  buttons:
+    type: array
+    label: Buttons
+    comment: Up to two buttons — the first is styled as primary (orange), the second as secondary (outlined).
+    options:
+      structures: _structures.callout_buttons
+      min: 0
+      max: 2
+  label:
+    type: text
+    label: Button label
+  style:
+    type: select
+    label: Style
+    options:
+      values:
+        - primary
+        - secondary
   aside_heading:
     type: text
     label: Aside heading

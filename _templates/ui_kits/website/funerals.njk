@@ -13,8 +13,16 @@ intro_content: >-
 
 
   If you would like to discuss a funeral, please contact the parish office. We will respond with care and without delay.
-callout_heading: We are here for you.
-callout_body: Whenever you are ready, the parish office will help you take the next step — there is no rush, and no question too small.
+callout:
+  - heading: We are here for you.
+    body: Whenever you are ready, the parish office will help you take the next step — there is no rush, and no question too small.
+    buttons:
+      - label: Contact the parish office
+        href: contact.html
+        style: primary
+      - label: 07751 534 297
+        href: 'tel:07751534297'
+        style: secondary
 feature_image: /assets/feedback/funerals.jpg
 feature_image_alt: The church prepared for a funeral or memorial service
 ---
@@ -62,15 +70,21 @@ feature_image_alt: The church prepared for a funeral or memorial service
       <cite>Romans 8</cite>
     </div>
   </section>
+  {% for c in callout %}
   <section class="em-callout">
     <div class="inner">
       <div>
-        <h3 data-editable="text" data-prop="callout_heading" data-type="span">{{ callout_heading }}</h3>
-        <p data-editable="text" data-prop="callout_body" data-type="text">{{ callout_body }}</p>
+        <h3 data-editable="text" data-prop="heading" data-type="span">{{ c.heading }}</h3>
+        <p data-editable="text" data-prop="body" data-type="text">{{ c.body }}</p>
       </div>
-      <div style="display:flex;gap:14px;flex-wrap:wrap"><a href="contact.html" class="em-btn em-btn--tan">Contact the parish office</a><a href="tel:07751534297" class="em-btn em-btn--ghost-light">07751 534 297</a></div>
+      {% if c.buttons and c.buttons.length %}
+      <div style="display:flex;gap:14px;flex-wrap:wrap">
+        {% for btn in c.buttons %}<a href="{{ btn.href }}" class="em-btn {{ 'em-btn--tan' if btn.style == 'primary' else 'em-btn--ghost-light' }}">{{ btn.label }}</a>{% endfor %}
+      </div>
+      {% endif %}
     </div>
   </section>
+  {% endfor %}
 
 {% include "footer.njk" %}
 

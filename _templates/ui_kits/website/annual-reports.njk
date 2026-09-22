@@ -57,9 +57,17 @@ documents:
     description: PDF · Minutes of the 2019 APCM
     href: /assets/cms/annualreports/APCM-minutes-2019.pdf
     icon: document
-callout_heading: Questions about our governance?
-callout_body: Members of the congregation are always welcome to ask about the
-  PCC, our finances, or how decisions are made at Emmanuel.
+callout:
+  - heading: Questions about our governance?
+    body: Members of the congregation are always welcome to ask about the
+      PCC, our finances, or how decisions are made at Emmanuel.
+    buttons:
+      - label: Join the electoral roll
+        href: electoral-roll.html
+        style: primary
+      - label: Contact the parish office
+        href: contact.html
+        style: secondary
 ---
 <!DOCTYPE html>
 <html lang="en-GB">
@@ -108,15 +116,21 @@ callout_body: Members of the congregation are always welcome to ask about the
       </div>
     </div>
   </section>
+  {% for c in callout %}
   <section class="em-callout">
     <div class="inner">
       <div>
-        <h3 data-editable="text" data-prop="callout_heading" data-type="span">{{ callout_heading }}</h3>
-        <p data-editable="text" data-prop="callout_body" data-type="text">{{ callout_body }}</p>
+        <h3 data-editable="text" data-prop="heading" data-type="span">{{ c.heading }}</h3>
+        <p data-editable="text" data-prop="body" data-type="text">{{ c.body }}</p>
       </div>
-      <div style="display:flex;gap:14px;flex-wrap:wrap"><a href="electoral-roll.html" class="em-btn em-btn--tan">Join the electoral roll</a><a href="contact.html" class="em-btn em-btn--ghost-light">Contact the parish office</a></div>
+      {% if c.buttons and c.buttons.length %}
+      <div style="display:flex;gap:14px;flex-wrap:wrap">
+        {% for btn in c.buttons %}<a href="{{ btn.href }}" class="em-btn {{ 'em-btn--tan' if btn.style == 'primary' else 'em-btn--ghost-light' }}">{{ btn.label }}</a>{% endfor %}
+      </div>
+      {% endif %}
     </div>
   </section>
+  {% endfor %}
 
 {% include "footer.njk" %}
 
