@@ -27,9 +27,6 @@ permalink: /ui_kits/website/calendar.html
   .cal-legend span { display:inline-flex; align-items:center; gap:9px; font-family:var(--font-sans); font-size:13px; color:var(--ink-soft); }
   .cal-legend .sw { width:14px; height:14px; border-radius:2px; flex-shrink:0; }
   .sw-service { background:var(--cream); border-left:3px solid var(--navy); }
-  .sw-prayer { background:#f1ede4; border-left:3px solid var(--brown); }
-  .sw-special { background:var(--brown); }
-  .sw-exhibition { background:var(--tan); }
   .sw-other { background:#eef1ea; border-left:3px solid #5c7a52; }
   /* Month grid */
   .cal-grid { border:1px solid var(--rule-ink); border-bottom:none; }
@@ -47,10 +44,6 @@ permalink: /ui_kits/website/calendar.html
   .cal-chip { display:block; text-decoration:none; font-family:var(--font-sans); font-size:11.5px; line-height:1.25; padding:4px 7px; border-radius:2px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
   .cal-chip b { font-weight:var(--fw-bold); }
   .cal-chip--service { background:var(--cream); border-left:3px solid var(--navy); color:var(--navy); }
-  .cal-chip--prayer { background:#f1ede4; border-left:3px solid var(--brown); color:var(--ink-soft); }
-  .cal-chip--special { background:var(--brown); border-left:3px solid var(--brown-deep,#6f5526); color:#fff; font-weight:var(--fw-semibold); }
-  .cal-chip--special:hover { background:var(--brown-deep,#6f5526); }
-  .cal-chip--exhibition { background:var(--tan); color:var(--navy); border-left:3px solid #c9a24a; font-weight:var(--fw-semibold); }
   .cal-chip--other { background:#eef1ea; border-left:3px solid #5c7a52; color:#3d5136; }
   a.cal-chip { cursor:pointer; transition:filter var(--dur-fast,0.18s) var(--ease,ease); }
   a.cal-chip:hover { filter:brightness(0.96); }
@@ -73,11 +66,8 @@ permalink: /ui_kits/website/calendar.html
   .cal-chip.is-paused { opacity:0.55; filter:grayscale(1); }
   .cal-chip.is-paused .wn, .cal-chip.is-paused b { text-decoration:line-through; }
   .cal-chip.is-paused .wp { display:block; font-family:var(--font-sans); font-size:10.5px; font-weight:var(--fw-semibold); letter-spacing:0.02em; text-decoration:none; margin-top:2px; }
-  .cal-chip--exhibition.is-paused, .cal-chip--special.is-paused { color:var(--navy); }
   a.cal-chip.is-paused:hover { filter:grayscale(1) brightness(0.98); }
   .cal-wevt.cal-chip--service { color:var(--navy); }
-  .cal-wevt.cal-chip--prayer { color:var(--ink-soft); }
-  .cal-wevt.cal-chip--special { color:#fff; }
   .cal-wevt.cal-chip--other { color:#3d5136; }
   .cal-wempty { font-family:var(--font-editorial); font-style:italic; font-size:13px; color:var(--line); padding:8px 9px; }
   .cal-foot-note { font-family:var(--font-editorial); font-style:italic; font-size:16px; color:var(--muted); padding:26px var(--gutter) 0; max-width:1320px; margin:0 auto; }
@@ -116,10 +106,7 @@ permalink: /ui_kits/website/calendar.html
 
       <div class="cal-legend">
         <span><span class="sw sw-service"></span> Services &amp; worship</span>
-        <span><span class="sw sw-prayer"></span> Prayer &amp; quiet</span>
-        <span><span class="sw sw-special"></span> Special service / event</span>
-        <span><span class="sw sw-exhibition"></span> Exhibition (all day)</span>
-        <span><span class="sw sw-other"></span> Other event</span>
+        <span><span class="sw sw-other"></span> Other events</span>
       </div>
 
       <div id="calView"></div>
@@ -146,7 +133,7 @@ permalink: /ui_kits/website/calendar.html
         pauses: [{% for p in st.pauses %}{from:"{{ p.from }}",until:"{{ p.until or '' }}"}{% if not loop.last %},{% endif %}{% endfor %}],
         time: "{{ st.start_time }}", end: "{{ st.end_time }}",
         title: "{{ st.name | replace('"', '&quot;') }}",
-        kind: "{{ 'prayer' if 'prayer' in st.name | lower or 'contemplative' in st.name | lower else 'service' }}"
+        kind: "service"
       }{% if not loop.last %},{% endif %}
       {% endfor %}
     ];
@@ -156,7 +143,7 @@ permalink: /ui_kits/website/calendar.html
     var SPECIAL = [
       {% for ev in events %}
         {% if ev.date %}
-        {date:"{{ ev.date | isoDate }}", time:"{{ ev.start_time if ev.start_time else '10:30' }}", end:"{{ ev.end_time }}", title:"{{ ev.title | replace('"', '&quot;') }}", kind:"special", href:"/ui_kits/website/event-{{ ev.slug }}.html"}{% if not loop.last %},{% endif %}
+        {date:"{{ ev.date | isoDate }}", time:"{{ ev.start_time if ev.start_time else '10:30' }}", end:"{{ ev.end_time }}", title:"{{ ev.title | replace('"', '&quot;') }}", kind:"other", href:"/ui_kits/website/event-{{ ev.slug }}.html"}{% if not loop.last %},{% endif %}
         {% endif %}
       {% endfor %}
     ];
@@ -173,7 +160,7 @@ permalink: /ui_kits/website/calendar.html
     var SPANS = [
       {% for ev in events %}
         {% if 'exhibition' in ev.title | lower %}
-        {from:"{{ ev.date | isoDate }}", to:"{{ ev.date | isoDate }}", title:"{{ ev.title | replace('"', '&quot;') }}", kind:"exhibition", href:"/ui_kits/website/event-{{ ev.slug }}.html"}{% if not loop.last %},{% endif %}
+        {from:"{{ ev.date | isoDate }}", to:"{{ ev.date | isoDate }}", title:"{{ ev.title | replace('"', '&quot;') }}", kind:"other", href:"/ui_kits/website/event-{{ ev.slug }}.html"}{% if not loop.last %},{% endif %}
         {% endif %}
       {% endfor %}
     ];
