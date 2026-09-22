@@ -258,6 +258,7 @@ collections_config:
       - '*.json'
     _enabled_editors:
       - data
+    disable_add_folder: true
     disable_file_actions: false
     preview:
       text:

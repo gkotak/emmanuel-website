@@ -16,12 +16,18 @@ function readJson(file, fallback) {
 function readJsonDir(dir) {
   const full = path.join(CMS, dir)
   if (!fs.existsSync(full)) return []
-  return fs
-    .readdirSync(full)
-    .filter((n) => n.endsWith('.json'))
-    .map((n) => {
-      const data = JSON.parse(fs.readFileSync(path.join(full, n), 'utf8'))
-      data._slug = n.replace(/\.json$/, '')
+  // Recursive: CloudCannon offers "Move to new folder" on these collections and
+  // that cannot be hidden on its own, so a record nested in a subfolder must
+  // still be found rather than silently disappearing from the site.
+  const walk = (d) =>
+    fs.readdirSync(d, {withFileTypes: true}).flatMap((e) => {
+      const p = path.join(d, e.name)
+      return e.isDirectory() ? walk(p) : e.name.endsWith('.json') ? [p] : []
+    })
+  return walk(full)
+    .map((p) => {
+      const data = JSON.parse(fs.readFileSync(p, 'utf8'))
+      data._slug = path.basename(p).replace(/\.json$/, '')
       return data
     })
 }
