@@ -44,21 +44,22 @@ _structures:
         value:
           heading: New callout heading
           body: ''
-          buttons: []
-  callout_buttons:
+          primary_button: []
+          secondary_button: []
+  primary_button:
     values:
       - label: Primary button (orange)
         icon: smart_button
         value:
           label: Button label
           href: https://
-          style: primary
+  secondary_button:
+    values:
       - label: Secondary button (outlined)
         icon: smart_button
         value:
           label: Button label
           href: https://
-          style: secondary
   documents:
     values:
       - label: Document link
@@ -408,24 +409,25 @@ _inputs:
   heading:
     type: text
     label: Heading
-  buttons:
+  primary_button:
     type: array
-    label: Buttons
-    comment: Up to two buttons — the first is styled as primary (orange), the second as secondary (outlined).
+    label: Primary button (orange)
+    comment: Optional. At most one.
     options:
-      structures: _structures.callout_buttons
+      structures: _structures.primary_button
       min: 0
-      max: 2
+      max: 1
+  secondary_button:
+    type: array
+    label: Secondary button (outlined)
+    comment: Optional. At most one.
+    options:
+      structures: _structures.secondary_button
+      min: 0
+      max: 1
   label:
     type: text
     label: Button label
-  style:
-    type: select
-    label: Style
-    options:
-      values:
-        - primary
-        - secondary
   aside_heading:
     type: text
     label: Aside heading

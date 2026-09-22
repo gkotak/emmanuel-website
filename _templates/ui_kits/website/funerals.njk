@@ -16,13 +16,12 @@ intro_content: >-
 callout:
   - heading: We are here for you.
     body: Whenever you are ready, the parish office will help you take the next step — there is no rush, and no question too small.
-    buttons:
+    primary_button:
       - label: Contact the parish office
         href: contact.html
-        style: primary
+    secondary_button:
       - label: 07751 534 297
         href: 'tel:07751534297'
-        style: secondary
 feature_image: /assets/feedback/funerals.jpg
 feature_image_alt: The church prepared for a funeral or memorial service
 ---
@@ -77,9 +76,10 @@ feature_image_alt: The church prepared for a funeral or memorial service
         <h3 data-editable="text" data-prop="heading" data-type="span">{{ c.heading }}</h3>
         <p data-editable="text" data-prop="body" data-type="text">{{ c.body }}</p>
       </div>
-      {% if c.buttons and c.buttons.length %}
+      {% if (c.primary_button and c.primary_button.length) or (c.secondary_button and c.secondary_button.length) %}
       <div style="display:flex;gap:14px;flex-wrap:wrap">
-        {% for btn in c.buttons %}<a href="{{ btn.href }}" class="em-btn {{ 'em-btn--tan' if btn.style == 'primary' else 'em-btn--ghost-light' }}">{{ btn.label }}</a>{% endfor %}
+        {% for btn in c.primary_button %}<a href="{{ btn.href }}" class="em-btn em-btn--tan">{{ btn.label }}</a>{% endfor %}
+        {% for btn in c.secondary_button %}<a href="{{ btn.href }}" class="em-btn em-btn--ghost-light">{{ btn.label }}</a>{% endfor %}
       </div>
       {% endif %}
     </div>

@@ -61,13 +61,12 @@ callout:
   - heading: Questions about our governance?
     body: Members of the congregation are always welcome to ask about the
       PCC, our finances, or how decisions are made at Emmanuel.
-    buttons:
+    primary_button:
       - label: Join the electoral roll
         href: electoral-roll.html
-        style: primary
+    secondary_button:
       - label: Contact the parish office
         href: contact.html
-        style: secondary
 ---
 <!DOCTYPE html>
 <html lang="en-GB">
@@ -123,9 +122,10 @@ callout:
         <h3 data-editable="text" data-prop="heading" data-type="span">{{ c.heading }}</h3>
         <p data-editable="text" data-prop="body" data-type="text">{{ c.body }}</p>
       </div>
-      {% if c.buttons and c.buttons.length %}
+      {% if (c.primary_button and c.primary_button.length) or (c.secondary_button and c.secondary_button.length) %}
       <div style="display:flex;gap:14px;flex-wrap:wrap">
-        {% for btn in c.buttons %}<a href="{{ btn.href }}" class="em-btn {{ 'em-btn--tan' if btn.style == 'primary' else 'em-btn--ghost-light' }}">{{ btn.label }}</a>{% endfor %}
+        {% for btn in c.primary_button %}<a href="{{ btn.href }}" class="em-btn em-btn--tan">{{ btn.label }}</a>{% endfor %}
+        {% for btn in c.secondary_button %}<a href="{{ btn.href }}" class="em-btn em-btn--ghost-light">{{ btn.label }}</a>{% endfor %}
       </div>
       {% endif %}
     </div>

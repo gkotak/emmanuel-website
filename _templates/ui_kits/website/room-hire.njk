@@ -18,10 +18,9 @@ intro_content: >-
 callout:
   - heading: Find your space.
     body: Tell us about your event and we'll help you choose the right room and confirm availability.
-    buttons:
+    primary_button:
       - label: Enquire about hire
         href: /ui_kits/website/contact.html
-        style: primary
 ---
 <!doctype html>
 <html lang="en-GB">
@@ -115,9 +114,10 @@ callout:
   <section class="em-callout">
     <div class="inner">
       <div><h3 data-editable="text" data-prop="heading" data-type="span">{{ c.heading }}</h3><p data-editable="text" data-prop="body" data-type="text">{{ c.body }}</p></div>
-      {% if c.buttons and c.buttons.length %}
+      {% if (c.primary_button and c.primary_button.length) or (c.secondary_button and c.secondary_button.length) %}
       <div style="display:flex;gap:14px;flex-wrap:wrap">
-        {% for btn in c.buttons %}<a href="{{ btn.href }}"{% if btn.href | isExternal %} target="_blank" rel="noopener"{% endif %} class="em-btn {{ 'em-btn--tan' if btn.style == 'primary' else 'em-btn--ghost-light' }}">{{ btn.label }}</a>{% endfor %}
+        {% for btn in c.primary_button %}<a href="{{ btn.href }}"{% if btn.href | isExternal %} target="_blank" rel="noopener"{% endif %} class="em-btn em-btn--tan">{{ btn.label }}</a>{% endfor %}
+        {% for btn in c.secondary_button %}<a href="{{ btn.href }}"{% if btn.href | isExternal %} target="_blank" rel="noopener"{% endif %} class="em-btn em-btn--ghost-light">{{ btn.label }}</a>{% endfor %}
       </div>
       {% endif %}
     </div>

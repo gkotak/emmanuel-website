@@ -17,13 +17,12 @@ callout:
   - heading: Stay connected.
     body: Join our email list to receive the regular newsletter, with news
       and what's on across the parish.
-    buttons:
+    primary_button:
       - label: Join the newsletter
         href: https://emmanuelnw6.us9.list-manage.com/subscribe?u=82a1a8e47d9788dccae693588&id=bbf2ae4052
-        style: primary
+    secondary_button:
       - label: Email the office
         href: mailto:info@emmanuelnw6.com
-        style: secondary
 ---
 <!DOCTYPE html>
 <html lang="en-GB">
@@ -167,9 +166,10 @@ callout:
     <div class="inner">
       <div><h3 data-editable="text" data-prop="heading" data-type="span">{{ c.heading }}</h3>
       <p data-editable="text" data-prop="body" data-type="text">{{ c.body }}</p></div>
-      {% if c.buttons and c.buttons.length %}
+      {% if (c.primary_button and c.primary_button.length) or (c.secondary_button and c.secondary_button.length) %}
       <div style="display:flex;gap:14px;flex-wrap:wrap">
-        {% for btn in c.buttons %}<a href="{{ btn.href }}"{% if btn.href | isExternal %} target="_blank" rel="noopener"{% endif %} class="em-btn {{ 'em-btn--tan' if btn.style == 'primary' else 'em-btn--ghost-light' }}">{{ btn.label }}</a>{% endfor %}
+        {% for btn in c.primary_button %}<a href="{{ btn.href }}"{% if btn.href | isExternal %} target="_blank" rel="noopener"{% endif %} class="em-btn em-btn--tan">{{ btn.label }}</a>{% endfor %}
+        {% for btn in c.secondary_button %}<a href="{{ btn.href }}"{% if btn.href | isExternal %} target="_blank" rel="noopener"{% endif %} class="em-btn em-btn--ghost-light">{{ btn.label }}</a>{% endfor %}
       </div>
       {% endif %}
     </div>

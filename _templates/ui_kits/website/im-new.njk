@@ -43,15 +43,14 @@ callout:
         heading: Still have a question?
         body: >-
             Don't hesitate to contact a member of the clergy if you'd like to learn more.
-        buttons:
+        primary_button:
             -
                 label: Contact the clergy
                 href: mailto:vicar@emmanuelnw6.com
-                style: primary
+        secondary_button:
             -
                 label: Service times
                 href: service-times.html
-                style: secondary
 hero_image: /assets/cms/site-images/imnew-hero.jpg
 hero_image_alt: The congregation gathered for worship beneath the flags of the nations
 featured_services:
@@ -199,9 +198,10 @@ access_cards:
         <h3 data-editable="text" data-prop="heading" data-type="span">{{ c.heading }}</h3>
         <p data-editable="text" data-prop="body" data-type="text">{{ c.body }}</p>
       </div>
-      {% if c.buttons and c.buttons.length %}
+      {% if (c.primary_button and c.primary_button.length) or (c.secondary_button and c.secondary_button.length) %}
       <div style="display:flex;gap:14px;flex-wrap:wrap">
-        {% for btn in c.buttons %}<a href="{{ btn.href }}"{% if btn.href | isExternal %} target="_blank" rel="noopener"{% endif %} class="em-btn {{ 'em-btn--tan' if btn.style == 'primary' else 'em-btn--ghost-light' }}">{{ btn.label }}</a>{% endfor %}
+        {% for btn in c.primary_button %}<a href="{{ btn.href }}"{% if btn.href | isExternal %} target="_blank" rel="noopener"{% endif %} class="em-btn em-btn--tan">{{ btn.label }}</a>{% endfor %}
+        {% for btn in c.secondary_button %}<a href="{{ btn.href }}"{% if btn.href | isExternal %} target="_blank" rel="noopener"{% endif %} class="em-btn em-btn--ghost-light">{{ btn.label }}</a>{% endfor %}
       </div>
       {% endif %}
     </div>
