@@ -1,18 +1,11 @@
 {
+  "_schema": "default",
   "name": "Morning Prayer",
   "day": "Mon–Thu",
-  "days": [
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday"
-  ],
   "start_time": "09:00",
-  "end_time": "",
+  "end_time": "9:30 am",
   "description": "A 20-minute service of prayer and Bible readings to start the day. All are welcome to join in person.",
   "group": "weekday",
   "order": 4,
-  "active": true,
-  "_id": "v8p3KAncgjT5f7voAUde7s",
-  "pauses": []
+  "active": true
 }
