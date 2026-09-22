@@ -58,7 +58,6 @@ function normalizeServiceTime(s) {
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({assets: 'assets'})
-  eleventyConfig.addPassthroughCopy({uploads: 'uploads'})
   eleventyConfig.addPassthroughCopy({tokens: 'tokens'})
   eleventyConfig.addPassthroughCopy({'styles.css': 'styles.css'})
   eleventyConfig.addPassthroughCopy({'components.css': 'components.css'})
