@@ -95,7 +95,16 @@ module.exports = function (eleventyConfig) {
     // unique: creating a record names the file after the title, and duplicating
     // one appends "-copy". Deriving the URL from a stored field instead meant a
     // duplicate carried the original's URL and broke the build.
-    const events = readJsonDir('events').map((e) => ({...e, slug: e._slug}))
+    // Slugify the filename: CloudCannon allows spaces and capitals in file
+    // names, which are not safe in a URL.
+    const slugify = (v) =>
+      String(v || '')
+        .toLowerCase()
+        .replace(/['’]/g, '')
+        .replace(/[^a-z0-9/]+/g, '-')
+        .replace(/^-+|-+$/g, '')
+
+    const events = readJsonDir('events').map((e) => ({...e, slug: slugify(e._slug)}))
 
     // Sort on the real date and time. Some records store a plain date and
     // others a full datetime, so compare parsed values rather than strings.
