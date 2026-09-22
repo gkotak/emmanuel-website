@@ -1,0 +1,11 @@
+{
+  "_schema": "default",
+  "title": "testu",
+  "schedule": {
+    "_type": "monthly",
+    "day_of_month": 6
+  },
+  "start_time": "19:00",
+  "end_time": "",
+  "description": "test"
+}
