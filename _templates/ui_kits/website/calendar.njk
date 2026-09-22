@@ -190,9 +190,30 @@ permalink: /ui_kits/website/calendar.html
       var p=String(t).split(':');
       return (+p[0]||0)*60+(+p[1]||0);
     }
-    function fmtOne(t){ var p=String(t).split(':'); var h=+p[0]; var m=p[1]; if(isNaN(h)||m===undefined) return t; var ap=h<12?'am':'pm'; var hh=h%12; if(hh===0)hh=12; return hh+(m==='00'?'':':'+m)+ap; }
-    // Start time, plus an end time when the entry has one: "7pm" or "4pm–6pm".
-    function fmtTime(t,end){ if(!t) return ''; var a=fmtOne(t); return end?a+'–'+fmtOne(end):a; }
+    // Accepts "09:00", "9:00" or a stray "9:30 am"; returns {h, m} or null.
+    function parseTime(t){
+      var m=/^\s*(\d{1,2}):(\d{2})\s*(am|pm)?\s*$/i.exec(String(t||''));
+      if(!m) return null;
+      var h=+m[1], ap=(m[3]||'').toLowerCase();
+      if(ap==='pm'&&h<12) h+=12;
+      if(ap==='am'&&h===12) h=0;
+      return {h:h, m:m[2]};
+    }
+    function clock(p){ var hh=p.h%12; if(hh===0)hh=12; return hh+(p.m==='00'?'':':'+p.m); }
+    function suffix(p){ return p.h<12?'am':'pm'; }
+    function fmtOne(t){ var p=parseTime(t); return p?clock(p)+suffix(p):String(t||''); }
+    // Start time, plus an end time when set. The suffix is shared when both
+    // fall in the same half of the day: "9–9:30am", not "9am–9:30am".
+    function fmtTime(t,end){
+      var a=parseTime(t);
+      if(!a) return fmtOne(t);
+      if(!end) return clock(a)+suffix(a);
+      var b=parseTime(end);
+      if(!b) return clock(a)+suffix(a);
+      return suffix(a)===suffix(b)
+        ? clock(a)+'–'+clock(b)+suffix(b)
+        : clock(a)+suffix(a)+'–'+clock(b)+suffix(b);
+    }
     function startOfWeek(d){ var x=new Date(d); x.setDate(x.getDate()-monIndex(x)); x.setHours(0,0,0,0); return x; }
 
     // Map weekday names from Sanity to JS day numbers (0 = Sunday).

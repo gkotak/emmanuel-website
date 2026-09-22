@@ -3,7 +3,7 @@
   "name": "Morning Prayer",
   "day": "Mon–Thu",
   "start_time": "09:00",
-  "end_time": "9:30 am",
+  "end_time": "09:30",
   "description": "A 20-minute service of prayer and Bible readings to start the day. All are welcome to join in person.",
   "group": "weekday",
   "order": 4,

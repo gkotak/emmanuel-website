@@ -114,28 +114,37 @@ module.exports = function (eleventyConfig) {
     }).replace(',', '')
   })
 
-  // Times are stored 24-hour ("18:30") and always shown 12-hour ("6:30pm").
-  const to12Hour = (value) => {
-    if (!value) return ''
-    const m = /^(\d{1,2}):(\d{2})$/.exec(String(value).trim())
-    if (!m) return String(value)
+  // Times are stored 24-hour ("18:30"). Tolerates a hand-typed "9:30 am".
+  const parseTime = (value) => {
+    const m = /^\s*(\d{1,2}):(\d{2})\s*(am|pm)?\s*$/i.exec(String(value || ''))
+    if (!m) return null
     let h = Number(m[1])
-    const min = m[2]
-    const suffix = h >= 12 ? 'pm' : 'am'
-    h = h % 12 || 12
-    return min === '00' ? `${h}${suffix}` : `${h}:${min}${suffix}`
+    const ap = (m[3] || '').toLowerCase()
+    if (ap === 'pm' && h < 12) h += 12
+    if (ap === 'am' && h === 12) h = 0
+    return { h, m: m[2] }
+  }
+  const clock = (p) => `${p.h % 12 || 12}${p.m === '00' ? '' : ':' + p.m}`
+  const suffix = (p) => (p.h < 12 ? 'am' : 'pm')
+
+  const to12Hour = (value) => {
+    const p = parseTime(value)
+    return p ? clock(p) + suffix(p) : String(value || '')
   }
 
   eleventyConfig.addFilter('formatTime', to12Hour)
 
-  // A start time, plus an end time when one is set: "10:30am" or "4pm–6pm".
-  // Takes the record itself so templates do not have to juggle both fields.
+  // A start time, plus an end time when one is set. The suffix is shared when
+  // both fall in the same half of the day: "9–9:30am", not "9am–9:30am".
   eleventyConfig.addFilter('timeRange', (item) => {
     if (!item) return ''
-    const start = to12Hour(item.start_time)
-    const end = to12Hour(item.end_time)
-    if (!start) return end || ''
-    return end ? `${start}–${end}` : start
+    const a = parseTime(item.start_time)
+    if (!a) return to12Hour(item.start_time) || to12Hour(item.end_time)
+    const b = parseTime(item.end_time)
+    if (!b) return clock(a) + suffix(a)
+    return suffix(a) === suffix(b)
+      ? `${clock(a)}–${clock(b)}${suffix(b)}`
+      : `${clock(a)}${suffix(a)}–${clock(b)}${suffix(b)}`
   })
 
   // "2026-06-07" (or a legacy "...T18:30:00") -> "2026-06-07", for the calendar.
