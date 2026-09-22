@@ -1,0 +1,11 @@
+{
+  "_schema": "default",
+  "title": "weekly test",
+  "schedule": {
+    "_type": "weekly",
+    "weekday": "Wednesday"
+  },
+  "start_time": "19:00",
+  "end_time": "",
+  "description": "test"
+}
