@@ -1,5 +1,12 @@
 ---
 permalink: /ui_kits/website/churchsuite.html
+headline: My ChurchSuite
+deck: Rotas, kids registration, events and your contact details — in one place for church members.
+intro_paragraphs:
+- text: We use ChurchSuite to help people stay connected with parish life — updating details, signing
+    up for events, and managing rotas.
+access_heading: How to get access
+invited_heading: Already invited?
 ---
 <!doctype html>
 <html lang="en-GB">
@@ -19,18 +26,24 @@ permalink: /ui_kits/website/churchsuite.html
   <section class="em-pagehead em-pagehead--band em-pagehead--plain">
     <div class="inner">
       <div class="em-breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><span>ChurchSuite</span></div>
-      <h1>My ChurchSuite</h1>
-      <p class="deck">Rotas, kids registration, events and your contact details — in one place for church members.</p>
+      <h1>{{ headline }}</h1>
+      <p class="deck">{{ deck }}</p>
     </div>
   </section>
 
   <section class="em-intro">
     <div class="inner">
       <div class="em-body">
-        <p class="em-lead">We use ChurchSuite to help people stay connected with parish life — updating details, signing up for events, and managing rotas.</p>
-        <h3>How to get access</h3>
+        <div data-editable="array" data-prop="intro_paragraphs">
+        {% for para in intro_paragraphs %}
+          <p data-editable="array-item">
+            <span data-editable="text" data-prop="text" data-type="html">{{ (para.text if para.text else para) | safe }}</span>
+          </p>
+        {% endfor %}
+        </div>
+        <h3>{{ access_heading }}</h3>
         <p>For security reasons you cannot create an account yourself. Access is by invitation from the parish office. If you worship with us regularly and would like a My ChurchSuite login, email <a href="mailto:info@emmanuelnw6.com">info@emmanuelnw6.com</a> and we will send you an invite.</p>
-        <h3>Already invited?</h3>
+        <h3>{{ invited_heading }}</h3>
         <p>Use the button below to open the ChurchSuite login page. Search for Emmanuel Church West Hampstead (or follow the link in your invitation email), then sign in with the email address that received the invite.</p>
         <p>If you have forgotten your password, use “Forgotten password?” on the login screen. If you are still stuck, contact the parish office and we will help.</p>
       </div>

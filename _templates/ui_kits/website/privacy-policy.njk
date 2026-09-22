@@ -1,5 +1,16 @@
 ---
 permalink: /ui_kits/website/privacy-policy.html
+headline: GDPR Privacy Notice
+deck: Our Privacy Notices and forms relating to the data protection legislation governing our life at
+  Emmanuel.
+intro_paragraphs:
+- text: The rules for Data Protection came into force on Friday 25 May 2018.
+- text: Please find below our Privacy Notices and forms relating to this legislation governing our life
+    at Emmanuel. If you have any questions about how we hold or use your data, please contact the Parish
+    Office.
+callout_heading: Questions about your data?
+callout_body: If you'd like to know how we hold or use your information, the Parish Office will be glad
+  to help.
 ---
 <!doctype html>
 <html lang="en-GB">
@@ -19,16 +30,21 @@ permalink: /ui_kits/website/privacy-policy.html
   <section class="em-pagehead em-pagehead--band em-pagehead--plain">
     <div class="inner">
       <div class="em-breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><span>GDPR Privacy Notice</span></div>
-      <h1>GDPR Privacy Notice</h1>
-      <p class="deck">Our Privacy Notices and forms relating to the data protection legislation governing our life at Emmanuel.</p>
+      <h1>{{ headline }}</h1>
+      <p class="deck">{{ deck }}</p>
     </div>
   </section>
 
   <section class="em-intro em-intro--solo">
     <div class="inner">
       <div class="em-body">
-        <p class="em-lead">The rules for Data Protection came into force on Friday 25 May 2018.</p>
-        <p>Please find below our Privacy Notices and forms relating to this legislation governing our life at Emmanuel. If you have any questions about how we hold or use your data, please contact the Parish Office.</p>
+        <div data-editable="array" data-prop="intro_paragraphs">
+        {% for para in intro_paragraphs %}
+          <p data-editable="array-item">
+            <span data-editable="text" data-prop="text" data-type="html">{{ (para.text if para.text else para) | safe }}</span>
+          </p>
+        {% endfor %}
+        </div>
       </div>
     </div>
   </section>
@@ -80,7 +96,7 @@ permalink: /ui_kits/website/privacy-policy.html
 
   <section class="em-callout">
     <div class="inner">
-      <div><h3>Questions about your data?</h3><p>If you'd like to know how we hold or use your information, the Parish Office will be glad to help.</p></div>
+      <div><h3>{{ callout_heading }}</h3><p>{{ callout_body }}</p></div>
       <div style="display:flex;gap:14px;flex-wrap:wrap"><a href="contact.html" class="em-btn em-btn--tan">Contact the parish office</a><a href="safeguarding.html" class="em-btn em-btn--ghost-light">Safeguarding</a></div>
     </div>
   </section>

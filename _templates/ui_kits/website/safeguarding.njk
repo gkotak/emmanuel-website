@@ -1,5 +1,16 @@
 ---
 permalink: /ui_kits/website/safeguarding.html
+headline: Safeguarding
+deck: The care of children and vulnerable adults is everyone's responsibility — and we take it very seriously
+  at Emmanuel.
+intro_paragraphs:
+- text: At Emmanuel we take safeguarding and the care of children and vulnerable people very seriously.
+- text: Safeguarding is the responsibility of the whole church community. If you have any concern about
+    the safety or wellbeing of a child or adult, please do not hesitate to speak to our Parish Safeguarding
+    Officer or a member of the clergy.
+callout_heading: Everyone is responsible.
+callout_body: If something doesn't feel right, please speak up. Our Parish Safeguarding Officer is here
+  to listen and to help.
 ---
 <!doctype html>
 <html lang="en-GB">
@@ -19,16 +30,21 @@ permalink: /ui_kits/website/safeguarding.html
   <section class="em-pagehead em-pagehead--band em-pagehead--plain">
     <div class="inner">
       <div class="em-breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><span>Safeguarding</span></div>
-      <h1>Safeguarding</h1>
-      <p class="deck">The care of children and vulnerable adults is everyone's responsibility — and we take it very seriously at Emmanuel.</p>
+      <h1>{{ headline }}</h1>
+      <p class="deck">{{ deck }}</p>
 
     </div>
   </section>
   <section class="em-intro">
     <div class="inner">
       <div class="em-body">
-        <p class="em-lead">At Emmanuel we take safeguarding and the care of children and vulnerable people very seriously.</p>
-        <p>Safeguarding is the responsibility of the whole church community. If you have any concern about the safety or wellbeing of a child or adult, please do not hesitate to speak to our Parish Safeguarding Officer or a member of the clergy.</p>
+        <div data-editable="array" data-prop="intro_paragraphs">
+        {% for para in intro_paragraphs %}
+          <p data-editable="array-item">
+            <span data-editable="text" data-prop="text" data-type="html">{{ (para.text if para.text else para) | safe }}</span>
+          </p>
+        {% endfor %}
+        </div>
       </div>
       <aside class="em-aside">
         <div class="em-aside-card">
@@ -63,7 +79,7 @@ permalink: /ui_kits/website/safeguarding.html
   </section>
   <section class="em-callout">
     <div class="inner">
-      <div><h3>Everyone is responsible.</h3><p>If something doesn't feel right, please speak up. Our Parish Safeguarding Officer is here to listen and to help.</p></div>
+      <div><h3>{{ callout_heading }}</h3><p>{{ callout_body }}</p></div>
       <div style="display:flex;gap:14px;flex-wrap:wrap"><a href="mailto:safeguarding@emmanuelnw6.com" class="em-btn em-btn--tan">Email Sarah Watts</a><a href="mailto:vicar@emmanuelnw6.com" class="em-btn em-btn--ghost-light">Contact the clergy</a></div>
     </div>
   </section>

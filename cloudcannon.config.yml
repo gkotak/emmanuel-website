@@ -327,6 +327,24 @@ _inputs:
     type: text
   callout_body:
     type: textarea
+  aside_heading:
+    type: text
+    label: Aside heading
+  aside_body:
+    type: textarea
+    label: Aside text
+  travel_heading:
+    type: text
+    label: Travel heading
+  travel_lead:
+    type: textarea
+    label: Travel intro
+  access_heading:
+    type: text
+    label: "Section heading: how to get access"
+  invited_heading:
+    type: text
+    label: "Section heading: already invited"
   clergy_label:
     type: text
   staff_label:

@@ -7,6 +7,17 @@ gallery_images:
     alt: Room hire at Emmanuel Church
   - image: /assets/cms/site-images/room-hire-3.jpg
     alt: Room hire at Emmanuel Church
+headline: Room Hire
+deck: From children's parties to community meetings, meditation sessions and concerts — Emmanuel has a
+  range of beautiful spaces to hire.
+intro_paragraphs:
+- text: If you would like to host a meeting, private event or a party at Emmanuel, we have a number of
+    different rooms available.
+- text: In addition to a wonderful large space for children's parties, we have smaller rooms which work
+    well for community meetings, meditation sessions or private lessons. Whatever the occasion, we'd be
+    glad to help you find the right space.
+callout_heading: Find your space.
+callout_body: Tell us about your event and we'll help you choose the right room and confirm availability.
 ---
 <!doctype html>
 <html lang="en-GB">
@@ -39,8 +50,8 @@ gallery_images:
   <section class="em-pagehead em-pagehead--band">
     <div class="inner">
       <div class="em-breadcrumb"><a href="/ui_kits/website/index.html">Home</a><span class="sep">/</span><span>Room Hire</span></div>
-      <h1>Room Hire</h1>
-      <p class="deck">From children's parties to community meetings, meditation sessions and concerts — Emmanuel has a range of beautiful spaces to hire.</p>
+      <h1>{{ headline }}</h1>
+      <p class="deck">{{ deck }}</p>
       <div class="meta-row">
         <div class="item"><div class="k">Rooms</div><div class="v">{{ roomRates | length }} spaces</div></div>
         <div class="item"><div class="k">Capacity</div><div class="v">Up to 350</div></div>
@@ -52,8 +63,13 @@ gallery_images:
   <section class="em-intro">
     <div class="inner">
       <div class="em-body">
-        <p class="em-lead">If you would like to host a meeting, private event or a party at Emmanuel, we have a number of different rooms available.</p>
-        <p>In addition to a wonderful large space for children's parties, we have smaller rooms which work well for community meetings, meditation sessions or private lessons. Whatever the occasion, we'd be glad to help you find the right space.</p>
+        <div data-editable="array" data-prop="intro_paragraphs">
+        {% for para in intro_paragraphs %}
+          <p data-editable="array-item">
+            <span data-editable="text" data-prop="text" data-type="html">{{ (para.text if para.text else para) | safe }}</span>
+          </p>
+        {% endfor %}
+        </div>
       </div>
       <aside class="em-aside">
         <div class="em-aside-card">
@@ -97,7 +113,7 @@ gallery_images:
 
   <section class="em-callout">
     <div class="inner">
-      <div><h3>Find your space.</h3><p>Tell us about your event and we'll help you choose the right room and confirm availability.</p></div>
+      <div><h3>{{ callout_heading }}</h3><p>{{ callout_body }}</p></div>
       <div style="display:flex;gap:14px;flex-wrap:wrap">
         <a href="/ui_kits/website/contact.html" class="em-btn em-btn--tan">Enquire about hire</a>
       </div>
