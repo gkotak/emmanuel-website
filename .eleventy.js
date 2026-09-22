@@ -158,7 +158,12 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter('isoDate', (value) => String(value || '').slice(0, 10))
 
   // True for links that leave the site (http/https), so they can open in a new tab.
-  eleventyConfig.addFilter('isExternal', (href) => /^https?:\/\//i.test(String(href || '')))
+  // Registered under both spellings: the CloudCannon visual editor lowercases
+  // filter names when it re-serialises a template, and Nunjucks filter lookup is
+  // case-sensitive, so `| isexternal` would otherwise fail the whole build.
+  const isExternal = (href) => /^https?:\/\//i.test(String(href || ''))
+  eleventyConfig.addFilter('isExternal', isExternal)
+  eleventyConfig.addFilter('isexternal', isExternal)
 
   eleventyConfig.addFilter('dayLabel', (days) => {
     const ORDER = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
