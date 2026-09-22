@@ -1,9 +1,9 @@
 {
   "title": "Perform ",
-  "repeats": "once",
-  "date": "2026-09-20",
-  "weekday": "",
-  "day_of_month": null,
+  "schedule": {
+    "_type": "once",
+    "date": "2026-09-20"
+  },
   "start_time": "16:00",
   "end_time": "18:00",
   "description": "",

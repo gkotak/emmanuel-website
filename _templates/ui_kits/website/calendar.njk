@@ -164,7 +164,8 @@ permalink: /ui_kits/website/calendar.html
     // ---- Other events (CMS-only; not shown anywhere else on the site) ------
     var OTHER = [
       {% for ev in otherEvents %}
-      {date:"{{ ev.date | isoDate }}", repeats:"{{ ev.repeats or 'once' }}", weekday:"{{ ev.weekday or '' }}", dom:{{ ev.day_of_month or 0 }}, time:"{{ ev.start_time }}", end:"{{ ev.end_time }}", title:"{{ ev.title | replace('"', '&quot;') }}", kind:"other"}{% if not loop.last %},{% endif %}
+      {% set sc = ev.schedule or {} %}
+      {date:"{{ sc.date | isoDate }}", repeats:"{{ sc._type or 'once' }}", weekday:"{{ sc.weekday or '' }}", dom:{{ sc.day_of_month or 0 }}, time:"{{ ev.start_time }}", end:"{{ ev.end_time }}", title:"{{ ev.title | replace('"', '&quot;') }}", kind:"other"}{% if not loop.last %},{% endif %}
       {% endfor %}
     ];
 

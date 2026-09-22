@@ -1,9 +1,9 @@
 {
   "title": "",
-  "repeats": "once",
-  "date": "2026-01-01",
-  "weekday": "",
-  "day_of_month": null,
+  "schedule": {
+    "_type": "once",
+    "date": "2026-01-01"
+  },
   "start_time": "19:00",
   "end_time": "",
   "description": ""

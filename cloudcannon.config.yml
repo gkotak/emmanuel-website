@@ -20,6 +20,23 @@ paths:
   collections: ''
 
 _structures:
+  event_schedule:
+    values:
+      - label: Once
+        icon: event
+        value:
+          _type: once
+          date: ''
+      - label: Every week
+        icon: repeat
+        value:
+          _type: weekly
+          weekday: Sunday
+      - label: Every month
+        icon: calendar_month
+        value:
+          _type: monthly
+          day_of_month: 1
   callout:
     values:
       - label: Callout
@@ -324,33 +341,24 @@ collections_config:
       - data
     _order:
       - title
-      - repeats
-      - date
-      - weekday
-      - day_of_month
+      - schedule
       - start_time
       - end_time
       - description
     _inputs:
-      repeats:
-        type: select
-        label: Repeats
+      # Picking how the event repeats swaps in only that option's fields,
+      # so a one-off never shows a weekday and a weekly never shows a date.
+      schedule:
+        type: object
+        label: When
         options:
-          values:
-            - value: once
-              label: Once
-            - value: weekly
-              label: Every week
-            - value: monthly
-              label: Every month
+          structures: _structures.event_schedule
       date:
         type: date
         label: Date
-        comment: Only used for a one-off event.
       weekday:
         type: select
         label: Day of the week
-        comment: Only used when the event repeats weekly.
         options:
           values:
             - Sunday
@@ -363,7 +371,7 @@ collections_config:
       day_of_month:
         type: number
         label: Day of the month
-        comment: Only used when the event repeats monthly — 1 to 31.
+        comment: 1 to 31.
     schemas:
       default:
         path: .cloudcannon/schemas/other-event.json
