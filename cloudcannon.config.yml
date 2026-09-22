@@ -200,6 +200,9 @@ collections_config:
     create:
       path: '[relative_base_path]/{name|slugify}.json'
     disable_add_folder: true
+    # Data collections default to read-only file actions; allow delete/rename.
+    disable_file_actions: false
+    disable_add_folder_menu: true
     preview:
       text:
         - key: name
@@ -215,6 +218,7 @@ collections_config:
       - '*.json'
     _enabled_editors:
       - data
+    disable_file_actions: false
     schemas:
       default:
         path: .cloudcannon/schemas/person.json
@@ -237,6 +241,7 @@ collections_config:
       - '*.json'
     _enabled_editors:
       - data
+    disable_file_actions: false
     preview:
       text:
         - key: room
@@ -245,12 +250,13 @@ collections_config:
 
   events:
     path: _data/cms/events
-    name: Events & Calendar
+    name: Special Events
     icon: event
     glob:
       - '*.json'
     _enabled_editors:
       - data
+    disable_file_actions: false
     preview:
       text:
         - key: title
@@ -380,6 +386,9 @@ collections_config:
     create:
       path: '[relative_base_path]/{title|slugify}.json'
     disable_add_folder: true
+    # Data collections default to read-only file actions; allow delete/rename.
+    disable_file_actions: false
+    disable_add_folder_menu: true
     preview:
       text:
         - key: title
