@@ -156,7 +156,7 @@ permalink: /ui_kits/website/calendar.html
     var SPECIAL = [
       {% for ev in events %}
         {% if ev.date %}
-        {date:"{{ ev.date | isoDate }}", time:"{{ (ev.date | isoTime) if (ev.date | isoTime) != '00:00' else '10:30' }}", title:"{{ ev.title | replace('"', '&quot;') }}", kind:"special", href:"/ui_kits/website/event-{{ ev.slug }}.html"}{% if not loop.last %},{% endif %}
+        {date:"{{ ev.date | isoDate }}", time:"{{ ev.time if ev.time else '10:30' }}", title:"{{ ev.title | replace('"', '&quot;') }}", kind:"special", href:"/ui_kits/website/event-{{ ev.slug }}.html"}{% if not loop.last %},{% endif %}
         {% endif %}
       {% endfor %}
     ];

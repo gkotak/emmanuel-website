@@ -225,6 +225,7 @@ collections_config:
       - title
       - deck
       - date
+      - time
       - display_date
       - display_time
       - where
@@ -238,11 +239,14 @@ collections_config:
         comment: Shown under the title on the event page, and as the description
           on the events and home page cards.
       date:
-        type: datetime
-        label: Date & time
-        comment: When the event happens, in UK time. Sorts the event and places
-          it on the calendar. Leave the time at 00:00 if there is no set time —
-          the Time row is then hidden on the page.
+        type: date
+        label: Date
+        comment: Sorts the event and places it on the calendar.
+      time:
+        type: time
+        label: Time (optional)
+        comment: UK time. Leave blank if there is no set time — the Time row is
+          then hidden on the page.
       display_date:
         type: text
         label: Display date (optional)

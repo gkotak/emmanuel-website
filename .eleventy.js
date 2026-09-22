@@ -114,28 +114,22 @@ module.exports = function (eleventyConfig) {
     }).replace(',', '')
   })
 
-  // Time comes from the same datetime as the date. Midnight means "no time
-  // given", so it renders as nothing rather than "12am".
+  // `time` is its own field ("18:30"), optional and shown beside the date.
+  // Anything that is not HH:MM (e.g. a range like "16:00-18:00") passes
+  // through unchanged.
   eleventyConfig.addFilter('eventTime', (value) => {
     if (!value) return ''
-    const m = /T(\d{2}):(\d{2})/.exec(value)
-    if (!m) return ''
+    const m = /^(\d{1,2}):(\d{2})$/.exec(String(value).trim())
+    if (!m) return value
     let h = Number(m[1])
     const min = m[2]
-    if (h === 0 && min === '00') return ''
     const suffix = h >= 12 ? 'pm' : 'am'
     h = h % 12 || 12
     return min === '00' ? `${h}${suffix}` : `${h}:${min}${suffix}`
   })
 
-  // "2026-06-07T18:30:00" -> "2026-06-07", for the calendar.
+  // "2026-06-07" (or a legacy "...T18:30:00") -> "2026-06-07", for the calendar.
   eleventyConfig.addFilter('isoDate', (value) => String(value || '').slice(0, 10))
-
-  // "2026-06-07T18:30:00" -> "18:30", for the calendar.
-  eleventyConfig.addFilter('isoTime', (value) => {
-    const m = /T(\d{2}:\d{2})/.exec(String(value || ''))
-    return m ? m[1] : ''
-  })
 
   eleventyConfig.addFilter('dayLabel', (days) => {
     const ORDER = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
