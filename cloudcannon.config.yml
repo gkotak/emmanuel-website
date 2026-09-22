@@ -137,7 +137,7 @@ collections_config:
       - data
     preview:
       text:
-        - key: headline
+        - key: title
         - template: '{basename}'
       subtext:
         - key: permalink
@@ -225,7 +225,8 @@ collections_config:
       - title
       - deck
       - date
-      - time
+      - start_time
+      - end_time
       - display_date
       - where
       - body
@@ -241,11 +242,14 @@ collections_config:
         type: date
         label: Date
         comment: Sorts the event and places it on the calendar.
-      time:
+      start_time:
         type: time
-        label: Time (optional)
+        label: Start time (optional)
         comment: UK time. Leave blank if there is no set time — the Time row is
           then hidden on the page.
+      end_time:
+        type: time
+        label: End time (optional)
       display_date:
         type: text
         label: Display date (optional)
@@ -298,19 +302,14 @@ collections_config:
     _order:
       - title
       - date
-      - time
+      - start_time
+      - end_time
       - description
     _inputs:
       date:
         type: date
         label: Date
         comment: The day the event falls on.
-      # Kept as free text here: these entries sometimes hold a range
-      # such as "16:00-18:00", which a time picker would not accept.
-      time:
-        type: text
-        label: Time
-        comment: 24-hour, e.g. "19:00". A range like "16:00-18:00" is fine too.
     schemas:
       default:
         path: .cloudcannon/schemas/other-event.json
@@ -325,16 +324,14 @@ collections_config:
         - key: time
 
 _inputs:
-  headline:
+  title:
     type: text
-  deck:
+  subtitle:
     type: textarea
   lead:
     type: textarea
-  intro_paragraphs:
-    type: array
-    options:
-      structures: _structures.intro_paragraphs
+  intro_content:
+    type: markdown
   archive_note:
     type: textarea
   callout_heading:
@@ -540,9 +537,13 @@ _inputs:
   role:
     type: text
   # Times are entered 24-hour and shown on the site as am/pm.
-  time:
+  start_time:
     type: time
-    label: Time
+    label: Start time
+  end_time:
+    type: time
+    label: End time (optional)
+    comment: Leave blank if the end time is not fixed — only the start shows.
   order:
     type: number
   hero_image:

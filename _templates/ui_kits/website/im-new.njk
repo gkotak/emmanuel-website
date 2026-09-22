@@ -1,45 +1,43 @@
 ---
 permalink: /ui_kits/website/im-new.html
-headline: Come as you are.
-deck: >-
+title: Come as you are.
+subtitle: >-
     Whether you've been going to Anglican churches all your life or this is the
     first time you'll step inside, we hope you'll find a warm welcome.
-intro_paragraphs:
-    -
-        text: >-
-            We hope you will find a warm welcome when you first attend Emmanuel
-            — whether in the week or on Sundays. Please do introduce yourself to
-            one of the welcomers or clergy; we'll be happy to tell you more
-            about our congregation and community life.
-    -
-        text: >-
-            Whilst we are proud of our Anglican identity, we are a very
-            international community, with a number of different Christian
-            denominations represented in our congregation.
-    -
-        text: >-
-            To help each of us find a place in worship, we have a number of
-            services of Holy Communion during the week and on Sundays. Don't
-            hesitate to contact a member of the clergy if you'd like to learn
-            more. Even better, just come and visit!
-    -
-        text: >-
-            At our main Parish Mass you can expect a robed choir, acolytes and
-            incense, with a team of servers who reflect the diversity of our
-            congregation. Our said Eucharists are more simple, and Joyful Noise
-            is more noisy! The thread that ties them together is
-            Eucharistic-centred worship.
-    -
-        text: >-
-            We are working hard to make Emmanuel an inclusive and welcoming
-            space. The Church is accessible to wheelchair and mobility scooter
-            users via the Bell Porch entrance. Disabled toilets are located at
-            the back of the church. The Church has a hearing aid loop installed.
-    -
-        text: >-
-            The vicar aims to meet new members of the congregation for a 1-1
-            meeting within six months of their arrival. Please contact her if
-            you'd like to arrange a meeting.
+intro_content: >-
+    We hope you will find a warm welcome when you first attend Emmanuel
+    — whether in the week or on Sundays. Please do introduce yourself to
+    one of the welcomers or clergy; we'll be happy to tell you more
+    about our congregation and community life.
+
+
+    Whilst we are proud of our Anglican identity, we are a very
+    international community, with a number of different Christian
+    denominations represented in our congregation.
+
+
+    To help each of us find a place in worship, we have a number of
+    services of Holy Communion during the week and on Sundays. Don't
+    hesitate to contact a member of the clergy if you'd like to learn
+    more. Even better, just come and visit!
+
+
+    At our main Parish Mass you can expect a robed choir, acolytes and
+    incense, with a team of servers who reflect the diversity of our
+    congregation. Our said Eucharists are more simple, and Joyful Noise
+    is more noisy! The thread that ties them together is
+    Eucharistic-centred worship.
+
+
+    We are working hard to make Emmanuel an inclusive and welcoming
+    space. The Church is accessible to wheelchair and mobility scooter
+    users via the Bell Porch entrance. Disabled toilets are located at
+    the back of the church. The Church has a hearing aid loop installed.
+
+
+    The vicar aims to meet new members of the congregation for a 1-1
+    meeting within six months of their arrival. Please contact her if
+    you'd like to arrange a meeting.
 callout_heading: Still have a question?
 callout_body: >-
     Don't hesitate to contact a member of the clergy if you'd like to learn more.
@@ -88,8 +86,7 @@ access_cards:
 
   .intro { padding: 100px var(--gutter) 40px; }
   .intro .inner { max-width: 1320px; margin: 0 auto; display: grid; grid-template-columns: 1fr 360px; gap: 80px; align-items: start; }
-  .intro .lead-para,
-  .intro .intro-body > p:first-child { font-family: var(--font-editorial); font-size: 30px; line-height: 1.32; color: var(--ink); margin: 0 0 34px; letter-spacing: -0.01em; }
+  .intro [data-prop="intro_content"] > p:first-child { font-family: var(--font-editorial); font-size: 30px; line-height: 1.32; color: var(--ink); margin: 0 0 34px; letter-spacing: -0.01em; }
   .intro p { font-family: var(--font-sans); font-size: var(--fs-body); line-height: var(--lh-relaxed); color: var(--ink-soft); margin: 0 0 22px; }
 
   /* Flexible CMS sections */
@@ -138,8 +135,8 @@ access_cards:
     <div class="em-hero__bg" style="background-image:url('{{ hero_image }}');background-position:center 60%" role="img" aria-label="{{ hero_image_alt }}"></div>
     <div class="em-hero__scrim"></div>
     <div class="em-hero__content">
-      <h1 data-editable="text" data-prop="headline" data-type="span">{{ headline }}</h1>
-      <p class="em-hero__tagline" data-editable="text" data-prop="deck" data-type="text">{{ deck }}</p>
+      <h1 data-editable="text" data-prop="title" data-type="span">{{ title }}</h1>
+      <p class="em-hero__tagline" data-editable="text" data-prop="subtitle" data-type="text">{{ subtitle }}</p>
     </div>
   </section>
 
@@ -147,12 +144,8 @@ access_cards:
   <section class="intro">
     <div class="inner">
       <div class="intro-body">
-        <div data-editable="array" data-prop="intro_paragraphs">
-        {% for para in intro_paragraphs %}
-          <p data-editable="array-item">
-            <span data-editable="text" data-prop="text" data-type="text">{{ para.text if para.text else para }}</span>
-          </p>
-        {% endfor %}
+        <div data-editable="text" data-prop="intro_content" data-type="html">
+          {% for para in intro_content.split("\n\n") %}<p>{{ para | trim | safe }}</p>{% endfor %}
         </div>
       </div>
       <aside class="em-aside">

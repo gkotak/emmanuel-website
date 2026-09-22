@@ -1,16 +1,16 @@
 ---
 permalink: /ui_kits/website/electoral-roll.html
-headline: The Electoral Roll
-deck: 'If you worship with us regularly, joining the electoral roll is a simple way to say: Emmanuel is
+title: The Electoral Roll
+subtitle: 'If you worship with us regularly, joining the electoral roll is a simple way to say: Emmanuel is
   my church.'
-intro_paragraphs:
-- text: The electoral roll is how we keep track of how many people think of themselves as members of Emmanuel
-    Church.
-- text: It also helps the Diocese calculate the amount of money we pay towards central church costs. To
-    elect new members to the Parochial Church Council or the Deanery Synod, you need to be on the electoral
-    roll.
-- text: If you worship with us on a regular basis, please consider joining the Electoral Roll — we would
-    be glad to count you among our members.
+intro_content: >-
+  The electoral roll is how we keep track of how many people think of themselves as members of Emmanuel Church.
+
+
+  It also helps the Diocese calculate the amount of money we pay towards central church costs. To elect new members to the Parochial Church Council or the Deanery Synod, you need to be on the electoral roll.
+
+
+  If you worship with us on a regular basis, please consider joining the Electoral Roll — we would be glad to count you among our members.
 aside_heading: Join the roll
 aside_body: Complete and return an Application for Enrolment form, available below or from the parish
   office.
@@ -36,20 +36,16 @@ callout_body: Joining the electoral roll is quick and simple — and it lets you
   <section class="em-pagehead em-pagehead--band em-pagehead--plain">
     <div class="inner">
       <div class="em-breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><a href="community-outreach.html">Get Involved</a><span class="sep">/</span><span>Electoral Roll</span></div>
-      <h1>{{ headline }}</h1>
-      <p class="deck">{{ deck }}</p>
+      <h1>{{ title }}</h1>
+      <p class="deck">{{ subtitle }}</p>
 
     </div>
   </section>
   <section class="em-intro">
     <div class="inner">
       <div class="em-body">
-        <div data-editable="array" data-prop="intro_paragraphs">
-        {% for para in intro_paragraphs %}
-          <p data-editable="array-item">
-            <span data-editable="text" data-prop="text" data-type="html">{{ (para.text if para.text else para) | safe }}</span>
-          </p>
-        {% endfor %}
+        <div data-editable="text" data-prop="intro_content" data-type="html">
+          {% for para in intro_content.split("\n\n") %}<p>{{ para | trim | safe }}</p>{% endfor %}
         </div>
       </div>
       <aside class="em-aside">

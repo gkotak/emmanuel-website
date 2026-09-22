@@ -1,20 +1,16 @@
 ---
 permalink: /ui_kits/website/community-outreach.html
-headline: Community Outreach
-deck: A vocation to share the all-encompassing love of God with the parish we
+title: Community Outreach
+subtitle: A vocation to share the all-encompassing love of God with the parish we
   serve — through practical action alongside our neighbours.
 intro_heading: Community Organising
 intro_image: /assets/feedback/community-organising.jpg
 intro_image_alt: Community organising at Emmanuel
-intro_paragraphs:
-  - text: Emmanuel and St Cuthbert's are members of <a
-      href="https://www.citizensuk.org/about-us/" target="_blank"
-      rel="noopener">Citizens UK</a>.
-  - text: 'We partner with local churches, mosques, synagogues, schools,
-      universities and community projects to campaign on issues that concern our
-      communities. North London Citizens campaigns have included: the living
-      wage, youth welfare, support for refugees, and tackling homelessness on
-      our streets.'
+intro_content: >-
+  Emmanuel and St Cuthbert's are members of <a href="https://www.citizensuk.org/about-us/" target="_blank" rel="noopener">Citizens UK</a>.
+
+
+  We partner with local churches, mosques, synagogues, schools, universities and community projects to campaign on issues that concern our communities. North London Citizens campaigns have included: the living wage, youth welfare, support for refugees, and tackling homelessness on our streets.
 projects:
   - title: C4WS Night Shelter at Emmanuel
     body: >-
@@ -113,8 +109,8 @@ aside_image_alt: Food donations collected at Emmanuel
   <section class="em-pagehead em-pagehead--band em-pagehead--plain">
     <div class="inner">
       <div class="em-breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><a href="community-outreach.html">Get Involved</a><span class="sep">/</span><span>Community Outreach</span></div>
-      <h1 data-editable="text" data-prop="headline" data-type="span">{{ headline }}</h1>
-      <p class="deck" data-editable="text" data-prop="deck" data-type="text">{{ deck }}</p>
+      <h1 data-editable="text" data-prop="title" data-type="span">{{ title }}</h1>
+      <p class="deck" data-editable="text" data-prop="subtitle" data-type="text">{{ subtitle }}</p>
 
     </div>
   </section>
@@ -127,12 +123,8 @@ aside_image_alt: Food donations collected at Emmanuel
           <img src="{{ intro_image }}" alt="{{ intro_image_alt }}" />
         </div>
         {% endif %}
-        <div data-editable="array" data-prop="intro_paragraphs">
-        {% for para in intro_paragraphs %}
-          <p data-editable="array-item">
-            <span data-editable="text" data-prop="text" data-type="html">{{ (para.text if para.text else para) | safe }}</span>
-          </p>
-        {% endfor %}
+        <div data-editable="text" data-prop="intro_content" data-type="html">
+          {% for para in intro_content.split("\n\n") %}<p>{{ para | trim | safe }}</p>{% endfor %}
         </div>
 
         <div data-editable="array" data-prop="projects">

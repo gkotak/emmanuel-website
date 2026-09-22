@@ -1,22 +1,19 @@
 ---
 permalink: /ui_kits/website/music.html
-headline: Music & Choir
-deck: Music is at the heart of worship at Emmanuel — and our choir combines
+title: Music & Choir
+subtitle: Music is at the heart of worship at Emmanuel — and our choir combines
   choral excellence with a welcoming, inclusive spirit.
-intro_paragraphs:
-  - text: Music is at the heart of worship at Emmanuel — and our choir combines
-      choral excellence with a welcoming, inclusive spirit.
-  - text: Our choir combines choral excellence with a welcoming and inclusive
-      spirit, offering a diverse repertoire of sacred music, ranging from
-      Renaissance polyphony to contemporary works. In addition to our weekly
-      worship, the choir leads the music for special services at key points in
-      the liturgical year.
-  - text: 'We are always keen to welcome new singers and musicians of all ages and
-      abilities. '
-  - text: "We are a friendly and welcoming choir, with a great social scene, often
-      going for drinks post-rehearsal. An ability to read sheet music is
-      desirable, but not necessary provided you have a willingness to learn.
-      We'd love to have you join us! "
+intro_content: >-
+  Music is at the heart of worship at Emmanuel — and our choir combines choral excellence with a welcoming, inclusive spirit.
+
+
+  Our choir combines choral excellence with a welcoming and inclusive spirit, offering a diverse repertoire of sacred music, ranging from Renaissance polyphony to contemporary works. In addition to our weekly worship, the choir leads the music for special services at key points in the liturgical year.
+
+
+  We are always keen to welcome new singers and musicians of all ages and abilities.
+
+
+  We are a friendly and welcoming choir, with a great social scene, often going for drinks post-rehearsal. An ability to read sheet music is desirable, but not necessary provided you have a willingness to learn. We'd love to have you join us!
 features:
   - eyebrow: For adults of all abilities
     heading: Adult Choir
@@ -59,7 +56,7 @@ features:
   .mu-email:hover { background: var(--brown); color: #fff; }
   .mu-email:focus-visible { outline: 2px solid var(--brown); outline-offset: 2px; }
   .mu-intro .inner { max-width: 1320px; margin: 0 auto; display: grid; grid-template-columns: 1fr 380px; gap: 80px; align-items: start; }
-  .mu-intro [data-prop="intro_paragraphs"] > p:first-child { font-family: var(--font-editorial); font-size: 30px; line-height: 1.34; color: var(--ink); margin: 0 0 30px; letter-spacing: -0.01em; }
+  .mu-intro [data-prop="intro_content"] > p:first-child { font-family: var(--font-editorial); font-size: 30px; line-height: 1.34; color: var(--ink); margin: 0 0 30px; letter-spacing: -0.01em; }
   .mu-intro p { font-family: var(--font-sans); font-size: var(--fs-body); line-height: var(--lh-relaxed); color: var(--ink-soft); margin: 0 0 22px; }
   .mu-intro p a { color: var(--brown); text-decoration: underline; text-underline-offset: 3px; }
 
@@ -93,7 +90,7 @@ features:
         <a href="#">Get Involved</a><span class="sep">/</span>
         <span>Music &amp; Choir</span>
       </div>
-      <h1 data-editable="text" data-prop="headline" data-type="span">{{ headline }}</h1>
+      <h1 data-editable="text" data-prop="title" data-type="span">{{ title }}</h1>
     </div>
   </section>
 
@@ -101,12 +98,8 @@ features:
   <section class="mu-intro">
     <div class="inner">
       <div class="intro-body">
-        <div data-editable="array" data-prop="intro_paragraphs">
-        {% for para in intro_paragraphs %}
-          <p data-editable="array-item">
-            <span data-editable="text" data-prop="text" data-type="text">{{ para.text if para.text else para }}</span>
-          </p>
-        {% endfor %}
+        <div data-editable="text" data-prop="intro_content" data-type="html">
+          {% for para in intro_content.split("\n\n") %}<p>{{ para | trim | safe }}</p>{% endfor %}
         </div>
       </div>
       <aside class="em-aside">

@@ -1,16 +1,18 @@
 ---
 permalink: /ui_kits/website/service-times.html
-headline: Service & Prayer Times
-deck: The Eucharist and the daily office shape the rhythm of our shared life.
+title: Service & Prayer Times
+subtitle: The Eucharist and the daily office shape the rhythm of our shared life.
   All are welcome at every service.
-intro_paragraphs:
-  - text: As we gather to meet with Christ and one another, we seek to be a place
-      where we are supported on our spiritual journeys, inspired to connect
-      faith with the rest of our lives, and encouraged to put that faith into
-      action.
-  - text: The Eucharist sits at the heart of our understanding of who we are at
-      Emmanuel. From the very young to the very old, we seek to equip our
-      community to discover more fully the presence of God in their lives.
+intro_content: >-
+  As we gather to meet with Christ and one another, we seek to be a place
+  where we are supported on our spiritual journeys, inspired to connect
+  faith with the rest of our lives, and encouraged to put that faith into
+  action.
+
+
+  The Eucharist sits at the heart of our understanding of who we are at
+  Emmanuel. From the very young to the very old, we seek to equip our
+  community to discover more fully the presence of God in their lives.
 callout_heading: Stay connected.
 callout_body: Join our email list to receive the regular newsletter, with news
   and what's on across the parish.
@@ -19,7 +21,7 @@ callout_body: Join our email list to receive the regular newsletter, with news
 <html lang="en-GB">
 <head>
 <meta charset="utf-8" />
-<title>{{ headline }} — Emmanuel Church, West Hampstead</title>
+<title>{{ title }} — Emmanuel Church, West Hampstead</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet" href="/styles.css" />
 <style>
@@ -27,7 +29,7 @@ callout_body: Join our email list to receive the regular newsletter, with news
   body { margin: 0; background: var(--paper); font-family: var(--font-sans); color: var(--ink); -webkit-font-smoothing: antialiased; }
   .st-intro { padding: 96px var(--gutter) 40px; }
   .st-intro .inner { max-width: 1320px; margin: 0 auto; display: grid; grid-template-columns: 1fr 360px; gap: 80px; align-items: start; }
-  .st-intro [data-prop="intro_paragraphs"] > p:first-child { font-family: var(--font-editorial); font-size: 30px; line-height: 1.34; color: var(--ink); margin: 0 0 30px; letter-spacing: -0.01em; }
+  .st-intro [data-prop="intro_content"] > p:first-child { font-family: var(--font-editorial); font-size: 30px; line-height: 1.34; color: var(--ink); margin: 0 0 30px; letter-spacing: -0.01em; }
   .st-intro p { font-family: var(--font-sans); font-size: var(--fs-body); line-height: var(--lh-relaxed); color: var(--ink-soft); margin: 0 0 22px; }
   .st-group { padding: 0 var(--gutter); }
   .st-group .inner { max-width: 1320px; margin: 0 auto; }
@@ -44,7 +46,7 @@ callout_body: Join our email list to receive the regular newsletter, with news
     /* Intro section: stack aside below body text */
     .st-intro { padding: 40px var(--gutter) 32px; }
     .st-intro .inner { grid-template-columns: 1fr; gap: 32px; }
-    .st-intro [data-prop="intro_paragraphs"] > p:first-child { font-size: 20px; margin-bottom: 18px; }
+    .st-intro [data-prop="intro_content"] > p:first-child { font-size: 20px; margin-bottom: 18px; }
     .st-intro p { font-size: 15px; }
 
     /* Service group headings */
@@ -84,19 +86,15 @@ callout_body: Join our email list to receive the regular newsletter, with news
         <a href="/ui_kits/website/index.html">Home</a><span class="sep">/</span>
         <span>Service &amp; Prayer Times</span>
       </div>
-      <h1 data-editable="text" data-prop="headline" data-type="span">{{ headline }}</h1>
+      <h1 data-editable="text" data-prop="title" data-type="span">{{ title }}</h1>
     </div>
   </section>
 
   <section class="st-intro">
     <div class="inner">
       <div>
-        <div data-editable="array" data-prop="intro_paragraphs">
-        {% for para in intro_paragraphs %}
-          <p data-editable="array-item">
-            <span data-editable="text" data-prop="text" data-type="text">{{ para.text if para.text else para }}</span>
-          </p>
-        {% endfor %}
+        <div data-editable="text" data-prop="intro_content" data-type="html">
+          {% for para in intro_content.split("\n\n") %}<p>{{ para | trim | safe }}</p>{% endfor %}
         </div>
       </div>
       <aside class="em-aside">
@@ -119,7 +117,7 @@ callout_body: Join our email list to receive the regular newsletter, with news
         <div class="em-row">
           <div class="em-row__day">{{ service.days | dayLabel }}</div>
           <div class="em-row__lead">
-            <div class="t">{{ service.time | formatTime }}</div>
+            <div class="t">{{ service | timeRange }}</div>
             <div class="n">{{ service.name }}</div>
           </div>
           <div class="em-row__desc">{{ service.description }}</div>
@@ -140,7 +138,7 @@ callout_body: Join our email list to receive the regular newsletter, with news
         <div class="em-row">
           <div class="em-row__day">{{ service.days | dayLabel }}</div>
           <div class="em-row__lead">
-            <div class="t">{{ service.time | formatTime }}</div>
+            <div class="t">{{ service | timeRange }}</div>
             <div class="n">{{ service.name }}</div>
           </div>
           <div class="em-row__desc">{{ service.description }}</div>

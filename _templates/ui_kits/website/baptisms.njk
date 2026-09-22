@@ -1,12 +1,18 @@
 ---
 permalink: /ui_kits/website/baptisms.html
-headline: Baptism, First Communion & Confirmation
-deck: We gladly baptise new members of whatever age into the family of God — praying for them as they embark on their pilgrimage of faith.
-intro_paragraphs:
-  - text: "At Emmanuel we gladly baptise new members of whatever age into the family of God, praying for them as they embark on their exciting journey and pilgrimage of faith."
-  - text: "Our baptism services tend to take place at our 10:30 service on the third Sunday of the month. If you'd prefer, we can also offer baptism at our 9:15 Joyful Noise service."
-  - text: "If you are considering having your child baptised, would like to be baptised yourself, or are interested in First Holy Communion or Confirmation, please <a href=\"contact.html\">contact the parish office</a> in the first instance."
-  - text: "One of the clergy will arrange to meet with you to help you prepare and go through the service with you."
+title: Baptism, First Communion & Confirmation
+subtitle: We gladly baptise new members of whatever age into the family of God — praying for them as they embark on their pilgrimage of faith.
+intro_content: >-
+  At Emmanuel we gladly baptise new members of whatever age into the family of God, praying for them as they embark on their exciting journey and pilgrimage of faith.
+
+
+  Our baptism services tend to take place at our 10:30 service on the third Sunday of the month. If you'd prefer, we can also offer baptism at our 9:15 Joyful Noise service.
+
+
+  If you are considering having your child baptised, would like to be baptised yourself, or are interested in First Holy Communion or Confirmation, please <a href="contact.html">contact the parish office</a> in the first instance.
+
+
+  One of the clergy will arrange to meet with you to help you prepare and go through the service with you.
 sacrament_cards:
   - eyebrow: The sacrament of belonging
     title: Baptism
@@ -35,7 +41,7 @@ callout_body: Whatever your age, there is a place for you in the family of God a
 <html lang="en-GB">
 <head>
 <meta charset="utf-8" />
-<title>{{ headline }} — Emmanuel Church, West Hampstead</title>
+<title>{{ title }} — Emmanuel Church, West Hampstead</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet" href="/styles.css" />
 <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
@@ -93,20 +99,16 @@ callout_body: Whatever your age, there is a place for you in the family of God a
   <section class="em-pagehead em-pagehead--band">
     <div class="inner">
       <div class="em-breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><a href="baptisms.html">Life Events</a><span class="sep">/</span><span>Baptisms & Confirmation</span></div>
-      <h1 data-editable="text" data-prop="headline" data-type="span">{{ headline }}</h1>
-      <p class="deck" data-editable="text" data-prop="deck" data-type="text">{{ deck }}</p>
+      <h1 data-editable="text" data-prop="title" data-type="span">{{ title }}</h1>
+      <p class="deck" data-editable="text" data-prop="subtitle" data-type="text">{{ subtitle }}</p>
       <div class="meta-row"><div class="item"><div class="k">Baptisms</div><div class="v">10:30, third Sunday</div></div><div class="item"><div class="k">Confirmation</div><div class="v">Once a year, with the Bishop</div></div><div class="item"><div class="k">First Communion</div><div class="v">Good Shepherd Sunday</div></div></div>
     </div>
   </section>
   <section class="em-intro bp-intro">
     <div class="inner">
       <div class="em-body">
-        <div data-editable="array" data-prop="intro_paragraphs">
-        {% for para in intro_paragraphs %}
-          <p data-editable="array-item">
-            <span data-editable="text" data-prop="text" data-type="html">{{ (para.text if para.text else para) | safe }}</span>
-          </p>
-        {% endfor %}
+        <div data-editable="text" data-prop="intro_content" data-type="html">
+          {% for para in intro_content.split("\n\n") %}<p>{{ para | trim | safe }}</p>{% endfor %}
         </div>
       </div>
     </div>

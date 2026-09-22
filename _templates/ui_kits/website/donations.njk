@@ -1,14 +1,13 @@
 ---
 permalink: /ui_kits/website/donations.html
-headline: Every gift keeps the doors open.
-deck: >-
+title: Every gift keeps the doors open.
+subtitle: >-
   It costs £15,000 a month to run Emmanuel. We raise all of it ourselves,
   locally — it doesn't come from the Government or the Church of England.
-intro_paragraphs:
-  - text: >-
-      While we hold fundraising events and rent out the church, one of the
-      foundations of our finances is the tremendous support we receive from our
-      congregation through regular donations.
+intro_content: >-
+  While we hold fundraising events and rent out the church, one of the
+  foundations of our finances is the tremendous support we receive from our
+  congregation through regular donations.
 cost_cards:
   - eyebrow: ''
     title: Ministry
@@ -101,8 +100,8 @@ volunteer_cards:
   <section class="em-pagehead em-pagehead--band">
     <div class="inner">
       <div class="em-breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><span>Donations &amp; How You Can Help</span></div>
-      <h1 data-editable="text" data-prop="headline" data-type="span">{{ headline }}</h1>
-      <p class="deck" data-editable="text" data-prop="deck" data-type="text">{{ deck }}</p>
+      <h1 data-editable="text" data-prop="title" data-type="span">{{ title }}</h1>
+      <p class="deck" data-editable="text" data-prop="subtitle" data-type="text">{{ subtitle }}</p>
       <div class="meta-row">
         <div class="item"><div class="k">Monthly running cost</div><div class="v">£15,000</div></div>
         <div class="item"><div class="k">Funded by</div><div class="v">Our congregation</div></div>
@@ -119,12 +118,8 @@ volunteer_cards:
   <section class="em-intro em-intro--solo">
     <div class="inner">
       <div class="em-body">
-        <div data-editable="array" data-prop="intro_paragraphs">
-        {% for para in intro_paragraphs %}
-          <p data-editable="array-item">
-            <span data-editable="text" data-prop="text" data-type="text">{{ para.text if para.text else para }}</span>
-          </p>
-        {% endfor %}
+        <div data-editable="text" data-prop="intro_content" data-type="html">
+          {% for para in intro_content.split("\n\n") %}<p>{{ para | trim | safe }}</p>{% endfor %}
         </div>
         <p>That £15,000 a month covers everything it takes to keep Emmanuel open, alive and serving the parish — from the ministry of our clergy to the upkeep of a Victorian building, and the outreach that reaches beyond our walls.</p>
       </div>

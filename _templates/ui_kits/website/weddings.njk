@@ -1,11 +1,15 @@
 ---
 permalink: /ui_kits/website/weddings.html
-headline: Weddings & Banns of Marriage
-deck: We love weddings — and are always delighted to pray for and accompany couples as they take this important step.
-intro_paragraphs:
-  - text: "If you are engaged and considering getting married at Emmanuel or St Cuthbert's, we would love to hear from you!"
-  - text: "We love weddings and are always delighted to pray for and accompany couples as they take this important step. We warmly encourage couples to attend three or four marriage preparation sessions ahead of the wedding day; these will be arranged between the priest and the couple, and will ensure that sessions are compatible with work and other commitments."
-  - text: "If you would like to know more about weddings in either of our churches, please <a href=\"contact.html\">contact the parish office</a> in the first instance and a member of the clergy will be in touch."
+title: Weddings & Banns of Marriage
+subtitle: We love weddings — and are always delighted to pray for and accompany couples as they take this important step.
+intro_content: >-
+  If you are engaged and considering getting married at Emmanuel or St Cuthbert's, we would love to hear from you!
+
+
+  We love weddings and are always delighted to pray for and accompany couples as they take this important step. We warmly encourage couples to attend three or four marriage preparation sessions ahead of the wedding day; these will be arranged between the priest and the couple, and will ensure that sessions are compatible with work and other commitments.
+
+
+  If you would like to know more about weddings in either of our churches, please <a href="contact.html">contact the parish office</a> in the first instance and a member of the clergy will be in touch.
 wedding_images:
   - image: /assets/cms/site-images/weddings-1.jpg
     image_alt: A bride and groom standing together at the altar during their wedding ceremony, surrounded by candles and flowers
@@ -20,7 +24,7 @@ callout_body: Tell us a little about you and your plans, and a member of the cle
 <html lang="en-GB">
 <head>
 <meta charset="utf-8" />
-<title>{{ headline }} — Emmanuel Church, West Hampstead</title>
+<title>{{ title }} — Emmanuel Church, West Hampstead</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet" href="/styles.css" />
 <style>
@@ -67,20 +71,16 @@ callout_body: Tell us a little about you and your plans, and a member of the cle
   <section class="em-pagehead em-pagehead--band">
     <div class="inner">
       <div class="em-breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><a href="baptisms.html">Life Events</a><span class="sep">/</span><span>Weddings & Banns of Marriage</span></div>
-      <h1 data-editable="text" data-prop="headline" data-type="span">{{ headline }}</h1>
-      <p class="deck" data-editable="text" data-prop="deck" data-type="text">{{ deck }}</p>
+      <h1 data-editable="text" data-prop="title" data-type="span">{{ title }}</h1>
+      <p class="deck" data-editable="text" data-prop="subtitle" data-type="text">{{ subtitle }}</p>
       <div class="meta-row"><div class="item"><div class="k">Where</div><div class="v">Emmanuel or St Cuthbert's</div></div><div class="item"><div class="k">Preparation</div><div class="v">3–4 sessions</div></div><div class="item"><div class="k">First step</div><div class="v">Contact the parish office</div></div></div>
     </div>
   </section>
   <section class="em-intro em-intro--solo">
     <div class="inner">
       <div class="em-body">
-        <div data-editable="array" data-prop="intro_paragraphs">
-        {% for para in intro_paragraphs %}
-          <p data-editable="array-item">
-            <span data-editable="text" data-prop="text" data-type="text">{{ para.text | safe if para.text else para }}</span>
-          </p>
-        {% endfor %}
+        <div data-editable="text" data-prop="intro_content" data-type="html">
+          {% for para in intro_content.split("\n\n") %}<p>{{ para | trim | safe }}</p>{% endfor %}
         </div>
         <div class="wedding-photo-row" style="margin-top:36px" data-editable="array" data-prop="wedding_images">
         {% for photo in wedding_images %}

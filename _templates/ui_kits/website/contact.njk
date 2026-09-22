@@ -1,13 +1,21 @@
 ---
 permalink: /ui_kits/website/contact.html
-headline: Contact us
-deck: If you would like to request a prayer for yourself or someone else, or to contact us about any other matter, please reach the clergy via the Parish Office below.
-intro_paragraphs:
-  - text: "Whatever is on your heart — a prayer request, a question, or simply wanting to get in touch — we would be glad to hear from you."
-  - text: "The vicar aims to meet new members of the congregation for a 1-1 meeting within six months of their arrival."
-  - text: "The clergy can be reached through the Parish Office. If your enquiry concerns a baptism, wedding or funeral, do let us know and we will pass it to the right person."
-  - text: "The Church is open daily from 9am–7pm and you are always welcome to come in for prayer, to light a candle or leave a prayer request. When the main church is busy with other activities, the Lady Chapel (to the right of the Jesus statue as you come in) is always available as a quiet place to pray, read and reflect."
-  - text: "If you are unable to get to church, do ask about home communions — the clergy are glad to bring Holy Communion to those who need it."
+title: Contact us
+subtitle: If you would like to request a prayer for yourself or someone else, or to contact us about any other matter, please reach the clergy via the Parish Office below.
+intro_content: >-
+  Whatever is on your heart — a prayer request, a question, or simply wanting to get in touch — we would be glad to hear from you.
+
+
+  The vicar aims to meet new members of the congregation for a 1-1 meeting within six months of their arrival.
+
+
+  The clergy can be reached through the Parish Office. If your enquiry concerns a baptism, wedding or funeral, do let us know and we will pass it to the right person.
+
+
+  The Church is open daily from 9am–7pm and you are always welcome to come in for prayer, to light a candle or leave a prayer request. When the main church is busy with other activities, the Lady Chapel (to the right of the Jesus statue as you come in) is always available as a quiet place to pray, read and reflect.
+
+
+  If you are unable to get to church, do ask about home communions — the clergy are glad to bring Holy Communion to those who need it.
 callout_heading: Stay connected.
 callout_body: Join our email list to receive the regular newsletter, with news and what's on across the parish.
 ---
@@ -15,7 +23,7 @@ callout_body: Join our email list to receive the regular newsletter, with news a
 <html lang="en-GB">
 <head>
 <meta charset="utf-8" />
-<title>{{ headline }} — Emmanuel Church, West Hampstead</title>
+<title>{{ title }} — Emmanuel Church, West Hampstead</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet" href="/styles.css" />
 <style>
@@ -59,8 +67,8 @@ callout_body: Join our email list to receive the regular newsletter, with news a
   <section class="em-pagehead em-pagehead--band">
     <div class="inner">
       <div class="em-breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><span>Contact Us</span></div>
-      <h1 data-editable="text" data-prop="headline" data-type="span">{{ headline }}</h1>
-      <p class="deck" data-editable="text" data-prop="deck" data-type="text">{{ deck }}</p>
+      <h1 data-editable="text" data-prop="title" data-type="span">{{ title }}</h1>
+      <p class="deck" data-editable="text" data-prop="subtitle" data-type="text">{{ subtitle }}</p>
     </div>
   </section>
 
@@ -68,12 +76,8 @@ callout_body: Join our email list to receive the regular newsletter, with news a
   <section class="em-intro">
     <div class="inner">
       <div class="em-body">
-        <div data-editable="array" data-prop="intro_paragraphs">
-        {% for para in intro_paragraphs %}
-          <p data-editable="array-item">
-            <span data-editable="text" data-prop="text" data-type="text">{{ para.text if para.text else para }}</span>
-          </p>
-        {% endfor %}
+        <div data-editable="text" data-prop="intro_content" data-type="html">
+          {% for para in intro_content.split("\n\n") %}<p>{{ para | trim | safe }}</p>{% endfor %}
         </div>
       </div>
       <aside class="em-aside">

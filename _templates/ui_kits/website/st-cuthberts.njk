@@ -1,19 +1,18 @@
 ---
 permalink: /ui_kits/website/st-cuthberts.html
-headline: St Cuthbert’s
-deck: Our sister church — worship and community life growing side by side in Kilburn.
-intro_paragraphs:
-- text: St Cuthbert’s is a church entering an exciting new chapter. After a period where regular worship
-    was paused, we are preparing to re-root ourselves in regular prayer and worship.
-- text: 'Like Emmanuel, we seek to make the Eucharist at the heart of everything we do: a shared meal
-    which reflects our shared lives together.'
-- text: We hope for services at St Cuthbert’s to take a more informal shape, bringing together ancient
-    traditions of worship with a warm and accessible atmosphere.
-- text: Alongside this, St Cuthbert’s has become a thriving centre of community life. A growing range
-    of projects and events make the church building a place of welcome throughout the week, including
-    Saturday’s FoodCycle community lunches (the largest in London!), our local Scouts group, a repair
-    café, and other social outreach initiatives. At St Cuthbert’s, worship and community life grow side
-    by side.
+title: St Cuthbert’s
+subtitle: Our sister church — worship and community life growing side by side in Kilburn.
+intro_content: >-
+  St Cuthbert’s is a church entering an exciting new chapter. After a period where regular worship was paused, we are preparing to re-root ourselves in regular prayer and worship.
+
+
+  Like Emmanuel, we seek to make the Eucharist at the heart of everything we do: a shared meal which reflects our shared lives together.
+
+
+  We hope for services at St Cuthbert’s to take a more informal shape, bringing together ancient traditions of worship with a warm and accessible atmosphere.
+
+
+  Alongside this, St Cuthbert’s has become a thriving centre of community life. A growing range of projects and events make the church building a place of welcome throughout the week, including Saturday’s FoodCycle community lunches (the largest in London!), our local Scouts group, a repair café, and other social outreach initiatives. At St Cuthbert’s, worship and community life grow side by side.
 travel_heading: How to get to St Cuthbert’s
 travel_lead: The church stands on Fordwych Road in Kilburn, a short walk from West Hampstead and Kilburn
   stations.
@@ -65,20 +64,16 @@ travel_lead: The church stands on Fordwych Road in Kilburn, a short walk from We
   <section class="em-pagehead em-pagehead--band em-pagehead--plain">
     <div class="inner">
       <div class="em-breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><span>St Cuthbert’s</span></div>
-      <h1>{{ headline }}</h1>
-      <p class="deck">{{ deck }}</p>
+      <h1>{{ title }}</h1>
+      <p class="deck">{{ subtitle }}</p>
     </div>
   </section>
 
   <section class="em-intro">
     <div class="inner">
       <div class="em-body">
-        <div data-editable="array" data-prop="intro_paragraphs">
-        {% for para in intro_paragraphs %}
-          <p data-editable="array-item">
-            <span data-editable="text" data-prop="text" data-type="html">{{ (para.text if para.text else para) | safe }}</span>
-          </p>
-        {% endfor %}
+        <div data-editable="text" data-prop="intro_content" data-type="html">
+          {% for para in intro_content.split("\n\n") %}<p>{{ para | trim | safe }}</p>{% endfor %}
         </div>
       </div>
       <aside class="em-aside">

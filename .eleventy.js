@@ -115,17 +115,27 @@ module.exports = function (eleventyConfig) {
   })
 
   // Times are stored 24-hour ("18:30") and always shown 12-hour ("6:30pm").
-  // Used for events and service times alike. Anything that is not HH:MM
-  // (e.g. a range like "16:00-18:00") passes through unchanged.
-  eleventyConfig.addFilter('formatTime', (value) => {
+  const to12Hour = (value) => {
     if (!value) return ''
     const m = /^(\d{1,2}):(\d{2})$/.exec(String(value).trim())
-    if (!m) return value
+    if (!m) return String(value)
     let h = Number(m[1])
     const min = m[2]
     const suffix = h >= 12 ? 'pm' : 'am'
     h = h % 12 || 12
     return min === '00' ? `${h}${suffix}` : `${h}:${min}${suffix}`
+  }
+
+  eleventyConfig.addFilter('formatTime', to12Hour)
+
+  // A start time, plus an end time when one is set: "10:30am" or "4pm–6pm".
+  // Takes the record itself so templates do not have to juggle both fields.
+  eleventyConfig.addFilter('timeRange', (item) => {
+    if (!item) return ''
+    const start = to12Hour(item.start_time)
+    const end = to12Hour(item.end_time)
+    if (!start) return end || ''
+    return end ? `${start}–${end}` : start
   })
 
   // "2026-06-07" (or a legacy "...T18:30:00") -> "2026-06-07", for the calendar.
@@ -203,7 +213,7 @@ module.exports = function (eleventyConfig) {
       return idx.length ? Math.min(...idx) : WEEK.length
     }
     const minutes = (s) => {
-      const m = /^(\d{1,2}):(\d{2})/.exec(s.time || '')
+      const m = /^(\d{1,2}):(\d{2})/.exec(s.start_time || '')
       return m ? Number(m[1]) * 60 + Number(m[2]) : 24 * 60
     }
     return [...(services || [])].sort(

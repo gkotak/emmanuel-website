@@ -2,16 +2,14 @@
 permalink: /ui_kits/website/emmanuel-school.html
 feature_image: /assets/cms/site-images/school-collective-worship.jpg
 feature_image_alt: Emmanuel School pupils and families gathered in church for Collective Worship
-headline: Emmanuel School
-deck: We are very proud of our strong connections with Emmanuel School — our neighbour and partner in
+title: Emmanuel School
+subtitle: We are very proud of our strong connections with Emmanuel School — our neighbour and partner in
   faith and learning.
-intro_paragraphs:
-- text: We welcome the whole school to the church on a weekly basis, where the Eucharist is celebrated
-    on the first Thursday of the month.
-- text: At weekly Collective Worship we make a point of introducing the pupils to the liturgy and doctrines
-    that shape our faith, so that church will be a place that feels familiar to them for the rest of their
-    lives. Our services include lively music, readings and prayers led by the pupils, and a strong emphasis
-    on fostering curiosity and wonder.
+intro_content: >-
+  We welcome the whole school to the church on a weekly basis, where the Eucharist is celebrated on the first Thursday of the month.
+
+
+  At weekly Collective Worship we make a point of introducing the pupils to the liturgy and doctrines that shape our faith, so that church will be a place that feels familiar to them for the rest of their lives. Our services include lively music, readings and prayers led by the pupils, and a strong emphasis on fostering curiosity and wonder.
 ---
 <!doctype html>
 <html lang="en-GB">
@@ -31,20 +29,16 @@ intro_paragraphs:
   <section class="em-pagehead em-pagehead--band">
     <div class="inner">
       <div class="em-breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><a href="community-outreach.html">Get Involved</a><span class="sep">/</span><span>Emmanuel School</span></div>
-      <h1>{{ headline }}</h1>
-      <p class="deck">{{ deck }}</p>
+      <h1>{{ title }}</h1>
+      <p class="deck">{{ subtitle }}</p>
       <div class="meta-row"><div class="item"><div class="k">Together</div><div class="v">Weekly Collective Worship</div></div><div class="item"><div class="k">Eucharist</div><div class="v">First Thursday of the month</div></div><div class="item"><div class="k">Admissions</div><div class="v"><a href="https://www.emmanuel.camden.sch.uk/page/?title=Admissions&amp;pid=40" target="_blank" rel="noopener">Admissions criteria</a></div></div></div>
     </div>
   </section>
   <section class="em-intro">
     <div class="inner">
       <div class="em-body">
-        <div data-editable="array" data-prop="intro_paragraphs">
-        {% for para in intro_paragraphs %}
-          <p data-editable="array-item">
-            <span data-editable="text" data-prop="text" data-type="html">{{ (para.text if para.text else para) | safe }}</span>
-          </p>
-        {% endfor %}
+        <div data-editable="text" data-prop="intro_content" data-type="html">
+          {% for para in intro_content.split("\n\n") %}<p>{{ para | trim | safe }}</p>{% endfor %}
         </div>
       <h3>Applying through the church route</h3>
         <p>If you are considering applying for a place at Emmanuel School for your child, please make very sure that you familiarise yourself with the admissions criteria.</p>

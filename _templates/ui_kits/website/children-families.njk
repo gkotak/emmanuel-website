@@ -1,17 +1,13 @@
 ---
 permalink: /ui_kits/website/children-families.html
-headline: Children and Youth
-deck: From our youngest members to our teenagers, Emmanuel is a place where
+title: Children and Youth
+subtitle: From our youngest members to our teenagers, Emmanuel is a place where
   children and families are warmly welcomed into the life of the church.
-intro_paragraphs:
-  - text: Children and youth make up a core part of our church community at Emmanuel
-      — and we know how much they have to teach us about spirituality and
-      questions of faith.
-  - text: '"For this reason we invest heavily in their Christian growth: for our
-      youngest members through the Joyful Noise congregation, and for older
-      children and young people through Children''s & Youth Church, singing in
-      the choir, joining the serving team, and helping to lead the readings and
-      intercessions at our monthly intergenerational worship."'
+intro_content: >-
+  Children and youth make up a core part of our church community at Emmanuel — and we know how much they have to teach us about spirituality and questions of faith.
+
+
+  "For this reason we invest heavily in their Christian growth: for our youngest members through the Joyful Noise congregation, and for older children and young people through Children's & Youth Church, singing in the choir, joining the serving team, and helping to lead the readings and intercessions at our monthly intergenerational worship."
 sunday_1030:
   eyebrow: Sundays at 10:30
   heading: Children's & Youth Church
@@ -121,8 +117,7 @@ callout_body: Whether on a Sunday morning or at Thursday's Stay and Play, we'd
 
   .cf-intro { padding: 96px var(--gutter) 100px; }
   .cf-intro .inner { max-width: 1320px; margin: 0 auto; }
-  .cf-intro .lead-para,
-  .cf-intro .intro-body > p:first-child { font-family: var(--font-editorial); font-size: 30px; line-height: 1.34; color: var(--ink); margin: 0 0 30px; letter-spacing: -0.01em; }
+  .cf-intro [data-prop="intro_content"] > p:first-child { font-family: var(--font-editorial); font-size: 30px; line-height: 1.34; color: var(--ink); margin: 0 0 30px; letter-spacing: -0.01em; }
   .cf-intro p { font-family: var(--font-sans); font-size: var(--fs-body); line-height: var(--lh-relaxed); color: var(--ink-soft); margin: 0 0 22px; }
 
   .cf-sunday { padding: 110px var(--gutter); background: var(--cream); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
@@ -204,8 +199,8 @@ callout_body: Whether on a Sunday morning or at Thursday's Stay and Play, we'd
         <a href="#">Get Involved</a><span class="sep">/</span>
         <span>Children and Youth</span>
       </div>
-      <h1 data-editable="text" data-prop="headline" data-type="span">{{ headline }}</h1>
-      <p class="deck" data-editable="text" data-prop="deck" data-type="text">{{ deck }}</p>
+      <h1 data-editable="text" data-prop="title" data-type="span">{{ title }}</h1>
+      <p class="deck" data-editable="text" data-prop="subtitle" data-type="text">{{ subtitle }}</p>
       <div class="meta-row">
         <div class="item"><div class="k">10:30</div><div class="v">Children &amp; Youth</div></div>
         <div class="item"><div class="k">9:15</div><div class="v">Joyful Noise</div></div>
@@ -217,12 +212,8 @@ callout_body: Whether on a Sunday morning or at Thursday's Stay and Play, we'd
   <section class="cf-intro">
     <div class="inner">
       <div class="intro-body">
-        <div data-editable="array" data-prop="intro_paragraphs">
-        {% for para in intro_paragraphs %}
-          <p data-editable="array-item">
-            <span data-editable="text" data-prop="text" data-type="text">{{ para.text if para.text else para }}</span>
-          </p>
-        {% endfor %}
+        <div data-editable="text" data-prop="intro_content" data-type="html">
+          {% for para in intro_content.split("\n\n") %}<p>{{ para | trim | safe }}</p>{% endfor %}
         </div>
       </div>
       <a href="service-times.html" class="em-readmore" style="margin-top:24px">See all service times →</a>

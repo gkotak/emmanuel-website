@@ -1,10 +1,9 @@
 ---
 permalink: /ui_kits/website/churchsuite.html
-headline: My ChurchSuite
-deck: Rotas, kids registration, events and your contact details — in one place for church members.
-intro_paragraphs:
-- text: We use ChurchSuite to help people stay connected with parish life — updating details, signing
-    up for events, and managing rotas.
+title: My ChurchSuite
+subtitle: Rotas, kids registration, events and your contact details — in one place for church members.
+intro_content: >-
+  We use ChurchSuite to help people stay connected with parish life — updating details, signing up for events, and managing rotas.
 access_heading: How to get access
 invited_heading: Already invited?
 ---
@@ -26,20 +25,16 @@ invited_heading: Already invited?
   <section class="em-pagehead em-pagehead--band em-pagehead--plain">
     <div class="inner">
       <div class="em-breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><span>ChurchSuite</span></div>
-      <h1>{{ headline }}</h1>
-      <p class="deck">{{ deck }}</p>
+      <h1>{{ title }}</h1>
+      <p class="deck">{{ subtitle }}</p>
     </div>
   </section>
 
   <section class="em-intro">
     <div class="inner">
       <div class="em-body">
-        <div data-editable="array" data-prop="intro_paragraphs">
-        {% for para in intro_paragraphs %}
-          <p data-editable="array-item">
-            <span data-editable="text" data-prop="text" data-type="html">{{ (para.text if para.text else para) | safe }}</span>
-          </p>
-        {% endfor %}
+        <div data-editable="text" data-prop="intro_content" data-type="html">
+          {% for para in intro_content.split("\n\n") %}<p>{{ para | trim | safe }}</p>{% endfor %}
         </div>
         <h3>{{ access_heading }}</h3>
         <p>For security reasons you cannot create an account yourself. Access is by invitation from the parish office. If you worship with us regularly and would like a My ChurchSuite login, email <a href="mailto:info@emmanuelnw6.com">info@emmanuelnw6.com</a> and we will send you an invite.</p>

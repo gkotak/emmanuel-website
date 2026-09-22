@@ -144,7 +144,7 @@ permalink: /ui_kits/website/calendar.html
       {
         days: [{% for d in st.days %}"{{ d }}"{% if not loop.last %},{% endif %}{% endfor %}],
         pauses: [{% for p in st.pauses %}{from:"{{ p.from }}",until:"{{ p.until or '' }}"}{% if not loop.last %},{% endif %}{% endfor %}],
-        time: "{{ st.time | replace(" ", "") | truncate(5, true, "") }}",
+        time: "{{ st.start_time }}", end: "{{ st.end_time }}",
         title: "{{ st.name | replace('"', '&quot;') }}",
         kind: "{{ 'prayer' if 'prayer' in st.name | lower or 'contemplative' in st.name | lower else 'service' }}"
       }{% if not loop.last %},{% endif %}
@@ -156,7 +156,7 @@ permalink: /ui_kits/website/calendar.html
     var SPECIAL = [
       {% for ev in events %}
         {% if ev.date %}
-        {date:"{{ ev.date | isoDate }}", time:"{{ ev.time if ev.time else '10:30' }}", title:"{{ ev.title | replace('"', '&quot;') }}", kind:"special", href:"/ui_kits/website/event-{{ ev.slug }}.html"}{% if not loop.last %},{% endif %}
+        {date:"{{ ev.date | isoDate }}", time:"{{ ev.start_time if ev.start_time else '10:30' }}", end:"{{ ev.end_time }}", title:"{{ ev.title | replace('"', '&quot;') }}", kind:"special", href:"/ui_kits/website/event-{{ ev.slug }}.html"}{% if not loop.last %},{% endif %}
         {% endif %}
       {% endfor %}
     ];
@@ -164,7 +164,7 @@ permalink: /ui_kits/website/calendar.html
     // ---- Other events (CMS-only; not shown anywhere else on the site) ------
     var OTHER = [
       {% for ev in otherEvents %}
-      {date:"{{ ev.date | isoDate }}", time:"{{ ev.time | replace(" ", "") }}", title:"{{ ev.title | replace('"', '&quot;') }}", kind:"other"}{% if not loop.last %},{% endif %}
+      {date:"{{ ev.date | isoDate }}", time:"{{ ev.start_time }}", end:"{{ ev.end_time }}", title:"{{ ev.title | replace('"', '&quot;') }}", kind:"other"}{% if not loop.last %},{% endif %}
       {% endfor %}
     ];
 
@@ -187,12 +187,12 @@ permalink: /ui_kits/website/calendar.html
     // Sort by clock time, not string order: "10:30" must follow "8:00".
     function mins(t){
       if(!t) return -1;
-      var p=String(t).split('-')[0].split(':');
+      var p=String(t).split(':');
       return (+p[0]||0)*60+(+p[1]||0);
     }
     function fmtOne(t){ var p=String(t).split(':'); var h=+p[0]; var m=p[1]; if(isNaN(h)||m===undefined) return t; var ap=h<12?'am':'pm'; var hh=h%12; if(hh===0)hh=12; return hh+(m==='00'?'':':'+m)+ap; }
-    // Handles a single time ("19:00") or a range ("16:00-18:00").
-    function fmtTime(t){ if(!t) return ''; return String(t).split('-').map(fmtOne).join('–'); }
+    // Start time, plus an end time when the entry has one: "7pm" or "4pm–6pm".
+    function fmtTime(t,end){ if(!t) return ''; var a=fmtOne(t); return end?a+'–'+fmtOne(end):a; }
     function startOfWeek(d){ var x=new Date(d); x.setDate(x.getDate()-monIndex(x)); x.setHours(0,0,0,0); return x; }
 
     // Map weekday names from Sanity to JS day numbers (0 = Sunday).
@@ -222,11 +222,11 @@ permalink: /ui_kits/website/calendar.html
       SPANS.forEach(function(s){ if(key>=s.from && key<=s.to){ list.push({allday:true,time:'',title:s.title,kind:s.kind,href:s.href}); }});
       RECURRING.forEach(function(r){
         if(r.dows.indexOf(dow)===-1) return;
-        list.push({time:r.time,title:r.title,kind:r.kind,paused:isPaused(r,key),
+        list.push({time:r.time,end:r.end,title:r.title,kind:r.kind,paused:isPaused(r,key),
                    href:'/ui_kits/website/service-times.html'});
       });
-      SPECIAL.forEach(function(s){ if(s.date===key){ list.push({time:s.time,title:s.title,kind:s.kind,href:s.href}); }});
-      OTHER.forEach(function(s){ if(s.date===key){ list.push({time:s.time,title:s.title,kind:s.kind}); }});
+      SPECIAL.forEach(function(s){ if(s.date===key){ list.push({time:s.time,end:s.end,title:s.title,kind:s.kind,href:s.href}); }});
+      OTHER.forEach(function(s){ if(s.date===key){ list.push({time:s.time,end:s.end,title:s.title,kind:s.kind}); }});
       list.sort(function(a,b){
         if(a.allday&&!b.allday) return -1;
         if(b.allday&&!a.allday) return 1;
@@ -249,11 +249,11 @@ permalink: /ui_kits/website/calendar.html
       var cls='cal-chip cal-chip--'+ev.kind+(weekStyle?' cal-wevt':'')+(ev.paused?' is-paused':'');
       var inner;
       if(weekStyle){
-        inner=(ev.allday?'<span class="wt">All day</span>':'<span class="wt">'+fmtTime(ev.time)+'</span>')
+        inner=(ev.allday?'<span class="wt">All day</span>':'<span class="wt">'+fmtTime(ev.time,ev.end)+'</span>')
              +'<span class="wn">'+ev.title+'</span>'
              +(ev.paused?'<span class="wp">No service today</span>':'');
       } else {
-        inner=ev.allday?ev.title:'<b>'+fmtTime(ev.time)+'</b> '+ev.title;
+        inner=ev.allday?ev.title:'<b>'+fmtTime(ev.time,ev.end)+'</b> '+ev.title;
         if(ev.paused) inner+=' <span class="wp">(no service)</span>';
       }
       var label=ev.title+(ev.paused?' — no service today':'');

@@ -1,13 +1,13 @@
 ---
 permalink: /ui_kits/website/privacy-policy.html
-headline: GDPR Privacy Notice
-deck: Our Privacy Notices and forms relating to the data protection legislation governing our life at
+title: GDPR Privacy Notice
+subtitle: Our Privacy Notices and forms relating to the data protection legislation governing our life at
   Emmanuel.
-intro_paragraphs:
-- text: The rules for Data Protection came into force on Friday 25 May 2018.
-- text: Please find below our Privacy Notices and forms relating to this legislation governing our life
-    at Emmanuel. If you have any questions about how we hold or use your data, please contact the Parish
-    Office.
+intro_content: >-
+  The rules for Data Protection came into force on Friday 25 May 2018.
+
+
+  Please find below our Privacy Notices and forms relating to this legislation governing our life at Emmanuel. If you have any questions about how we hold or use your data, please contact the Parish Office.
 callout_heading: Questions about your data?
 callout_body: If you'd like to know how we hold or use your information, the Parish Office will be glad
   to help.
@@ -30,20 +30,16 @@ callout_body: If you'd like to know how we hold or use your information, the Par
   <section class="em-pagehead em-pagehead--band em-pagehead--plain">
     <div class="inner">
       <div class="em-breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><span>GDPR Privacy Notice</span></div>
-      <h1>{{ headline }}</h1>
-      <p class="deck">{{ deck }}</p>
+      <h1>{{ title }}</h1>
+      <p class="deck">{{ subtitle }}</p>
     </div>
   </section>
 
   <section class="em-intro em-intro--solo">
     <div class="inner">
       <div class="em-body">
-        <div data-editable="array" data-prop="intro_paragraphs">
-        {% for para in intro_paragraphs %}
-          <p data-editable="array-item">
-            <span data-editable="text" data-prop="text" data-type="html">{{ (para.text if para.text else para) | safe }}</span>
-          </p>
-        {% endfor %}
+        <div data-editable="text" data-prop="intro_content" data-type="html">
+          {% for para in intro_content.split("\n\n") %}<p>{{ para | trim | safe }}</p>{% endfor %}
         </div>
       </div>
     </div>

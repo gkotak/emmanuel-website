@@ -1,14 +1,15 @@
 {
-  "_id": "4smu7Ks5k1PWjXUh5C2pV9",
-  "active": true,
-  "day": "Sunday",
-  "description": "Said according to the Book of Common Prayer. This short, 30-minute service offers a quiet, reflective start to the week.",
-  "group": "sunday",
   "name": "Said Eucharist (BCP)",
-  "order": 1,
-  "time": "8:00",
+  "day": "Sunday",
   "days": [
     "Sunday"
   ],
+  "start_time": "08:00",
+  "end_time": "",
+  "description": "Said according to the Book of Common Prayer. This short, 30-minute service offers a quiet, reflective start to the week.",
+  "group": "sunday",
+  "order": 1,
+  "active": true,
+  "_id": "4smu7Ks5k1PWjXUh5C2pV9",
   "pauses": []
 }
