@@ -110,8 +110,10 @@ collections_config:
       - annual-reports.njk
       - baptisms.njk
       - children-families.njk
+      - churchsuite.njk
       - contact.njk
       - donations.njk
+      - electoral-roll.njk
       - emmanuel-school.njk
       - community-outreach.njk
       - funerals.njk
@@ -246,6 +248,17 @@ collections_config:
         label: Display date (optional)
         comment: Overrides how the date reads on the page — use for a range, e.g.
           "Palm Sunday — Easter Day · 2026". Leave blank to show the date above.
+      url:
+        type: image
+        label: Poster image
+        comment: Upload a poster, or paste the address of one already online.
+      uploadUrl:
+        type: text
+        hidden: true
+      alt:
+        type: text
+        label: Alt text
+        comment: Describe the poster for anyone using a screen reader.
       display_time:
         type: text
         label: Display time (optional)
@@ -500,8 +513,36 @@ _inputs:
     type: number
   hero_image:
     type: image
+  welcome_image:
+    type: image
+    label: Welcome image
+  room_image:
+    type: image
+    label: Room image
+  history_image_1:
+    type: image
+    label: History image 1
+  history_image_2:
+    type: image
+    label: History image 2
+  history_image_3:
+    type: image
+    label: History image 3
   feature_image:
     type: image
+    label: Feature image
+  feature_image_alt:
+    type: text
+    label: Feature image alt text
+    comment: Describe the photograph for anyone using a screen reader.
+  hero_image_alt:
+    type: text
+    label: Hero image alt text
+    comment: Describe the photograph for anyone using a screen reader.
+  welcome_image_alt:
+    type: text
+    label: Welcome image alt text
+    comment: Describe the photograph for anyone using a screen reader.
   posters:
     type: array
     label: Posters
