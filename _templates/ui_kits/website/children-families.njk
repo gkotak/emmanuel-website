@@ -166,6 +166,14 @@ callout: []
   .cf-room .media { min-height: 280px; }
   .cf-room .media img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
+  .cf-toplinks { gap: 64px; align-items: flex-start; }
+  .cf-toplinks .group .k { font-family: var(--font-sans); font-size: 11px; font-weight: var(--fw-bold); letter-spacing: 0.22em; text-transform: uppercase; color: var(--brown); margin-bottom: 10px; }
+  .cf-toplinks .group ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+  .cf-toplinks .group li { font-family: var(--font-display); font-size: 19px; color: var(--ink); font-weight: var(--fw-medium); line-height: 1.35; }
+  .cf-toplinks .group li .t { color: var(--brown); margin-right: 8px; }
+  .cf-toplinks .group li a { color: var(--ink); text-decoration: none; border-bottom: 1px solid transparent; }
+  .cf-toplinks .group li a:hover { border-bottom-color: var(--brown); color: var(--brown); }
+  @media (max-width: 720px) { .cf-toplinks { gap: 28px; } }
   .cf-midweekhead { padding: 90px var(--gutter) 0; max-width: 1320px; margin: 0 auto; }
   .cf-midweekhead h2 { font-family: var(--font-display); font-size: 44px; font-weight: 500; color: var(--navy); margin: 14px 0 0; letter-spacing: -0.015em; line-height: 1.02; }
 
@@ -215,9 +223,22 @@ callout: []
       </div>
       <h1 data-editable="text" data-prop="title" data-type="span">{{ title }}</h1>
       <p class="deck" data-editable="text" data-prop="subtitle" data-type="text">{{ subtitle }}</p>
-      <div class="meta-row">
-        <div class="item"><div class="k">10:30</div><div class="v">Children &amp; Youth</div></div>
-        <div class="item"><div class="k">9:15</div><div class="v">Joyful Noise</div></div>
+      <div class="meta-row cf-toplinks">
+        <div class="group">
+          <div class="k">Prayer Services</div>
+          <ul>
+            <li><span class="t">10:30</span> Children &amp; Youth</li>
+            <li><span class="t">9:15</span> Joyful Noise</li>
+          </ul>
+        </div>
+        <div class="group">
+          <div class="k">Midweek Activities</div>
+          <ul>
+            {% for item in midweek %}
+            <li><a href="#{{ item.heading | slugify }}">{{ item.heading }}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
       </div>
     </div>
   </section>
@@ -316,7 +337,7 @@ callout: []
     <h2>Midweek Activities</h2>
   </div>
   {% for item in midweek %}
-  <section class="cf-admissions" style="padding: 90px var(--gutter) 0;">
+  <section class="cf-admissions" id="{{ item.heading | slugify }}" style="padding: 90px var(--gutter) 0;">
     <div class="inner">
       <div>
         <div class="em-ornament is-leading">{{ item.eyebrow }}</div>
