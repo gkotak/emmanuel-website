@@ -164,7 +164,7 @@ permalink: /ui_kits/website/calendar.html
     // ---- Other events (CMS-only; not shown anywhere else on the site) ------
     var OTHER = [
       {% for ev in otherEvents %}
-      {date:"{{ ev.date }}", time:"{{ ev.time | replace(" ", "") | truncate(5, true, "") }}", title:"{{ ev.title | replace('"', '&quot;') }}", kind:"other"}{% if not loop.last %},{% endif %}
+      {date:"{{ ev.date | isoDate }}", time:"{{ ev.time | replace(" ", "") }}", title:"{{ ev.title | replace('"', '&quot;') }}", kind:"other"}{% if not loop.last %},{% endif %}
       {% endfor %}
     ];
 
@@ -187,10 +187,12 @@ permalink: /ui_kits/website/calendar.html
     // Sort by clock time, not string order: "10:30" must follow "8:00".
     function mins(t){
       if(!t) return -1;
-      var p=String(t).split(':');
+      var p=String(t).split('-')[0].split(':');
       return (+p[0]||0)*60+(+p[1]||0);
     }
-    function fmtTime(t){ var p=t.split(':'); var h=+p[0]; var m=p[1]; var ap=h<12?'am':'pm'; var hh=h%12; if(hh===0)hh=12; return hh+(m==='00'?'':':'+m)+ap; }
+    function fmtOne(t){ var p=String(t).split(':'); var h=+p[0]; var m=p[1]; if(isNaN(h)||m===undefined) return t; var ap=h<12?'am':'pm'; var hh=h%12; if(hh===0)hh=12; return hh+(m==='00'?'':':'+m)+ap; }
+    // Handles a single time ("19:00") or a range ("16:00-18:00").
+    function fmtTime(t){ if(!t) return ''; return String(t).split('-').map(fmtOne).join('–'); }
     function startOfWeek(d){ var x=new Date(d); x.setDate(x.getDate()-monIndex(x)); x.setHours(0,0,0,0); return x; }
 
     // Map weekday names from Sanity to JS day numbers (0 = Sunday).

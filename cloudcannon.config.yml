@@ -295,7 +295,16 @@ collections_config:
       - '*.json'
     _enabled_editors:
       - data
+    _order:
+      - title
+      - date
+      - time
+      - description
     _inputs:
+      date:
+        type: date
+        label: Date
+        comment: The day the event falls on.
       # Kept as free text here: these entries sometimes hold a range
       # such as "16:00-18:00", which a time picker would not accept.
       time:
