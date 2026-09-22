@@ -97,7 +97,15 @@ module.exports = function (eleventyConfig) {
     // duplicate carried the original's URL and broke the build.
     const events = readJsonDir('events').map((e) => ({...e, slug: e._slug}))
 
-    return events.sort((a, b) => String(b.date || '').localeCompare(String(a.date || '')))
+    // Sort on the real date and time. Some records store a plain date and
+    // others a full datetime, so compare parsed values rather than strings.
+    const when = (e) => {
+      const d = String(e.date || '').slice(0, 10)
+      const t = /^\d{1,2}:\d{2}$/.test(String(e.start_time || '')) ? e.start_time : '00:00'
+      const ms = Date.parse(`${d}T${t}:00Z`)
+      return Number.isNaN(ms) ? -Infinity : ms
+    }
+    return events.sort((a, b) => when(b) - when(a))
   })
 
   eleventyConfig.addGlobalData('otherEvents', () => {

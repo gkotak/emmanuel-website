@@ -79,12 +79,8 @@ permalink: /ui_kits/website/events.html
         <a href="/ui_kits/website/calendar.html" class="em-btn em-btn--primary">Open the monthly calendar →</a>
       </div>
 
-      {% set featuredEvent = null %}
-      {% for ev in events %}
-        {% if ev.featured and not featuredEvent %}
-          {% set featuredEvent = ev %}
-        {% endif %}
-      {% endfor %}
+      {# events are sorted newest first, so the first one is the headline #}
+      {% set featuredEvent = events[0] if events and events.length else null %}
 
       {% if featuredEvent %}
       <div class="ev-feature">
@@ -109,7 +105,7 @@ permalink: /ui_kits/website/events.html
 
       <div class="ev-grid">
         {% for ev in events %}
-          {% if not ev.featured %}
+          {% if ev.slug != featuredEvent.slug %}
           {% set thumbSrc = (ev.posters[0].url if ev.posters[0].url else ev.posters[0].uploadUrl) if ev.posters and ev.posters.length else null %}
           <a href="/ui_kits/website/event-{{ ev.slug }}.html" class="ev-card">
             <div class="thumb">

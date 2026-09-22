@@ -285,7 +285,6 @@ collections_config:
       - where
       - body
       - posters
-      - featured
     _inputs:
       title:
         type: text
@@ -344,10 +343,6 @@ collections_config:
           undo: true
           redo: true
           removeformat: true
-      featured:
-        type: switch
-        label: Featured
-        comment: Show this event in the highlighted slot on the events page.
 
   other_events:
     path: _data/cms/other-events
