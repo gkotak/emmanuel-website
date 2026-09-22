@@ -1,0 +1,11 @@
+{
+  "_schema": "default",
+  "title": "monthly test",
+  "schedule": {
+    "_type": "monthly",
+    "day_of_month": 28
+  },
+  "start_time": "12:00 pm",
+  "end_time": "1:00 pm",
+  "description": "test"
+}
