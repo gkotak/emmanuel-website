@@ -119,7 +119,7 @@ callout_body: Join our email list to receive the regular newsletter, with news
         <div class="em-row">
           <div class="em-row__day">{{ service.days | dayLabel }}</div>
           <div class="em-row__lead">
-            <div class="t">{{ service.time }}</div>
+            <div class="t">{{ service.time | formatTime }}</div>
             <div class="n">{{ service.name }}</div>
           </div>
           <div class="em-row__desc">{{ service.description }}</div>
@@ -140,7 +140,7 @@ callout_body: Join our email list to receive the regular newsletter, with news
         <div class="em-row">
           <div class="em-row__day">{{ service.days | dayLabel }}</div>
           <div class="em-row__lead">
-            <div class="t">{{ service.time }}</div>
+            <div class="t">{{ service.time | formatTime }}</div>
             <div class="n">{{ service.name }}</div>
           </div>
           <div class="em-row__desc">{{ service.description }}</div>

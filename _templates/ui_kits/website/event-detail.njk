@@ -44,7 +44,7 @@ permalink: /ui_kits/website/event-{{ ev.slug }}.html
       <p class="deck">{{ ev.deck }}</p>
       <div class="meta-row">
         {% set shownDate = ev.display_date if ev.display_date else (ev.date | eventDate) %}
-        {% set shownTime = ev.display_time if ev.display_time else (ev.time | eventTime) %}
+        {% set shownTime = ev.time | formatTime %}
         {% if shownDate %}<div class="item"><div class="k">Date</div><div class="v">{{ shownDate }}</div></div>{% endif %}
         {% if shownTime %}<div class="item"><div class="k">Time</div><div class="v">{{ shownTime }}</div></div>{% endif %}
         {% if ev.where %}<div class="item"><div class="k">Where</div><div class="v">{{ ev.where }}</div></div>{% endif %}

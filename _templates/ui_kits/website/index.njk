@@ -197,7 +197,7 @@ welcome_image_alt: A large, diverse group of parishioners gathered together in t
       <div class="em-services-grid">
         {% for st in serviceTimes | byDayThenTime %}
         <div class="em-service-card">
-          <div class="time"><span class="day">{{ st.days | dayLabel }}</span>{{ st.time }}</div>
+          <div class="time"><span class="day">{{ st.days | dayLabel }}</span>{{ st.time | formatTime }}</div>
           <div class="name">{{ st.name }}</div>
         </div>
         {% endfor %}

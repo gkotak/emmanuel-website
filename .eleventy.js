@@ -114,10 +114,10 @@ module.exports = function (eleventyConfig) {
     }).replace(',', '')
   })
 
-  // `time` is its own field ("18:30"), optional and shown beside the date.
-  // Anything that is not HH:MM (e.g. a range like "16:00-18:00") passes
-  // through unchanged.
-  eleventyConfig.addFilter('eventTime', (value) => {
+  // Times are stored 24-hour ("18:30") and always shown 12-hour ("6:30pm").
+  // Used for events and service times alike. Anything that is not HH:MM
+  // (e.g. a range like "16:00-18:00") passes through unchanged.
+  eleventyConfig.addFilter('formatTime', (value) => {
     if (!value) return ''
     const m = /^(\d{1,2}):(\d{2})$/.exec(String(value).trim())
     if (!m) return value

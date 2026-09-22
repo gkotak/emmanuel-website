@@ -227,7 +227,6 @@ collections_config:
       - date
       - time
       - display_date
-      - display_time
       - where
       - body
       - posters
@@ -263,11 +262,6 @@ collections_config:
         type: text
         label: Alt text
         comment: Describe the poster for anyone using a screen reader.
-      display_time:
-        type: text
-        label: Display time (optional)
-        comment: Overrides how the time reads, e.g. "10:30 Mass & 6:30pm Evensong".
-          Leave blank to show the time above.
       where:
         type: text
         label: Where
@@ -301,6 +295,13 @@ collections_config:
       - '*.json'
     _enabled_editors:
       - data
+    _inputs:
+      # Kept as free text here: these entries sometimes hold a range
+      # such as "16:00-18:00", which a time picker would not accept.
+      time:
+        type: text
+        label: Time
+        comment: 24-hour, e.g. "19:00". A range like "16:00-18:00" is fine too.
     schemas:
       default:
         path: .cloudcannon/schemas/other-event.json
@@ -529,8 +530,10 @@ _inputs:
     type: text
   role:
     type: text
+  # Times are entered 24-hour and shown on the site as am/pm.
   time:
-    type: text
+    type: time
+    label: Time
   order:
     type: number
   hero_image:
