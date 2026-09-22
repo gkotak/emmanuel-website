@@ -1,42 +1,64 @@
 ---
 permalink: /ui_kits/website/baptisms.html
 title: Baptism, First Communion & Confirmation
-subtitle: We gladly baptise new members of whatever age into the family of God — praying for them as they embark on their pilgrimage of faith.
+subtitle: We gladly baptise new members of whatever age into the family of God —
+  praying for them as they embark on their pilgrimage of faith.
 intro_content: >-
-  At Emmanuel we gladly baptise new members of whatever age into the family of God, praying for them as they embark on their exciting journey and pilgrimage of faith.
+  At Emmanuel we gladly baptise new members of whatever age into the family of
+  God, praying for them as they embark on their exciting journey and pilgrimage
+  of faith.
 
 
-  Our baptism services tend to take place at our 10:30 service on the third Sunday of the month. If you'd prefer, we can also offer baptism at our 9:15 Joyful Noise service.
+  Our baptism services tend to take place at our 10:30 service on the third
+  Sunday of the month. If you'd prefer, we can also offer baptism at our 9:15
+  Joyful Noise service.
 
 
-  If you are considering having your child baptised, would like to be baptised yourself, or are interested in First Holy Communion or Confirmation, please <a href="contact.html">contact the parish office</a> in the first instance.
+  If you are considering having your child baptised, would like to be baptised
+  yourself, or are interested in First Holy Communion or Confirmation, please <a
+  href="contact.html">contact the parish office</a> in the first instance.
 
 
-  One of the clergy will arrange to meet with you to help you prepare and go through the service with you.
+  One of the clergy will arrange to meet with you to help you prepare and go
+  through the service with you.
 sacrament_cards:
   - eyebrow: The sacrament of belonging
     title: Baptism
-    body: Through baptism we are welcomed into the family of God and the life of the Church. We baptise people of every age — infants, children and adults alike — and walk with each household as they prepare.
+    body: Through baptism we are welcomed into the family of God and the life of the
+      Church. We baptise people of every age — infants, children and adults
+      alike — and walk with each household as they prepare.
     images:
       - image: /assets/cms/site-images/baptism-1.jpg
         alt: A baptism at the font at Emmanuel
+      - image: /assets/archive/MClayton_2603-A-MCPL-EMMAN_005.jpg
+        alt: ''
   - eyebrow: Once a year · taken by the Bishop
     title: Confirmation
-    body: We have a confirmation service once a year. Confirmations are taken by the Bishop and are the occasion for baptised people to 'confirm' the vows that were made on their behalf when they were baptised.
+    body: We have a confirmation service once a year. Confirmations are taken by the
+      Bishop and are the occasion for baptised people to 'confirm' the vows that
+      were made on their behalf when they were baptised.
     images:
       - image: /assets/cms/page-images/confirmation.jpg
         alt: Confirmation at Emmanuel Church
   - eyebrow: Good Shepherd Sunday · from age 8
     title: First Holy Communion
-    body: At Emmanuel we admit to First Holy Communion those children who would like to take part in the Eucharist but are not yet old enough to be confirmed. We encourage children to wait to be confirmed until they are much older (around 16 or older), but invite them to participate fully in the sacrament of Holy Communion from around age 8. Admission typically takes place on Good Shepherd Sunday, following a series of 6–8 sessions teaching about the Eucharist.
+    body: At Emmanuel we admit to First Holy Communion those children who would like
+      to take part in the Eucharist but are not yet old enough to be confirmed.
+      We encourage children to wait to be confirmed until they are much older
+      (around 16 or older), but invite them to participate fully in the
+      sacrament of Holy Communion from around age 8. Admission typically takes
+      place on Good Shepherd Sunday, following a series of 6–8 sessions teaching
+      about the Eucharist.
     images:
       - image: /assets/cms/page-images/first-communion.jpg
         alt: Preparing children for First Holy Communion at Emmanuel
       - image: /assets/first-communion.jpg
-        alt: Children and adults presented to the Bishop at a Confirmation and First Holy Communion service
+        alt: Children and adults presented to the Bishop at a Confirmation and First
+          Holy Communion service
 callout:
   - heading: A new beginning.
-    body: Whatever your age, there is a place for you in the family of God at Emmanuel. We would love to walk this journey with you.
+    body: Whatever your age, there is a place for you in the family of God at
+      Emmanuel. We would love to walk this journey with you.
     primary_button:
       - label: Contact the parish office
         href: contact.html
@@ -44,7 +66,7 @@ callout:
       - label: Service times
         href: service-times.html
 ---
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en-GB">
 <head>
 <meta charset="utf-8" />
@@ -136,7 +158,7 @@ callout:
           <div class="bp-slider" data-bp-slider>
             <div class="bp-slider__track">
               {% for shot in card.images %}
-              <figure class="bp-slide"{% if not loop.first %} aria-hidden="true"{% endif %}>
+              <figure class="bp-slide" {% if not loop.first %} aria-hidden="true"{% endif %}>
                 <img src="{{ shot.image }}" alt="{{ shot.alt }}" loading="lazy" />
               </figure>
               {% endfor %}
@@ -145,7 +167,7 @@ callout:
             <button type="button" class="bp-slider__btn bp-slider__btn--next" aria-label="Next image">&#8250;</button>
             <div class="bp-slider__dots" role="tablist">
               {% for shot in card.images %}
-              <button type="button" class="bp-dot{% if loop.first %} is-active{% endif %}" role="tab" aria-label="Image {{ loop.index }} of {{ card.images.length }}"{% if loop.first %} aria-selected="true"{% endif %}></button>
+              <button type="button" class="bp-dot{% if loop.first %} is-active{% endif %}" role="tab" aria-label="Image {{ loop.index }} of {{ card.images.length }}" {% if loop.first %} aria-selected="true"{% endif %}></button>
               {% endfor %}
             </div>
           </div>
