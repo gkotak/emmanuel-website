@@ -171,7 +171,7 @@ callout: []
 
   .cf-admissions { padding: 90px var(--gutter) 0; }
   .cf-admissions .inner { max-width: 1320px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
-  .cf-admissions h2 { font-family: var(--font-editorial); font-style: normal; font-size: 60px; font-weight: 500; color: var(--navy); margin: 14px 0 0; letter-spacing: -0.02em; line-height: 1; }
+  .cf-admissions h2 { font-family: var(--font-display); font-size: 32px; font-weight: 500; color: var(--navy); margin: 14px 0 0; letter-spacing: -0.015em; line-height: 1.1; }
   .cf-admissions p { font-size: var(--fs-body); line-height: var(--lh-relaxed); color: var(--ink-soft); margin: 0 0 20px; }
   .cf-admissions p a { color: var(--brown); text-decoration: underline; text-underline-offset: 3px; }
   .cf-admissions .media { margin-top: 24px; aspect-ratio: 4/3; }
@@ -313,7 +313,7 @@ callout: []
 
   <!-- Midweek Activities -->
   <div class="cf-midweekhead">
-    <div class="em-ornament is-leading">Midweek Activities</div>
+    <h2>Midweek Activities</h2>
   </div>
   {% for item in midweek %}
   <section class="cf-admissions" style="padding: 90px var(--gutter) 0;">
@@ -329,16 +329,6 @@ callout: []
     </div>
   </section>
   {% endfor %}
-
-  <!-- Safeguarding note -->
-  <section style="padding: 90px var(--gutter) 0;">
-    <div style="max-width:1320px;margin:0 auto">
-      <div class="cf-dbs">
-        <div class="ic"><svg viewbox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z" /><path d="M9 12l2 2 4-4" /></svg></div>
-        <p>All our children and youth church leaders are DBS-checked volunteers, some of whom have professional backgrounds in education or childcare. Safeguarding the care of children and vulnerable people is taken very seriously at Emmanuel.</p>
-      </div>
-    </div>
-  </section>
 
   <!-- School Admissions -->
   <section class="cf-schoolsection">
@@ -369,6 +359,16 @@ callout: []
     </div>
   </section>
   {% endfor %}
+
+  <!-- Safeguarding note -->
+  <section style="padding: 90px var(--gutter) 0;">
+    <div style="max-width:1320px;margin:0 auto">
+      <div class="cf-dbs">
+        <div class="ic"><svg viewbox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z" /><path d="M9 12l2 2 4-4" /></svg></div>
+        <p>All our children and youth church leaders are DBS-checked volunteers, some of whom have professional backgrounds in education or childcare. Safeguarding the care of children and vulnerable people is taken very seriously at Emmanuel.</p>
+      </div>
+    </div>
+  </section>
 
 {% include "footer.njk" %}
 
