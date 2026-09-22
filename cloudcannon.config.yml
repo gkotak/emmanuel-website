@@ -625,6 +625,8 @@ _inputs:
   photoUrl:
     type: image
     label: Photo
+    options:
+      path: assets/cms/people
   bio:
     type: array
     label: Biography
@@ -647,24 +649,38 @@ _inputs:
     type: number
   hero_image:
     type: image
+    options:
+      path: assets/cms/site-images
   welcome_image:
     type: image
     label: Welcome image
+    options:
+      path: assets/cms/site-images
   room_image:
     type: image
     label: Room image
+    options:
+      path: assets/cms/site-images
   history_image_1:
     type: image
     label: History image 1
+    options:
+      path: assets/cms/site-images
   history_image_2:
     type: image
     label: History image 2
+    options:
+      path: assets/cms/site-images
   history_image_3:
     type: image
     label: History image 3
+    options:
+      path: assets/cms/site-images
   feature_image:
     type: image
     label: Feature image
+    options:
+      path: assets/cms/page-images
   feature_image_alt:
     type: text
     label: Feature image alt text
