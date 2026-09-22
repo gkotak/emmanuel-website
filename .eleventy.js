@@ -27,7 +27,9 @@ function readJsonDir(dir) {
   return walk(full)
     .map((p) => {
       const data = JSON.parse(fs.readFileSync(p, 'utf8'))
-      data._slug = path.basename(p).replace(/\.json$/, '')
+      // Relative to the collection root (not just the basename) so a file moved
+      // into a subfolder can't collide with a same-named file elsewhere.
+      data._slug = path.relative(full, p).replace(/\.json$/, '').split(path.sep).join('/')
       return data
     })
 }
