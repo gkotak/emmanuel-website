@@ -268,6 +268,10 @@ collections_config:
         - key: date
       image:
         - key: posters.0.url
+    # New events are named after the title; Duplicate appends "-copy". The
+    # filename is what the page address is built from.
+    create:
+      path: '[relative_base_path]/{title|slugify}.json'
     # Title first, then the three optional details. Scoped to this collection
     # because `body` is an array of paragraphs here but a plain textarea
     # elsewhere on the site.
@@ -286,8 +290,8 @@ collections_config:
       title:
         type: text
         label: Title
-        comment: Also sets the page address, e.g. "Harvest Festival" becomes
-          /event-harvest-festival.html. Two events cannot share a title.
+        comment: The page address comes from this file's name, not the title —
+          to change it, use Rename in the ⋮ menu.
         options:
           required: true
       deck:
