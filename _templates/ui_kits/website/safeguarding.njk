@@ -36,6 +36,11 @@ callout:
   .em-body p + ol {
     margin-top: 0;
   }
+
+  .em-body p:has(+ ul),
+  .em-body p:has(+ ol) {
+    margin-bottom: 0;
+  }
 </style>
 
 <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
