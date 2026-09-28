@@ -296,6 +296,40 @@ callout: []
   </section>
   {% endif %}
 
+  <!-- Sundays 9:15 -->
+  <section class="cf-sunday">
+    <div class="inner">
+      <div class="cf-grouphead">
+        <div class="em-ornament is-leading">{{ sunday_915.eyebrow }}</div>
+        <h2>{{ sunday_915.heading }}</h2>
+      </div>
+      <div class="cf-room cf-room--intro">
+        <div class="txt">
+          <p>{{ sunday_915.intro }}</p>
+        </div>
+        {% if sunday_915.image %}
+        <div class="media"><img src="{{ sunday_915.image }}" alt="{{ sunday_915.image_alt }}" /></div>
+        {% endif %}
+      </div>
+
+      <!-- What to expect -->
+      <section class="cf-expect">
+        <div class="head">
+          <div class="em-ornament is-leading">What to expect</div>
+        </div>
+        <div class="cf-steps">
+          {% for step in sunday_915.steps %}
+          <div class="cf-step">
+            <div class="n">{{ ["i.", "ii.", "iii."][loop.index0] }}</div>
+            <h4>{{ step.heading }}</h4>
+            <p>{{ step.body }}</p>
+          </div>
+          {% endfor %}
+        </div>
+      </section>
+    </div>
+  </section>
+
   <!-- Sundays 10:30 -->
   <section class="cf-sunday">
     <div class="inner">
@@ -333,40 +367,6 @@ callout: []
             <p>{{ sunday_1030.room_body }}</p>
           </div>
           <div class="media"><img src="{{ sunday_1030.room_image }}" alt="{{ sunday_1030.room_image_alt }}" /></div>
-        </div>
-      </section>
-    </div>
-  </section>
-
-  <!-- Sundays 9:15 -->
-  <section class="cf-sunday">
-    <div class="inner">
-      <div class="cf-grouphead">
-        <div class="em-ornament is-leading">{{ sunday_915.eyebrow }}</div>
-        <h2>{{ sunday_915.heading }}</h2>
-      </div>
-      <div class="cf-room cf-room--intro">
-        <div class="txt">
-          <p>{{ sunday_915.intro }}</p>
-        </div>
-        {% if sunday_915.image %}
-        <div class="media"><img src="{{ sunday_915.image }}" alt="{{ sunday_915.image_alt }}" /></div>
-        {% endif %}
-      </div>
-
-      <!-- What to expect -->
-      <section class="cf-expect">
-        <div class="head">
-          <div class="em-ornament is-leading">What to expect</div>
-        </div>
-        <div class="cf-steps">
-          {% for step in sunday_915.steps %}
-          <div class="cf-step">
-            <div class="n">{{ ["i.", "ii.", "iii."][loop.index0] }}</div>
-            <h4>{{ step.heading }}</h4>
-            <p>{{ step.body }}</p>
-          </div>
-          {% endfor %}
         </div>
       </section>
     </div>
