@@ -78,8 +78,6 @@ sunday_915:
     - text: Joyful Noise is our lively, informal 9:15 service for pre-school children
         and their families, with music, movement and storytelling woven into a
         short, playful celebration of the Mass. It runs during term time.
-  image: /assets/cms/site-images/choir-children.jpg
-  image_alt: Young children gathered together during the Joyful Noise service
   photos:
     - image: /assets/cms/site-images/children-youth-1.jpg
       image_alt: Pre-school children taking part in the Joyful Noise service
@@ -88,7 +86,7 @@ sunday_915:
     - image: /assets/cms/site-images/children-youth-3.jpg
       image_alt: A child enjoying music and movement at Joyful Noise
     - image: /assets/first-communion.jpg
-      image_alt: ''
+      image_alt: Children and adults presented to the Bishop at a Confirmation and First Holy Communion service
   steps:
     - heading: Arrive & be welcomed
       body: Joyful Noise meets in the church building. A welcomer will guide you if
@@ -176,6 +174,10 @@ callout: []
   .cf-room--intro .txt p { font-size: 18px; line-height: 1.7; }
   .cf-photorow { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; margin-top: 36px; }
   .cf-photorow .em-well { aspect-ratio: 4/3; }
+  .cf-photorow__thumb { display: block; width: 100%; padding: 0; border: none; background: none; cursor: pointer; }
+  .cf-photorow__thumb img { transition: opacity var(--dur,0.2s) var(--ease,ease); }
+  .cf-photorow__thumb:hover img { opacity: 0.85; }
+  .cf-photorow__thumb.is-active { outline: 3px solid var(--brown); outline-offset: 2px; }
 
   .cf-expect { padding: 64px 0 0; }
   .cf-expect .head { margin-bottom: 40px; }
@@ -295,15 +297,19 @@ callout: []
           <p>{{ para.text if para.text else para }}</p>
           {% endfor %}
         </div>
-        {% if sunday_915.image %}
-        <div class="media"><img src="{{ sunday_915.image }}" alt="{{ sunday_915.image_alt }}" /></div>
+        {% if sunday_915.photos and sunday_915.photos.length %}
+        <div class="media">
+          <img data-cf-gallery-main src="{{ sunday_915.photos[0].image }}" alt="{{ sunday_915.photos[0].image_alt }}" />
+        </div>
         {% endif %}
       </div>
 
       {% if sunday_915.photos and sunday_915.photos.length %}
-      <div class="cf-photorow">
+      <div class="cf-photorow" data-cf-gallery>
         {% for photo in sunday_915.photos %}
-        <div class="em-well"><img src="{{ photo.image }}" alt="{{ photo.image_alt }}" /></div>
+        <button type="button" class="em-well cf-photorow__thumb{% if loop.first %} is-active{% endif %}" data-cf-gallery-thumb data-src="{{ photo.image }}" data-alt="{{ photo.image_alt }}" aria-label="Show image {{ loop.index }}">
+          <img src="{{ photo.image }}" alt="{{ photo.image_alt }}" />
+        </button>
         {% endfor %}
       </div>
       {% endif %}
@@ -426,6 +432,23 @@ callout: []
       </div>
     </div>
   </section>
+
+<script>
+(function () {
+  document.querySelectorAll('[data-cf-gallery]').forEach(function (gallery) {
+    var main = gallery.closest('.cf-sunday').querySelector('[data-cf-gallery-main]')
+    if (!main) return
+    gallery.querySelectorAll('[data-cf-gallery-thumb]').forEach(function (thumb) {
+      thumb.addEventListener('click', function () {
+        main.src = thumb.getAttribute('data-src')
+        main.alt = thumb.getAttribute('data-alt') || ''
+        gallery.querySelectorAll('[data-cf-gallery-thumb]').forEach(function (t) { t.classList.remove('is-active') })
+        thumb.classList.add('is-active')
+      })
+    })
+  })
+})()
+</script>
 
 {% include "footer.njk" %}
 
