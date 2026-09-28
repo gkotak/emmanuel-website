@@ -172,20 +172,19 @@ permalink: /ui_kits/website/calendar.html
     function iso(d){ return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate()); }
     function sameDay(a,b){ return a.getFullYear()===b.getFullYear() && a.getMonth()===b.getMonth() && a.getDate()===b.getDate(); }
     function monIndex(d){ return (d.getDay()+6)%7; }
-    // Sort by clock time, not string order: "10:30" must follow "8:00".
-    function mins(t){
-      if(!t) return -1;
-      var p=String(t).split(':');
-      return (+p[0]||0)*60+(+p[1]||0);
-    }
-    // Accepts "09:00", "9:00" or a stray "9:30 am"; returns {h, m} or null.
+    // Accepts "09:00", "9:00", "9:30 am" or a bare "8am"/"8pm"; returns {h, m} or null.
     function parseTime(t){
-      var m=/^\s*(\d{1,2}):(\d{2})\s*(am|pm)?\s*$/i.exec(String(t||''));
+      var m=/^\s*(\d{1,2})(?::(\d{2}))?\s*(am|pm)?\s*$/i.exec(String(t||''));
       if(!m) return null;
       var h=+m[1], ap=(m[3]||'').toLowerCase();
       if(ap==='pm'&&h<12) h+=12;
       if(ap==='am'&&h===12) h=0;
-      return {h:h, m:m[2]};
+      return {h:h, m:m[2]||'00'};
+    }
+    // Sort by actual clock time (handles 24-hour "HH:MM" and 12-hour "h:MMam/pm").
+    function mins(t){
+      var p=parseTime(t);
+      return p ? p.h*60+(+p.m||0) : -1;
     }
     function clock(p){ var hh=p.h%12; if(hh===0)hh=12; return hh+(p.m==='00'?'':':'+p.m); }
     function suffix(p){ return p.h<12?'am':'pm'; }
