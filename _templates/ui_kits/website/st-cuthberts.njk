@@ -13,6 +13,7 @@ intro_content: >-
 
 
   Alongside this, St Cuthbert’s has become a thriving centre of community life. A growing range of projects and events make the church building a place of welcome throughout the week, including Saturday’s FoodCycle community lunches (the largest in London!), our local Scouts group, a repair café, and other social outreach initiatives. At St Cuthbert’s, worship and community life grow side by side.
+gallery_photos: []
 travel_heading: How to get to St Cuthbert’s
 travel_lead: The church stands on Fordwych Road in Kilburn, a short walk from West Hampstead and Kilburn
   stations.
@@ -37,6 +38,9 @@ travel_lead: The church stands on Fordwych Road in Kilburn, a short walk from We
   .ct-line .v a { color:var(--ink); text-decoration:none; }
   .ct-line .v a:hover { color:var(--brown); }
   .ct-line .v small { display:block; font-family:var(--font-sans); font-size:14px; color:var(--muted); margin-top:3px; }
+  .sc-photos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .sc-photos .em-well { aspect-ratio: 4/3; }
+  @media (max-width: 720px) { .sc-photos { grid-template-columns: 1fr; gap: 12px; } }
   .ct-travel { display:grid; grid-template-columns:1fr 1fr; gap:0; }
   .ct-travel .col { padding:40px 44px; }
   .ct-travel .col:first-child { border-right:1px solid var(--line); padding-left:0; }
@@ -98,6 +102,18 @@ travel_lead: The church stands on Fordwych Road in Kilburn, a short walk from We
       </aside>
     </div>
   </section>
+
+  {% if gallery_photos and gallery_photos.length %}
+  <section class="em-section" style="padding-top:0">
+    <div class="inner">
+      <div class="sc-photos" data-editable="array" data-prop="gallery_photos">
+        {% for photo in gallery_photos %}
+        <div class="em-well" data-editable="array-item"><img src="{{ photo.image }}" alt="{{ photo.image_alt }}" loading="lazy" /></div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  {% endif %}
 
   <!-- Getting here -->
   <section class="em-section em-section--band">

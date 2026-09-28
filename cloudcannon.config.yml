@@ -423,6 +423,13 @@ collections_config:
 _inputs:
   title:
     type: text
+  gallery_photos:
+    type: array
+    label: Photos
+    comment: Up to three — they lay out in one row.
+    options:
+      max_items: 3
+      structures: _structures.wedding_images
   gallery_images:
     type: array
     label: Photos
