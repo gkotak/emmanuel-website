@@ -106,9 +106,9 @@ callout:
             <td class="room">{{ r.room }}{% if r.note %}<small>{{ r.note }}</small>{% endif %}</td>
             <td class="rate num">{{ r.rate }}</td>
             <td class="cap num">{{ r.capacity }}</td>
-          
+          </tr>
           {% endfor %}
-        </tr{% if r.featured %}</tbody>
+        </tbody>
       </table>
       <div class="rh-gallery" data-editable="array" data-prop="gallery_images">
         {% for gallery_image in gallery_images %}
