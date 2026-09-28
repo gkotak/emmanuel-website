@@ -77,6 +77,8 @@ sunday_915:
   intro: Joyful Noise is our lively, informal 9:15 service for pre-school children
     and their families, with music, movement and storytelling woven into a
     short, playful celebration of the Mass. It runs during term time.
+  image: /assets/cms/site-images/choir-children.jpg
+  image_alt: Young children gathered together during the Joyful Noise service
   photos:
     - image: /assets/cms/site-images/children-youth-1.jpg
       image_alt: Pre-school children taking part in the Joyful Noise service
@@ -170,7 +172,11 @@ callout: []
   .cf-card p { font-size: 15px; line-height: 1.6; color: var(--ink-soft); margin: 0 0 16px; }
 
   .cf-plainintro { font-size: 18px; line-height: 1.6; color: var(--ink-soft); max-width: 800px; margin: 0; }
-  .cf-photorow { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 36px; }
+  .cf-topphotos { padding: 0 var(--gutter) 0; }
+  .cf-topphotos .inner { max-width: 1320px; margin: 0 auto; }
+  .cf-topphotos .cf-photorow { margin-top: 0; }
+  .cf-room--intro .txt p { font-size: 18px; line-height: 1.7; }
+  .cf-photorow { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; margin-top: 36px; }
   .cf-photorow .em-well { aspect-ratio: 4/3; }
 
   .cf-expect { padding: 64px 0 0; }
@@ -278,6 +284,18 @@ callout: []
     </div>
   </section>
 
+  {% if sunday_915.photos and sunday_915.photos.length %}
+  <section class="cf-topphotos">
+    <div class="inner">
+      <div class="cf-photorow">
+        {% for photo in sunday_915.photos %}
+        <div class="em-well"><img src="{{ photo.image }}" alt="{{ photo.image_alt }}" /></div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  {% endif %}
+
   <!-- Sundays 10:30 -->
   <section class="cf-sunday">
     <div class="inner">
@@ -327,15 +345,14 @@ callout: []
         <div class="em-ornament is-leading">{{ sunday_915.eyebrow }}</div>
         <h2>{{ sunday_915.heading }}</h2>
       </div>
-      <p class="cf-plainintro">{{ sunday_915.intro }}</p>
-
-      {% if sunday_915.photos and sunday_915.photos.length %}
-      <div class="cf-photorow">
-        {% for photo in sunday_915.photos %}
-        <div class="em-well"><img src="{{ photo.image }}" alt="{{ photo.image_alt }}" /></div>
-        {% endfor %}
+      <div class="cf-room cf-room--intro">
+        <div class="txt">
+          <p>{{ sunday_915.intro }}</p>
+        </div>
+        {% if sunday_915.image %}
+        <div class="media"><img src="{{ sunday_915.image }}" alt="{{ sunday_915.image_alt }}" /></div>
+        {% endif %}
       </div>
-      {% endif %}
 
       <!-- What to expect -->
       <section class="cf-expect">
