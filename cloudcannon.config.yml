@@ -443,10 +443,7 @@ _inputs:
     options:
       allow_empty: true
       values: collections.room_rates
-      value_key: _slug
-      preview:
-        text:
-          - key: room
+      value_key: room
   video_url:
     type: url
     label: Video (optional)

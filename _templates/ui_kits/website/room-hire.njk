@@ -3,10 +3,10 @@ permalink: /ui_kits/website/room-hire.html
 gallery_images:
   - image: /assets/cms/site-images/room-hire-1.jpg
     alt: A children's party inflatable set up in the nave
-    room: whole-nave
+    room: Whole Nave
   - image: /assets/cms/site-images/room-hire-2.jpg
     alt: Room hire at Emmanuel Church
-    room: rear-nave
+    room: Rear Nave
   - image: /assets/cms/site-images/room-hire-3.jpg
     alt: Room hire at Emmanuel Church
 title: Room Hire
@@ -108,11 +108,7 @@ callout:
         {% for gallery_image in gallery_images %}
         <figure class="rh-shot" data-editable="array-item">
           <div class="em-well"><img src="{{ gallery_image.image }}" alt="{{ gallery_image.alt }}" /></div>
-          {% if gallery_image.room %}
-            {% set match = null %}
-            {% for r in roomRates %}{% if r._slug == gallery_image.room %}{% set match = r %}{% endif %}{% endfor %}
-            {% if match %}<figcaption>{{ match.room }}</figcaption>{% endif %}
-          {% endif %}
+          {% if gallery_image.room %}<figcaption>{{ gallery_image.room }}</figcaption>{% endif %}
         </figure>
         {% endfor %}
       </div>
