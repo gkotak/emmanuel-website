@@ -88,6 +88,7 @@ _structures:
           eyebrow: ''
           title: New section
           body: ''
+          video_url: ''
           images: []
   sacrament_images:
     values:
@@ -405,6 +406,10 @@ collections_config:
 _inputs:
   title:
     type: text
+  video_url:
+    type: url
+    label: Video (optional)
+    comment: Paste a YouTube link. Leave blank for no video.
   intro:
     type: html
     label: Intro

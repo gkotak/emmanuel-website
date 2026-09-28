@@ -178,6 +178,17 @@ module.exports = function (eleventyConfig) {
   })
 
   // "2026-06-07" (or a legacy "...T18:30:00") -> "2026-06-07", for the calendar.
+  // A YouTube URL as copied from the browser will not load in an iframe, so
+  // pull out the video id and build the embed address. Uses the -nocookie host
+  // so nothing is set until a visitor actually presses play. Returns '' for
+  // anything that is not a recognisable YouTube link.
+  eleventyConfig.addFilter('youtubeEmbed', (url) => {
+    const m = /(?:youtube\.com\/(?:watch\?(?:.*&)?v=|embed\/|live\/)|youtu\.be\/)([A-Za-z0-9_-]{11})/.exec(
+      String(url || '')
+    )
+    return m ? `https://www.youtube-nocookie.com/embed/${m[1]}` : ''
+  })
+
   eleventyConfig.addFilter('isoDate', (value) => String(value || '').slice(0, 10))
 
   // True for links that leave the site (http/https), so they can open in a new tab.
