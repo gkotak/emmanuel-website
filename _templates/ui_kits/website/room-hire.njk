@@ -3,28 +3,34 @@ permalink: /ui_kits/website/room-hire.html
 gallery_images:
   - image: /assets/cms/site-images/room-hire-1.jpg
     alt: A children's party inflatable set up in the nave
-    room: Whole Nave
+    room: Children's Party
   - image: /assets/cms/site-images/room-hire-2.jpg
     alt: Room hire at Emmanuel Church
     room: Rear Nave
   - image: /assets/cms/site-images/room-hire-3.jpg
     alt: Room hire at Emmanuel Church
+    room: Julian Room
 title: Room Hire
-subtitle: From children's parties to community meetings, meditation sessions and concerts — Emmanuel has a
-  range of beautiful spaces to hire.
+subtitle: From children's parties to community meetings, meditation sessions and
+  concerts — Emmanuel has a range of beautiful spaces to hire.
 intro_content: >-
-  If you would like to host a meeting, private event or a party at Emmanuel, we have a number of different rooms available.
+  If you would like to host a meeting, private event or a party at Emmanuel, we
+  have a number of different rooms available.
 
 
-  In addition to a wonderful large space for children's parties, we have smaller rooms which work well for community meetings, meditation sessions or private lessons. Whatever the occasion, we'd be glad to help you find the right space.
+  In addition to a wonderful large space for children's parties, we have smaller
+  rooms which work well for community meetings, meditation sessions or private
+  lessons. Whatever the occasion, we'd be glad to help you find the right space.
 callout:
   - heading: Find your space.
-    body: Tell us about your event and we'll help you choose the right room and confirm availability.
+    body: Tell us about your event and we'll help you choose the right room and
+      confirm availability.
     primary_button:
       - label: Enquire about hire
         href: /ui_kits/website/contact.html
+    secondary_button: []
 ---
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en-GB">
 <head>
 <meta charset="utf-8" />
@@ -100,9 +106,9 @@ callout:
             <td class="room">{{ r.room }}{% if r.note %}<small>{{ r.note }}</small>{% endif %}</td>
             <td class="rate num">{{ r.rate }}</td>
             <td class="cap num">{{ r.capacity }}</td>
-          </tr>
+          
           {% endfor %}
-        </tbody>
+        </tr{% if r.featured %}</tbody>
       </table>
       <div class="rh-gallery" data-editable="array" data-prop="gallery_images">
         {% for gallery_image in gallery_images %}
@@ -121,8 +127,8 @@ callout:
       <div><h3 data-editable="text" data-prop="heading" data-type="span">{{ c.heading }}</h3><p data-editable="text" data-prop="body" data-type="text">{{ c.body }}</p></div>
       {% if (c.primary_button and c.primary_button.length) or (c.secondary_button and c.secondary_button.length) %}
       <div style="display:flex;gap:14px;flex-wrap:wrap">
-        {% for btn in c.primary_button %}<a href="{{ btn.href }}"{% if btn.href | isExternal %} target="_blank" rel="noopener"{% endif %} class="em-btn em-btn--tan">{{ btn.label }}</a>{% endfor %}
-        {% for btn in c.secondary_button %}<a href="{{ btn.href }}"{% if btn.href | isExternal %} target="_blank" rel="noopener"{% endif %} class="em-btn em-btn--ghost-light">{{ btn.label }}</a>{% endfor %}
+        {% for btn in c.primary_button %}<a href="{{ btn.href }}" {% if btn.href | isexternal %} target="_blank" rel="noopener"{% endif %} class="em-btn em-btn--tan">{{ btn.label }}</a>{% endfor %}
+        {% for btn in c.secondary_button %}<a href="{{ btn.href }}" {% if btn.href | isexternal %} target="_blank" rel="noopener"{% endif %} class="em-btn em-btn--ghost-light">{{ btn.label }}</a>{% endfor %}
       </div>
       {% endif %}
     </div>
