@@ -74,10 +74,8 @@ sunday_1030:
 sunday_915:
   eyebrow: Sundays at 9:15
   heading: Joyful Noise · Ages 0–4
-  intro:
-    - text: Joyful Noise is our lively, informal 9:15 service for pre-school children
-        and their families, with music, movement and storytelling woven into a
-        short, playful celebration of the Mass. It runs during term time.
+  intro: >-
+    <p>Joyful Noise is our lively, informal 9:15 service for pre-school children and their families, with music, movement and storytelling woven into a short, playful celebration of the Mass. It runs during term time.</p>
   photos:
     - image: /assets/cms/site-images/children-youth-1.jpg
       image_alt: Pre-school children taking part in the Joyful Noise service
@@ -293,9 +291,7 @@ callout: []
       </div>
       <div class="cf-room cf-room--intro">
         <div class="txt">
-          {% for para in sunday_915.intro %}
-          <p>{{ para.text if para.text else para }}</p>
-          {% endfor %}
+          {{ sunday_915.intro | safe }}
         </div>
         {% if sunday_915.photos and sunday_915.photos.length %}
         <div class="media">

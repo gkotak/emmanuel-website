@@ -406,11 +406,18 @@ _inputs:
   title:
     type: text
   intro:
-    type: array
+    type: html
     label: Intro
-    comment: One paragraph per item.
+    comment: Press Enter for a new paragraph.
     options:
-      structures: _structures.intro_paragraphs
+      bold: true
+      italic: true
+      link: true
+      bulletedlist: true
+      numberedlist: true
+      undo: true
+      redo: true
+      removeformat: true
   subtitle:
     type: textarea
   lead:
