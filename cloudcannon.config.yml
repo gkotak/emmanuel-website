@@ -243,6 +243,15 @@ collections_config:
         - key: role
       image:
         - key: photoUrl
+    # Scoped to this collection: the site-wide `group` field also covers
+    # Service Times (sunday/weekday), which don't apply here.
+    _inputs:
+      group:
+        type: select
+        options:
+          values:
+            - clergy
+            - staff
 
   room_rates:
     path: _data/cms/room-rates
@@ -665,8 +674,6 @@ _inputs:
         - weekday
         - clergy
         - staff
-        - churchwardens
-        - pcc
   active:
     type: switch
   featured:

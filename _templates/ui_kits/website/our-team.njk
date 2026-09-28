@@ -45,6 +45,12 @@ callout:
   @media (max-width: 480px) {
     .em-team-grid { grid-template-columns: 1fr !important; }
   }
+
+  .em-member h3 { display: inline-flex; align-items: center; gap: 8px; }
+  .em-member-email { display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; border: 1px solid var(--line); border-radius: var(--radius-sm); color: var(--brown); flex: none; transition: background var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease); }
+  .em-member-email svg { width: 13px; height: 13px; }
+  .em-member-email:hover { background: var(--brown); color: #fff; }
+  .em-member-email:focus-visible { outline: 2px solid var(--brown); outline-offset: 2px; }
 </style>
 <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
@@ -76,7 +82,7 @@ callout:
             {% endif %}
             <div>
               <div class="role">{{ person.role }}</div>
-              <h3>{{ person.name }}</h3>
+              <h3>{{ person.name }}{% if person.email %}<a class="em-member-email" href="mailto:{{ person.email }}" aria-label="Email {{ person.name }}" title="Email {{ person.name }}"><svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="m3 7 9 6 9-6" /></svg></a>{% endif %}</h3>
               {% if person.bio %}
                 {% for para in person.bio %}
                   <p>{{ para }}</p>
@@ -96,7 +102,7 @@ callout:
       <div class="em-ornament em-ornament--section is-leading" data-editable="text" data-prop="staff_label" data-type="span">{{ staff_label }}</div>
       <div class="em-team-grid">
         {% for person in people %}
-          {% if person.group === "staff" or person.group === "churchwardens" %}
+          {% if person.group === "staff" %}
           <div class="em-member">
             {% if person.photoUrl %}
             <div class="em-portrait"><img src="{{ person.photoUrl }}" alt="{{ person.name }}" /></div>
@@ -104,7 +110,7 @@ callout:
             <div class="em-portrait"><div class="em-img-placeholder"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" /><circle cx="8.5" cy="8.5" r="1.5" /><polyline points="21 15 16 10 5 21" /></svg></div></div>
             {% endif %}
             <div class="role">{{ person.role }}</div>
-            <h3>{{ person.name }}</h3>
+            <h3>{{ person.name }}{% if person.email %}<a class="em-member-email" href="mailto:{{ person.email }}" aria-label="Email {{ person.name }}" title="Email {{ person.name }}"><svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="m3 7 9 6 9-6" /></svg></a>{% endif %}</h3>
             {% if person.bio %}
               {% for para in person.bio %}
                 <p class="pending">{{ para }}</p>
