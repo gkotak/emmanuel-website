@@ -4,6 +4,8 @@ title: Baptism, First Communion & Confirmation
 subtitle: 'We firmly believe that God calls each of us, by name, at different
   moments in our lives. The sacraments of Baptism and Confirmation help mark
   those important steps on the journey of faith. '
+intro_image: ''
+intro_image_alt: ''
 intro_content: >-
   Walking with people on their Christian journey and helping them prepare for
   Baptism, First Holy Communion or Confirmation is something we take seriously
@@ -84,9 +86,11 @@ callout:
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
 <style>
-  /* Intro runs the full container width, aligning with the sections below */
-  .bp-intro .inner { grid-template-columns: minmax(0, 1fr); }
-  .bp-intro .em-body { max-width: 72ch; }
+  /* Intro runs the full container width, aligning with the sections below —
+     unless an intro image is set, in which case it uses the standard two-column layout. */
+  .bp-intro.is-solo .inner { grid-template-columns: minmax(0, 1fr); }
+  .bp-intro.is-solo .em-body { max-width: 72ch; }
+  .bp-intro .em-intro-media { aspect-ratio: 4/3; }
 
   /* Sacrament sections: full-width row, text left, image panel right */
   .bp-sacraments { padding: 0 var(--gutter) 90px; background: var(--paper); }
@@ -140,13 +144,18 @@ callout:
       <div class="meta-row"><div class="item"><div class="k">Baptisms</div><div class="v">10:30, third Sunday</div></div><div class="item"><div class="k">Confirmation</div><div class="v">Once a year, with the Bishop</div></div><div class="item"><div class="k">First Communion</div><div class="v">Good Shepherd Sunday</div></div></div>
     </div>
   </section>
-  <section class="em-intro bp-intro">
+  <section class="em-intro bp-intro{% if not intro_image %} is-solo{% endif %}">
     <div class="inner">
       <div class="em-body">
         <div data-editable="text" data-prop="intro_content" data-type="html">
           {% for para in intro_content.split("\n\n") %}<p>{{ para | trim | safe }}</p>{% endfor %}
         </div>
       </div>
+      {% if intro_image %}
+      <div class="em-well em-intro-media">
+        <img src="{{ intro_image }}" alt="{{ intro_image_alt }}" />
+      </div>
+      {% endif %}
     </div>
   </section>
 
