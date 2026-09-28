@@ -405,6 +405,12 @@ collections_config:
 _inputs:
   title:
     type: text
+  intro:
+    type: array
+    label: Intro
+    comment: One paragraph per item.
+    options:
+      structures: _structures.intro_paragraphs
   subtitle:
     type: textarea
   lead:
