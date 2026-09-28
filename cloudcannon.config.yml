@@ -20,6 +20,14 @@ paths:
   collections: ''
 
 _structures:
+  gallery_photos:
+    values:
+      - label: Photo
+        icon: image
+        value:
+          image: ''
+          alt: ''
+          room: ''
   event_schedule:
     id_key: _type
     style: select
@@ -406,6 +414,23 @@ collections_config:
 _inputs:
   title:
     type: text
+  gallery_images:
+    type: array
+    label: Photos
+    comment: Any number — they lay out three per row.
+    options:
+      structures: _structures.gallery_photos
+  room:
+    type: select
+    label: Room (optional)
+    comment: Shown as a caption under the photo. Leave blank for no caption.
+    options:
+      allow_empty: true
+      values: collections.room_rates
+      value_key: _slug
+      preview:
+        text:
+          - key: room
   video_url:
     type: url
     label: Video (optional)
