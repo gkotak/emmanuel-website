@@ -60,6 +60,15 @@
   --tracking-wide:     0.32em;   /* editorial small caps */
 }
 
+body {
+  margin: 0;
+  background: var(--paper);
+  font-family: var(--font-sans);
+  color: var(--ink);
+  font-weight: var(--fw-regular);
+  -webkit-font-smoothing: antialiased;
+}
+
 /* ---- Base element defaults (optional reset for consumers) ---- */
 .em-type-reset h1,
 .em-type-reset h2,
