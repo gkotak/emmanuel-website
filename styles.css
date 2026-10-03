@@ -11,13 +11,3 @@
 @import url('./tokens/spacing.css');
 @import url('./components.css');
 @import url('./tokens/sections.css');
-
-/* Global page defaults — keep after all imports */
-body {
-  margin: 0;
-  background: var(--paper);
-  font-family: var(--font-sans);
-  color: var(--ink);
-  font-weight: var(--fw-regular);
-  -webkit-font-smoothing: antialiased;
-}
