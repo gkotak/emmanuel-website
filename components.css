@@ -233,7 +233,14 @@ html, body { margin: 0; padding: 0; }
 
 /* ---------- Header (Classic) ---------- */
 
-.em-utility { background: var(--navy-deep); color: var(--on-dark-soft); font-size: 12.5px; letter-spacing: 0.04em; }
+.em-utility {
+  background: var(--navy-deep);
+  color: var(--on-dark-soft);
+  font-family: var(--font-sans);
+  font-size: 12.5px;
+  font-weight: var(--fw-regular);
+  letter-spacing: 0.04em;
+}
 .em-utility .wrap { max-width: var(--container); margin: 0 auto; padding: 9px var(--gutter); display: flex; align-items: center; justify-content: space-between; }
 .em-utility a { color: inherit; text-decoration: none; }
 .em-utility a:hover { color: #fff; }
