@@ -1,0 +1,11 @@
+{
+  "_schema": "default",
+  "title": "West Hampstead Community Choir ",
+  "schedule": {
+    "_type": "weekly",
+    "weekday": "Tuesday"
+  },
+  "start_time": "7:00 pm",
+  "end_time": "8:30 pm",
+  "description": ""
+}
