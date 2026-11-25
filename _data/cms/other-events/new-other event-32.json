@@ -1,0 +1,11 @@
+{
+  "_schema": "default",
+  "title": "WH & Emmanuel Church Christmas Market ",
+  "schedule": {
+    "_type": "once",
+    "date": "2026-12-12T00:00:00Z"
+  },
+  "start_time": "11:00 am",
+  "end_time": "4:00 pm",
+  "description": "Market and Mulled wine on West End Green. crafts and performances within Emmanuel Church "
+}
