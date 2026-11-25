@@ -1,7 +1,10 @@
 {
   "_schema": "default",
   "title": "Zip Zap Kids ",
-  "schedule": {},
+  "schedule": {
+    "_type": "weekly",
+    "weekday": "Monday"
+  },
   "start_time": "10:00 am",
   "end_time": "11:45 am",
   "description": "Music and sensory group \nToddlers 10am \nBabies 11am "
