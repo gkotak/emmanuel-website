@@ -1,0 +1,11 @@
+{
+  "_schema": "default",
+  "title": "WH Women's Institute ",
+  "schedule": {
+    "_type": "once",
+    "date": "2026-12-03T00:00:00Z"
+  },
+  "start_time": "7:45 pm",
+  "end_time": "9:15 pm",
+  "description": "First Thursday of each month "
+}
