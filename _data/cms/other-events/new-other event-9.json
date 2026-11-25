@@ -1,0 +1,11 @@
+{
+  "_schema": "default",
+  "title": "Baby Gospel ",
+  "schedule": {
+    "_type": "once",
+    "date": "2026-12-01T00:00:00Z"
+  },
+  "start_time": "10:00 am",
+  "end_time": "12:00 pm",
+  "description": "Baby Concert Celebrating Gospel Music "
+}
