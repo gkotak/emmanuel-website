@@ -1,0 +1,11 @@
+{
+  "_schema": "default",
+  "title": "Councillor's Surgeries - Nancy Jirira ",
+  "schedule": {
+    "_type": "once",
+    "date": "2026-12-11T00:00:00Z"
+  },
+  "start_time": "2:00 pm",
+  "end_time": "4:30 pm",
+  "description": ""
+}
