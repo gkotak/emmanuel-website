@@ -1,0 +1,11 @@
+{
+  "_schema": "default",
+  "title": "NA Group ",
+  "schedule": {
+    "_type": "weekly",
+    "weekday": "Saturday"
+  },
+  "start_time": "12:30 pm",
+  "end_time": "2:30 pm",
+  "description": ""
+}
