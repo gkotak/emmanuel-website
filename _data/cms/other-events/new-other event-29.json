@@ -1,0 +1,11 @@
+{
+  "_schema": "default",
+  "title": "Emmanuel School Christingle ",
+  "schedule": {
+    "_type": "once",
+    "date": "2026-12-10T00:00:00Z"
+  },
+  "start_time": "3:30 pm",
+  "end_time": "4:30 pm",
+  "description": ""
+}
