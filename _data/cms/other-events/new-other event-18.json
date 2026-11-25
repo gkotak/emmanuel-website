@@ -1,0 +1,11 @@
+{
+  "_schema": "default",
+  "title": "Christian Union at School ",
+  "schedule": {
+    "_type": "weekly",
+    "weekday": "Thursday"
+  },
+  "start_time": "12:00 pm",
+  "end_time": "12:30 pm",
+  "description": ""
+}
