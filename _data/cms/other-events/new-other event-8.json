@@ -1,0 +1,11 @@
+{
+  "_schema": "default",
+  "title": "Camden Choir ",
+  "schedule": {
+    "_type": "weekly",
+    "weekday": "Monday"
+  },
+  "start_time": "7:30 pm",
+  "end_time": "10:30 pm",
+  "description": ""
+}
