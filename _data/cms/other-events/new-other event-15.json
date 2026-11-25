@@ -1,0 +1,11 @@
+{
+  "_schema": "default",
+  "title": "Emmanuel Children's Choir ",
+  "schedule": {
+    "_type": "weekly",
+    "weekday": "Wednesday"
+  },
+  "start_time": "6:15 pm",
+  "end_time": "7:00 pm",
+  "description": "Children sing in church on the first Sunday of the Month and at special events "
+}
