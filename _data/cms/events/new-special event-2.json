@@ -1,0 +1,17 @@
+{
+  "title": "Sunday Sanctuary",
+  "deck": "Sunday evenings at St Cuthbert's",
+  "date": "2026-11-29T00:00:00Z",
+  "start_time": "6:30 pm",
+  "end_time": "7:30 pm",
+  "display_date": "Sunday evenings",
+  "where": "St Cuthbert's, Fordwych Road",
+  "body": "<p>An evening Eucharist with music, prayer and reflection. Come and find peace and beauty at the start of your week.</p>",
+  "posters": [
+    {
+      "url": "/assets/uploads/sunday-sanctuary.png",
+      "alt": ""
+    }
+  ],
+  "_id": "4smu7Ks5k1PWjXUh5CnlVF"
+}
