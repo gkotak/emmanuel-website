@@ -1,0 +1,11 @@
+{
+  "_schema": "default",
+  "title": "Hampstead Chamber Choir Concert 7pm ",
+  "schedule": {
+    "_type": "once",
+    "date": "2026-12-12T00:00:00Z"
+  },
+  "start_time": "3:00 pm",
+  "end_time": "10:00 pm",
+  "description": "Concert starts at 7pm "
+}
