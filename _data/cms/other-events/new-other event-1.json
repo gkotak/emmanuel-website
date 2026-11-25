@@ -1,7 +1,10 @@
 {
   "_schema": "default",
   "title": "Candlelit Carol Service ",
-  "schedule": {},
+  "schedule": {
+    "_type": "once",
+    "date": "2026-12-13T00:00:00Z"
+  },
   "start_time": "6:00 pm",
   "end_time": "7:00 pm",
   "description": "A traditional service of lessons in Carols with our Emmanuel Choirs. "
