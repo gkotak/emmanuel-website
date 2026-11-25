@@ -1,0 +1,11 @@
+{
+  "_schema": "default",
+  "title": "Little Emmanuel Stay & Play ",
+  "schedule": {
+    "_type": "weekly",
+    "weekday": "Thursday"
+  },
+  "start_time": "9:30 am",
+  "end_time": "11:00 am",
+  "description": "Community play for small children under 4. \nFree - Donations welcome"
+}
