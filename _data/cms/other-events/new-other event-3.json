@@ -1,0 +1,11 @@
+{
+  "_schema": "default",
+  "title": "Perform ",
+  "schedule": {
+    "_type": "weekly",
+    "weekday": "Monday"
+  },
+  "start_time": "3:30 pm",
+  "end_time": "6:00 pm",
+  "description": "Drama and confidence building 5 years and up "
+}
