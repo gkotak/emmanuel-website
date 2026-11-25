@@ -1,0 +1,11 @@
+{
+  "_schema": "default",
+  "title": "Community Coffee Hour ",
+  "schedule": {
+    "_type": "weekly",
+    "weekday": "Wednesday"
+  },
+  "start_time": "1:00 pm",
+  "end_time": "2:00 pm",
+  "description": "Join us for coffee, cake and a chat after Mass \nLunch on the First Wednesday of the month "
+}
