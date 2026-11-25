@@ -1,0 +1,11 @@
+{
+  "_schema": "default",
+  "title": "Bartles Foundry ",
+  "schedule": {
+    "_type": "once",
+    "date": "2026-12-01T00:00:00Z"
+  },
+  "start_time": "1:00 pm",
+  "end_time": "2:30 pm",
+  "description": "Darke room "
+}
