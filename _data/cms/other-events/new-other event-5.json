@@ -1,0 +1,11 @@
+{
+  "_schema": "default",
+  "title": "C4WS Night Shelter ",
+  "schedule": {
+    "_type": "weekly",
+    "weekday": "Tuesday"
+  },
+  "start_time": "6:45 pm",
+  "end_time": "8:30 am",
+  "description": ""
+}
