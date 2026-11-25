@@ -1,0 +1,11 @@
+{
+  "_schema": "default",
+  "title": "Common Ground Youth Group ",
+  "schedule": {
+    "_type": "weekly",
+    "weekday": "Thursday"
+  },
+  "start_time": "6:00 pm",
+  "end_time": "7:30 pm",
+  "description": "Youth Group for school years 7 and up "
+}
