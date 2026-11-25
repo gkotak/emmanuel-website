@@ -1,0 +1,11 @@
+{
+  "_schema": "default",
+  "title": "Spencer Stage School ",
+  "schedule": {
+    "_type": "weekly",
+    "weekday": "Thursday"
+  },
+  "start_time": "4:00 pm",
+  "end_time": "6:30 pm",
+  "description": "Various Performing Arts "
+}
