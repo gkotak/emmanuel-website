@@ -1,0 +1,11 @@
+{
+  "_schema": "default",
+  "title": "Carols on the Green",
+  "schedule": {
+    "_type": "once",
+    "date": "2026-12-20T00:00:00Z"
+  },
+  "start_time": "4:00 pm",
+  "end_time": "5:30 pm",
+  "description": "Carols, mulled wine and mince pies!"
+}
