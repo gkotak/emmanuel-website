@@ -1,0 +1,11 @@
+{
+  "_schema": "default",
+  "title": "Bach to Baby ",
+  "schedule": {
+    "_type": "once",
+    "date": "2026-12-13T00:00:00Z"
+  },
+  "start_time": "2:00 pm",
+  "end_time": "3:30 pm",
+  "description": "Toddler Concerts "
+}
