@@ -1,0 +1,11 @@
+{
+  "_schema": "default",
+  "title": "Playball ",
+  "schedule": {
+    "_type": "weekly",
+    "weekday": "Tuesday"
+  },
+  "start_time": "10:00 am",
+  "end_time": "11:00 am",
+  "description": "Toddler Group "
+}
