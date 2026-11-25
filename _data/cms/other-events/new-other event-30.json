@@ -1,0 +1,11 @@
+{
+  "_schema": "default",
+  "title": "WH Choir Concert ",
+  "schedule": {
+    "_type": "once",
+    "date": "2026-12-10T00:00:00Z"
+  },
+  "start_time": "7:30 pm",
+  "end_time": "9:00 pm",
+  "description": "Come and support West Hampstead Community choir as they raise money. "
+}
